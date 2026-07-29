@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "tool": {
+    "id": "lighthouse",
+    "version": null,
+    "official_sources": [
+      "https://github.com/GoogleChrome/lighthouse",
+      "https://developer.chrome.com/docs/lighthouse/overview"
+    ]
+  },
+  "run": {
+    "approval_class": "external_read for live URLs",
+    "command_intent": "Run lighthouse for page-audit evidence collection.",
+    "command_redacted": "\"lighthouse\" \"https://www.afistfullofdollars.com/\" \"--output=json\" \"--output=html\" \"--output-path=/Users/bobmoore/Dev/ProjectCortex/reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/lighthouse/lighthouse\" \"--quiet\"",
+    "started_at": "2026-07-29T00:41:34.332Z",
+    "completed_at": "2026-07-29T00:41:49.176Z"
+  },
+  "scope": {
+    "mode": "page-audit",
+    "client_or_project": "afistfullofdollars.com",
+    "targets": [
+      "https://www.afistfullofdollars.com/"
+    ],
+    "market": null,
+    "date_range": null
+  },
+  "data_status": "complete",
+  "artifacts": [
+    {
+      "path": "reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/lighthouse/stdout.txt",
+      "kind": "raw-stdout",
+      "description": "Captured tool stdout."
+    },
+    {
+      "path": "reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/lighthouse/stderr.txt",
+      "kind": "raw-stderr",
+      "description": "Captured tool stderr and warnings."
+    },
+    {
+      "path": "reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/lighthouse/run-metadata.json",
+      "kind": "run-metadata",
+      "description": "Command, timing, exit status, and scope."
+    }
+  ],
+  "limits": [
+    "This wrapper does not interpret tool-specific findings; inspect raw artifacts before reporting.",
+    "The result covers only the supplied target and the tool configuration recorded in run-metadata.json.",
+    "Process timeout: 300000 ms.",
+    "A nonzero exit is preserved as partial evidence rather than treated as an all-clear."
+  ],
+  "findings": [],
+  "verification": [
+    "Process exit status: 0.",
+    "Raw stdout and stderr were captured.",
+    "Run seo-quality-gate after tool-specific findings are interpreted."
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "discipline": "writing",
+  "version": 1,
+  "active_canonical_skills": [
+    "article-brief",
+    "article-draft",
+    "article-outline",
+    "article-refresh",
+    "claim-check",
+    "content-repurpose",
+    "copy-edit",
+    "email-newsletter",
+    "social-shortform",
+    "voice-humanize",
+    "web-copy",
+    "writing-foundation",
+    "writing-quality-gate"
+  ],
+  "priority_rebuild_candidates": [
+    {
+      "source": "copywriting-core",
+      "target": "writing-foundation",
+      "disposition": "adapted",
+      "reason": "Positioning, voice-of-customer, copy pattern, and plain-language material now define the mode-neutral foundation skill."
+    },
+    {
+      "source": "copy-editor",
+      "target": "copy-edit",
+      "disposition": "adapted",
+      "reason": "Editing sweeps, word-level cleanup, voice checks, and humanizing guidance now define the canonical editing skill."
+    },
+    {
+      "source": "humanizer",
+      "target": "voice-humanize",
+      "disposition": "adapted",
+      "reason": "Voice calibration, pattern-cluster review, naturalness rewrite, and preservation checks now define the canonical targeted voice pass."
+    },
+    {
+      "source": "marketing-writer",
+      "target": "web-copy",
+      "disposition": "split-active",
+      "reason": "Website, landing-page, and sales-page copy now define the canonical web-copy skill; email, newsletter, social, and ad copy remain future splits."
+    },
+    {
+      "source": "blog-brief",
+      "target": "article-brief",
+      "disposition": "adapted",
+      "reason": "Brief fields, article type selection, and evidence planning now define the canonical article planning skill."
+    },
+    {
+      "source": "blog-outline",
+      "target": "article-outline",
+      "disposition": "adapted",
+      "reason": "Heading structure and section planning now define the canonical outline skill without universal SERP assumptions."
+    },
+    {
+      "source": "blog-write",
+      "target": "article-draft",
+      "disposition": "adapted",
+      "reason": "Long-form drafting procedure now defines the canonical article draft skill with source and handoff discipline."
+    },
+    {
+      "source": "blog-rewrite",
+      "target": "article-refresh",
+      "disposition": "adapted",
+      "reason": "Read-first audit, preservation, freshness, and rewrite rules now define the canonical article refresh skill."
+    },
+    {
+      "source": "content-factcheck",
+      "target": "claim-check",
+      "disposition": "adapted",
+      "reason": "Claim extraction, evidence labels, source scoring, and risk actions now define the canonical claim verification skill."
+    },
+    {
+      "source": "content-quality-score",
+      "target": "writing-quality-gate",
+      "disposition": "adapted",
+      "reason": "Original blog/content scoring inspired the canonical rubric, but the new gate is mode-aware and methodology-first."
+    },
+    {
+      "source": "content-repurpose",
+      "target": "content-repurpose",
+      "disposition": "adapted",
+      "reason": "Source extraction, target routing, derivative safety, and evidence preservation now define the canonical repurposing skill."
+    }
+  ],
+  "workflow_candidates": [
+    "blog-audit",
+    "blog-calendar",
+    "blog-cannibalization",
+    "blog-cluster",
+    "blog-decay",
+    "blog-strategy",
+    "content-planner",
+    "content-strategy-and-planning",
+    "youtube-content",
+    "youtube-research"
+  ],
+  "reference_or_other_discipline_candidates": [
+    "blog-chart",
+    "blog-discourse",
+    "blog-taxonomy",
+    "blog-writing-specialist",
+    "content-audio",
+    "content-image",
+    "content-quality-auditor",
+    "email-deliverability",
+    "email-quality-auditor"
+  ],
+  "not_active": [
+    "blog-audit",
+    "blog-calendar",
+    "blog-cannibalization",
+    "blog-chart",
+    "blog-cluster",
+    "blog-decay",
+    "blog-discourse",
+    "blog-strategy",
+    "blog-taxonomy",
+    "blog-writing-specialist",
+    "content-audio",
+    "content-image",
+    "content-planner",
+    "content-quality-auditor",
+    "content-quality-score",
+    "content-strategy-and-planning",
+    "copywriting-core",
+    "email-deliverability",
+    "email-quality-auditor",
+    "marketing-writer",
+    "youtube-content",
+    "youtube-research"
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "discipline": "design",
+  "version": 1,
+  "active_canonical_skills": [
+    "brandkit",
+    "design-delivery",
+    "design-taste-frontend",
+    "design-taste-frontend-v1",
+    "gpt-taste",
+    "high-end-visual-design",
+    "image-to-code",
+    "imagegen-frontend-mobile",
+    "imagegen-frontend-web",
+    "industrial-brutalist-ui",
+    "minimalist-ui",
+    "redesign-existing-projects",
+    "stitch-design-taste"
+  ],
+  "priority_rebuild_candidates": [
+    {
+      "source": "stash/design/designer-delivery",
+      "target": "design-delivery",
+      "disposition": "adapted",
+      "reason": "Core orchestration layer for design modes, evidence ledger, spec handoff, accessibility requirements, rendered review, and downstream routing."
+    },
+    {
+      "source": "stash/design/designer",
+      "target": "designer role",
+      "disposition": "adapt-role",
+      "reason": "Strong role boundary material should update the canonical Designer role rather than becoming a duplicate skill."
+    },
+    {
+      "source": "stash/design/accessibility",
+      "target": "accessibility discipline or shared rubric",
+      "disposition": "shared-adapt",
+      "reason": "Accessibility is needed by Design now and Development later; it should be shared instead of duplicated in one role."
+    },
+    {
+      "source": "stash/design/universal-design-principles",
+      "target": "design principles",
+      "disposition": "selective-extract",
+      "reason": "The source contains 137 principle skills and plugin scaffolding; extract a compact principle layer instead of importing wholesale."
+    },
+    {
+      "source": "stash/design/frontend-design",
+      "target": "design-taste-frontend",
+      "disposition": "future-dedupe",
+      "reason": "Compact frontend aesthetic guidance overlaps existing project-local taste skills; fold unique guidance into one taste surface later."
+    }
+  ],
+  "mode_routes": [
+    {
+      "mode": "new-layout",
+      "primary_skill": "design-delivery",
+      "current_supporting_skills": [
+        "brandkit",
+        "design-taste-frontend",
+        "gpt-taste",
+        "imagegen-frontend-web",
+        "imagegen-frontend-mobile"
+      ]
+    },
+    {
+      "mode": "redesign",
+      "primary_skill": "design-delivery",
+      "current_supporting_skills": [
+        "redesign-existing-projects",
+        "design-taste-frontend",
+        "gpt-taste"
+      ]
+    },
+    {
+      "mode": "component-pattern-spec",
+      "primary_skill": "design-delivery",
+      "current_supporting_skills": [
+        "image-to-code",
+        "design-taste-frontend"
+      ]
+    },
+    {
+      "mode": "visual-direction",
+      "primary_skill": "design-delivery",
+      "current_supporting_skills": [
+        "high-end-visual-design",
+        "industrial-brutalist-ui",
+        "minimalist-ui",
+        "stitch-design-taste"
+      ]
+    },
+    {
+      "mode": "prototype",
+      "primary_future_skill": "design-prototype",
+      "current_supporting_skills": [
+        "imagegen-frontend-web",
+        "imagegen-frontend-mobile",
+        "image-to-code"
+      ]
+    },
+    {
+      "mode": "rendered-review",
+      "primary_skill": "design-delivery",
+      "current_supporting_skills": [
+        "redesign-existing-projects",
+        "gpt-taste"
+      ]
+    }
+  ],
+  "deferred_source_material": [
+    {
+      "source": "stash/design/claude-design",
+      "disposition": "future-workflow-reference",
+      "reason": "Useful for prototypes, decks, and high-fidelity artifacts, but runtime-shaped and not needed for the first design discipline slice."
+    },
+    {
+      "source": "stash/design/design-systems",
+      "disposition": "reference-extract",
+      "reason": "Contains useful aesthetic and anti-generic guidance but should not define governance for design systems."
+    },
+    {
+      "source": "stash/design/landing-page-design",
+      "disposition": "defer-to-marketing-cro",
+      "reason": "Mixes CRO, marketing-page strategy, and an external tool assumption; handle in General Marketing/CRO."
+    },
+    {
+      "source": "stash/design/popular-web-designs",
+      "disposition": "optional-reference",
+      "reason": "Useful inspiration catalog, but should not be literal style authority."
+    }
+  ],
+  "not_active": [
+    "accessibility",
+    "claude-design",
+    "design-principles",
+    "design-systems",
+    "designer",
+    "designer-delivery",
+    "frontend-design",
+    "landing-page-design",
+    "popular-web-designs",
+    "universal-design-principles"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "tool": {
+    "id": "siteone-crawler",
+    "version": null,
+    "official_sources": [
+      "https://crawler.siteone.io/",
+      "https://github.com/janreges/siteone-crawler"
+    ]
+  },
+  "run": {
+    "approval_class": "external_read for live URLs; read_only for local artifacts",
+    "command_intent": "Run siteone-crawler for technical-audit evidence collection.",
+    "command_redacted": "\"siteone-crawler\" \"--url=https://www.afistfullofdollars.com/\" \"--output=json\" \"--output-json-file=/Users/bobmoore/Dev/ProjectCortex/reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/siteone-crawler/report.json\" \"--output-html-report=/Users/bobmoore/Dev/ProjectCortex/reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/siteone-crawler/report.html\" \"--hide-progress-bar\" \"--no-color\" \"--max-visited-urls=100\" \"--max-depth=2\"",
+    "started_at": "2026-07-29T00:40:44.811Z",
+    "completed_at": "2026-07-29T00:40:56.867Z"
+  },
+  "scope": {
+    "mode": "technical-audit",
+    "client_or_project": "afistfullofdollars.com",
+    "targets": [
+      "https://www.afistfullofdollars.com/"
+    ],
+    "market": null,
+    "date_range": null
+  },
+  "data_status": "complete",
+  "artifacts": [
+    {
+      "path": "reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/siteone-crawler/stdout.txt",
+      "kind": "raw-stdout",
+      "description": "Captured tool stdout."
+    },
+    {
+      "path": "reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/siteone-crawler/stderr.txt",
+      "kind": "raw-stderr",
+      "description": "Captured tool stderr and warnings."
+    },
+    {
+      "path": "reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/siteone-crawler/run-metadata.json",
+      "kind": "run-metadata",
+      "description": "Command, timing, exit status, and scope."
+    }
+  ],
+  "limits": [
+    "This wrapper does not interpret tool-specific findings; inspect raw artifacts before reporting.",
+    "The result covers only the supplied target and the tool configuration recorded in run-metadata.json.",
+    "Process timeout: 300000 ms.",
+    "Maximum pages requested: 100.",
+    "Maximum crawl depth requested: 2.",
+    "A nonzero exit is preserved as partial evidence rather than treated as an all-clear."
+  ],
+  "findings": [],
+  "verification": [
+    "Process exit status: 0.",
+    "Raw stdout and stderr were captured.",
+    "Run seo-quality-gate after tool-specific findings are interpreted."
+  ]
+}

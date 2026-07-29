@@ -1,0 +1,17 @@
+{
+  "name": "seo-images",
+  "version": 1,
+  "summary": "Inspect image markup for alt text and layout-related attributes without editing assets.",
+  "aliases": ["/seo-images", "seo-images", "image seo audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["HTML file or approved page URL", "client or project", "image scope", "approved evidence output path"],
+  "writes": ["reviews/evidence/seo/", "user-approved evidence path"],
+  "external_reads": ["page URL when live"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: approve live page reads", "vault_write: approve evidence writes", "asset edits or deployment: out of scope"],
+  "done_when": ["image scope is explicit", "image inventory and missing attributes are reported", "decorative empty alt and missing alt are distinguished", "performance and accessibility claims remain labeled", "quality gate passed or deferred"],
+  "verification": ["input cap and source are recorded", "raw and normalized artifacts exist", "intrinsic image performance was not claimed without measurement", "handoff is explicit"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "developer", "verifier", "writer", "wordpress-operator"]
+}

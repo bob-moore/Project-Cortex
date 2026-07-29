@@ -1,0 +1,17 @@
+{
+  "name": "seo-site-audit",
+  "version": 1,
+  "summary": "Orchestrate a bounded site audit from technical crawl, page evidence, and specialist gap checks.",
+  "aliases": ["/seo-site-audit", "seo-site-audit", "full site seo audit", "site seo audit"],
+  "risk_tier": "high",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["site URL or local site artifact", "client or project", "page and depth caps", "target market and environment", "requested specialist checks", "approved evidence output path"],
+  "writes": ["reviews/evidence/seo/", "user-approved evidence path"],
+  "external_reads": ["bounded site crawl", "selected page responses and linked assets", "robots and sitemap resources"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: approve live crawling and linked asset reads", "vault_write: approve evidence writes when not already authorized", "production and mutation: out of scope"],
+  "done_when": ["site contract and caps are explicit", "technical crawl and selected specialist checks ran or blocked states are recorded", "raw and normalized evidence is preserved", "findings are labeled and pass seo-quality-gate or have a stated deferral", "return contract is complete"],
+  "verification": ["verify no unbounded crawl was run", "verify tool limits and partial states are visible", "verify sitemap, schema, image, hreflang, robots, metadata, and headers checks are included or marked not applicable", "verify no ranking guarantee is claimed", "verify quality gate result"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "developer", "verifier", "writer", "wordpress-operator"]
+}

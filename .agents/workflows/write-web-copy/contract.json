@@ -1,0 +1,70 @@
+{
+  "name": "write-web-copy",
+  "version": 1,
+  "summary": "Create standard or promotional website copy through the canonical writing discipline with claim handling and readiness checks.",
+  "aliases": [
+    "/write-web-copy",
+    "write-web-copy",
+    "website copy",
+    "web copy",
+    "landing page copy"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "page type",
+    "web intent",
+    "client/project context",
+    "audience",
+    "desired action",
+    "offer or subject",
+    "proof or source packet"
+  ],
+  "writes": [
+    "Clients/",
+    "Projects/",
+    "user-approved draft path"
+  ],
+  "external_reads": [
+    "source URLs",
+    "current website pages",
+    "competitor or reference pages when approved"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "vault_write: follow harness/policies/approvals.md before editing vault files unless already authorized",
+    "external_read: ask before reading external websites or sources",
+    "external_mutation: out of scope; publishing or live site changes require a separate workflow"
+  ],
+  "done_when": [
+    "web intent is explicit",
+    "requested web copy artifact is returned or saved to an approved path",
+    "material claims have evidence labels or open proof flags",
+    "writing-quality-gate has passed or is explicitly deferred with reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify writing discipline files were followed",
+    "verify Brand/Voice gaps are surfaced",
+    "verify claim-check runs when material claims are present",
+    "verify changed Markdown/frontmatter if files are edited"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "writer",
+    "strategist",
+    "verifier",
+    "designer",
+    "developer",
+    "wordpress-operator"
+  ]
+}

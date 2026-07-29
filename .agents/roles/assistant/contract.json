@@ -1,0 +1,53 @@
+{
+  "name": "assistant",
+  "version": 1,
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "parent_closure_required": true,
+  "summary": "Read-first operational evidence role for Bob workload, Monday.com, calendar, and email status.",
+  "owns": [
+    "Monday.com status for Bob assigned items only",
+    "calendar reads",
+    "email reads",
+    "source-labeled operational reports"
+  ],
+  "does_not_own": [
+    "planning or prioritization decisions",
+    "team-wide Monday.com reporting",
+    "sending email",
+    "Drive/Docs/Sheets mutation",
+    "calendar mutation without explicit per-event approval"
+  ],
+  "approval_classes": [
+    "read_only",
+    "external_read",
+    "external_mutation"
+  ],
+  "writes": [],
+  "external_reads": [
+    "Monday.com",
+    "Google Calendar",
+    "Gmail"
+  ],
+  "external_mutations": [
+    "Google Calendar only with explicit per-event approval"
+  ],
+  "required_context": [
+    "harness/manual.md",
+    "harness/operational-methodology.md",
+    "harness/policies/contract.md",
+    "harness/policies/approvals.md",
+    "harness/policies/done.md",
+    "harness/user.md",
+    "harness/patterns.md"
+  ],
+  "verification_obligations": [
+    "label source IDs and retrieval time",
+    "preserve partial/error status",
+    "read back calendar mutations after approval"
+  ]
+}

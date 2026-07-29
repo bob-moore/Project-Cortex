@@ -1,0 +1,51 @@
+{
+  "name": "people-profiler",
+  "version": 1,
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "parent_closure_required": true,
+  "summary": "People-context role for creating or updating person notes from scoped evidence.",
+  "owns": [
+    "person note updates",
+    "role/team/title facts",
+    "relationship context when work-relevant",
+    "people index gaps"
+  ],
+  "does_not_own": [
+    "personal speculation",
+    "unscoped private details",
+    "external mutation",
+    "performance claims without evidence"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "writes": [
+    "org/people/",
+    "org/People & Context.md"
+  ],
+  "external_reads": [
+    "Slack or other scoped source systems when workflow permits"
+  ],
+  "external_mutations": [],
+  "required_context": [
+    "harness/manual.md",
+    "harness/operational-methodology.md",
+    "harness/policies/contract.md",
+    "harness/policies/approvals.md",
+    "harness/policies/done.md",
+    "org/people/",
+    "source evidence supplied by workflow"
+  ],
+  "verification_obligations": [
+    "distinguish observed facts from interpretation",
+    "link source work notes",
+    "avoid duplicating existing person notes"
+  ]
+}

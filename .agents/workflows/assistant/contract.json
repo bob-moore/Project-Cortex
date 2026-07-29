@@ -1,0 +1,59 @@
+{
+  "name": "assistant",
+  "version": 1,
+  "summary": "Answer a freeform operational evidence request about Bob's calendar, email, or Monday.com workload without making planning decisions.",
+  "aliases": [
+    "/assistant",
+    "assistant",
+    "calendar status",
+    "email status",
+    "monday status"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "external_read",
+    "external_mutation"
+  ],
+  "inputs": [
+    "freeform operational question",
+    "optional date, person, client, or project scope"
+  ],
+  "writes": [],
+  "external_reads": [
+    "Monday.com",
+    "Google Calendar",
+    "Gmail"
+  ],
+  "external_mutations": [
+    "Google Calendar event creation or changes only after explicit per-event approval"
+  ],
+  "approval_gates": [
+    "external_read: label the tool/source and scope before reporting evidence",
+    "external_mutation: ask for explicit approval before creating or changing a calendar event",
+    "external_mutation: never treat approval for one calendar event as standing authorization",
+    "planning: if the request asks what Bob should do, what to prioritize, or how to sequence work, stop and return out-of-scope"
+  ],
+  "done_when": [
+    "the question is answered from labeled source evidence or a clear blocker is reported",
+    "source, retrieval time, and partial/error status are preserved",
+    "calendar mutations, if approved, are read back after mutation",
+    "no planning or prioritization decision is made by assistant",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify source IDs or retrieval path are included where available",
+    "verify calendar mutations are read back after approval",
+    "verify any unavailable connector or partial result is disclosed",
+    "verify no vault files are edited by this workflow"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "assistant"
+  ]
+}

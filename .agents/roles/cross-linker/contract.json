@@ -1,0 +1,46 @@
+{
+  "name": "cross-linker",
+  "version": 1,
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "parent_closure_required": true,
+  "summary": "Link quality role for wikilinks, backlinks, orphan detection, and related-note suggestions.",
+  "owns": [
+    "wikilink checks",
+    "backlink checks",
+    "orphan detection",
+    "related-note suggestions"
+  ],
+  "does_not_own": [
+    "rewriting note substance",
+    "deleting notes",
+    "external reads unless workflow scoped"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write"
+  ],
+  "writes": [
+    "Markdown notes and indexes when scoped"
+  ],
+  "external_reads": [],
+  "external_mutations": [],
+  "required_context": [
+    "harness/manual.md",
+    "harness/operational-methodology.md",
+    "harness/policies/contract.md",
+    "harness/policies/approvals.md",
+    "harness/policies/done.md",
+    "obsidian-markdown skill",
+    "QMD or local search results"
+  ],
+  "verification_obligations": [
+    "verify links resolve or are intentionally new stubs",
+    "avoid noisy link insertion",
+    "preserve note context boundaries"
+  ]
+}

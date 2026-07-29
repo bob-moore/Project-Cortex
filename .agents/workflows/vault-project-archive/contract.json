@@ -1,0 +1,50 @@
+{
+  "name": "vault-project-archive",
+  "version": 1,
+  "summary": "Archive a completed project or ended client relationship while preserving indexes, status, and retrieval paths.",
+  "aliases": [
+    "/vault-project-archive",
+    "vault-project-archive"
+  ],
+  "risk_tier": "high",
+  "approval_classes": [
+    "vault_write",
+    "destructive"
+  ],
+  "inputs": [
+    "project or client name"
+  ],
+  "writes": [
+    "Projects/archive/",
+    "Projects/Index.md",
+    "Clients/",
+    "bases/",
+    "reviews/Index.md"
+  ],
+  "external_reads": [],
+  "external_mutations": [],
+  "approval_gates": [
+    "vault_write: follow harness/policies/approvals.md",
+    "destructive: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "touched files are listed with paths",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed",
+    "confirm archive/index/status alignment after moves"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "operator"
+  ]
+}

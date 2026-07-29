@@ -1,0 +1,45 @@
+{
+  "name": "accessibility",
+  "version": 1,
+  "status": "draft",
+  "summary": "Shared discipline for accessibility requirements, implementation handoff, content stewardship, rendered verification, and evidence boundaries across Design, Development, WordPress, and Verification work.",
+  "owner_roles": [
+    "designer",
+    "developer",
+    "wordpress-operator",
+    "verifier"
+  ],
+  "supporting_roles": [
+    "writer",
+    "strategist"
+  ],
+  "canonical_quality_gate": ".agents/disciplines/accessibility/rubric.md",
+  "canonical_skill_map": ".agents/disciplines/accessibility/skill-map.json",
+  "canonical_modes": ".agents/disciplines/accessibility/modes.md",
+  "active_canonical_skills": [
+    "accessibility-foundation"
+  ],
+  "source_material_roots": [
+    "stash/design/accessibility",
+    "stash/design/designer-delivery/references/accessibility-requirements.md",
+    "stash/design/universal-design-principles/plugins/process-and-robustness-principles/skills/accessibility*",
+    "/Users/bobmoore/.agents/skills/accessibility"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "blocking_rules": [
+    "Do not claim legal compliance or full accessibility conformance without scoped criteria, jurisdiction when relevant, implementation evidence, and verification limits.",
+    "Do not treat automated accessibility scans as complete evidence.",
+    "Do not claim semantic, keyboard, focus, announcement, or assistive-technology behavior from screenshots alone.",
+    "Do not silently change production code, WordPress state, content, or external systems while performing accessibility analysis.",
+    "Do not invent accessibility exceptions, legal requirements, or token replacements without source or approval.",
+    "Do not let Design, Development, WordPress, or Verification pass accessibility responsibility to another role without a concrete handoff."
+  ],
+  "verification_predicates": [
+    "node .agents/scripts/verify-disciplines.mjs"
+  ]
+}
+

@@ -1,0 +1,67 @@
+{
+  "name": "write-email-newsletter",
+  "version": 1,
+  "summary": "Draft email and newsletter copy with explicit intent profiles, claim handling, and a hard no-send boundary.",
+  "aliases": [
+    "/write-email-newsletter",
+    "write-email-newsletter",
+    "write email",
+    "draft newsletter",
+    "newsletter copy"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "email intent",
+    "audience or list segment",
+    "relationship stage",
+    "desired action",
+    "offer or topic",
+    "source artifact or source packet"
+  ],
+  "writes": [
+    "Clients/",
+    "Projects/",
+    "user-approved draft path"
+  ],
+  "external_reads": [
+    "source URLs",
+    "campaign pages",
+    "product or offer references when approved"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "vault_write: follow harness/policies/approvals.md before editing vault files unless already authorized",
+    "external_read: ask before reading external websites or sources",
+    "external_mutation: out of scope; sending, scheduling, contact import, or automation changes require a separate workflow"
+  ],
+  "done_when": [
+    "email intent is explicit",
+    "subject, preview text, body, and CTA are returned or saved to an approved path",
+    "send/schedule boundary is visible",
+    "material claims have evidence labels or open proof flags",
+    "writing-quality-gate has passed or is explicitly deferred with reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify writing discipline files were followed",
+    "verify claim-check runs when material claims are present",
+    "verify no send, schedule, import, or automation mutation is implied",
+    "verify changed Markdown/frontmatter if files are edited"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "writer",
+    "strategist",
+    "verifier"
+  ]
+}

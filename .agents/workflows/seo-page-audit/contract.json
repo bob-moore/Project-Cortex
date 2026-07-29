@@ -1,0 +1,34 @@
+{
+  "name": "seo-page-audit",
+  "version": 1,
+  "summary": "Run a bounded single-page SEO evidence audit and return quality-gated findings.",
+  "aliases": ["/seo-page-audit", "seo-page-audit", "page seo audit", "single page seo audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["target URL or local HTML path", "client or project", "page-audit scope", "target market when relevant", "approved evidence output path"],
+  "writes": ["reviews/evidence/seo/", "user-approved evidence path"],
+  "external_reads": ["target URL when the target is live", "linked page assets requested by the selected tool"],
+  "external_mutations": [],
+  "approval_gates": [
+    "external_read: obtain approval before crawling a live URL or its linked assets",
+    "vault_write: obtain approval before saving evidence unless vault_write is already authorized",
+    "production and external mutation: out of scope; this workflow never publishes or changes a site"
+  ],
+  "done_when": [
+    "target, scope, environment, and approval boundary are explicit",
+    "the smallest suitable tool set ran or a blocked/setup-required state is recorded",
+    "raw stdout, stderr, metadata, and normalized packets are saved under the evidence root",
+    "findings distinguish observed page evidence from heuristics and hypotheses",
+    "seo-quality-gate passed or was explicitly deferred with a reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify selected tools are registered and installed or record the missing command",
+    "verify every executed command is bounded and has a captured exit status",
+    "verify raw and normalized artifacts exist and preserve partial or blocked state",
+    "verify no ranking, indexing, traffic, conversion, or AI-citation guarantee is claimed",
+    "verify seo-quality-gate evaluates the interpreted findings"
+  ],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "developer", "verifier", "writer", "wordpress-operator"]
+}

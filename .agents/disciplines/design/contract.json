@@ -1,0 +1,57 @@
+{
+  "name": "design",
+  "version": 1,
+  "status": "draft",
+  "summary": "Canonical discipline for design intent, page and component specifications, visual direction, rendered conformance review, accessibility handoff, and implementation-ready design artifacts.",
+  "owner_roles": [
+    "designer"
+  ],
+  "supporting_roles": [
+    "strategist",
+    "writer",
+    "developer",
+    "wordpress-operator",
+    "verifier"
+  ],
+  "canonical_quality_gate": ".agents/disciplines/design/rubric.md",
+  "canonical_skill_map": ".agents/disciplines/design/skill-map.json",
+  "canonical_modes": ".agents/disciplines/design/modes.md",
+  "active_canonical_skills": [
+    "brandkit",
+    "design-delivery",
+    "design-taste-frontend",
+    "design-taste-frontend-v1",
+    "gpt-taste",
+    "high-end-visual-design",
+    "image-to-code",
+    "imagegen-frontend-mobile",
+    "imagegen-frontend-web",
+    "industrial-brutalist-ui",
+    "minimalist-ui",
+    "redesign-existing-projects",
+    "stitch-design-taste"
+  ],
+  "source_material_roots": [
+    "stash/design",
+    "/Users/bobmoore/.agents/skills"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read",
+    "external_mutation",
+    "destructive",
+    "production"
+  ],
+  "blocking_rules": [
+    "Do not publish, deploy, edit production code, mutate WordPress state, or change external systems from the design discipline without the relevant approved workflow.",
+    "Do not approve or rewrite copy silently; use approved Writer artifacts or mark copy as provisional.",
+    "Do not invent Brand, Voice, Design Tokens, components, assets, proof points, or compliance rules when governing context is missing.",
+    "Do not treat screenshots, prototypes, global skills, or external style references as higher authority than client Brand, Design Tokens, approved content, verified source, or rendered evidence.",
+    "Do not combine design specification and rendered implementation review into a self-approved result.",
+    "Do not claim accessibility conformance from design intent or automated checks alone."
+  ],
+  "verification_predicates": [
+    "node .agents/scripts/verify-disciplines.mjs"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "qmd_index": "agency-vault-harness",
+  "qmd_context": "Agentic operating system vault. Runtime machinery lives in .agents/. Writable agent-operating knowledge lives in harness/. Runtime-specific folders such as .claude, .codex, .gemini, and .hermes are adapters. Shared human and agent work, including Journal daily notes, lives outside the harness layer.",
+  "infrastructure": [
+    "CLAUDE.md",
+    "AGENTS.md",
+    "GEMINI.md",
+    "Home.md",
+    "README.md",
+    "CHANGELOG.md",
+    "ARCHITECTURE.md",
+    "LICENSE",
+    ".gitignore",
+    ".mcp.json",
+    ".agents/**",
+    ".claude/**",
+    ".claude-plugin/**",
+    ".codex/**",
+    ".gemini/**",
+    ".hermes/**",
+    "harness/**",
+    "assets/**",
+    "templates/**",
+    "bases/**",
+    "scripts/**",
+    "vault-manifest.json",
+    "harness/session-logs/README.md"
+  ],
+  "frontmatter_required": {
+    "global": [
+      "date",
+      "description",
+      "tags"
+    ],
+    "work-note": [
+      "date",
+      "status",
+      "quarter"
+    ],
+    "incident": [
+      "date",
+      "status",
+      "quarter",
+      "ticket",
+      "severity",
+      "role"
+    ],
+    "person": [
+      "date",
+      "title"
+    ],
+    "team": [
+      "date"
+    ],
+    "1-1": [
+      "date",
+      "quarter"
+    ],
+    "client": [
+      "date",
+      "client",
+      "status",
+      "quarter"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "vault-intake",
+  "version": 1,
+  "summary": "Process all unread items in inbox/ — reads each file, classifies content (meeting notes/transcripts and anything else dropped there), routes to the right vault notes, then clears the inbox.",
+  "aliases": [
+    "/vault-intake",
+    "vault-intake"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "vault_write"
+  ],
+  "inputs": [
+    "optional workflow arguments"
+  ],
+  "writes": [
+    "inbox/",
+    "Notes/",
+    "Projects/",
+    "org/",
+    "harness/"
+  ],
+  "external_reads": [],
+  "external_mutations": [],
+  "approval_gates": [
+    "vault_write: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "touched files are listed with paths",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "operator"
+  ]
+}

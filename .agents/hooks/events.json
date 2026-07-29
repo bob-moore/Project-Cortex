@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "script_root": ".agents/hooks/scripts",
+  "hooks": [
+    {
+      "id": "session-start",
+      "script": "session-start.ts",
+      "timeout_seconds": 30,
+      "runtimes": {
+        "claude": {
+          "event": "SessionStart",
+          "matcher": "startup|resume|clear|compact"
+        },
+        "codex": {
+          "event": "SessionStart",
+          "matcher": "startup|resume"
+        },
+        "gemini": {
+          "event": "SessionStart",
+          "matcher": "startup|resume"
+        }
+      }
+    },
+    {
+      "id": "classify-message",
+      "script": "classify-message.ts",
+      "timeout_seconds": 15,
+      "runtimes": {
+        "claude": {
+          "event": "UserPromptSubmit"
+        },
+        "codex": {
+          "event": "UserPromptSubmit"
+        },
+        "gemini": {
+          "event": "BeforeAgent"
+        }
+      }
+    },
+    {
+      "id": "validate-write",
+      "script": "validate-write.ts",
+      "timeout_seconds": 15,
+      "runtimes": {
+        "claude": {
+          "event": "PostToolUse",
+          "matcher": "Write|Edit"
+        },
+        "codex": {
+          "event": "PostToolUse",
+          "matcher": "Write|Edit"
+        },
+        "gemini": {
+          "event": "AfterTool",
+          "matcher": "Write|Edit"
+        }
+      }
+    },
+    {
+      "id": "qmd-refresh",
+      "script": "qmd-refresh.ts",
+      "timeout_seconds": 15,
+      "runtimes": {
+        "claude": {
+          "event": "PostToolUse",
+          "matcher": "Write|Edit"
+        },
+        "codex": {
+          "event": "PostToolUse",
+          "matcher": "Write|Edit"
+        },
+        "gemini": {
+          "event": "AfterTool",
+          "matcher": "Write|Edit"
+        }
+      }
+    },
+    {
+      "id": "pre-compact",
+      "script": "pre-compact.ts",
+      "timeout_seconds": 30,
+      "runtimes": {
+        "claude": {
+          "event": "PreCompact"
+        },
+        "gemini": {
+          "event": "PreCompress"
+        }
+      }
+    },
+    {
+      "id": "stop-checklist",
+      "script": "stop-checklist.ts",
+      "timeout_seconds": 5,
+      "runtimes": {
+        "claude": {
+          "event": "Stop"
+        },
+        "codex": {
+          "event": "Stop"
+        },
+        "gemini": {
+          "event": "SessionEnd"
+        }
+      }
+    }
+  ]
+}

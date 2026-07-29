@@ -1,0 +1,104 @@
+filters:
+  and:
+    - file.ext == "md"
+    - attention_status
+formulas:
+  age_days: 'if(attention_date, (today() - date(attention_date)).days, "")'
+properties:
+  file.name:
+    displayName: Item
+  attention_status:
+    displayName: Status
+  attention_type:
+    displayName: Type
+  attention_owner:
+    displayName: Owner
+  attention_priority:
+    displayName: Priority
+  attention_date:
+    displayName: Raised
+  formula.age_days:
+    displayName: Age
+  next_action:
+    displayName: Next Action
+  project:
+    displayName: Project
+  client:
+    displayName: Client
+  date:
+    displayName: Source Date
+  description:
+    displayName: Summary
+views:
+  - type: table
+    name: Needs Attention
+    filters:
+      and:
+        - 'attention_status != "reviewed"'
+        - 'attention_status != "dismissed"'
+        - 'attention_status != "converted"'
+    groupBy:
+      property: attention_priority
+      direction: DESC
+    order:
+      - file.name
+      - attention_type
+      - attention_owner
+      - attention_date
+      - formula.age_days
+      - next_action
+      - project
+      - client
+  - type: table
+    name: Needs Review
+    filters:
+      and:
+        - 'attention_status == "needs-review"'
+    order:
+      - file.name
+      - attention_priority
+      - attention_date
+      - formula.age_days
+      - next_action
+      - project
+      - client
+  - type: table
+    name: Actionable Now
+    filters:
+      and:
+        - 'attention_status == "actionable"'
+    order:
+      - file.name
+      - attention_priority
+      - attention_date
+      - next_action
+      - project
+      - client
+  - type: table
+    name: Pending
+    filters:
+      or:
+        - 'attention_status == "pending"'
+        - 'attention_status == "blocked"'
+        - 'attention_status == "waiting"'
+    order:
+      - file.name
+      - attention_type
+      - attention_owner
+      - attention_date
+      - formula.age_days
+      - next_action
+      - project
+      - client
+  - type: table
+    name: Resolved
+    filters:
+      or:
+        - 'attention_status == "reviewed"'
+        - 'attention_status == "dismissed"'
+        - 'attention_status == "converted"'
+    order:
+      - file.name
+      - attention_status
+      - attention_date
+      - next_action

@@ -1,0 +1,17 @@
+{
+  "name": "seo-sitemap",
+  "version": 1,
+  "summary": "Inspect and validate a sitemap or sitemap index without mutating the site.",
+  "aliases": ["/seo-sitemap", "seo-sitemap", "sitemap audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["sitemap URL or local XML path", "client or project", "approved evidence output path"],
+  "writes": ["reviews/evidence/seo/", "user-approved evidence path"],
+  "external_reads": ["sitemap URL when live"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: approve live sitemap reads", "vault_write: approve evidence writes", "sitemap generation or submission: out of scope"],
+  "done_when": ["source and environment are explicit", "XML was parsed or failure recorded", "duplicate and missing loc evidence is reported without ranking claims", "quality gate passed or deferred", "return contract is complete"],
+  "verification": ["input cap and source are recorded", "raw and normalized artifacts exist", "malformed XML and missing entries remain visible", "no sitemap mutation occurred"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "developer", "verifier", "wordpress-operator"]
+}

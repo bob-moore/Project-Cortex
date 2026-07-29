@@ -1,0 +1,52 @@
+{
+  "name": "vault-peer-scan",
+  "version": 1,
+  "summary": "Deep scan a peer's GitHub PRs for review preparation and save structured evidence under `reviews/evidence/`.",
+  "aliases": [
+    "/vault-peer-scan",
+    "vault-peer-scan"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "external_read",
+    "vault_write"
+  ],
+  "inputs": [
+    "person name",
+    "GitHub username",
+    "repository",
+    "period"
+  ],
+  "writes": [
+    "reviews/evidence/"
+  ],
+  "external_reads": [
+    "GitHub"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "external_read: follow harness/policies/approvals.md",
+    "vault_write: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "external evidence is labeled with source and retrieval status",
+    "touched files are listed with paths",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed",
+    "verify external evidence is labeled and scoped"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "operator"
+  ]
+}

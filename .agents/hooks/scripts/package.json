@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "type": "module",
+  "description": "Runtime-neutral hook scripts for this vault. Runtime has zero dependencies and is executed by node --experimental-strip-types. This file marks .ts files as ESM for Node module resolution and local typecheck.",
+  "scripts": {
+    "test": "node --experimental-strip-types --test",
+    "typecheck": "tsc --noEmit"
+  }
+}

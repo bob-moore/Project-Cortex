@@ -1,0 +1,55 @@
+{
+  "name": "marketing",
+  "version": 1,
+  "status": "draft",
+  "summary": "Canonical discipline for market research, keyword research, competitor analysis, marketing strategy, funnel analytics, CRO, channel planning, and UTM attribution.",
+  "owner_roles": [
+    "strategist"
+  ],
+  "supporting_roles": [
+    "writer",
+    "designer",
+    "developer",
+    "wordpress-operator",
+    "verifier"
+  ],
+  "canonical_quality_gate": ".agents/disciplines/marketing/rubric.md",
+  "canonical_skill_map": ".agents/disciplines/marketing/skill-map.json",
+  "canonical_modes": ".agents/disciplines/marketing/modes.md",
+  "active_canonical_skills": [
+    "market-research",
+    "keyword-research-and-clustering",
+    "competitor-analysis",
+    "marketing-strategy",
+    "marketing-analytics",
+    "conversion-rate-optimization",
+    "utm-builder",
+    "social-channel-operations",
+    "newsletter-channel-operations",
+    "email-deliverability",
+    "email-quality-auditor"
+  ],
+  "source_material_roots": [
+    ".claude/skills"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read",
+    "external_mutation",
+    "production",
+    "secret"
+  ],
+  "blocking_rules": [
+    "Do not present market, competitor, keyword, or analytics claims without evidence labels, source dates, and known limitations.",
+    "Do not treat keyword volume, SEO provider estimates, analytics exports, or social platform metrics as exact truth.",
+    "Do not publish, send, schedule, reply, DM, import contacts, change DNS, configure analytics tags, mutate automations, or change external marketing systems without explicit approval.",
+    "Do not route finished copy through Marketing when Writer owns the draft or final copy surface.",
+    "Do not route implementation changes through Marketing when Design, Development, WordPress Operator, or SEO owns the source of truth.",
+    "Do not include paid ads in this discipline until Bob requests a paid ads role from scratch.",
+    "Do not silently use missing Brand, Voice, Stack, audience, market, date range, or analytics scope."
+  ],
+  "verification_predicates": [
+    "node .agents/scripts/verify-disciplines.mjs"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CODEX_PROJECT_DIR:-.}/.agents/hooks/scripts/session-start.ts\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CODEX_PROJECT_DIR:-.}/.agents/hooks/scripts/classify-message.ts\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CODEX_PROJECT_DIR:-.}/.agents/hooks/scripts/validate-write.ts\"",
+            "timeout": 15
+          },
+          {
+            "type": "command",
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CODEX_PROJECT_DIR:-.}/.agents/hooks/scripts/qmd-refresh.ts\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CODEX_PROJECT_DIR:-.}/.agents/hooks/scripts/stop-checklist.ts\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

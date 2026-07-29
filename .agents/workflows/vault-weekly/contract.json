@@ -1,0 +1,54 @@
+{
+  "name": "vault-weekly",
+  "version": 1,
+  "summary": "Weekly synthesis — cross-session review of vault activity, North Star alignment, patterns, candidate review evidence, and forward priorities.",
+  "aliases": [
+    "/vault-weekly",
+    "vault-weekly"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "optional workflow arguments"
+  ],
+  "writes": [
+    "harness/north-star.md",
+    "reviews/Index.md",
+    "Projects/"
+  ],
+  "external_reads": [
+    "Git",
+    "Monday.com or Calendar when scoped"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "read_only: follow harness/policies/approvals.md",
+    "vault_write: follow harness/policies/approvals.md",
+    "external_read: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "external evidence is labeled with source and retrieval status",
+    "touched files are listed with paths",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed",
+    "verify external evidence is labeled and scoped"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "operator"
+  ]
+}

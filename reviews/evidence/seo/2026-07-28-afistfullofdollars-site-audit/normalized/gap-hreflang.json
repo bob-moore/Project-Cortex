@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "tool": {
+    "id": "seo-gap-hreflang",
+    "version": "1.0",
+    "official_sources": []
+  },
+  "run": {
+    "approval_class": "external_read",
+    "command_intent": "Run the hreflang SEO gap check.",
+    "command_redacted": "python3 .agents/tools/seo/gap-check.py --mode hreflang --target <redacted>",
+    "started_at": "2026-07-29T00:41:31.747237+00:00",
+    "completed_at": "2026-07-29T00:41:31.916343+00:00"
+  },
+  "scope": {
+    "mode": "hreflang",
+    "client_or_project": null,
+    "targets": [
+      "https://www.afistfullofdollars.com/"
+    ],
+    "market": null,
+    "date_range": null
+  },
+  "data_status": "complete",
+  "artifacts": [
+    {
+      "path": "reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/gap-hreflang/input.txt",
+      "kind": "raw-input",
+      "description": "Local or fetched source inspected by the gap checker."
+    },
+    {
+      "path": "reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/gap-hreflang/run-metadata.json",
+      "kind": "run-metadata",
+      "description": "Target, approval class, timing, and errors."
+    }
+  ],
+  "limits": [
+    "Input is capped at 10 MiB.",
+    "Checks are structural evidence and heuristics, not ranking or compliance guarantees.",
+    "No schema generation or external mutation is performed."
+  ],
+  "findings": [
+    {
+      "id": "hreflang-none-observed",
+      "severity": "info",
+      "evidence_label": "observed-page",
+      "summary": "No hreflang alternate links were observed; this is not a defect without an international targeting requirement.",
+      "source_ref": "https://www.afistfullofdollars.com/",
+      "recommendation": null
+    }
+  ],
+  "verification": [
+    "Input source and check mode are recorded.",
+    "Raw input and run metadata were preserved when the source could be read.",
+    "Run seo-quality-gate before treating findings as ready."
+  ]
+}

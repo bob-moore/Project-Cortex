@@ -1,0 +1,128 @@
+{
+  "discipline": "seo",
+  "version": 1,
+  "active_canonical_skills": [
+    "seo-foundation",
+    "seo-hreflang",
+    "seo-images",
+    "seo-quality-gate",
+    "seo-page-audit",
+    "seo-schema",
+    "seo-site-audit",
+    "seo-sitemap",
+    "seo-technical-audit",
+    "seo-tool-runner"
+  ],
+  "priority_rebuild_candidates": [
+    {
+      "source": "seo",
+      "target": "seo-foundation",
+      "disposition": "adapt",
+      "reason": "Umbrella source material contains useful evidence, scoring, runtime, and reporting ideas, but must be reduced to runtime-neutral discipline rules before activation."
+    },
+    {
+      "source": "seo-and-aeo-strategy",
+      "target": "seo-foundation",
+      "disposition": "adapt",
+      "reason": "Broad SEO, AEO, GEO, schema, architecture, and strategy material is useful as reference, but volatile claims require source-tier labels and current verification."
+    },
+    {
+      "source": "stash/seo/skills/seo",
+      "target": "seo-foundation",
+      "disposition": "pattern-reference",
+      "reason": "The router pattern, report discovery flow, do-not-claim rules, and eval style are strong architecture references, but the package should not become the vault's canonical SEO behavior wholesale."
+    },
+    {
+      "source": "Agentic-SEO-Skill",
+      "target": "seo-page-audit",
+      "disposition": "future-adapt",
+      "reason": "Broad deterministic check inventory is useful for page and site audit implementation after the foundation gate exists."
+    },
+    {
+      "source": "codex-seo",
+      "target": "seo-tool-wrappers",
+      "disposition": "future-reference",
+      "reason": "Wrapper shape, smoke tests, cache contracts, and environment verification are useful references, but the package is runtime-shaped."
+    },
+    {
+      "source": "blog-seo-check",
+      "target": "seo-page-audit",
+      "disposition": "future-adapt",
+      "reason": "Post-writing SEO validation contains useful on-page checks, but universal thresholds and blog-only assumptions must become mode-aware."
+    },
+    {
+      "source": "blog-schema",
+      "target": "seo-schema",
+      "disposition": "future-adapt",
+      "reason": "JSON-LD generation workflow is useful, but schema facts, platform support, and rich-result claims require current verification."
+    },
+    {
+      "source": "keyword-research-and-clustering",
+      "target": "seo-keyword-research",
+      "disposition": "future-adapt",
+      "reason": "Keyword and cluster planning workflow is useful, but connected-tool assumptions must move to tool metadata and approval gates."
+    },
+    {
+      "source": "blog-cannibalization",
+      "target": "seo-content-audit",
+      "disposition": "future-adapt",
+      "reason": "Overlap detection is useful, but semantic similarity must not be treated as SERP proof without provider or first-party evidence."
+    }
+  ],
+  "workflow_candidates": [
+    "seo-site-audit",
+    "seo-page-audit",
+    "seo-technical-check",
+    "seo-local-audit",
+    "seo-content-brief",
+    "seo-drift-check",
+    "seo-monthly-report",
+    "seo-programmatic-audit"
+  ],
+  "future_skill_candidates": [
+    "seo-technical-audit",
+    "seo-schema",
+    "seo-local",
+    "seo-data-sources",
+    "seo-drift",
+    "seo-content-brief",
+    "seo-keyword-research",
+    "seo-ai-search",
+    "seo-programmatic",
+    "seo-reporting"
+  ],
+  "reference_or_other_discipline_candidates": [
+    "seo-image-gen",
+    "seo-content-brief",
+    "blog-writing-specialist",
+    "content-quality-auditor",
+    "competitor-analysis",
+    "landing-page-optimization"
+  ],
+  "not_active": [
+    "seo-audit",
+    "seo-page",
+    "seo-technical",
+    "seo-content",
+    "seo-images",
+    "seo-schema",
+    "seo-sitemap",
+    "seo-hreflang",
+    "seo-plan",
+    "seo-cluster",
+    "seo-content-brief",
+    "seo-competitor-pages",
+    "seo-programmatic",
+    "seo-sxo",
+    "seo-local",
+    "seo-maps",
+    "seo-geo",
+    "seo-google",
+    "seo-dataforseo",
+    "seo-backlinks",
+    "seo-drift",
+    "seo-ecommerce",
+    "seo-flow",
+    "seo-image-gen"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "writing",
+  "version": 1,
+  "status": "draft",
+  "summary": "Canonical discipline for evidence-safe written artifacts across website copy, blog/article drafts, editing, social, newsletters, email drafts, review narratives, and content strategy.",
+  "owner_roles": [
+    "writer"
+  ],
+  "supporting_roles": [
+    "strategist",
+    "verifier"
+  ],
+  "canonical_quality_gate": ".agents/disciplines/writing/rubric.md",
+  "canonical_skill_map": ".agents/disciplines/writing/skill-map.json",
+  "canonical_modes": ".agents/disciplines/writing/modes.md",
+  "active_canonical_skills": [
+    "article-brief",
+    "article-draft",
+    "article-outline",
+    "article-refresh",
+    "claim-check",
+    "content-repurpose",
+    "copy-edit",
+    "email-newsletter",
+    "social-shortform",
+    "voice-humanize",
+    "web-copy",
+    "writing-foundation",
+    "writing-quality-gate"
+  ],
+  "source_material_roots": [
+    ".claude/skills"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read",
+    "external_mutation"
+  ],
+  "blocking_rules": [
+    "Do not publish, send, schedule, or externally mutate written content without explicit approval.",
+    "Do not present unsupported factual claims as verified.",
+    "Do not use missing Brand or Voice context silently for client-specific work.",
+    "Do not let a producer close its own quality gate."
+  ],
+  "verification_predicates": [
+    "node .agents/scripts/verify-disciplines.mjs"
+  ]
+}

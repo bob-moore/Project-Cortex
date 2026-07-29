@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "tool": {
+    "id": "seo-gap-sitemap",
+    "version": "1.0",
+    "official_sources": []
+  },
+  "run": {
+    "approval_class": "external_read",
+    "command_intent": "Run the sitemap SEO gap check.",
+    "command_redacted": "python3 .agents/tools/seo/gap-check.py --mode sitemap --target <redacted>",
+    "started_at": "2026-07-29T00:41:34.838839+00:00",
+    "completed_at": "2026-07-29T00:41:35.123843+00:00"
+  },
+  "scope": {
+    "mode": "technical-audit",
+    "client_or_project": null,
+    "targets": [
+      "https://www.afistfullofdollars.com/sitemap.xml"
+    ],
+    "market": null,
+    "date_range": null
+  },
+  "data_status": "blocked",
+  "artifacts": [
+    {
+      "path": "reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/gap-sitemap",
+      "kind": "raw-input",
+      "description": "Local or fetched source inspected by the gap checker."
+    },
+    {
+      "path": "reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/gap-sitemap/run-metadata.json",
+      "kind": "run-metadata",
+      "description": "Target, approval class, timing, and errors."
+    }
+  ],
+  "limits": [
+    "Input is capped at 10 MiB.",
+    "Checks are structural evidence and heuristics, not ranking or compliance guarantees.",
+    "No schema generation or external mutation is performed."
+  ],
+  "findings": [
+    {
+      "id": "sitemap-check-failed",
+      "severity": "high",
+      "evidence_label": "assumed",
+      "summary": "HTTP Error 404: Not Found",
+      "source_ref": "https://www.afistfullofdollars.com/sitemap.xml",
+      "recommendation": null
+    }
+  ],
+  "verification": [
+    "Input source and check mode are recorded.",
+    "Raw input and run metadata were preserved when the source could be read.",
+    "Run seo-quality-gate before treating findings as ready."
+  ]
+}

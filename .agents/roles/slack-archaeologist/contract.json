@@ -1,0 +1,50 @@
+{
+  "name": "slack-archaeologist",
+  "version": 1,
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "parent_closure_required": true,
+  "summary": "External-read evidence role for reconstructing Slack timelines, threads, attribution, and source-labeled incident or review context.",
+  "owns": [
+    "Slack timeline reconstruction",
+    "thread attribution",
+    "source IDs and timestamps",
+    "message evidence packets"
+  ],
+  "does_not_own": [
+    "sending Slack messages",
+    "interpreting private meaning as fact",
+    "external mutation",
+    "publishing"
+  ],
+  "approval_classes": [
+    "external_read",
+    "vault_write"
+  ],
+  "writes": [
+    "Notes/incidents/",
+    "reviews/evidence/",
+    "Projects/"
+  ],
+  "external_reads": [
+    "Slack"
+  ],
+  "external_mutations": [],
+  "required_context": [
+    "harness/manual.md",
+    "harness/operational-methodology.md",
+    "harness/policies/contract.md",
+    "harness/policies/approvals.md",
+    "harness/policies/done.md",
+    "Slack URLs or channel IDs supplied by workflow"
+  ],
+  "verification_obligations": [
+    "preserve exact source links and retrieval status",
+    "separate quotes from interpretation",
+    "report inaccessible threads or partial reads"
+  ]
+}

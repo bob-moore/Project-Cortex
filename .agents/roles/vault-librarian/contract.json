@@ -1,0 +1,54 @@
+{
+  "name": "vault-librarian",
+  "version": 1,
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "parent_closure_required": true,
+  "summary": "Vault structure and metadata role for frontmatter, indexes, folder placement, stale context, and note quality.",
+  "owns": [
+    "frontmatter validation",
+    "folder placement checks",
+    "index consistency",
+    "stale context detection",
+    "note quality audits"
+  ],
+  "does_not_own": [
+    "large restructuring without approval",
+    "deleting notes",
+    "external mutation",
+    "content strategy decisions"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "destructive"
+  ],
+  "writes": [
+    "Home.md",
+    "Projects/Index.md",
+    "Notes/Index.md",
+    "org/",
+    "harness/",
+    "bases/"
+  ],
+  "external_reads": [],
+  "external_mutations": [],
+  "required_context": [
+    "harness/manual.md",
+    "harness/operational-methodology.md",
+    "harness/policies/contract.md",
+    "harness/policies/approvals.md",
+    "harness/policies/done.md",
+    "vault-manifest.json",
+    "harness/manual.md"
+  ],
+  "verification_obligations": [
+    "preserve existing frontmatter",
+    "list ambiguous issues instead of guessing",
+    "ask before destructive archive/delete moves"
+  ]
+}

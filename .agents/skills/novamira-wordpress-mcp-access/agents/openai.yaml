@@ -1,0 +1,4 @@
+interface:
+  display_name: "Novamira WordPress MCP Access"
+  short_description: "Connect and verify Novamira MCP for WordPress"
+  default_prompt: "Use $novamira-wordpress-mcp-access to connect and verify this WordPress site's Novamira MCP setup."

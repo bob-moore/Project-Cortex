@@ -1,0 +1,61 @@
+{
+  "name": "seo",
+  "version": 1,
+  "status": "draft",
+  "summary": "Canonical discipline for evidence-backed SEO work across technical audits, page audits, keyword and SERP research, local SEO, schema, AI search, content briefs, drift checks, and reporting.",
+  "owner_roles": [
+    "strategist",
+    "verifier"
+  ],
+  "supporting_roles": [
+    "writer",
+    "developer",
+    "wordpress-operator"
+  ],
+  "canonical_quality_gate": ".agents/disciplines/seo/rubric.md",
+  "canonical_skill_map": ".agents/disciplines/seo/skill-map.json",
+  "canonical_modes": ".agents/disciplines/seo/modes.md",
+  "active_canonical_skills": [
+    "seo-foundation",
+    "seo-hreflang",
+    "seo-images",
+    "seo-quality-gate",
+    "seo-page-audit",
+    "seo-schema",
+    "seo-site-audit",
+    "seo-sitemap",
+    "seo-technical-audit",
+    "seo-tool-runner"
+  ],
+  "source_material_roots": [
+    ".claude/skills/seo*",
+    "stash/Agentic-SEO-Skill",
+    "stash/codex-seo",
+    "stash/seo",
+    "/Users/bobmoore/Obsidian/Work/.claude/skills/seo-and-aeo-strategy",
+    "/Users/bobmoore/Obsidian/Work/.claude/skills/keyword-research-and-clustering",
+    "/Users/bobmoore/Obsidian/Work/.claude/skills/blog-seo-check",
+    "/Users/bobmoore/Obsidian/Work/.claude/skills/blog-schema",
+    "/Users/bobmoore/Obsidian/Work/.claude/skills/blog-cannibalization"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read",
+    "external_mutation",
+    "destructive",
+    "production",
+    "secret"
+  ],
+  "blocking_rules": [
+    "Do not present SEO scores, estimates, or provider metrics as ranking, traffic, indexing, or AI-citation guarantees.",
+    "Do not run paid provider calls, credentialed API calls, live crawls with material cost, or external mutations without the applicable approval gate.",
+    "Do not store secrets in .agents, harness, root docs, tracked manifests, or generated reports.",
+    "Do not publish, edit live CMS state, generate schema into production, submit IndexNow, change robots, change sitemaps, redirect URLs, or deploy code without the relevant mutation or production workflow.",
+    "Do not treat incomplete, capped, sampled, blocked, or missing evidence as a zero or an all-clear.",
+    "Do not let SEO content work bypass the writing discipline when the output is copy, article, metadata prose, or a content brief."
+  ],
+  "verification_predicates": [
+    "node .agents/scripts/verify-disciplines.mjs"
+  ]
+}

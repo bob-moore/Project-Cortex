@@ -1,0 +1,47 @@
+{
+  "name": "verifier",
+  "version": 1,
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "parent_closure_required": true,
+  "summary": "Fresh-context verification role that checks work against the contract and evidence without producer self-assessment.",
+  "owns": [
+    "independent verification",
+    "done_when checks",
+    "scope-drift detection",
+    "evidence sufficiency review"
+  ],
+  "does_not_own": [
+    "implementation",
+    "scope expansion",
+    "approving its own produced work",
+    "mutating external systems"
+  ],
+  "approval_classes": [
+    "read_only"
+  ],
+  "writes": [
+    "verification report when requested"
+  ],
+  "external_reads": [],
+  "external_mutations": [],
+  "required_context": [
+    "harness/manual.md",
+    "harness/operational-methodology.md",
+    "harness/policies/contract.md",
+    "harness/policies/approvals.md",
+    "harness/policies/done.md",
+    "work order",
+    "diff or artifact",
+    "workflow contract"
+  ],
+  "verification_obligations": [
+    "judge only against the contract",
+    "fail deleted/skipped tests unless explicitly in scope",
+    "return PASS or FAIL with evidence"
+  ]
+}

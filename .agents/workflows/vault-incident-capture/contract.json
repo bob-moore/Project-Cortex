@@ -1,0 +1,53 @@
+{
+  "name": "vault-incident-capture",
+  "version": 1,
+  "summary": "Capture an incident from Slack channels, DMs, and threads into structured vault notes with timeline, people, analysis, and evidence.",
+  "aliases": [
+    "/vault-incident-capture",
+    "vault-incident-capture"
+  ],
+  "risk_tier": "high",
+  "approval_classes": [
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "optional workflow arguments"
+  ],
+  "writes": [
+    "Notes/incidents/",
+    "org/people/",
+    "reviews/Index.md",
+    "harness/memory.md"
+  ],
+  "external_reads": [
+    "Slack"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "vault_write: follow harness/policies/approvals.md",
+    "external_read: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "external evidence is labeled with source and retrieval status",
+    "touched files are listed with paths",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed",
+    "verify external evidence is labeled and scoped"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "slack-archaeologist",
+    "people-profiler"
+  ]
+}

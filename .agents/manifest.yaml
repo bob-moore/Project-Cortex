@@ -1,0 +1,232 @@
+name: agency-vault-harness
+status: prototype
+
+canonical:
+  manual: harness/manual.md
+  operator: harness/operator.md
+  user: harness/user.md
+  memory_index: harness/memory.md
+  methodology: harness/operational-methodology.md
+  workflows: harness/workflows.md
+  agents_layer: .agents
+
+layers:
+  runtime_machinery: .agents
+  operating_knowledge: harness
+  runtime_adapters:
+    claude: .claude
+    codex: .codex
+    gemini: .gemini
+    hermes: .hermes
+
+directories:
+  journal: Journal
+  roles: .agents/roles
+  disciplines: .agents/disciplines
+  workflows: .agents/workflows
+  skills: .agents/skills
+  hooks: .agents/hooks
+  hook_specs: .agents/hooks/events.json
+  hook_scripts: .agents/hooks/scripts
+  tools: .agents/tools
+  schemas: .agents/schemas
+  adapters: .agents/adapters
+  scripts: .agents/scripts
+  loop: .agents/loop
+  policies: harness/policies
+  runbooks: harness/runbooks
+  goals: harness/goals
+  ledgers: harness/ledgers
+  audits: harness/audits
+  roadmaps: harness/roadmaps
+  resume_notes: harness/resume
+
+methodology:
+  gate: .agents/scripts/gate.mjs
+  workflow_validator: .agents/scripts/verify-workflows.mjs
+  role_validator: .agents/scripts/verify-roles.mjs
+  discipline_validator: .agents/scripts/verify-disciplines.mjs
+  adapter_validator: .agents/scripts/verify-adapters.mjs
+  hook_validator: .agents/scripts/verify-hooks.mjs
+  vault_validator: .agents/scripts/verify-vault.mjs
+  goal_validator: .agents/scripts/verify-goals.mjs
+  trust_ledger: harness/ledgers/trust.tsv
+  goal_ledger: harness/ledgers/goal-ledger.tsv
+  dispatch_ledger: harness/ledgers/dispatch.tsv
+  usage_ledger: harness/ledgers/usage.tsv
+
+skills:
+  interaction:
+    - grill-me
+    - grilling
+  obsidian:
+    - defuddle
+    - json-canvas
+    - obsidian-bases
+    - obsidian-cli
+    - obsidian-markdown
+    - qmd
+  writing:
+    - article-brief
+    - article-draft
+    - article-outline
+    - article-refresh
+    - claim-check
+    - content-repurpose
+    - copy-edit
+    - email-newsletter
+    - social-shortform
+    - voice-humanize
+    - web-copy
+    - writing-foundation
+    - writing-quality-gate
+  accessibility:
+    - accessibility-foundation
+  design:
+    - brandkit
+    - design-delivery
+    - design-taste-frontend
+    - design-taste-frontend-v1
+    - gpt-taste
+    - high-end-visual-design
+    - image-to-code
+    - imagegen-frontend-mobile
+    - imagegen-frontend-web
+    - industrial-brutalist-ui
+    - minimalist-ui
+    - redesign-existing-projects
+    - stitch-design-taste
+  development:
+    - developer-delivery
+    - astro
+    - wordpress-router
+    - wp-project-triage
+    - wp-block-development
+    - wp-block-themes
+    - wordpress-block-theming
+    - wp-plugin-development
+    - wp-rest-api
+    - wp-interactivity-api
+    - wp-abilities-api
+    - wp-abilities-audit
+    - wp-abilities-verify
+    - wp-phpstan
+    - wp-playground
+    - wp-plugin-directory-guidelines
+    - wpds
+  marketing:
+    - market-research
+    - keyword-research-and-clustering
+    - competitor-analysis
+    - marketing-strategy
+    - marketing-analytics
+    - conversion-rate-optimization
+    - utm-builder
+    - social-channel-operations
+    - newsletter-channel-operations
+    - email-deliverability
+    - email-quality-auditor
+  wordpress_operations:
+    - wordpress-operator
+    - wordpress-site-operations
+    - wp-wpcli-and-ops
+    - wp-redirection
+    - wp-migratedb-pro
+    - wp-performance
+    - novamira-wordpress-mcp-access
+  seo:
+    - seo-foundation
+    - seo-quality-gate
+    - seo-hreflang
+    - seo-images
+    - seo-page-audit
+    - seo-schema
+    - seo-site-audit
+    - seo-sitemap
+    - seo-technical-audit
+    - seo-tool-runner
+
+disciplines:
+  canonical:
+    - accessibility
+    - design
+    - development
+    - marketing
+    - seo
+    - wordpress-operations
+    - writing
+
+workflows:
+  operations:
+    - assistant
+  writing:
+    - refresh-article
+    - repurpose-content
+    - write-article
+    - write-email-newsletter
+    - write-web-copy
+  seo:
+    - seo-page-audit
+    - seo-hreflang
+    - seo-images
+    - seo-schema
+    - seo-site-audit
+    - seo-technical-audit
+    - seo-sitemap
+  vault:
+    - vault-audit
+    - vault-capture-1on1
+    - vault-dump
+    - vault-humanize
+    - vault-incident-capture
+    - vault-intake
+    - vault-kickoff
+    - vault-meeting
+    - vault-peer-scan
+    - vault-prep-1on1
+    - vault-project-archive
+    - vault-review-brief
+    - vault-review-peer
+    - vault-self-review
+    - vault-slack-scan
+    - vault-standup
+    - vault-stash-session
+    - vault-weekly
+    - vault-wrap-up
+
+roles:
+  canonical:
+    - assistant
+    - review-evidence
+    - cross-linker
+    - designer
+    - developer
+    - operator
+    - people-profiler
+    - review-prep
+    - slack-archaeologist
+    - strategist
+    - vault-librarian
+    - verifier
+    - wordpress-operator
+    - writer
+
+adapter_state:
+  claude_commands: thin_adapter_to_agents_workflows
+  claude_agents: disabled
+  codex_workflow_skills: generated_thin_adapter_to_agents_workflows
+  codex_role_skills: generated_thin_adapter_to_agents_roles
+  claude_hooks: generated_thin_adapter_to_agents_hooks
+  codex_hooks: generated_thin_adapter_to_agents_hooks
+  gemini_hooks: generated_thin_adapter_to_agents_hooks
+  claude_scripts: disabled
+  claude_skills: disabled
+
+rules:
+  - Use lowercase kebab-case for harness and .agents files controlled by this vault.
+  - Preserve exact reserved names: AGENTS.md, CLAUDE.md, GEMINI.md, SKILL.md, DESIGN.md, README.md, LICENSE, CHANGELOG.md.
+  - Runtime-specific folders are adapters, not sources of truth.
+  - Claude-native role agents are disabled unless runtime-native subagent dispatch is re-approved.
+  - Claude-local hook scripts are disabled; shared hook scripts live in .agents/hooks/scripts/.
+  - Durable agent-operating knowledge belongs in harness/.
+  - Secrets must not be stored in .agents/, harness/, root docs, or tracked manifests.

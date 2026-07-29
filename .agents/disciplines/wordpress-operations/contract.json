@@ -1,0 +1,51 @@
+{
+  "name": "wordpress-operations",
+  "version": 1,
+  "status": "draft",
+  "summary": "Canonical discipline for mutable WordPress state, MCP/REST/WP-CLI/browser operations, environment targeting, before-state capture, rollback, and rendered verification.",
+  "owner_roles": [
+    "wordpress-operator"
+  ],
+  "supporting_roles": [
+    "developer",
+    "designer",
+    "writer",
+    "verifier"
+  ],
+  "canonical_quality_gate": ".agents/disciplines/wordpress-operations/rubric.md",
+  "canonical_skill_map": ".agents/disciplines/wordpress-operations/skill-map.json",
+  "canonical_modes": ".agents/disciplines/wordpress-operations/modes.md",
+  "active_canonical_skills": [
+    "wordpress-operator",
+    "wordpress-site-operations",
+    "wp-wpcli-and-ops",
+    "wp-redirection",
+    "wp-migratedb-pro",
+    "wp-performance",
+    "novamira-wordpress-mcp-access"
+  ],
+  "source_material_roots": [
+    "/Users/bobmoore/.agents/skills",
+    "/Users/bobmoore/.codex/skills/novamira-wordpress-mcp-access"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read",
+    "external_mutation",
+    "destructive",
+    "production",
+    "secret"
+  ],
+  "blocking_rules": [
+    "Do not mutate WordPress state until the exact client, site, environment, adapter, approval class, and target object are identified.",
+    "Do not treat MCP, REST, WP-CLI, browser, or helper availability as proof of the correct target; run a safe read-only identity check first.",
+    "Do not change production administrative, destructive, broad configuration, plugin/theme lifecycle, users/roles, database, migration, or restore state without explicit approval and rollback.",
+    "Do not hide a missing code capability with brittle editor markup, direct database hacks, or duplicated content; route code gaps to Developer.",
+    "Do not claim completion from a mutation response alone; read back stored state and verify rendered or functional behavior when user-visible.",
+    "Do not store or expose secrets in .agents, harness, root docs, reports, prompts, or manifests."
+  ],
+  "verification_predicates": [
+    "node .agents/scripts/verify-disciplines.mjs"
+  ]
+}

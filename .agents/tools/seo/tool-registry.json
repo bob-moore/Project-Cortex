@@ -1,0 +1,343 @@
+{
+  "version": 1,
+  "last_reviewed": "2026-07-28",
+  "scope": "read-only neutral SEO CLI evidence collection",
+  "default_output_root": "reviews/evidence/seo/YYYY-MM-DD-<site-or-project>-<scope>/",
+  "normalization_schema": ".agents/tools/seo/evidence-schema.json",
+  "tools": [
+    {
+      "id": "siteone-crawler",
+      "status": "preferred",
+      "official_sources": [
+        "https://crawler.siteone.io/",
+        "https://github.com/janreges/siteone-crawler"
+      ],
+      "command": "siteone-crawler",
+      "install_policy": "Do not install automatically. Ask before installing or updating.",
+      "approval_class": "external_read for live URLs; read_only for local artifacts",
+      "modes": [
+        "page-audit",
+        "technical-audit",
+        "drift-monitoring",
+        "reporting"
+      ],
+      "use_when": [
+        "A broad crawl should collect technical SEO, metadata, OpenGraph, links, security, accessibility-adjacent, performance-adjacent, sitemap, and report evidence.",
+        "A site audit needs one primary crawler before specialist tools run."
+      ],
+      "avoid_when": [
+        "The user only needs a local Markdown link check.",
+        "The target is production-sensitive and crawl bounds are unclear."
+      ],
+      "suggested_command_shape": "siteone-crawler --url <url> --output-dir <evidence-dir>/raw/siteone-crawler",
+      "output_artifacts": [
+        "raw/siteone-crawler/",
+        "normalized/siteone-crawler.json"
+      ],
+      "evidence_labels": [
+        "crawl-output",
+        "observed-page",
+        "heuristic"
+      ],
+      "limits_to_preserve": [
+        "crawl scope",
+        "page limits",
+        "blocked requests",
+        "rendering mode",
+        "sitemap completeness",
+        "errors and skipped checks"
+      ],
+      "do_not_claim": [
+        "A clean crawl is not a ranking, indexing, traffic, or conversion guarantee.",
+        "Security and accessibility checks are hygiene evidence, not proof of legal or ranking compliance."
+      ]
+    },
+    {
+      "id": "unlighthouse",
+      "status": "preferred",
+      "official_sources": [
+        "https://unlighthouse.dev/",
+        "https://github.com/harlan-zw/unlighthouse"
+      ],
+      "command": "unlighthouse",
+      "install_policy": "Do not install automatically. Ask before installing or updating.",
+      "approval_class": "external_read for live URLs",
+      "modes": [
+        "technical-audit",
+        "drift-monitoring",
+        "reporting"
+      ],
+      "use_when": [
+        "A site-wide Lighthouse-style scan is needed.",
+        "Performance, accessibility, best-practice, and SEO lab checks need repeated sampling across multiple URLs."
+      ],
+      "avoid_when": [
+        "Only one URL needs Lighthouse evidence; use lighthouse directly.",
+        "Field Core Web Vitals are required; use CrUX or PageSpeed field data where available."
+      ],
+      "suggested_command_shape": "unlighthouse --site <url> --output-path <evidence-dir>/raw/unlighthouse",
+      "output_artifacts": [
+        "raw/unlighthouse/",
+        "normalized/unlighthouse.json"
+      ],
+      "evidence_labels": [
+        "crawl-output",
+        "heuristic"
+      ],
+      "limits_to_preserve": [
+        "URL discovery method",
+        "route count",
+        "sample count",
+        "Lighthouse version",
+        "device and throttling profile",
+        "failed routes"
+      ],
+      "do_not_claim": [
+        "Lighthouse lab data is not field Core Web Vitals.",
+        "A Lighthouse SEO score is not a ranking guarantee."
+      ]
+    },
+    {
+      "id": "lighthouse",
+      "status": "preferred",
+      "official_sources": [
+        "https://github.com/GoogleChrome/lighthouse",
+        "https://developer.chrome.com/docs/lighthouse/overview"
+      ],
+      "command": "lighthouse",
+      "install_policy": "Do not install automatically. Ask before installing or updating.",
+      "approval_class": "external_read for live URLs",
+      "modes": [
+        "page-audit",
+        "technical-audit",
+        "drift-monitoring"
+      ],
+      "use_when": [
+        "One URL needs detailed lab performance and Lighthouse category evidence.",
+        "A before/after check needs the same command and target repeated."
+      ],
+      "avoid_when": [
+        "A whole site needs route discovery; use unlighthouse or siteone-crawler first."
+      ],
+      "suggested_command_shape": "lighthouse <url> --output=json --output=html --output-path <evidence-dir>/raw/lighthouse/<slug> --quiet",
+      "output_artifacts": [
+        "raw/lighthouse/",
+        "normalized/lighthouse.json"
+      ],
+      "evidence_labels": [
+        "observed-page",
+        "heuristic"
+      ],
+      "limits_to_preserve": [
+        "Lighthouse version",
+        "Chrome version",
+        "device profile",
+        "throttling profile",
+        "runtime errors"
+      ],
+      "do_not_claim": [
+        "Lab performance is not field performance.",
+        "Category scores are heuristics, not direct business impact."
+      ]
+    },
+    {
+      "id": "linkinator",
+      "status": "preferred",
+      "official_sources": [
+        "https://github.com/JustinBeckwith/linkinator"
+      ],
+      "command": "linkinator",
+      "install_policy": "Do not install automatically. Ask before installing or updating.",
+      "approval_class": "external_read for live URLs; read_only for local files",
+      "modes": [
+        "page-audit",
+        "technical-audit",
+        "drift-monitoring"
+      ],
+      "use_when": [
+        "Focused broken-link validation is needed for a page, URL list, generated site, or docs tree.",
+        "A link check should be cheaper than a full SEO crawl."
+      ],
+      "avoid_when": [
+        "The question requires full crawl metadata, canonicals, headings, schema, or rendering evidence."
+      ],
+      "suggested_command_shape": "linkinator <url-or-path> --recurse --format JSON",
+      "output_artifacts": [
+        "raw/linkinator/",
+        "normalized/linkinator.json"
+      ],
+      "evidence_labels": [
+        "crawl-output",
+        "observed-page"
+      ],
+      "limits_to_preserve": [
+        "recursion setting",
+        "checked URL count",
+        "skipped URLs",
+        "timeouts",
+        "status codes"
+      ],
+      "do_not_claim": [
+        "A link check only covers the checked URLs and current response state."
+      ]
+    },
+    {
+      "id": "lychee",
+      "status": "optional",
+      "official_sources": [
+        "https://github.com/lycheeverse/lychee"
+      ],
+      "command": "lychee",
+      "install_policy": "Do not install automatically. Ask before installing or updating.",
+      "approval_class": "external_read for live URLs; read_only for local files",
+      "modes": [
+        "technical-audit",
+        "drift-monitoring"
+      ],
+      "use_when": [
+        "Repository Markdown, HTML, or source files need link validation.",
+        "CI-style link checking is more useful than a browser crawl."
+      ],
+      "avoid_when": [
+        "The page's rendered DOM changes link targets materially."
+      ],
+      "suggested_command_shape": "lychee <files-or-url-list>",
+      "output_artifacts": [
+        "raw/lychee/",
+        "normalized/lychee.json"
+      ],
+      "evidence_labels": [
+        "crawl-output",
+        "observed-page"
+      ],
+      "limits_to_preserve": [
+        "input files",
+        "excluded URLs",
+        "retry and timeout settings",
+        "accepted status codes"
+      ],
+      "do_not_claim": [
+        "Local source-link checks do not prove rendered navigation is correct."
+      ]
+    },
+    {
+      "id": "html-validate",
+      "status": "optional",
+      "official_sources": [
+        "https://html-validate.org/"
+      ],
+      "command": "html-validate",
+      "install_policy": "Do not install automatically. Ask before installing or updating.",
+      "approval_class": "read_only for local files",
+      "modes": [
+        "page-audit",
+        "technical-audit"
+      ],
+      "use_when": [
+        "Local HTML, generated pages, or template output need fast validation before deployment.",
+        "A framework project can validate build output without crawling production."
+      ],
+      "avoid_when": [
+        "Only live rendered browser behavior can reveal the issue."
+      ],
+      "suggested_command_shape": "html-validate <files-or-globs>",
+      "output_artifacts": [
+        "raw/html-validate/",
+        "normalized/html-validate.json"
+      ],
+      "evidence_labels": [
+        "observed-page"
+      ],
+      "limits_to_preserve": [
+        "input files",
+        "configuration file",
+        "rule set",
+        "parser errors"
+      ],
+      "do_not_claim": [
+        "HTML validation is not SEO ranking evidence by itself."
+      ]
+    },
+    {
+      "id": "vnu",
+      "status": "optional",
+      "official_sources": [
+        "https://validator.github.io/validator/"
+      ],
+      "command": "vnu",
+      "install_policy": "Do not install automatically. Ask before installing or updating.",
+      "approval_class": "external_read for live URLs; read_only for local files",
+      "modes": [
+        "page-audit",
+        "technical-audit"
+      ],
+      "use_when": [
+        "Full-document HTML conformance needs an independent validator.",
+        "Generated HTML should be checked before publishing or deployment."
+      ],
+      "avoid_when": [
+        "The runtime environment cannot run the validator safely or consistently."
+      ],
+      "suggested_command_shape": "vnu <files-or-urls>",
+      "output_artifacts": [
+        "raw/vnu/",
+        "normalized/vnu.json"
+      ],
+      "evidence_labels": [
+        "observed-page"
+      ],
+      "limits_to_preserve": [
+        "validator version",
+        "input URLs or files",
+        "warnings versus errors",
+        "runtime setup"
+      ],
+      "do_not_claim": [
+        "HTML conformance is not a ranking guarantee."
+      ]
+    },
+    {
+      "id": "pa11y",
+      "status": "optional",
+      "official_sources": [
+        "https://pa11y.org/",
+        "https://github.com/pa11y/pa11y"
+      ],
+      "command": "pa11y",
+      "install_policy": "Do not install automatically. Ask before installing or updating.",
+      "approval_class": "external_read for live URLs; read_only for local files served locally",
+      "modes": [
+        "page-audit",
+        "technical-audit"
+      ],
+      "use_when": [
+        "Accessibility-adjacent issues may affect page quality, usability, or crawlable content presentation.",
+        "A small set of important pages needs targeted accessibility evidence."
+      ],
+      "avoid_when": [
+        "The request needs a full accessibility compliance audit.",
+        "A legal compliance conclusion is expected."
+      ],
+      "suggested_command_shape": "pa11y <url> --reporter json",
+      "output_artifacts": [
+        "raw/pa11y/",
+        "normalized/pa11y.json"
+      ],
+      "evidence_labels": [
+        "observed-page",
+        "heuristic"
+      ],
+      "limits_to_preserve": [
+        "standard",
+        "viewport",
+        "browser setup",
+        "ignored rules",
+        "page state"
+      ],
+      "do_not_claim": [
+        "Pa11y output is not a legal accessibility compliance verdict.",
+        "Accessibility findings should not be collapsed into an SEO score without labels."
+      ]
+    }
+  ]
+}

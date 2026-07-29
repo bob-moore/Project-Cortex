@@ -1,0 +1,61 @@
+filters:
+  and:
+    - file.hasTag("client")
+    - file.ext == "md"
+    - '!file.inFolder("templates")'
+formulas:
+  hosting: 'if(file.hasTag("hosting"), "✅", "")'
+  maintenance: 'if(file.hasTag("maintenance"), "✅", "")'
+properties:
+  file.name:
+    displayName: Client
+  status:
+    displayName: Status
+  quarter:
+    displayName: Quarter
+  date:
+    displayName: Date
+  description:
+    displayName: Summary
+  formula.hosting:
+    displayName: Hosting
+  formula.maintenance:
+    displayName: Maintenance
+views:
+  - type: table
+    name: Active Clients
+    filters:
+      and:
+        - status == "active"
+    order:
+      - file.name
+      - formula.hosting
+      - formula.maintenance
+      - date
+      - description
+    sort:
+      - property: file.name
+        direction: DESC
+  - type: table
+    name: All Clients
+    groupBy:
+      property: status
+      direction: ASC
+    order:
+      - file.name
+      - status
+      - formula.hosting
+      - formula.maintenance
+      - date
+      - description
+  - type: table
+    name: Hosting & Maintenance
+    filters:
+      or:
+        - file.hasTag("hosting")
+        - file.hasTag("maintenance")
+    order:
+      - file.name
+      - formula.hosting
+      - formula.maintenance
+      - description

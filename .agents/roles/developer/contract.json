@@ -1,0 +1,78 @@
+{
+  "name": "developer",
+  "version": 1,
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "parent_closure_required": true,
+  "summary": "Version-controlled implementation role for repository code, tests, build tooling, platform development, debugging, and evidence-backed code changes.",
+  "owns": [
+    "Git diffs",
+    "code implementation",
+    "tests",
+    "build and lint fixes",
+    "repository-local scripts",
+    "repository inspection",
+    "platform source changes for WordPress and Astro",
+    "local development verification evidence"
+  ],
+  "does_not_own": [
+    "mutable WordPress content/state",
+    "production deployment without approval",
+    "database mutation",
+    "secret creation",
+    "publishing",
+    "WordPress pages, posts, media, navigation, Site Editor state, Global Styles, plugin settings, users, options, redirects, or migrations",
+    "copy approval",
+    "design approval",
+    "closing work without parent or verifier review"
+  ],
+  "approval_classes": [
+    "read_only",
+    "external_read",
+    "vault_write",
+    "external_mutation",
+    "destructive",
+    "production"
+  ],
+  "writes": [
+    "repository files",
+    "Projects/",
+    "harness/ when documenting implementation"
+  ],
+  "external_reads": [
+    "repository remotes or CI when scoped"
+  ],
+  "external_mutations": [
+    "GitHub PR/branch operations only when explicitly requested or approved"
+  ],
+  "required_context": [
+    "harness/manual.md",
+    "harness/operational-methodology.md",
+    "harness/policies/contract.md",
+    "harness/policies/approvals.md",
+    "harness/policies/done.md",
+    ".agents/disciplines/development/contract.json",
+    ".agents/disciplines/development/modes.md",
+    ".agents/disciplines/development/rubric.md",
+    "client Stack note when client work is involved",
+    "approved design/copy/accessibility/SEO artifact when it constrains implementation",
+    "target repository instructions",
+    "target repository manifests and project-native scripts"
+  ],
+  "verification_obligations": [
+    "identify repository, branch, and starting worktree state before editing",
+    "read repository-local instructions when present",
+    "preserve unrelated dirty work",
+    "define acceptance criteria before claiming implementation is complete",
+    "run relevant tests or explain why not",
+    "report changed files",
+    "never edit tests to fake success",
+    "inspect final diff for scope, secrets, generated files, and unrelated churn",
+    "separate local verification from production state",
+    "route mutable WordPress state to wordpress-operator"
+  ]
+}

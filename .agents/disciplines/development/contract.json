@@ -1,0 +1,63 @@
+{
+  "name": "development",
+  "version": 1,
+  "status": "draft",
+  "summary": "Canonical discipline for version-controlled implementation, repository inspection, tests, build and lint checks, platform development routing, code review, debugging, and evidence-backed development handoff.",
+  "owner_roles": [
+    "developer"
+  ],
+  "supporting_roles": [
+    "designer",
+    "writer",
+    "strategist",
+    "wordpress-operator",
+    "verifier"
+  ],
+  "canonical_quality_gate": ".agents/disciplines/development/rubric.md",
+  "canonical_skill_map": ".agents/disciplines/development/skill-map.json",
+  "canonical_modes": ".agents/disciplines/development/modes.md",
+  "active_canonical_skills": [
+    "developer-delivery",
+    "astro",
+    "wordpress-router",
+    "wp-project-triage",
+    "wp-block-development",
+    "wp-block-themes",
+    "wordpress-block-theming",
+    "wp-plugin-development",
+    "wp-rest-api",
+    "wp-interactivity-api",
+    "wp-abilities-api",
+    "wp-abilities-audit",
+    "wp-abilities-verify",
+    "wp-phpstan",
+    "wp-playground",
+    "wp-plugin-directory-guidelines",
+    "wpds"
+  ],
+  "source_material_roots": [
+    "stash/development",
+    "/Users/bobmoore/.agents/skills"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read",
+    "external_mutation",
+    "destructive",
+    "production",
+    "secret"
+  ],
+  "blocking_rules": [
+    "Do not edit a repository before identifying the target repo, reading its instructions when present, and checking the starting worktree.",
+    "Do not mutate live WordPress state, production systems, external systems, repository remotes, or deployment targets without the relevant approved workflow.",
+    "Do not invent implementation details that repository inspection, client Stack notes, approved design, or tests can determine.",
+    "Do not broaden scope through drive-by refactors, formatting sweeps, dependency upgrades, or cleanup unrelated to the request.",
+    "Do not claim completion from a process exit alone; acceptance criteria need evidence.",
+    "Do not edit tests to fake success or delete failing coverage unless explicitly in scope and reported.",
+    "Do not store or expose secrets in .agents, harness, root docs, reports, or manifests."
+  ],
+  "verification_predicates": [
+    "node .agents/scripts/verify-disciplines.mjs"
+  ]
+}

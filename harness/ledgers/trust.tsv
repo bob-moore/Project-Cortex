@@ -1,0 +1,15 @@
+subject	type	runs	passes	fails	tier	last_result	last_checked
+article-pipeline-skills	skill	1	1	0	watch	pass	2026-07-28T17:42:34.380Z
+codex-workflow-adapter-generation	adapter	1	1	0	watch	pass	2026-07-28T15:59:19.786Z
+copy-edit-skill	skill	1	1	0	watch	pass	2026-07-28T17:23:37.509Z
+email-social-repurpose-skills	skill	1	1	0	watch	pass	2026-07-28T17:52:26.072Z
+hook-adapter-generation	adapter	1	1	0	watch	pass	2026-07-28T16:49:15.404Z
+methodology-implementation	workflow	1	1	0	watch	pass	2026-07-28T15:54:21.220Z
+role-adapter-generation	adapter	1	1	0	watch	pass	2026-07-28T16:36:26.013Z
+role-adapter-thinning	adapter	1	1	0	watch	pass	2026-07-28T16:24:39.357Z
+role-contract-methodology	workflow	1	1	0	watch	pass	2026-07-28T16:22:25.415Z
+voice-humanize-skill	skill	1	1	0	watch	pass	2026-07-28T17:28:48.588Z
+web-copy-skill	skill	1	1	0	watch	pass	2026-07-28T17:36:00.385Z
+writing-discipline-bootstrap	workflow	1	1	0	watch	pass	2026-07-28T17:06:37.919Z
+writing-foundation-skill	skill	1	1	0	watch	pass	2026-07-28T17:19:48.889Z
+writing-workflow-batch	workflow	1	1	0	watch	pass	2026-07-28T18:01:24.844Z

@@ -1,0 +1,78 @@
+{
+  "name": "vault-kickoff",
+  "version": 1,
+  "summary": "Client work kickoff. Pulls a Monday.com + vault workload briefing, then directly dispatches the selected Strategist, Writer, Designer, Developer, or WordPress Operator and retains verification/revision ownership until the work is complete.",
+  "aliases": [
+    "/vault-kickoff",
+    "vault-kickoff"
+  ],
+  "risk_tier": "high",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read",
+    "external_mutation",
+    "destructive",
+    "production"
+  ],
+  "inputs": [
+    "client name or workload scope"
+  ],
+  "writes": [
+    "Clients/",
+    "Projects/",
+    "harness/",
+    "repositories or WordPress state when approved"
+  ],
+  "external_reads": [
+    "Monday.com",
+    "Calendar",
+    "Gmail",
+    "Slack",
+    "GitHub",
+    "WordPress"
+  ],
+  "external_mutations": [
+    "WordPress",
+    "GitHub",
+    "Calendar",
+    "Gmail",
+    "Slack",
+    "Monday.com when explicitly approved"
+  ],
+  "approval_gates": [
+    "read_only: follow harness/policies/approvals.md",
+    "vault_write: follow harness/policies/approvals.md",
+    "external_read: follow harness/policies/approvals.md",
+    "external_mutation: follow harness/policies/approvals.md",
+    "destructive: follow harness/policies/approvals.md",
+    "production: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "external evidence is labeled with source and retrieval status",
+    "touched files are listed with paths",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed",
+    "verify external evidence is labeled and scoped",
+    "parent session independently verifies returned role evidence before closure"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "assistant",
+    "strategist",
+    "writer",
+    "designer",
+    "developer",
+    "wordpress-operator"
+  ]
+}

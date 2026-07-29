@@ -1,0 +1,120 @@
+{
+  "discipline": "development",
+  "version": 1,
+  "active_canonical_skills": [
+    "developer-delivery",
+    "astro",
+    "wordpress-router",
+    "wp-project-triage",
+    "wp-block-development",
+    "wp-block-themes",
+    "wordpress-block-theming",
+    "wp-plugin-development",
+    "wp-rest-api",
+    "wp-interactivity-api",
+    "wp-abilities-api",
+    "wp-abilities-audit",
+    "wp-abilities-verify",
+    "wp-phpstan",
+    "wp-playground",
+    "wp-plugin-directory-guidelines",
+    "wpds"
+  ],
+  "priority_rebuild_candidates": [
+    {
+      "source": "/Users/bobmoore/.agents/skills/developer-delivery",
+      "target": "developer-delivery",
+      "disposition": "adapted",
+      "reason": "Core repository implementation loop for target resolution, worktree protection, implementation, tests, diff inspection, evidence, and revision."
+    },
+    {
+      "source": "/Users/bobmoore/.agents/skills/developer",
+      "target": "developer role",
+      "disposition": "adapt-role",
+      "reason": "Strong role-boundary material should update the canonical Developer role rather than becoming a duplicate skill."
+    },
+    {
+      "source": "stash/development/andrej-karpathy-skills",
+      "target": "development rubric and modes",
+      "disposition": "adapted",
+      "reason": "Assumptions, simplicity, surgical changes, and verifiable success criteria now inform the Development discipline."
+    }
+  ],
+  "platform_candidates": [
+    {
+      "platform": "astro",
+      "sources": [
+        "/Users/bobmoore/.agents/skills/astro"
+      ],
+      "target": "astro",
+      "disposition": "imported-active"
+    },
+    {
+      "platform": "wordpress-code",
+      "sources": [
+        "/Users/bobmoore/.agents/skills/wordpress-router",
+        "/Users/bobmoore/.agents/skills/wp-project-triage",
+        "/Users/bobmoore/.agents/skills/wp-block-development",
+        "/Users/bobmoore/.agents/skills/wp-block-themes",
+        "/Users/bobmoore/.agents/skills/wp-plugin-development",
+        "/Users/bobmoore/.agents/skills/wp-rest-api",
+        "/Users/bobmoore/.agents/skills/wp-interactivity-api",
+        "/Users/bobmoore/.agents/skills/wp-abilities-api",
+        "/Users/bobmoore/.agents/skills/wp-abilities-audit",
+        "/Users/bobmoore/.agents/skills/wp-abilities-verify",
+        "/Users/bobmoore/.agents/skills/wp-phpstan",
+        "/Users/bobmoore/.agents/skills/wp-playground",
+        "/Users/bobmoore/.agents/skills/wp-plugin-directory-guidelines",
+        "/Users/bobmoore/.agents/skills/wpds",
+        "/Users/bobmoore/.agents/skills/wordpress-block-theming"
+      ],
+      "target": "wordpress code development skills",
+      "disposition": "imported-active"
+    }
+  ],
+  "workflow_candidates": [
+    "implement-repository-change",
+    "debug-repository-issue",
+    "review-code",
+    "audit-codebase",
+    "upgrade-dependencies",
+    "resolve-git-conflict",
+    "wordpress-code-change",
+    "astro-code-change"
+  ],
+  "future_skill_candidates": [
+    "diagnosing-bugs",
+    "code-review",
+    "acceptance-test-builder",
+    "dependency-maintenance",
+    "git-procedures",
+    "cloudflare"
+  ],
+  "reference_or_other_discipline_candidates": [
+    "wordpress-site-operations",
+    "wordpress-operator",
+    "wp-wpcli-and-ops",
+    "wp-redirection",
+    "wp-migratedb-pro",
+    "novamira-wordpress-mcp-access",
+    "wpremote-api",
+    "wp-performance",
+    "accessibility-foundation"
+  ],
+  "not_active": [
+    "acceptance-test-builder",
+    "andrej-karpathy-skills",
+    "architecture-auditor",
+    "code-review",
+    "codebase-auditor",
+    "dependency-upgrader",
+    "developer",
+    "diagnosing-bugs",
+    "karpathy-guidelines",
+    "performance-optimizer",
+    "resolving-merge-conflicts",
+    "test-strategy-planner",
+    "test-suite-auditor",
+    "wordpress-site-operations"
+  ]
+}

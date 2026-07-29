@@ -1,0 +1,53 @@
+{
+  "name": "vault-slack-scan",
+  "version": 1,
+  "summary": "Deep scan Slack channels, DMs, and threads for a person or project and turn the evidence into vault-ready context.",
+  "aliases": [
+    "/vault-slack-scan",
+    "vault-slack-scan"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "external_read",
+    "vault_write"
+  ],
+  "inputs": [
+    "target",
+    "channels",
+    "date range"
+  ],
+  "writes": [
+    "reviews/evidence/",
+    "Notes/",
+    "Projects/"
+  ],
+  "external_reads": [
+    "Slack"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "external_read: follow harness/policies/approvals.md",
+    "vault_write: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "external evidence is labeled with source and retrieval status",
+    "touched files are listed with paths",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed",
+    "verify external evidence is labeled and scoped"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "operator"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "vault-prep-1on1",
+  "version": 1,
+  "summary": "Prep for an upcoming 1:1 — load person context, surface open items, suggest agenda based on vault state.",
+  "aliases": [
+    "/vault-prep-1on1",
+    "vault-prep-1on1"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "external_read"
+  ],
+  "inputs": [
+    "participant name",
+    "transcript or notes when capturing"
+  ],
+  "writes": [],
+  "external_reads": [
+    "Slack or calendar when explicitly scoped"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "read_only: follow harness/policies/approvals.md",
+    "external_read: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "external evidence is labeled with source and retrieval status",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed",
+    "verify external evidence is labeled and scoped"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "operator"
+  ]
+}

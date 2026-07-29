@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SEO Tool Evidence Packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "tool",
+    "run",
+    "scope",
+    "data_status",
+    "artifacts",
+    "limits",
+    "findings",
+    "verification"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "official_sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approval_class",
+        "command_intent"
+      ],
+      "properties": {
+        "approval_class": {
+          "type": "string"
+        },
+        "command_intent": {
+          "type": "string"
+        },
+        "command_redacted": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "started_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "completed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "targets"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string"
+        },
+        "client_or_project": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "market": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "date_range": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "data_status": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "partial",
+        "failed",
+        "blocked",
+        "not-run"
+      ]
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "kind"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "severity",
+          "evidence_label",
+          "summary",
+          "source_ref"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "info",
+              "low",
+              "medium",
+              "high",
+              "critical"
+            ]
+          },
+          "evidence_label": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "affected_targets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_ref": {
+            "type": "string"
+          },
+          "recommendation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

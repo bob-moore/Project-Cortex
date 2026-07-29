@@ -1,0 +1,17 @@
+{
+  "name": "seo-schema",
+  "version": 1,
+  "summary": "Detect and structurally validate JSON-LD in supplied page evidence without generating production schema.",
+  "aliases": ["/seo-schema", "seo-schema", "schema audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["HTML file or approved page URL", "client or project", "schema scope", "approved evidence output path"],
+  "writes": ["reviews/evidence/seo/", "user-approved evidence path"],
+  "external_reads": ["page URL when live"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: approve live page reads", "vault_write: approve evidence writes", "schema generation or deployment: out of scope"],
+  "done_when": ["page and schema scope are explicit", "JSON-LD scripts are parsed or failure recorded", "invalid JSON and observed types are source-referenced", "rich-result eligibility is not promised", "quality gate passed or deferred"],
+  "verification": ["input and parser limits are recorded", "raw and normalized artifacts exist", "facts are not invented", "implementation handoff is explicit"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "developer", "verifier", "wordpress-operator"]
+}

@@ -1,0 +1,46 @@
+{
+  "discipline": "accessibility",
+  "version": 1,
+  "active_canonical_skills": [
+    "accessibility-foundation"
+  ],
+  "priority_rebuild_candidates": [
+    {
+      "source": "stash/design/accessibility",
+      "target": "accessibility-foundation",
+      "disposition": "adapted",
+      "reason": "Useful WCAG 2.2 and practical web accessibility material, reduced into a shared cross-role foundation without overclaiming legal conformance."
+    },
+    {
+      "source": "stash/design/designer-delivery/references/accessibility-requirements.md",
+      "target": "accessibility-foundation",
+      "disposition": "adapted",
+      "reason": "Strong design-stage accessibility handoff requirements now inform the shared discipline."
+    },
+    {
+      "source": "stash/design/universal-design-principles/plugins/process-and-robustness-principles/skills/accessibility",
+      "target": "accessibility-foundation",
+      "disposition": "selective-extract",
+      "reason": "POUR framing and cross-role importance are useful; the full plugin tree remains source material."
+    }
+  ],
+  "future_skill_candidates": [
+    "accessibility-quality-gate",
+    "accessibility-rendered-check",
+    "accessibility-content-check"
+  ],
+  "reference_or_other_discipline_candidates": [
+    "accessibility-perceivable",
+    "accessibility-operable",
+    "accessibility-understandable",
+    "accessibility-robust"
+  ],
+  "not_active": [
+    "accessibility",
+    "accessibility-perceivable",
+    "accessibility-operable",
+    "accessibility-understandable",
+    "accessibility-robust"
+  ]
+}
+

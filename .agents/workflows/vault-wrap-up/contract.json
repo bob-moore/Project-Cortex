@@ -1,0 +1,51 @@
+{
+  "name": "vault-wrap-up",
+  "version": 1,
+  "summary": "Run an end-of-session vault review: modified files, note quality, indexes, memory updates, and workflow improvements.",
+  "aliases": [
+    "/vault-wrap-up",
+    "vault-wrap-up"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write"
+  ],
+  "inputs": [
+    "optional workflow arguments"
+  ],
+  "writes": [
+    "Home.md",
+    "harness/",
+    "Projects/",
+    "Notes/",
+    "org/",
+    "reviews/",
+    "bases/"
+  ],
+  "external_reads": [],
+  "external_mutations": [],
+  "approval_gates": [
+    "read_only: follow harness/policies/approvals.md",
+    "vault_write: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "touched files are listed with paths",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "review-evidence"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "vault-meeting",
+  "version": 1,
+  "summary": "Prep for any meeting by topic — subject-forward briefing with open tasks, blockers, and brainstormed considerations the user may not have thought of yet.",
+  "aliases": [
+    "/vault-meeting",
+    "vault-meeting"
+  ],
+  "risk_tier": "low",
+  "approval_classes": [
+    "read_only"
+  ],
+  "inputs": [
+    "meeting topic"
+  ],
+  "writes": [],
+  "external_reads": [],
+  "external_mutations": [],
+  "approval_gates": [
+    "read_only: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "operator"
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "discipline": "marketing",
+  "version": 1,
+  "active_canonical_skills": [
+    "market-research",
+    "keyword-research-and-clustering",
+    "competitor-analysis",
+    "marketing-strategy",
+    "marketing-analytics",
+    "conversion-rate-optimization",
+    "utm-builder",
+    "social-channel-operations",
+    "newsletter-channel-operations",
+    "email-deliverability",
+    "email-quality-auditor"
+  ],
+  "imported_on": "2026-07-29",
+  "priority_rebuild_candidates": [
+    {
+      "source": ".claude/skills/market-research-analysis",
+      "target": "market-research",
+      "disposition": "adapted-active",
+      "reason": "Market sizing, customer research, trend analysis, opportunity framing, and research report structure."
+    },
+    {
+      "source": ".claude/skills/keyword-research-and-clustering",
+      "target": "keyword-research-and-clustering",
+      "disposition": "adapted-active",
+      "reason": "Keyword expansion, clustering, intent mapping, funnel-stage mapping, and content opportunity prioritization."
+    },
+    {
+      "source": ".claude/skills/competitor-analysis",
+      "target": "competitor-analysis",
+      "disposition": "adapted-active",
+      "reason": "Competitor categories, honest comparison, review mining, positioning, battlecards, and comparison-page briefing."
+    },
+    {
+      "source": ".claude/skills/marketing-strategy",
+      "target": "marketing-strategy",
+      "disposition": "adapted-active",
+      "reason": "ICP, positioning, messaging hierarchy, channel strategy, growth loops, and product marketing context."
+    },
+    {
+      "source": ".claude/skills/data-and-funnel-analytics",
+      "target": "marketing-analytics",
+      "disposition": "adapted-active",
+      "reason": "Tracking plans, GA/GSC interpretation, funnel analysis, ROI, campaign measurement, and attribution limits."
+    },
+    {
+      "source": ".claude/skills/conversion-rate-optimization",
+      "target": "conversion-rate-optimization",
+      "disposition": "adapted-active",
+      "reason": "Marketing page and lead-form diagnosis, prioritized fixes, and test hypotheses."
+    },
+    {
+      "source": ".claude/skills/utm-builder",
+      "target": "utm-builder",
+      "disposition": "adapted-active",
+      "reason": "Campaign URL conventions, bulk UTM generation, and attribution documentation."
+    },
+    {
+      "source": ".claude/skills/social-media-management",
+      "target": "social-channel-operations",
+      "disposition": "adapted-active",
+      "reason": "Social channel roles, content pillars, calendars, cadence, engagement approach, graphics specs, and analytics handoff."
+    },
+    {
+      "source": ".claude/skills/newsletter-management",
+      "target": "newsletter-channel-operations",
+      "disposition": "adapted-active",
+      "reason": "Newsletter sourcing, cadence, subscriber growth, engagement metrics, archive/distribution strategy, and Writer handoff."
+    },
+    {
+      "source": ".claude/skills/email-deliverability",
+      "target": "email-deliverability",
+      "disposition": "adapted-active",
+      "reason": "Read-only sender domain health, SPF/DKIM/DMARC/MX, blacklist, and deliverability diagnosis."
+    },
+    {
+      "source": ".claude/skills/email-quality-auditor",
+      "target": "email-quality-auditor",
+      "disposition": "adapted-active",
+      "reason": "Pre-send email program QA gate for consent, suppression, claims, message match, authentication, and outcome evidence."
+    }
+  ],
+  "folded_sources": [
+    {
+      "source": ".claude/skills/growth-strategy",
+      "target": "marketing-strategy",
+      "disposition": "folded",
+      "reason": "Growth loops, PLG, network effects, and channel scaling are strategy modes unless recurrence requires a separate skill."
+    },
+    {
+      "source": ".claude/skills/free-tool-strategy",
+      "target": "marketing-strategy",
+      "disposition": "folded",
+      "reason": "Free tools and calculators are lead-generation strategy modes, not a separate active skill yet."
+    },
+    {
+      "source": ".claude/skills/youtube-research",
+      "target": "market-research",
+      "disposition": "folded",
+      "reason": "YouTube topics, competitor videos, transcripts, and channel stats are research inputs unless YouTube operations become recurring."
+    },
+    {
+      "source": ".claude/skills/content-strategy-and-planning",
+      "target": "marketing-strategy and writing",
+      "disposition": "split-reference",
+      "reason": "Strategic planning and content pillars belong to Marketing; briefs, outlines, and drafts stay in Writing; SEO optimization stays in SEO."
+    }
+  ],
+  "deferred_channel_operations": [],
+  "deferred_capacity_gaps": [
+    {
+      "source": ".claude/skills/marketing-automation",
+      "target": "marketing-automation",
+      "disposition": "deferred-indefinitely",
+      "reason": "Automation implies platform setup, lead scoring, workflows, contact/list mutation, and CRM/ESP configuration. Record as a gap until capacity and approval boundaries justify it."
+    }
+  ],
+  "not_in_scope": [
+    "paid-ads"
+  ],
+  "supporting_existing_skills": [
+    "email-newsletter",
+    "social-shortform",
+    "content-repurpose",
+    "article-brief",
+    "web-copy",
+    "claim-check",
+    "writing-quality-gate",
+    "seo-page-audit",
+    "seo-quality-gate",
+    "design-delivery",
+    "developer-delivery",
+    "wordpress-site-operations"
+  ]
+}

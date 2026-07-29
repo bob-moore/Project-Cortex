@@ -1,0 +1,51 @@
+{
+  "name": "vault-standup",
+  "version": 1,
+  "summary": "Morning kickoff. Pull Monday.com status for Bob's tasks, retrieve calendar evidence through Composio, load today's context, review yesterday, surface open tasks, and identify priorities.",
+  "aliases": [
+    "/vault-standup",
+    "vault-standup"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "external_read",
+    "vault_write"
+  ],
+  "inputs": [
+    "optional workflow arguments"
+  ],
+  "writes": [
+    "Home.md"
+  ],
+  "external_reads": [
+    "Monday.com",
+    "Calendar",
+    "Git"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "external_read: follow harness/policies/approvals.md",
+    "vault_write: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "external evidence is labeled with source and retrieval status",
+    "touched files are listed with paths",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed",
+    "verify external evidence is labeled and scoped"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "assistant"
+  ]
+}

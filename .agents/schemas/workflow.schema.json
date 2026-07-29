@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agency-vault-harness.local/schemas/workflow.schema.json",
+  "title": "Workflow Contract",
+  "type": "object",
+  "required": [
+    "name",
+    "version",
+    "summary",
+    "aliases",
+    "risk_tier",
+    "approval_classes",
+    "inputs",
+    "writes",
+    "external_reads",
+    "external_mutations",
+    "approval_gates",
+    "done_when",
+    "verification",
+    "return_contract",
+    "related_roles"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_tier": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "approval_classes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "read_only",
+          "vault_write",
+          "adapter_write",
+          "external_read",
+          "external_mutation",
+          "destructive",
+          "production",
+          "secret"
+        ]
+      },
+      "minItems": 1
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "writes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "external_reads": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "external_mutations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approval_gates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "done_when": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "return_contract": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "related_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

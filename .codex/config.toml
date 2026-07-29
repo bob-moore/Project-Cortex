@@ -1,0 +1,3 @@
+[mcp_servers.qmd]
+command = "node"
+args = [".agents/hooks/scripts/qmd-mcp.mjs"]

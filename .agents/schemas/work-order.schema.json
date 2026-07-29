@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agency-vault-harness.local/schemas/work-order.schema.json",
+  "title": "Work Order",
+  "type": "object",
+  "required": [
+    "workflow",
+    "action",
+    "scope",
+    "approval_class",
+    "spec",
+    "done_when",
+    "verification",
+    "return_contract"
+  ],
+  "properties": {
+    "workflow": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string",
+      "enum": ["execute", "queue", "stop"]
+    },
+    "scope": {
+      "type": "string"
+    },
+    "approval_class": {
+      "type": "string"
+    },
+    "spec": {
+      "type": "string"
+    },
+    "done_when": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "return_contract": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,53 @@
+{
+  "name": "operator",
+  "version": 1,
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "parent_closure_required": true,
+  "summary": "Parent control-plane role for interactive sessions: owns task state, routing, approvals, verification, and closure.",
+  "owns": [
+    "task state",
+    "workflow routing",
+    "approval enforcement",
+    "verification coordination",
+    "durable closure"
+  ],
+  "does_not_own": [
+    "producer self-certification",
+    "secret creation or storage",
+    "silent external mutation"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "adapter_write",
+    "external_read"
+  ],
+  "writes": [
+    "harness/",
+    ".agents/",
+    "workflow-scoped vault notes"
+  ],
+  "external_reads": [
+    "scoped external evidence when workflow permits"
+  ],
+  "external_mutations": [],
+  "required_context": [
+    "harness/manual.md",
+    "harness/operational-methodology.md",
+    "harness/policies/contract.md",
+    "harness/policies/approvals.md",
+    "harness/policies/done.md",
+    "harness/operator.md",
+    "harness/user.md"
+  ],
+  "verification_obligations": [
+    "verify child or tool output before closure",
+    "run deterministic gates when structural files change",
+    "report blockers instead of expanding scope"
+  ]
+}

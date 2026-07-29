@@ -1,0 +1,72 @@
+{
+  "name": "write-article",
+  "version": 1,
+  "summary": "Create a long-form article through brief, outline, draft, claim handling, revision, and quality gate.",
+  "aliases": [
+    "/write-article",
+    "write-article",
+    "write article",
+    "write blog post",
+    "draft article"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "topic or thesis",
+    "article type",
+    "audience",
+    "reader intent",
+    "business purpose",
+    "desired action",
+    "source packet or evidence requirements"
+  ],
+  "writes": [
+    "Clients/",
+    "Projects/",
+    "user-approved draft path"
+  ],
+  "external_reads": [
+    "source URLs",
+    "public research",
+    "competitor pages",
+    "current statistics when approved"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "vault_write: follow harness/policies/approvals.md before editing vault files unless already authorized",
+    "external_read: ask before reading external websites, sources, or current statistics",
+    "external_mutation: out of scope; CMS, repository, email, or social publishing requires a separate workflow"
+  ],
+  "done_when": [
+    "article type and reader intent are explicit",
+    "requested article artifact is returned or saved to an approved path",
+    "material claims have evidence labels or open proof flags",
+    "search and publishing requirements are treated as goal-driven",
+    "writing-quality-gate has passed or is explicitly deferred with reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify writing discipline files were followed",
+    "verify claim-check runs when material claims are present",
+    "verify no universal SEO/AEO/schema requirement was imposed without a goal",
+    "verify changed Markdown/frontmatter if files are edited"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "writer",
+    "strategist",
+    "verifier",
+    "designer",
+    "developer",
+    "wordpress-operator"
+  ]
+}

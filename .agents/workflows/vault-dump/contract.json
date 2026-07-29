@@ -1,0 +1,47 @@
+{
+  "name": "vault-dump",
+  "version": 1,
+  "summary": "Freeform capture mode. Dump anything — conversations, decisions, incidents, wins, thoughts — and I'll route it all to the right notes with proper templates, frontmatter, and wikilinks.",
+  "aliases": [
+    "/vault-dump",
+    "vault-dump"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "vault_write"
+  ],
+  "inputs": [
+    "freeform content in $ARGUMENTS"
+  ],
+  "writes": [
+    "Projects/",
+    "Notes/",
+    "org/",
+    "reviews/",
+    "harness/"
+  ],
+  "external_reads": [],
+  "external_mutations": [],
+  "approval_gates": [
+    "vault_write: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "touched files are listed with paths",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "operator"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "seo-technical-audit",
+  "version": 1,
+  "summary": "Run a bounded site-level technical SEO evidence audit and return quality-gated findings.",
+  "aliases": ["/seo-technical-audit", "seo-technical-audit", "technical seo audit", "technical site audit"],
+  "risk_tier": "high",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["site URL, sitemap URL, or local site artifact", "client or project", "crawl page cap", "crawl depth cap", "device/rendering scope", "target market and environment", "approved evidence output path"],
+  "writes": ["reviews/evidence/seo/", "user-approved evidence path"],
+  "external_reads": ["bounded target-site crawl", "robots.txt, sitemap, linked assets, and selected page responses"],
+  "external_mutations": [],
+  "approval_gates": [
+    "external_read: obtain approval before crawling a live site or linked assets",
+    "vault_write: obtain approval before saving evidence unless vault_write is already authorized",
+    "production and external mutation: out of scope; this workflow never changes the target site"
+  ],
+  "done_when": [
+    "site, environment, target market, crawl cap, depth cap, and approval boundary are explicit",
+    "SiteOne or an equivalent bounded crawler ran or a blocked/setup-required state is recorded",
+    "raw stdout, stderr, metadata, and normalized packets are saved for each attempted tool",
+    "crawl scope, robots and sitemap completeness, metadata/indexability exceptions, response-header evidence, blocked requests, skipped checks, and affected URL samples are visible",
+    "findings distinguish observed crawl evidence from heuristics and hypotheses",
+    "seo-quality-gate passed or was explicitly deferred with a reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify the primary crawler command includes explicit page and depth bounds",
+    "verify every executed command has captured exit status and limits",
+    "verify partial, blocked, sampled, and skipped evidence remains visible",
+    "verify no ranking, indexing, traffic, conversion, or AI-citation guarantee is claimed",
+    "verify recommendations are handed to developer, writer, WordPress, or production workflows rather than executed here",
+    "verify seo-quality-gate evaluates the interpreted findings"
+  ],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "developer", "verifier", "writer", "wordpress-operator"]
+}

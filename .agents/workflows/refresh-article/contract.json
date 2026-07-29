@@ -1,0 +1,69 @@
+{
+  "name": "refresh-article",
+  "version": 1,
+  "summary": "Audit and update an existing long-form article with preservation, claim handling, and readiness checks.",
+  "aliases": [
+    "/refresh-article",
+    "refresh-article",
+    "refresh article",
+    "update article",
+    "rewrite blog post"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "existing article path or artifact",
+    "refresh goal",
+    "client/project context",
+    "source packet or evidence requirements",
+    "target path or overwrite instruction"
+  ],
+  "writes": [
+    "Clients/",
+    "Projects/",
+    "user-approved draft or article path"
+  ],
+  "external_reads": [
+    "source URLs",
+    "public research",
+    "competitor pages",
+    "current statistics when approved"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "vault_write: follow harness/policies/approvals.md before editing vault files unless already authorized",
+    "external_read: ask before reading external websites, sources, or current statistics",
+    "external_mutation: out of scope; CMS, repository, email, or social publishing requires a separate workflow"
+  ],
+  "done_when": [
+    "existing article is inspected before rewrite",
+    "preserved and changed material are distinguished",
+    "refreshed artifact or audit is returned or saved to an approved path",
+    "material claims have evidence labels or open proof flags",
+    "writing-quality-gate has passed or is explicitly deferred with reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify article-refresh audit precedes material rewrite",
+    "verify claim-check runs when material claims are present",
+    "verify freshness metadata changes are justified",
+    "verify changed Markdown/frontmatter if files are edited"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "writer",
+    "strategist",
+    "verifier",
+    "developer",
+    "wordpress-operator"
+  ]
+}

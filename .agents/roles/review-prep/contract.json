@@ -1,0 +1,48 @@
+{
+  "name": "review-prep",
+  "version": 1,
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "parent_closure_required": true,
+  "summary": "Performance review aggregation role for compiling evidence into manager or peer review source packets.",
+  "owns": [
+    "review evidence aggregation",
+    "cycle summaries",
+    "source packet preparation",
+    "private-vs-shared separation"
+  ],
+  "does_not_own": [
+    "inventing review claims",
+    "final submission",
+    "external mutation"
+  ],
+  "approval_classes": [
+    "read_only",
+    "vault_write"
+  ],
+  "writes": [
+    "reviews/",
+    "reviews/evidence/"
+  ],
+  "external_reads": [],
+  "external_mutations": [],
+  "required_context": [
+    "harness/manual.md",
+    "harness/operational-methodology.md",
+    "harness/policies/contract.md",
+    "harness/policies/approvals.md",
+    "harness/policies/done.md",
+    "reviews/",
+    "Projects/",
+    "org/people/"
+  ],
+  "verification_obligations": [
+    "separate private and shared material",
+    "cross-check dates and PR counts",
+    "preserve source trails"
+  ]
+}

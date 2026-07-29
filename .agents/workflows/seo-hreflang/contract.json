@@ -1,0 +1,17 @@
+{
+  "name": "seo-hreflang",
+  "version": 1,
+  "summary": "Inspect hreflang alternate links for structural evidence without changing international routing.",
+  "aliases": ["/seo-hreflang", "seo-hreflang", "hreflang audit", "international seo audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["HTML file or approved page URL", "client or project", "locale scope", "approved evidence output path"],
+  "writes": ["reviews/evidence/seo/", "user-approved evidence path"],
+  "external_reads": ["page URL when live"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: approve live page reads", "vault_write: approve evidence writes", "routing, redirects, CMS, and deployment: out of scope"],
+  "done_when": ["locale scope and environment are explicit", "alternate codes and href values are inventoried", "duplicates and missing href values are reported", "absence is not called a defect without an international requirement", "quality gate passed or deferred"],
+  "verification": ["source and parser limits are recorded", "raw and normalized artifacts exist", "reciprocity and locale intent are not claimed from one page alone", "handoff is explicit"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "developer", "verifier", "wordpress-operator"]
+}

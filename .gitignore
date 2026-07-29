@@ -1,0 +1,29 @@
+.DS_Store
+
+# Imported source material for local inspection only
+stash/
+
+# Local temporary workspace
+tmp/
+
+# Runtime recovery artifacts
+harness/session-logs/*
+!harness/session-logs/README.md
+
+# Local Obsidian UI state
+.obsidian/workspace*.json
+
+# Claude local/runtime state
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+.claude/agents/
+.claude/scripts/
+.claude/worktrees/
+.claude/skills/.claude-*.manifest
+.claude/skills/**/.venv/
+.claude/skills/**/.cache/
+.claude/skills/**/ms-playwright/
+.claude/skills/**/__pycache__/
+.claude/skills/**/*.pyc
+.claude/skills/**/runtime-state.json
+.claude/skills/**/managed-runtime-receipt.json

@@ -1,0 +1,57 @@
+{
+  "name": "vault-stash-session",
+  "version": 1,
+  "summary": "Create a compact resume note for continuing paused or interrupted vault work in a later runtime session.",
+  "aliases": [
+    "/vault-stash-session",
+    "vault-stash-session",
+    "stash session",
+    "save resume context",
+    "create resume note",
+    "create memory to resume",
+    "save session memory"
+  ],
+  "risk_tier": "low",
+  "approval_classes": [
+    "read_only",
+    "vault_write"
+  ],
+  "inputs": [
+    "optional scope or topic",
+    "optional next action",
+    "optional note title"
+  ],
+  "writes": [
+    "harness/resume/",
+    "harness/memory.md"
+  ],
+  "external_reads": [],
+  "external_mutations": [],
+  "approval_gates": [
+    "read_only: follow harness/policies/approvals.md",
+    "vault_write: follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "a dated resume note is created under harness/resume/",
+    "the resume note includes objective, current state, changed files, decisions, blockers, validation, and next action",
+    "harness/memory.md points to the resume-note index or latest note",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify the resume note exists",
+    "verify the resume note contains the required sections",
+    "verify harness/memory.md links to resume notes",
+    "verify changed Markdown/frontmatter where files were edited"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "operator",
+    "vault-librarian"
+  ]
+}
