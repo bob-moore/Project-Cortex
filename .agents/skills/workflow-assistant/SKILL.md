@@ -1,6 +1,6 @@
 ---
 name: workflow-assistant
-description: "Answer a freeform operational evidence request about Bob's calendar, email, or Monday.com workload without making planning decisions. Use when the user asks to run assistant, /assistant, or this vault workflow."
+description: "Answer a freeform operational evidence request about the User's calendar, email, or Monday.com workload without making planning decisions. Use when the user asks to run assistant, /assistant, or this vault workflow."
 ---
 
 # workflow-assistant

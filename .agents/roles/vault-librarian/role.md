@@ -33,6 +33,8 @@ Vault structure and metadata role for frontmatter, indexes, folder placement, st
 ## Required Context
 
 - harness/manual.md
+- harness/operator.md
+- harness/user.md
 - harness/operational-methodology.md
 - harness/policies/contract.md
 - harness/policies/approvals.md

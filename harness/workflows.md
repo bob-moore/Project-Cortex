@@ -60,7 +60,7 @@ schemas are defined and verifiable.
 
 | Workflow | Purpose | Primary Roles | Approval Classes | Verification | Done Signal |
 | --- | --- | --- | --- | --- | --- |
-| `assistant` | Answer a freeform operational evidence request about Bob's calendar, email, or Monday.com workload without making planning decisions. | `assistant` | `read_only`, `external_read`, `external_mutation` | Source labels and retrieval time present; calendar mutations read back after approval; no vault writes. | Evidence-backed answer returned or blocker reported; no planning decision made. |
+| `assistant` | Answer a freeform operational evidence request about the User's calendar, email, or Monday.com workload without making planning decisions. | `assistant` | `read_only`, `external_read`, `external_mutation` | Source labels and retrieval time present; calendar mutations read back after approval; no vault writes. | Evidence-backed answer returned or blocker reported; no planning decision made. |
 
 ## Vault Workflows
 

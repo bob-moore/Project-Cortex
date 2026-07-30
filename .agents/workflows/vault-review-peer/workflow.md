@@ -13,7 +13,7 @@ Draft a peer review from vault evidence while preserving the required review-too
 
 - Start with `harness/manual.md`.
 - Use `harness/operator.md` for the active runtime persona.
-- Use `harness/user.md` for Bob/user context when user preferences, scope, or voice matter.
+- Use `harness/user.md` for User context when user preferences, scope, or voice matter.
 - Use QMD or local search before broad file reads when looking for prior vault context.
 
 ## Workflow

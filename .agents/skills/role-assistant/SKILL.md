@@ -1,6 +1,6 @@
 ---
 name: role-assistant
-description: "Use when the current task needs the assistant role capability contract. Read-first operational evidence role for Bob workload, Monday.com, calendar, and email status."
+description: "Use when the current task needs the assistant role capability contract. Read-first operational evidence role for the User's workload, Monday.com, calendar, and email status."
 ---
 
 # role-assistant

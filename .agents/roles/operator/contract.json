@@ -38,12 +38,12 @@
   "external_mutations": [],
   "required_context": [
     "harness/manual.md",
+    "harness/operator.md",
+    "harness/user.md",
     "harness/operational-methodology.md",
     "harness/policies/contract.md",
     "harness/policies/approvals.md",
-    "harness/policies/done.md",
-    "harness/operator.md",
-    "harness/user.md"
+    "harness/policies/done.md"
   ],
   "verification_obligations": [
     "verify child or tool output before closure",

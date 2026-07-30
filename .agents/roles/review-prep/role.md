@@ -30,6 +30,8 @@ Performance review aggregation role for compiling evidence into manager or peer 
 ## Required Context
 
 - harness/manual.md
+- harness/operator.md
+- harness/user.md
 - harness/operational-methodology.md
 - harness/policies/contract.md
 - harness/policies/approvals.md

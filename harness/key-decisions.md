@@ -16,4 +16,4 @@ Durable architecture and operating decisions for this vault.
 
 ## 2026-07-29
 
-- `Journal/` is canonical shared vault content for Bob's daily personal notes. It is not agent-operating memory, but agents may review it when Bob asks or when a task clearly needs recent personal context. See [[2026-07-29-journal-canonical-daily-notes|Journal Is Canonical Daily Note Space]].
+- `Journal/` is canonical shared vault content for the User's daily personal notes. It is not agent-operating memory, but agents may review it when the User asks or when a task clearly needs recent personal context. See [[2026-07-29-journal-canonical-daily-notes|Journal Is Canonical Daily Note Space]].

@@ -12,7 +12,7 @@ mapped to these contracts.
 ## Current Roles
 
 - `operator`: parent control-plane role for routing, approval, verification, and closure.
-- `assistant`: read-first operational evidence for Bob's workload, calendar, and email.
+- `assistant`: read-first operational evidence for the User's workload, calendar, and email.
 - `strategist`: Brand, Voice, positioning, market research, marketing strategy, analytics, CRO, and channel strategy.
 - `writer`: source-grounded drafts and edits, never publishing.
 - `designer`: visual intent and conformance, never production mutation.

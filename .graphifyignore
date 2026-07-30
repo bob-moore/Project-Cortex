@@ -1,0 +1,30 @@
+# Graphify Ignore File
+# Prevents implementation noise and runtime adapters from inflating node counts
+
+# Local Obsidian UI state & plugins
+.obsidian/
+
+# Runtime adapters
+.claude/
+.codex/
+.gemini/
+.hermes/
+
+# Temporary / Scratch workspace
+tmp/
+stash/
+harness/session-logs/
+
+# Uncomment to exclude runtime skills (278 files) to focus graph on Vault Knowledge
+.agents/skills/
+
+# Uncomment to exclude all agent machinery to generate a pure Vault Knowledge graph
+# .agents/
+
+# Also ignore typical directories
+node_modules/
+.git/
+.DS_Store
+*.log
+__pycache__
+*.pyc

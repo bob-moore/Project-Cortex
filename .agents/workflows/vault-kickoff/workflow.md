@@ -13,7 +13,7 @@ Client work kickoff. Pulls a Monday.com + vault workload briefing, then directly
 
 - Start with `harness/manual.md`.
 - Use `harness/operator.md` for the active runtime persona.
-- Use `harness/user.md` for Bob/user context when user preferences, scope, or voice matter.
+- Use `harness/user.md` for User context when user preferences, scope, or voice matter.
 - Use QMD or local search before broad file reads when looking for prior vault context.
 
 ## Harness Notes
@@ -30,7 +30,7 @@ Client work kickoff. Pulls a Monday.com + vault workload briefing, then directly
 /vault-kickoff workload
 ```
 
-Use a client name to scope to one engagement. Use `workload` (or leave blank) for a full sweep across active clients. Both remain scoped to Bob's assigned Monday items—never another person's tasks; see [[harness/patterns#Monday.com scope: Bob's tasks only, never the team's]].
+Use a client name to scope to one engagement. Use `workload` (or leave blank) for a full sweep across active clients. Both remain scoped to the User's assigned Monday items, never another person's tasks; see [[harness/patterns#Monday.com Scope|Monday.com scope]].
 
 ### Control-plane rule
 
@@ -42,7 +42,7 @@ Do not create detached queue tasks or development handoffs by default. Dispatch 
 
 #### 1. Get the briefing
 
-Invoke `assistant` with the requested scope. It reads Bob's Monday.com assignments plus `Clients/<Client>/` and matching `Projects/active/<Project Name>/<Project Name>.md` notes, and flags missing Brand/Voice/Stack prerequisites. It returns raw facts only — tasks, blockers, and prerequisites — never a recommended role; role routing is this command's own job.
+Invoke `assistant` with the requested scope. It reads the User's Monday.com assignments plus `Clients/<Client>/` and matching `Projects/active/<Project Name>/<Project Name>.md` notes, and flags missing Brand/Voice/Stack prerequisites. It returns raw facts only - tasks, blockers, and prerequisites - never a recommended role; role routing is this command's own job.
 
 If Monday.com tools are unavailable, say so and perform a vault-only sweep rather than failing.
 
@@ -135,7 +135,7 @@ When a role returns an artifact or implementation result:
 7. If resumption is unavailable, dispatch a revision with the original contract, prior result, and new failure evidence.
 8. Repeat until verified, blocked, or awaiting an explicit approval.
 
-Do not ask Bob to manually recreate context in a separate queue or Codex session. If the selected runtime cannot access the target, report the concrete access blocker and choose another available runtime/adapter from this session.
+Do not ask the User to manually recreate context in a separate queue or Codex session. If the selected runtime cannot access the target, report the concrete access blocker and choose another available runtime/adapter from this session.
 
 #### 7. Close and reconcile
 

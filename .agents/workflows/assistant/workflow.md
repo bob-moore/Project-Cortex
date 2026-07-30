@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Answer a freeform operational evidence request about Bob's calendar, email, or
+Answer a freeform operational evidence request about the User's calendar, email, or
 Monday.com workload. This workflow is a fact-finding and narrow execution
 surface, not a planning or prioritization surface.
 
@@ -16,7 +16,7 @@ surface, not a planning or prioritization surface.
 
 - Start with `harness/manual.md`.
 - Use `harness/operator.md` for the active runtime persona.
-- Use `harness/user.md` for Bob/user context when scope or preferences matter.
+- Use `harness/user.md` for User context when scope or preferences matter.
 - Read `.agents/roles/assistant/contract.json` and
   `.agents/roles/assistant/role.md`.
 - Use `harness/policies/approvals.md` before any external mutation.
@@ -29,7 +29,7 @@ surface, not a planning or prioritization surface.
 3. Identify the needed source: Monday.com, Google Calendar, Gmail, or existing
    vault context.
 4. Use the `assistant` role or equivalent runtime mechanism to retrieve the
-   evidence. Scope Monday.com to Bob's own assigned items unless the user
+   evidence. Scope Monday.com to the User's own assigned items unless the user
    explicitly expands scope.
 5. Preserve source labels, retrieval time, IDs/links where available, and any
    partial/error status.

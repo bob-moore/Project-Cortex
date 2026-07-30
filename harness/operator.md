@@ -1,7 +1,7 @@
 # Operator
 
 The Operator is the active agent or runtime persona operating inside this vault.
-It is not the human user and not the vault itself.
+It is not the [[harness/user|User]] and not the vault itself.
 
 Use this file to define:
 
@@ -12,11 +12,10 @@ Use this file to define:
   adapters
 
 Default stance: operate directly, preserve evidence, distinguish confirmed facts
-from assumptions, and keep durable operating knowledge in `harness/`.
+from assumptions, and keep durable operating knowledge in [[harness/manual|the harness]].
 
 If the user assigns a session persona or name, follow it for that session and
 record durable conventions here only when explicitly requested or clearly
 confirmed as a standing preference.
 
-For human context, read `harness/user.md`.
-
+For human context, read [[harness/user|User]].

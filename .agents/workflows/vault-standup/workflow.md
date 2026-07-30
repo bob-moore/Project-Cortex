@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Morning kickoff. Pull Monday.com status for Bob's tasks, retrieve calendar evidence through Composio, load today's context, review yesterday, surface open tasks, and identify priorities.
+Morning kickoff. Pull Monday.com status for the User's tasks, retrieve calendar evidence through Composio, load today's context, review yesterday, surface open tasks, and identify priorities.
 
 ## Invocation
 
@@ -13,20 +13,20 @@ Morning kickoff. Pull Monday.com status for Bob's tasks, retrieve calendar evide
 
 - Start with `harness/manual.md`.
 - Use `harness/operator.md` for the active runtime persona.
-- Use `harness/user.md` for Bob/user context when user preferences, scope, or voice matter.
+- Use `harness/user.md` for User context when user preferences, scope, or voice matter.
 - Use QMD or local search before broad file reads when looking for prior vault context.
 
 ## Harness Notes
 
 - Refresh `Home.md#Calendar Snapshot` instead of maintaining a second entry note.
-- Monday.com and calendar evidence remains scoped to Bob/user-owned work only unless the user explicitly expands scope.
+- Monday.com and calendar evidence remains scoped to the User's own work only unless the user explicitly expands scope.
 
 ## Workflow
 
 Run the morning standup:
 
 1. Read `Home.md` for current home state
-2. Pull current Monday.com status for Bob's own items via the `assistant` role (scoped to Bob only — see `.agents/roles/assistant/role.md`, its `assistant-ops` skill, and `harness/patterns.md#Monday.com scope: Bob's tasks only, never the team's`; as of 2026-07-25 `assistant` replaced `project-manager` — same Monday logic, now also covers calendar/email and reports facts only, no role recommendation). Monday routes through Composio's `monday_mcp` toolkit (as of 2026-07-22) — the role self-serves this directly via `Bash`. Reconcile against `Home.md`: check off `[x]` anything Monday now shows Done/Completed that's still listed open, and flag genuinely new items assigned to Bob that aren't captured yet. Update `Home.md` (task checkboxes + the "Last refreshed" line) with what changed — don't rewrite sections untouched by this pull.
+2. Pull current Monday.com status for the User's own items via the `assistant` role. Scope to the User only; see `.agents/roles/assistant/role.md`, its `assistant-ops` skill, and [[harness/patterns#Monday.com Scope|Monday.com scope]]. As of 2026-07-25, `assistant` replaced `project-manager`; the same Monday logic now also covers calendar/email and reports facts only, no role recommendation. Monday routes through Composio's `monday_mcp` toolkit as of 2026-07-22; the role self-serves this directly via `Bash`. Reconcile against `Home.md`: check off `[x]` anything Monday now shows Done/Completed that's still listed open, and flag genuinely new items assigned to the User that aren't captured yet. Update `Home.md` with task checkboxes and the "Last refreshed" line; do not rewrite sections untouched by this pull.
 3. Review `Home.md#Needs Attention` / `bases/Attention.base`: surface `needs-review`, `actionable`, `pending`, `blocked`, and `waiting` items. Reconcile reviewed or converted items by updating attention metadata in the source note, not by accumulating completed bullets on Home.
 4. Read `harness/north-star.md` for current goals
 5. Check `Projects/Index.md` for active projects

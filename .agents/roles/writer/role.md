@@ -33,13 +33,14 @@ Evidence-safe writing role for website copy, blog/article drafts, SEO refreshes,
 ## Required Context
 
 - harness/manual.md
+- harness/operator.md
+- harness/user.md
 - harness/operational-methodology.md
 - harness/policies/contract.md
 - harness/policies/approvals.md
 - harness/policies/done.md
 - Clients/<Client>/<Client> Brand.md
 - Clients/<Client>/<Client> Voice.md
-- harness/user.md
 
 ## Verification Obligations
 

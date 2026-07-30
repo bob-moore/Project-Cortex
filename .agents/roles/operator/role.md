@@ -33,12 +33,12 @@ Parent control-plane role for interactive sessions: owns task state, routing, ap
 ## Required Context
 
 - harness/manual.md
+- harness/operator.md
+- harness/user.md
 - harness/operational-methodology.md
 - harness/policies/contract.md
 - harness/policies/approvals.md
 - harness/policies/done.md
-- harness/operator.md
-- harness/user.md
 
 ## Verification Obligations
 

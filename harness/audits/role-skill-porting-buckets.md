@@ -105,15 +105,22 @@ State:
 - Remaining development work is specialty expansion: debugging, code review,
   dependency, git, Cloudflare, release/deployment surfaces, and workflow
   adapters around the imported platform skills.
+- Developer expansion should also explore a documentation-curation loop for
+  fast-moving external APIs: use Context7, official docs, changelogs, and
+  package manifests during explicit skill/source refresh work, then promote only
+  durable guidance into Developer skills and source maps. Track this in
+  `harness/roadmaps/developer-role-expansion.md`.
 
 Recommended next slice:
 
 1. Inventory remaining general development specialists: debugging, code review,
    acceptance tests, dependencies, git, Cloudflare, performance remediation,
    and release/deployment.
-2. Build WordPress/Astro workflow adapters only after a recurring task shape is
+2. Prototype a documentation source map for one fast-moving Developer skill and
+   define the shape of a future `skill-doc-refresh` workflow.
+3. Build WordPress/Astro workflow adapters only after a recurring task shape is
    clear.
-3. Keep WordPress operation/MCP work routed through the `wordpress-operations`
+4. Keep WordPress operation/MCP work routed through the `wordpress-operations`
    discipline.
 
 ## General Marketing Bucket
@@ -201,6 +208,7 @@ Decision:
 ## Related
 
 - [[harness/skills|Skills]]
+- [[harness/roadmaps/developer-role-expansion|Developer Role Expansion]]
 - [[harness/roadmaps/seo|SEO Roadmap]]
 - [[harness/audits/development-skill-import-plan|Development Skill Import Plan]]
 - [[harness/audits/wordpress-operations-mcp-import-plan|WordPress Operations And MCP Import Plan]]

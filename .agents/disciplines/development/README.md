@@ -64,3 +64,13 @@ Start in the real repository. Read repository instructions and manifests before
 editing. Preserve unrelated dirty work. Make surgical changes. Define
 acceptance criteria. Verify with project-native checks. Report failures, skipped
 checks, and approval-gated next actions plainly.
+
+## Expansion Roadmap
+
+The Developer role is still being expanded beyond the core delivery loop. Track
+remaining specialist surfaces and the proposed documentation-curation model in
+`harness/roadmaps/developer-role-expansion.md`.
+
+The documentation-curation model treats tools such as Context7 as refresh-time
+evidence sources for skill/source-map maintenance, not as startup context or an
+always-on dependency for every coding task.

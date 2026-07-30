@@ -52,6 +52,8 @@ diagnosis, and channel strategy.
 ## Required Context
 
 - harness/manual.md
+- harness/operator.md
+- harness/user.md
 - harness/operational-methodology.md
 - harness/policies/contract.md
 - harness/policies/approvals.md
@@ -62,7 +64,6 @@ diagnosis, and channel strategy.
 - Clients/<Client>/<Client> Brand.md
 - Clients/<Client>/<Client> Voice.md
 - Clients/<Client>/<Client> Stack.md when site, analytics, CRM, email, social,
-  automation, or implementation context matters
 
 ## Verification Obligations
 

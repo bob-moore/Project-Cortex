@@ -13,7 +13,7 @@ Deep scan a peer's GitHub PRs for review preparation and save structured evidenc
 
 - Start with `harness/manual.md`.
 - Use `harness/operator.md` for the active runtime persona.
-- Use `harness/user.md` for Bob/user context when user preferences, scope, or voice matter.
+- Use `harness/user.md` for User context when user preferences, scope, or voice matter.
 - Use QMD or local search before broad file reads when looking for prior vault context.
 
 ## Workflow
@@ -65,7 +65,7 @@ Example: `/vault-peer-scan "Jane Doe" jdoe example-repo "Jan 2025 - Jun 2025"`
 
 ### Important
 
-- Be thorough — this feeds into review drafts when Bob asks for them
+- Be thorough — this feeds into review drafts when the User asks for them
 - Note PRs that were reverted or closed (quality signal)
 - Look for patterns in reviewer feedback (recurring issues = growth area)
 - Identify cross-team PRs (collaboration evidence)

@@ -30,6 +30,8 @@ Link quality role for wikilinks, backlinks, orphan detection, and related-note s
 ## Required Context
 
 - harness/manual.md
+- harness/operator.md
+- harness/user.md
 - harness/operational-methodology.md
 - harness/policies/contract.md
 - harness/policies/approvals.md

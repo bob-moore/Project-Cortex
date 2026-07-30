@@ -1,7 +1,7 @@
 {
   "name": "assistant",
   "version": 1,
-  "summary": "Answer a freeform operational evidence request about Bob's calendar, email, or Monday.com workload without making planning decisions.",
+  "summary": "Answer a freeform operational evidence request about the User's calendar, email, or Monday.com workload without making planning decisions.",
   "aliases": [
     "/assistant",
     "assistant",
@@ -32,7 +32,7 @@
     "external_read: label the tool/source and scope before reporting evidence",
     "external_mutation: ask for explicit approval before creating or changing a calendar event",
     "external_mutation: never treat approval for one calendar event as standing authorization",
-    "planning: if the request asks what Bob should do, what to prioritize, or how to sequence work, stop and return out-of-scope"
+    "planning: if the request asks what the User should do, what to prioritize, or how to sequence work, stop and return out-of-scope"
   ],
   "done_when": [
     "the question is answered from labeled source evidence or a clear blocker is reported",

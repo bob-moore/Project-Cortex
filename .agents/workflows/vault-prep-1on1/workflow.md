@@ -13,7 +13,7 @@ Prep for an upcoming 1:1 — load person context, surface open items, suggest ag
 
 - Start with `harness/manual.md`.
 - Use `harness/operator.md` for the active runtime persona.
-- Use `harness/user.md` for Bob/user context when user preferences, scope, or voice matter.
+- Use `harness/user.md` for User context when user preferences, scope, or voice matter.
 - Use QMD or local search before broad file reads when looking for prior vault context.
 
 ## Workflow

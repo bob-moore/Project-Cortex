@@ -19,7 +19,7 @@ context in durable harness memory."
 
 - Start with `harness/manual.md`.
 - Use `harness/operator.md` for the active runtime persona.
-- Use `harness/user.md` for Bob/user context when user preferences, scope, or
+- Use `harness/user.md` for User context when user preferences, scope, or
   voice matter.
 - Check `git status --short` before writing the note so dirty/untracked files
   are not accidentally hidden.

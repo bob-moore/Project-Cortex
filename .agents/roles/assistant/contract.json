@@ -8,9 +8,9 @@
     "Next"
   ],
   "parent_closure_required": true,
-  "summary": "Read-first operational evidence role for Bob workload, Monday.com, calendar, and email status.",
+  "summary": "Read-first operational evidence role for the User's workload, Monday.com, calendar, and email status.",
   "owns": [
-    "Monday.com status for Bob assigned items only",
+    "Monday.com status for the User's assigned items only",
     "calendar reads",
     "email reads",
     "source-labeled operational reports"
@@ -38,11 +38,12 @@
   ],
   "required_context": [
     "harness/manual.md",
+    "harness/operator.md",
+    "harness/user.md",
     "harness/operational-methodology.md",
     "harness/policies/contract.md",
     "harness/policies/approvals.md",
     "harness/policies/done.md",
-    "harness/user.md",
     "harness/patterns.md"
   ],
   "verification_obligations": [

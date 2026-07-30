@@ -1,5 +1,5 @@
 ---
-description: Read-first operational evidence role for Bob workload, Monday.com, calendar, and email status.
+description: Read-first operational evidence role for the User's workload, Monday.com, calendar, and email status.
 tags:
   - harness
   - role
@@ -7,11 +7,11 @@ tags:
 
 # assistant
 
-Read-first operational evidence role for Bob workload, Monday.com, calendar, and email status.
+Read-first operational evidence role for the User's workload, Monday.com, calendar, and email status.
 
 ## Owns
 
-- Monday.com status for Bob assigned items only
+- Monday.com status for the User's assigned items only
 - calendar reads
 - email reads
 - source-labeled operational reports
@@ -33,11 +33,12 @@ Read-first operational evidence role for Bob workload, Monday.com, calendar, and
 ## Required Context
 
 - harness/manual.md
+- harness/operator.md
+- harness/user.md
 - harness/operational-methodology.md
 - harness/policies/contract.md
 - harness/policies/approvals.md
 - harness/policies/done.md
-- harness/user.md
 - harness/patterns.md
 
 ## Verification Obligations

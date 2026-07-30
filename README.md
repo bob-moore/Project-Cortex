@@ -2,9 +2,9 @@
 
 # Project Cortex
 
-Project Cortex is Bob's private agentic operating vault for agency work,
-personal operating context, clients, projects, daily notes, and runtime-neutral
-agent workflows.
+Project Cortex is an agentic operating vault for agency work, personal
+operating context, clients, projects, daily notes, and runtime-neutral agent
+workflows. This checkout is Bob's working instance of the framework.
 
 Use this README as the quick user manual. For implementation details, see
 [[ARCHITECTURE]] and [[harness/manual]].

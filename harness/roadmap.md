@@ -12,6 +12,31 @@ not part of the current operating contract.
 
 ## Deferred Architecture
 
+### Runtime Hygiene: QMD, Startup Context, And Adapter Portability
+
+Status: planned
+
+Track the cross-runtime cleanup in `harness/roadmaps/runtime-hygiene.md`.
+
+The immediate goals are to move QMD's writable SQLite store to a vault-local
+ignored path, remove startup file-listing waste, make Codex/Claude/Gemini hook
+protocols explicit, and add a recurring runtime hygiene check for storage,
+startup size, adapter protocol, retrieval, generated artifacts, and secret
+hygiene.
+
+### Developer Role Expansion And Documentation Curation
+
+Status: planned
+
+Track the unfinished Developer role expansion in
+`harness/roadmaps/developer-role-expansion.md`.
+
+The key addition is a curated documentation freshness loop for Developer skills:
+use Context7, official docs, changelogs, and package manifests during explicit
+skill/source refresh work, then promote only durable, verified guidance into the
+skill stack. Context7 should be explored as a curation aid, not as startup
+context or an always-on dependency for every coding task.
+
 ### SEO Discipline And Tool Suite
 
 Status: planned

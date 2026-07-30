@@ -1,6 +1,6 @@
 ---
 name: workflow-vault-standup
-description: "Morning kickoff. Pull Monday.com status for Bob's tasks, retrieve calendar evidence through Composio, load today's context, review yesterday, surface open tasks, and identify priorities. Use when the user asks to run vault-standup, /vault-standup, or this vault workflow."
+description: "Morning kickoff. Pull Monday.com status for the User's tasks, retrieve calendar evidence through Composio, load today's context, review yesterday, surface open tasks, and identify priorities. Use when the user asks to run vault-standup, /vault-standup, or this vault workflow."
 ---
 
 # workflow-vault-standup

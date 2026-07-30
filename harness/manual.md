@@ -24,6 +24,11 @@ Keep these concepts separate:
   Load `harness/operator.md`.
 - The User is the human directing the work. Load `harness/user.md`.
 
+Every agent entrypoint should receive or load both files. Runtime hooks may
+inject short excerpts at startup; workflows, roles, and skills should still
+treat the files as required context when user preferences, scope, voice, or
+approval boundaries matter.
+
 The working project name is not the agent identity. Use the runtime identity,
 active role, or explicit persona defined for the current session.
 
@@ -98,7 +103,7 @@ Current state:
   project skills.
 - `harness/` is the writable operating knowledge layer.
 - `Journal/` is the canonical daily personal-note layer. Agents may review it
-  when Bob asks or when a task explicitly needs recent personal context.
+  when the User asks or when a task explicitly needs recent personal context.
 
 Do not infer canonical ownership from whichever runtime folder currently has
 the most complete implementation.
@@ -193,7 +198,7 @@ composio execute "<TOOL>" -d '<json>'
 
 Connected or expected toolkits include:
 
-- Monday.com: Bob's assigned items only, never the team's.
+- Monday.com: the User's assigned items only, never the team's.
 - Google Calendar: use lightweight reads first; mutation requires explicit
   approval for the specific event.
 - Gmail: lightweight reads first, hydrate selectively.
@@ -225,7 +230,7 @@ Current command set:
 
 | Command | Purpose |
 |---|---|
-| `/assistant` | Answer a freeform operational evidence request about Bob's calendar, email, or Monday.com workload. |
+| `/assistant` | Answer a freeform operational evidence request about the User's calendar, email, or Monday.com workload. |
 | `/vault-standup` | Morning kickoff: workload, calendar/context, active work, and priorities. |
 | `/vault-dump` | Freeform capture routed to the right notes. |
 | `/vault-wrap-up` | Full session review, verification, indexes, links, and improvements. |
@@ -260,7 +265,7 @@ subject to revision as the vault structure is refined.
 | `Prospects/` | Presale engagements not yet signed. | `<Prospect>.md`, discovery calls, needs analysis, raw transcripts |
 | `Projects/` | Bounded active/archive work. | `Index.md`, `active/`, `archive/YYYY/` |
 | `Notes/` | Standalone notes, meetings, 1:1s, incidents, research. | `Index.md` |
-| `Journal/` | Bob's personal daily notes. Agents may review entries occasionally when requested or clearly relevant. | `README.md`, `YYYY-MM-DD.md` |
+| `Journal/` | The User's personal daily notes. Agents may review entries occasionally when requested or clearly relevant. | `README.md`, `YYYY-MM-DD.md` |
 | `inbox/` | General capture landing zone. | Raw inputs awaiting routing |
 | `bases/` | Obsidian Bases views. | Clients, templates, people, incidents, review evidence |
 | `reviews/` | Optional review evidence, self-review drafts, peer-review packets, competencies, and review cycles. | `Index.md`, `cycles/`, `competencies/`, `evidence/` |
@@ -587,7 +592,7 @@ If the decision is agent-operating knowledge, also summarize it in
 
 When significant work is completed, do not automatically add it to `reviews/`.
 Normal work belongs in project, client, notes, or harness records. Add review
-evidence only when Bob asks for review/career material or approves capturing a
+evidence only when the User asks for review/career material or approves capturing a
 specific item as candidate evidence.
 
 ## North Star
@@ -706,7 +711,7 @@ canonical role contract before dispatch.
 
 Current role contracts:
 
-- assistant: Bob's workload/calendar/email reporting layer, with approval-gated
+- assistant: the User's workload/calendar/email reporting layer, with approval-gated
   calendar mutation.
 - operator: parent control-plane role for routing, approval, verification, and
   closure.

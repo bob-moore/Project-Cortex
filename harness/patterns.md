@@ -8,9 +8,15 @@ Reusable operating patterns for agents working inside this vault.
 - Keep `harness/` for writable agent-operating knowledge.
 - Keep human- and agent-facing work outside `harness/`.
 
+## Monday.com Scope
+
+Monday.com reads default to the User's assigned work only, never the team's.
+Expand that scope only when the User explicitly asks for broader team or board
+coverage.
+
 ## Home Attention Surface
 
-`Home.md` is the single entry surface for what Bob should know, decide, review,
+`Home.md` is the single entry surface for what the User should know, decide, review,
 or pick up next. It should not become a permanent completed-task log.
 
 Use `bases/Attention.base` to surface source notes with attention metadata.
@@ -22,7 +28,7 @@ Attention fields:
   `waiting`, `reviewed`, `dismissed`, or `converted`.
 - `attention_type`: short category such as `review`, `decision`, `task`,
   `follow-up`, `blocked`, or `handoff`.
-- `attention_owner`: usually `Bob`, or the external owner when Bob is waiting.
+- `attention_owner`: usually `User`, or the external owner when the User is waiting.
 - `attention_date`: date the item started needing attention.
 - `attention_priority`: `high`, `normal`, or `low`.
 - `next_action`: one sentence describing the smallest useful next move.
@@ -34,13 +40,13 @@ Reconciliation rules:
 - Do not infer `status: completed` for work notes from an empty checklist. A
   project or work note becomes completed only from explicit user instruction or
   source-labeled completion evidence.
-- Use `needs-review` for artifacts Bob must inspect, such as saved audit
+- Use `needs-review` for artifacts the User must inspect, such as saved audit
   evidence.
-- Use `actionable` only when nothing else has to happen before Bob or an agent
+- Use `actionable` only when nothing else has to happen before the User or an agent
   can pick it up.
 - Use `pending`, `blocked`, or `waiting` for items that must stay visible but
   are not pickup-able now.
-- When Bob reviews an item, change `attention_status` to `reviewed`,
+- When the User reviews an item, change `attention_status` to `reviewed`,
   `dismissed`, or `converted`. Converted means the item became a real project,
   client, issue, or external-system task and is tracked there.
 - Weekly standup or wrap-up should clear stale Home attention items by updating
@@ -58,7 +64,7 @@ Todo classification:
   approval is required first, and the task is concrete enough to execute.
 - `#intake`: source-gathering, comment refresh, or task-splitting work that must
   happen before implementation can be dispatched.
-- `#review`: an artifact or decision needs Bob's review before it becomes work
+- `#review`: an artifact or decision needs the User's review before it becomes work
   or is dismissed.
 - `#triage`: an item is known but not yet classified into implementation,
   intake, review, pending, waiting, blocked, or done.
@@ -85,7 +91,7 @@ Home query rules:
 - Monday-sourced tasks should preserve the plain-language source date and add
   Tasks emoji date metadata such as `📅 2026-07-29` when a real due date exists,
   so Tasks can sort and filter them.
-- Do not tag a vague Monday item `#actionable` merely because Bob is assigned.
+- Do not tag a vague Monday item `#actionable` merely because the User is assigned.
   If the next step is "pull comments/docs and split this," tag it `#intake`;
   when that intake is complete, check off the intake task and create or tag the
   concrete remaining tasks as `#actionable`, `#pending`, `#waiting`, or

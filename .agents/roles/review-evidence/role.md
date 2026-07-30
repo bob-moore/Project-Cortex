@@ -31,13 +31,14 @@ Review evidence role for identifying candidate review evidence, outcomes, compet
 ## Required Context
 
 - harness/manual.md
+- harness/operator.md
+- harness/user.md
 - harness/operational-methodology.md
 - harness/policies/contract.md
 - harness/policies/approvals.md
 - harness/policies/done.md
 - reviews/
 - Projects/
-- harness/user.md
 
 ## Verification Obligations
 

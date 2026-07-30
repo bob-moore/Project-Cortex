@@ -13,7 +13,7 @@ Weekly synthesis — cross-session review of vault activity, North Star alignmen
 
 - Start with `harness/manual.md`.
 - Use `harness/operator.md` for the active runtime persona.
-- Use `harness/user.md` for Bob/user context when user preferences, scope, or voice matter.
+- Use `harness/user.md` for User context when user preferences, scope, or voice matter.
 - Use QMD or local search before broad file reads when looking for prior vault context.
 
 ## Workflow
@@ -55,7 +55,7 @@ Look across the week's notes for:
 
 #### 4. Candidate Review Evidence
 
-If Bob asks for review material, run the `review-evidence` role with weekly
+If the User asks for review material, run the `review-evidence` role with weekly
 scope and filter its findings down to items that clearly occurred in the past 7
 days. Otherwise skip this section.
 
