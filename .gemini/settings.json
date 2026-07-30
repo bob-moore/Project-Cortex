@@ -68,7 +68,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/bobmoore/.local/bin/graphify hook-guard gemini"
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${GEMINI_PROJECT_DIR:-.}/.agents/hooks/scripts/graphify-hook-guard-gemini.ts\"",
+            "timeout": 5000
           }
         ]
       }

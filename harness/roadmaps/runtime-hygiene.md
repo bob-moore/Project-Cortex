@@ -124,7 +124,7 @@ Use on demand:
 
 ### Phase 1: Establish Vault-Local QMD Store Convention
 
-Status: implemented
+Status: verified across Claude, Codex, Gemini, and Hermes
 
 1. Add a shared helper that derives the QMD SQLite path from the vault root and
    `vault-manifest.json`:
@@ -173,7 +173,13 @@ Current implementation status:
 
 ### Phase 2: Fix Codex Hook Protocol Compatibility
 
-Status: planned
+Status: implemented, pending Codex runtime verification
+
+Known failures:
+
+- Codex reports `PreToolUse hook (failed)` with exit code 127 in this harness.
+- Codex Stop hook output should be protocol-safe and not rely on the
+  human-readable checklist stdout used by Claude/Gemini.
 
 1. Confirm Codex's Stop hook output contract.
 
@@ -193,6 +199,21 @@ Status: planned
    - silent by default;
    - visible under `HOOK_DEBUG=1`;
    - optionally write ignored diagnostic logs under `tmp/hook-logs/`.
+
+Current implementation status:
+
+- Added `.agents/hooks/scripts/codex-stop.ts` as a silent Codex Stop hook that
+  still triggers the debounced QMD refresh.
+- Replaced Codex's direct `/Users/.../graphify hook-check` PreToolUse command
+  with `.agents/hooks/scripts/graphify-hook-check.ts`, which exits 0 silently
+  when graphify is unavailable and otherwise preserves graphify's result.
+- Replaced Gemini's direct graphify hook command with
+  `.agents/hooks/scripts/graphify-hook-guard-gemini.ts`.
+- Registered these hooks in `.agents/hooks/events.json` and regenerated
+  `.codex/hooks.json` and `.gemini/settings.json`.
+- Tightened `.agents/scripts/verify-hooks.mjs` so generated runtime configs may
+  not contain user-local absolute paths, direct graphify hook commands, or
+  unexpected non-generated hook commands.
 
 ### Phase 3: Shrink SessionStart Context
 

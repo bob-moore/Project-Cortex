@@ -21,6 +21,7 @@ only in runtime-private locations such as `~/.claude/`.
 
 ## Latest Resume Notes
 
+- [[harness/resume/2026-07-30-runtime-hygiene-phase-1-verification|2026-07-30 Runtime Hygiene Phase 1 Verification]]
 - [[harness/resume/2026-07-29-first-version-push|2026-07-29 Project Cortex first version push]]
 - [[harness/resume/2026-07-29-seo-skill-stash|2026-07-29 SEO Skill Stash]]
 - [[harness/resume/2026-07-28-seo-phase-3|2026-07-28 SEO Phase 3 implementation and live audit]]

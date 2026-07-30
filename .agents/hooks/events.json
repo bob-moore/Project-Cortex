@@ -96,11 +96,40 @@
         "claude": {
           "event": "Stop"
         },
-        "codex": {
-          "event": "Stop"
-        },
         "gemini": {
           "event": "SessionEnd"
+        }
+      }
+    },
+    {
+      "id": "codex-stop",
+      "script": "codex-stop.ts",
+      "timeout_seconds": 5,
+      "runtimes": {
+        "codex": {
+          "event": "Stop"
+        }
+      }
+    },
+    {
+      "id": "graphify-hook-check",
+      "script": "graphify-hook-check.ts",
+      "timeout_seconds": 5,
+      "runtimes": {
+        "codex": {
+          "event": "PreToolUse",
+          "matcher": "Bash"
+        }
+      }
+    },
+    {
+      "id": "graphify-hook-guard-gemini",
+      "script": "graphify-hook-guard-gemini.ts",
+      "timeout_seconds": 5,
+      "runtimes": {
+        "gemini": {
+          "event": "BeforeTool",
+          "matcher": "read_file|list_directory"
         }
       }
     }

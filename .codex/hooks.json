@@ -45,7 +45,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CODEX_PROJECT_DIR:-.}/.agents/hooks/scripts/stop-checklist.ts\"",
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CODEX_PROJECT_DIR:-.}/.agents/hooks/scripts/codex-stop.ts\"",
             "timeout": 5
           }
         ]
@@ -57,7 +57,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/bobmoore/.local/bin/graphify hook-check"
+            "command": "node --disable-warning=ExperimentalWarning --experimental-strip-types \"${CODEX_PROJECT_DIR:-.}/.agents/hooks/scripts/graphify-hook-check.ts\"",
+            "timeout": 5
           }
         ]
       }

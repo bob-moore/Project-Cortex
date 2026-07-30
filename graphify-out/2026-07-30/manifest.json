@@ -150,8 +150,8 @@
     "semantic_hash": ""
   },
   ".agents/hooks/scripts/lib/qmd.ts": {
-    "mtime": 1785257115.9269547,
-    "ast_hash": "3fdbc4f80377d4938139ca6fdcfbfe9f",
+    "mtime": 1785423225.9596324,
+    "ast_hash": "1ee0f30883ed5510144c16cc905f2b22",
     "semantic_hash": ""
   },
   ".agents/hooks/scripts/lib/read-field.ts": {
@@ -185,18 +185,18 @@
     "semantic_hash": ""
   },
   ".agents/hooks/scripts/qmd-mcp.d.mts": {
-    "mtime": 1785256792.1650128,
-    "ast_hash": "a07acd4d7ccdc548ab77bb7107cf245b",
+    "mtime": 1785422964.9880254,
+    "ast_hash": "330049caf7aa9c910179ae39892df18b",
     "semantic_hash": ""
   },
   ".agents/hooks/scripts/qmd-mcp.mjs": {
-    "mtime": 1785256961.25185,
-    "ast_hash": "ccc97ddb4edea7ffa1424067b7c8eee3",
+    "mtime": 1785423233.6271052,
+    "ast_hash": "04dd84d3d06ba618b1ae42a09afd7daa",
     "semantic_hash": ""
   },
   ".agents/hooks/scripts/qmd-refresh-run.ts": {
-    "mtime": 1785256961.0835912,
-    "ast_hash": "027a89748a9348ef6916f86caf2d2398",
+    "mtime": 1785422934.0651028,
+    "ast_hash": "d3f5aa13f77a4c3481abfea55783ca96",
     "semantic_hash": ""
   },
   ".agents/hooks/scripts/qmd-refresh.ts": {
@@ -205,8 +205,8 @@
     "semantic_hash": ""
   },
   ".agents/hooks/scripts/session-start.ts": {
-    "mtime": 1785264938.821,
-    "ast_hash": "a720ebe4d838519b81f600774ed732df",
+    "mtime": 1785422925.8508215,
+    "ast_hash": "5cd34d2249a94b81a87d9ec670bb9a63",
     "semantic_hash": ""
   },
   ".agents/hooks/scripts/stop-checklist.ts": {
@@ -330,8 +330,8 @@
     "semantic_hash": ""
   },
   ".agents/scripts/gate.mjs": {
-    "mtime": 1785258292.1761925,
-    "ast_hash": "86bbaade95e9a43bf847af85564c2430",
+    "mtime": 1785423052.5430117,
+    "ast_hash": "3373cba64b20ef8247a2e994c3b5f2a8",
     "semantic_hash": ""
   },
   ".agents/scripts/log-dispatch.mjs": {
@@ -640,8 +640,8 @@
     "semantic_hash": ""
   },
   "scripts/qmd-bootstrap.ts": {
-    "mtime": 1785266757.1878307,
-    "ast_hash": "7d805819b06ec19ae32b001bc0d12056",
+    "mtime": 1785423015.892228,
+    "ast_hash": "3da57a655ee04d3732a95521fce8a86d",
     "semantic_hash": ""
   },
   "vault-manifest.json": {
@@ -925,8 +925,8 @@
     "semantic_hash": ""
   },
   ".agents/scripts/README.md": {
-    "mtime": 1785271877.2591345,
-    "ast_hash": "f64405a44fc1c9fccc9246f283a1b07d",
+    "mtime": 1785423061.9911249,
+    "ast_hash": "1a465e62f091a10678f70cbe02c33948",
     "semantic_hash": ""
   },
   ".agents/tools/README.md": {
@@ -1915,8 +1915,8 @@
     "semantic_hash": ""
   },
   "harness/roadmaps/runtime-hygiene.md": {
-    "mtime": 1785378282.9804635,
-    "ast_hash": "b65639b7fe289eeda5fa30ffa322a96f",
+    "mtime": 1785423292.8019457,
+    "ast_hash": "3d6c095caea02438df541d5c63871071",
     "semantic_hash": ""
   },
   "harness/roadmaps/seo.md": {
@@ -2242,6 +2242,11 @@
   "assets/readme-cover.png": {
     "mtime": 1785358124.380914,
     "ast_hash": "85b8776615fc1fe1bfe48427ed4dcc33",
+    "semantic_hash": ""
+  },
+  ".agents/scripts/verify-qmd-runtime.mjs": {
+    "mtime": 1785423045.8663237,
+    "ast_hash": "66ae1b83d195fdddf25a4b361d8374bb",
     "semantic_hash": ""
   }
 }

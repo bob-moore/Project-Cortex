@@ -68,6 +68,10 @@ if (events) {
     const configText = fs.readFileSync(runtimeDef.config, 'utf8');
     if (configText.includes('.claude/scripts/')) fail(runtimeDef.config, 'must not point at .claude/scripts');
     if (configText.includes('.claude/skills/')) fail(runtimeDef.config, 'must not point at .claude/skills');
+    if (configText.includes('/Users/')) fail(runtimeDef.config, 'must not point directly at user-local absolute paths');
+    if (/graphify\s+hook-(check|guard)/.test(configText)) fail(runtimeDef.config, 'graphify hooks must route through canonical wrapper scripts');
+
+    const expectedCommands = new Set();
 
     for (const hook of events.hooks || []) {
       const runtimeSpec = hook.runtimes?.[runtime];
@@ -85,12 +89,24 @@ if (events) {
       }
 
       const command = expectedCommand(runtime, events.script_root, hook.script);
+      expectedCommands.add(command);
       const found = Array.isArray(entry.hooks) && entry.hooks.some((item) =>
         item.type === 'command' &&
         item.command === command &&
         item.timeout === timeoutFor(runtime, hook.timeout_seconds)
       );
       if (!found) fail(runtimeDef.config, `missing generated command for hook ${hook.id}`);
+    }
+
+    for (const [eventName, entries] of Object.entries(config.hooks || {})) {
+      if (!Array.isArray(entries)) continue;
+      for (const entry of entries) {
+        for (const hook of entry.hooks || []) {
+          if (hook.type === 'command' && !expectedCommands.has(hook.command)) {
+            fail(runtimeDef.config, `unexpected non-generated hook command for ${eventName}: ${hook.command}`);
+          }
+        }
+      }
     }
   }
 }
