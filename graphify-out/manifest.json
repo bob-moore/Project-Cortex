@@ -205,8 +205,8 @@
     "semantic_hash": ""
   },
   ".agents/hooks/scripts/session-start.ts": {
-    "mtime": 1785422925.8508215,
-    "ast_hash": "5cd34d2249a94b81a87d9ec670bb9a63",
+    "mtime": 1785425990.7069569,
+    "ast_hash": "06cc966d8b59c77749d7a14de6a80620",
     "semantic_hash": ""
   },
   ".agents/hooks/scripts/stop-checklist.ts": {
@@ -330,8 +330,8 @@
     "semantic_hash": ""
   },
   ".agents/scripts/gate.mjs": {
-    "mtime": 1785423052.5430117,
-    "ast_hash": "3373cba64b20ef8247a2e994c3b5f2a8",
+    "mtime": 1785426018.8877842,
+    "ast_hash": "002e16270fe480d0112d1a8a61721a6c",
     "semantic_hash": ""
   },
   ".agents/scripts/log-dispatch.mjs": {
@@ -925,8 +925,8 @@
     "semantic_hash": ""
   },
   ".agents/scripts/README.md": {
-    "mtime": 1785423061.9911249,
-    "ast_hash": "1a465e62f091a10678f70cbe02c33948",
+    "mtime": 1785426026.6810403,
+    "ast_hash": "e6cb2b765b827b1ccc92697f481fd5c5",
     "semantic_hash": ""
   },
   ".agents/tools/README.md": {
@@ -1915,8 +1915,8 @@
     "semantic_hash": ""
   },
   "harness/roadmaps/runtime-hygiene.md": {
-    "mtime": 1785424697.1388526,
-    "ast_hash": "e5900e34a09b913b132a31ea9ed9d32d",
+    "mtime": 1785426034.8485246,
+    "ast_hash": "51f5f547de4bb6b16045ff97f4b02eef",
     "semantic_hash": ""
   },
   "harness/roadmaps/seo.md": {
@@ -2267,6 +2267,11 @@
   "harness/resume/2026-07-30-runtime-hygiene-phase-1-verification.md": {
     "mtime": 1785424642.731354,
     "ast_hash": "6ead58e56fd13b3737e3995b3bf88ca6",
+    "semantic_hash": ""
+  },
+  ".agents/scripts/verify-startup-context.mjs": {
+    "mtime": 1785426012.9812708,
+    "ast_hash": "41699b20e576a114bfd68a174b0ef505",
     "semantic_hash": ""
   }
 }

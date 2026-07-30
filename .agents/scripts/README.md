@@ -13,6 +13,8 @@ Generators, validators, and drift checks for the `.agents/` layer live here.
   Codex, and Gemini hook configs.
 - `verify-qmd-runtime.mjs`: validates vault-local QMD SQLite path derivation and
   `INDEX_PATH` override preservation for TS hooks and the MCP wrapper.
+- `verify-startup-context.mjs`: validates SessionStart output size budget and
+  rejects recursive file listings or generated/plugin bulk paths.
 - `verify-vault.mjs`: validates basic vault structure assumptions.
 - `gate.mjs`: deterministic gate that runs the required checks before a done claim.
 - `verify-goals.mjs`: runs standing goal predicates and appends goal-ledger results.

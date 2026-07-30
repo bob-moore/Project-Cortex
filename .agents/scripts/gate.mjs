@@ -10,6 +10,7 @@ const checks = [
   ['runtime adapters', ['node', '.agents/scripts/verify-adapters.mjs']],
   ['runtime hooks', ['node', '.agents/scripts/verify-hooks.mjs']],
   ['qmd runtime hygiene', ['node', '.agents/scripts/verify-qmd-runtime.mjs']],
+  ['startup context hygiene', ['node', '.agents/scripts/verify-startup-context.mjs']],
   ['vault structure', ['node', '.agents/scripts/verify-vault.mjs']]
 ];
 

@@ -246,6 +246,7 @@
   "244": "Gemini Adapter",
   "245": "North Star",
   "246": "Notes",
+  "247": "People & Context",
   "248": "Google Drive Client Folders",
   "249": "package.json",
   "250": "Hooks",
@@ -338,5 +339,9 @@
   "337": "workflow-contracts.md",
   "338": "writing-discipline.md",
   "339": "README.md",
-  "340": "qmd-mcp.d.mts"
+  "340": "qmd-mcp.d.mts",
+  "341": "graphify-hook-check.ts",
+  "342": "graphify-hook-guard-gemini.ts",
+  "343": "Runtime Hygiene Phase 1 Verification",
+  "344": "Prospects"
 }

@@ -217,7 +217,7 @@ Current implementation status:
 
 ### Phase 3: Shrink SessionStart Context
 
-Status: planned
+Status: implemented, pending runtime verification
 
 1. Remove the `### Vault File Listing` section from SessionStart output.
 
@@ -249,6 +249,18 @@ Status: planned
    - `.obsidian/plugins/`
    - `node_modules/`
    - full `Clients/`, `Projects/`, or generated reports unless requested.
+
+Current implementation status:
+
+- Removed the `### Vault File Listing` section from SessionStart output.
+- Added a compact `### Retrieval Map` section that routes agents to
+  `harness/manual.md`, QMD, graphify, and direct source-file reads.
+- Reduced recent changes, open tasks, and active work caps.
+- Added `.agents/scripts/verify-startup-context.mjs` and wired it into
+  `.agents/scripts/gate.mjs`.
+- The startup verifier fails on recursive file-listing sections, generated or
+  plugin bulk paths, output over 8,000 characters, output over 2,000 words, or
+  output over 250 lines.
 
 ### Phase 4: Tighten Graphify and Search Scope
 

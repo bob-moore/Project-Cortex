@@ -1,16 +1,16 @@
 # Graph Report - ProjectCortex  (2026-07-30)
 
 ## Corpus Check
-- 436 files · ~386,178 words
+- 437 files · ~386,461 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3097 nodes · 3123 edges · 345 communities (263 shown, 82 thin omitted)
+- 3104 nodes · 3126 edges · 346 communities (264 shown, 82 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.57)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ad49a747`
+- Built from commit: `a6cb81e0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -358,6 +358,7 @@
 - [[_COMMUNITY_graphify-hook-guard-gemini.ts|graphify-hook-guard-gemini.ts]]
 - [[_COMMUNITY_Runtime Hygiene Phase 1 Verification|Runtime Hygiene Phase 1 Verification]]
 - [[_COMMUNITY_Prospects|Prospects]]
+- [[_COMMUNITY_risk_tier|risk_tier]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Agent OS R&D` - 32 edges
@@ -386,7 +387,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (345 total, 82 thin omitted)
+## Communities (346 total, 82 thin omitted)
 
 ### Community 0 - "Developer Role Expansion Roadmap"
 Cohesion: 0.04
@@ -406,7 +407,7 @@ Nodes (44): Agency Skill Library, Agent Guidelines, Archiving a Project vs. a Cl
 
 ### Community 4 - "session-start.ts"
 Cohesion: 0.11
-Nodes (35): collectOpenTasks(), extractFrontmatterField(), findFrontmatterEnd(), formatActiveWork(), formatBrainIndex(), formatDateHeader(), formatRecentChanges(), hasBrainContent() (+27 more)
+Nodes (32): collectOpenTasks(), extractFrontmatterField(), findFrontmatterEnd(), formatActiveWork(), formatBrainIndex(), formatDateHeader(), formatRecentChanges(), hasBrainContent() (+24 more)
 
 ### Community 5 - "Educated Mortgage — Brand"
 Cohesion: 0.06
@@ -481,8 +482,8 @@ Cohesion: 0.09
 Nodes (22): 1. Get the briefing, 2. Present and select work, 3. Resolve prerequisites and construct the task contract, 4. Route by source of truth, 5. Dispatch with dependency order, 6. Verify and revise, 7. Close and reconcile, Approval Gates (+14 more)
 
 ### Community 23 - "qmd-refresh.ts"
-Cohesion: 0.14
-Nodes (20): debug(), isMainModule(), buildQmdCommand(), composeWorkerInvocations(), isDebounced(), QmdInvocation, readSentinelMtime(), shouldRefreshForPath() (+12 more)
+Cohesion: 0.10
+Nodes (28): debug(), buildQmdCommand(), findPackageRoot(), composeWorkerInvocations(), isDebounced(), QmdInvocation, readSentinelMtime(), resolveVaultRoot() (+20 more)
 
 ### Community 24 - "Vault Intake"
 Cohesion: 0.09
@@ -497,8 +498,8 @@ Cohesion: 0.09
 Nodes (21): Astro, Canonical Development Shape, Development Modes, Development Skill Import Plan, Global General Development Skills, Global Platform Development Skills, Global WordPress Operation Skills, Implementation Status (+13 more)
 
 ### Community 27 - "memory.md"
-Cohesion: 0.09
-Nodes (16): Current Gotchas, Gotchas, 2026-07-15, 2026-07-28, 2026-07-29, Key Decisions, Latest Resume Notes, Memory (+8 more)
+Cohesion: 0.12
+Nodes (12): Current Gotchas, Gotchas, Latest Resume Notes, Memory, Topics, Operator, Current Patterns, Home Attention Surface (+4 more)
 
 ### Community 28 - "Vault Project Archive"
 Cohesion: 0.10
@@ -545,8 +546,8 @@ Cohesion: 0.11
 Nodes (17): 10. Design & Content Handoff Needs, 11. Workflow & Output Preferences, 1. Project Context, 2. Target Audience, 3. Positioning & Personality, 4. Vocabulary & Terminology, 5. SEO Requirements, 6. Content Goals & Channels (+9 more)
 
 ### Community 39 - "qmd-refresh-run.ts"
-Cohesion: 0.16
-Nodes (12): findPackageRoot(), resolveVaultRoot(), require, resolveQmdEntry(), resolveQmdEntryViaPath(), parseQmdIndex(), invocations, MANIFEST_PATH (+4 more)
+Cohesion: 0.25
+Nodes (6): chars, failures, forbidden, required, result, root
 
 ### Community 40 - "Vault Meeting"
 Cohesion: 0.12
@@ -758,7 +759,7 @@ Nodes (6): Decisions, Harness Patterns, Reference, Related, Systems And APIs, We
 
 ### Community 92 - "properties"
 Cohesion: 0.20
-Nodes (10): pattern, type, properties, name, risk_tier, summary, enum, type (+2 more)
+Nodes (10): pattern, type, properties, name, summary, version, minLength, type (+2 more)
 
 ### Community 93 - "trust-ledger.mjs"
 Cohesion: 0.22
@@ -889,8 +890,8 @@ Cohesion: 0.22
 Nodes (8): Architecture, Extension Rules, Hooks, Operating Model, Runtime Adapter Rule, Search, Source Layers, Validation
 
 ### Community 125 - "Home.md"
-Cohesion: 0.31
-Nodes (3): Future, Journal, Related
+Cohesion: 0.19
+Nodes (6): Current Focus, Deferred, North Star, Future, Journal, Related
 
 ### Community 126 - "2026-07-29 Context Cleanup And Development Next"
 Cohesion: 0.22
@@ -1054,7 +1055,7 @@ Nodes (6): additionalProperties, $id, required, $schema, title, type
 
 ### Community 167 - "properties"
 Cohesion: 0.29
-Nodes (7): pattern, type, properties, name, version, minimum, type
+Nodes (7): const, type, properties, parent_closure_required, version, minimum, type
 
 ### Community 168 - "workflow.schema.json"
 Cohesion: 0.29
@@ -1357,8 +1358,8 @@ Cohesion: 0.50
 Nodes (3): Current Adapter State, Gemini Adapter, graphify
 
 ### Community 245 - "North Star"
-Cohesion: 0.50
-Nodes (3): Current Focus, Deferred, North Star
+Cohesion: 0.38
+Nodes (4): isMainModule(), HookInput, listBackups(), pruneBackups()
 
 ### Community 246 - "Notes"
 Cohesion: 0.50
@@ -1389,8 +1390,8 @@ Cohesion: 0.67
 Nodes (3): items, type, external_reads
 
 ### Community 255 - "parent_closure_required"
-Cohesion: 0.67
-Nodes (3): const, type, parent_closure_required
+Cohesion: 0.40
+Nodes (4): 2026-07-15, 2026-07-28, 2026-07-29, Key Decisions
 
 ### Community 256 - "summary"
 Cohesion: 0.67
@@ -1418,7 +1419,7 @@ Nodes (3): related_roles, items, type
 
 ### Community 262 - "version"
 Cohesion: 0.67
-Nodes (3): version, minimum, type
+Nodes (3): pattern, type, name
 
 ### Community 263 - "writes"
 Cohesion: 0.67
@@ -1432,8 +1433,12 @@ Nodes (4): Follow-up, Outcome, Runtime Hygiene Phase 1 Verification, Verified Cr
 Cohesion: 0.50
 Nodes (3): Active Prospects, Prospects, Related
 
+### Community 345 - "risk_tier"
+Cohesion: 0.67
+Nodes (3): risk_tier, enum, type
+
 ## Knowledge Gaps
-- **2084 isolated node(s):** `root`, `workflowsRoot`, `commandsRoot`, `workflowNames`, `root` (+2079 more)
+- **2089 isolated node(s):** `root`, `workflowsRoot`, `commandsRoot`, `workflowNames`, `root` (+2084 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **82 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1441,11 +1446,11 @@ Nodes (3): Active Prospects, Prospects, Related
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Harness Manual` connect `Harness Manual` to `Home.md`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **Why does `Cloudways API` connect `Cloudways API` to `Index.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **Why does `People & Context` connect `People & Context` to `People`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **What connects `root`, `workflowsRoot`, `commandsRoot` to the rest of the system?**
-  _2086 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2091 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Developer Role Expansion Roadmap` be split into smaller, more focused modules?**
   _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
 - **Should `Agent OS R&D` be split into smaller, more focused modules?**

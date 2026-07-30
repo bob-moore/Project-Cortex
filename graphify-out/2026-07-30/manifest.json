@@ -90,8 +90,8 @@
     "semantic_hash": ""
   },
   ".agents/hooks/events.json": {
-    "mtime": 1785257028.9328132,
-    "ast_hash": "2c1b70ce6ae432295394373b57dee3d6",
+    "mtime": 1785424614.2410777,
+    "ast_hash": "d19a4ca6964274a27b07c5142d13dbe0",
     "semantic_hash": ""
   },
   ".agents/hooks/scripts/charcount.ts": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   ".agents/scripts/verify-hooks.mjs": {
-    "mtime": 1785257029.2688801,
-    "ast_hash": "8c3697c96d1950a30137c9f81a6085b4",
+    "mtime": 1785424626.5871089,
+    "ast_hash": "dafce950526a01896e04db182378a6f4",
     "semantic_hash": ""
   },
   ".agents/scripts/verify-roles.mjs": {
@@ -1815,8 +1815,8 @@
     "semantic_hash": ""
   },
   "harness/memory.md": {
-    "mtime": 1785358789.7688751,
-    "ast_hash": "5570b05824f5d18436a90dcf04b4ba96",
+    "mtime": 1785424649.0419219,
+    "ast_hash": "0d28623d99f2c3733537f1e7e2b0f737",
     "semantic_hash": ""
   },
   "harness/north-star.md": {
@@ -1915,8 +1915,8 @@
     "semantic_hash": ""
   },
   "harness/roadmaps/runtime-hygiene.md": {
-    "mtime": 1785423292.8019457,
-    "ast_hash": "3d6c095caea02438df541d5c63871071",
+    "mtime": 1785424697.1388526,
+    "ast_hash": "e5900e34a09b913b132a31ea9ed9d32d",
     "semantic_hash": ""
   },
   "harness/roadmaps/seo.md": {
@@ -2247,6 +2247,26 @@
   ".agents/scripts/verify-qmd-runtime.mjs": {
     "mtime": 1785423045.8663237,
     "ast_hash": "66ae1b83d195fdddf25a4b361d8374bb",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/scripts/codex-stop.ts": {
+    "mtime": 1785424565.4827278,
+    "ast_hash": "49ad2ad9af464236d8dd6a0fb64f5368",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/scripts/graphify-hook-check.ts": {
+    "mtime": 1785424588.4994385,
+    "ast_hash": "28bb20e77f0116a92cc86a004fb6d624",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/scripts/graphify-hook-guard-gemini.ts": {
+    "mtime": 1785424601.9166224,
+    "ast_hash": "f61937ef3828c0797fe64e7c080c44ad",
+    "semantic_hash": ""
+  },
+  "harness/resume/2026-07-30-runtime-hygiene-phase-1-verification.md": {
+    "mtime": 1785424642.731354,
+    "ast_hash": "6ead58e56fd13b3737e3995b3bf88ca6",
     "semantic_hash": ""
   }
 }

@@ -2,10 +2,10 @@
 /**
  * SessionStart hook — inject vault context into the agent's first turn.
  *
- * Emits a markdown block on stdout with: date header, operator/user context,
- * north-star excerpt, harness topic index, recent git changes
- * (last 48h), open tasks aggregated from Projects/active/ project folders and the vault
- * root, active work listing, and a full vault markdown file listing.
+ * Emits a compact markdown block on stdout with: date header, operator/user
+ * context, north-star excerpt, harness topic index, recent git changes
+ * (last 48h), open tasks aggregated from Projects/active/ project folders and
+ * the vault root, active work listing, and retrieval routing guidance.
  *
  * Also persists VAULT_PATH to CLAUDE_ENV_FILE when Claude Code provides it.
  */
@@ -24,7 +24,6 @@ import {
 	formatDateHeader,
 	formatActiveWork,
 	formatRecentChanges,
-	isSkippedPath,
 	extractFrontmatterField,
 	formatBrainIndex,
 	stripFrontmatter,
@@ -166,7 +165,7 @@ function recentChanges(): string {
 		"--no-merges",
 	]);
 	if (r.kind !== "ok") return "(no git history)";
-	return formatRecentChanges(r.stdout, 15);
+	return formatRecentChanges(r.stdout, 5);
 }
 
 function readMarkdownSource(
@@ -273,7 +272,7 @@ function openTasks(): string {
 			(name) => isInfraFilename(name, infraRootFilenames),
 		),
 	];
-	return collectOpenTasks(sources, 10);
+	return collectOpenTasks(sources, 8);
 }
 
 function harnessIndex(): string {
@@ -323,38 +322,17 @@ function activeWork(): string {
 			}
 		})
 		.sort();
-	return formatActiveWork(names, 10);
+	return formatActiveWork(names, 8);
 }
 
-const SKIP_PREFIXES: readonly string[] = [
-	".git",
-	".obsidian",
-	"assets",
-	".claude",
-	".codex",
-	".gemini",
-	".hermes",
-	".agents/hooks/scripts/tests",
-];
-
-function listMd(): string[] {
-	const results: string[] = [];
-	function walk(dir: string): void {
-		let entries: Dirent[];
-		try {
-			entries = readdirSync(dir, { withFileTypes: true });
-		} catch {
-			return;
-		}
-		for (const e of entries) {
-			const full = dir === "." ? e.name : join(dir, e.name);
-			if (isSkippedPath(full, SKIP_PREFIXES)) continue;
-			if (e.isDirectory()) walk(full);
-			else if (e.isFile() && isMarkdownFilename(e.name)) results.push(`./${full}`);
-		}
-	}
-	walk(".");
-	return results.sort();
+function retrievalMap(): string {
+	return [
+		"- Read `harness/manual.md` for operating rules.",
+		"- Use QMD for vault text recall.",
+		"- Use graphify for code/concept relationships.",
+		"- Use search_files/read_file for source-of-truth checks.",
+		"- Do not preload full vault, graphify, generated, plugin, or client/project trees unless the task asks for them.",
+	].join("\n");
 }
 
 const sections = [
@@ -384,8 +362,8 @@ const sections = [
 	"### Active Work",
 	activeWork(),
 	"",
-	"### Vault File Listing",
-	listMd().join("\n"),
+	"### Retrieval Map",
+	retrievalMap(),
 ];
 
 process.stdout.write(sections.join("\n") + "\n");
