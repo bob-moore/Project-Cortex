@@ -27,11 +27,10 @@
  */
 
 import { spawn, spawnSync } from "node:child_process";
-import { existsSync, readFileSync, realpathSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, realpathSync } from "node:fs";
 import { delimiter, dirname, isAbsolute, join, resolve } from "node:path";
 import { createRequire } from "node:module";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { homedir } from "node:os";
 
 const require = createRequire(import.meta.url);
 
@@ -204,15 +203,29 @@ export function readQmdIndex(manifestJson) {
 }
 
 /**
- * Compute the SQLite store path qmd would use for a given named index, using
- * the same rule as @tobilu/qmd's store.js (XDG_CACHE_HOME || ~/.cache +
- * qmd/<indexName>.sqlite). Exported so tests can lock the platform-neutral
- * behavior — qmd uses this same logic on Linux, macOS, and Windows with no
- * per-platform branch.
+ * Derive this vault's writable QMD SQLite store path from the vault root and
+ * validated qmd_index. Keeping the database under ignored `tmp/qmd/` avoids
+ * Codex/other runtime sandbox failures against global user cache locations and
+ * keeps same-named indexes isolated per vault.
  */
-export function resolveIndexSqlitePath(indexName, env, home) {
-	const base = env["XDG_CACHE_HOME"] ?? join(home, ".cache");
-	return join(base, "qmd", `${indexName}.sqlite`);
+export function resolveVaultLocalQmdSqlitePath(vaultRoot, indexName) {
+	return join(vaultRoot, "tmp", "qmd", `${indexName}.sqlite`);
+}
+
+/**
+ * Build the environment for a QMD process. If the caller or user already set
+ * INDEX_PATH, preserve it exactly. Otherwise, when a named index is available,
+ * create `tmp/qmd/` and point QMD at the vault-local SQLite file.
+ */
+export function qmdEnvForVaultIndex(env, indexName, vaultRoot) {
+	if (env["INDEX_PATH"] || indexName === null) return env;
+	const indexPath = resolveVaultLocalQmdSqlitePath(vaultRoot, indexName);
+	try {
+		mkdirSync(dirname(indexPath), { recursive: true });
+	} catch {
+		/* qmd will report the real storage failure; do not fall back to ~/.cache */
+	}
+	return { ...env, INDEX_PATH: indexPath };
 }
 
 /**
@@ -249,11 +262,11 @@ function runAsMcp() {
 	if (qmdIndex && !process.env["INDEX_PATH"]) {
 		// Apply the qmd 2.1.0 MCP bug workaround: pin the SQLite store to the
 		// named index. Don't clobber a user-supplied INDEX_PATH.
-		process.env["INDEX_PATH"] = resolveIndexSqlitePath(
-			qmdIndex,
+		process.env["INDEX_PATH"] = qmdEnvForVaultIndex(
 			process.env,
-			homedir(),
-		);
+			qmdIndex,
+			VAULT_ROOT,
+		)["INDEX_PATH"];
 	}
 
 	const entry = resolveQmdEntry();

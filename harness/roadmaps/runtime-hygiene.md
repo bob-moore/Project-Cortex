@@ -124,7 +124,7 @@ Use on demand:
 
 ### Phase 1: Establish Vault-Local QMD Store Convention
 
-Status: planned
+Status: implemented
 
 1. Add a shared helper that derives the QMD SQLite path from the vault root and
    `vault-manifest.json`:
@@ -159,6 +159,17 @@ Status: planned
    - existing `INDEX_PATH` override preservation;
    - MCP launcher env behavior;
    - refresh worker env behavior.
+
+Current implementation status:
+
+- Added shared TS QMD environment helpers in `.agents/hooks/scripts/lib/qmd.ts`.
+- Added matching MCP wrapper helpers in `.agents/hooks/scripts/qmd-mcp.mjs`.
+- SessionStart, QMD refresh worker, MCP launch, and `scripts/qmd-bootstrap.ts`
+  now preserve explicit `INDEX_PATH` and otherwise use
+  `<VAULT_ROOT>/tmp/qmd/<qmd_index>.sqlite`.
+- Added `.agents/scripts/verify-qmd-runtime.mjs` to lock path derivation,
+  parent directory creation, and override preservation for the TS and MCP
+  surfaces.
 
 ### Phase 2: Fix Codex Hook Protocol Compatibility
 

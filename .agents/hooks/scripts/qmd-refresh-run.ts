@@ -36,7 +36,7 @@ import { dirname, resolve as resolvePath } from "node:path";
 import { fileURLToPath } from "node:url";
 import { debug } from "./lib/hook-io.ts";
 import { parseQmdIndex } from "./lib/session-start.ts";
-import { resolveQmdEntry } from "./lib/qmd.ts";
+import { qmdEnvForVaultIndex, resolveQmdEntry } from "./lib/qmd.ts";
 import {
 	composeWorkerInvocations,
 	resolveVaultRoot,
@@ -56,6 +56,7 @@ function readManifestRaw(): string | null {
 
 const qmdIndex = parseQmdIndex(readManifestRaw());
 const invocations = composeWorkerInvocations(qmdIndex, resolveQmdEntry());
+const qmdEnv = qmdEnvForVaultIndex(process.env, qmdIndex, VAULT_ROOT);
 
 for (const inv of invocations) {
 	const result = spawnSync(inv.cmd, inv.args as string[], {
@@ -64,6 +65,7 @@ for (const inv of invocations) {
 		shell: inv.shell,
 		windowsHide: true,
 		cwd: VAULT_ROOT,
+		env: qmdEnv,
 	});
 	if (result.error) {
 		debug(`qmd-refresh-run: ${inv.args.join(" ")} — ${result.error.message}`);

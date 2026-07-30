@@ -1,16 +1,16 @@
 # Graph Report - ProjectCortex  (2026-07-30)
 
 ## Corpus Check
-- 432 files · ~385,282 words
+- 431 files · ~384,619 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3077 nodes · 3103 edges · 340 communities (260 shown, 80 thin omitted)
+- 3065 nodes · 3079 edges · 341 communities (261 shown, 80 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.57)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a9cab7d8`
+- Built from commit: `ce306e2d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -261,6 +261,7 @@
 - [[_COMMUNITY_Gemini Adapter|Gemini Adapter]]
 - [[_COMMUNITY_North Star|North Star]]
 - [[_COMMUNITY_Notes|Notes]]
+- [[_COMMUNITY_Prospects|Prospects]]
 - [[_COMMUNITY_Google Drive Client Folders|Google Drive Client Folders]]
 - [[_COMMUNITY_package.json|package.json]]
 - [[_COMMUNITY_Hooks|Hooks]]
@@ -359,9 +360,9 @@
 2. `Harness Manual` - 26 edges
 3. `Core Design Review Principles` - 20 edges
 4. `Page: Privacy Policy (`/privacy`)` - 18 edges
-5. `main()` - 17 edges
-6. `Educated Mortgage — Down Payment Assistance Design Specification` - 16 edges
-7. `compilerOptions` - 15 edges
+5. `Educated Mortgage — Down Payment Assistance Design Specification` - 16 edges
+6. `compilerOptions` - 15 edges
+7. `main()` - 15 edges
 8. `R&V Cleaning Solutions — Homepage Copy` - 15 edges
 9. `Development Skill Import Plan` - 15 edges
 10. `Workflow` - 14 edges
@@ -371,17 +372,17 @@
   scripts/qmd-bootstrap.ts → .agents/hooks/scripts/lib/qmd-bootstrap.ts
 - `main()` --calls--> `resolveQmdEntry()`  [EXTRACTED]
   scripts/qmd-bootstrap.ts → .agents/hooks/scripts/lib/qmd.ts
-- `main()` --calls--> `resolveVaultLocalQmdSqlitePath()`  [EXTRACTED]
+- `spawnQmd()` --calls--> `buildQmdCommand()`  [EXTRACTED]
   scripts/qmd-bootstrap.ts → .agents/hooks/scripts/lib/qmd.ts
-- `main()` --calls--> `qmdEnvForVaultIndex()`  [EXTRACTED]
-  scripts/qmd-bootstrap.ts → .agents/hooks/scripts/lib/qmd.ts
-- `main()` --calls--> `isValidQmdIndex()`  [EXTRACTED]
-  scripts/qmd-bootstrap.ts → .agents/hooks/scripts/lib/session-start.ts
+- `main()` --calls--> `warn()`  [EXTRACTED]
+  scripts/qmd-bootstrap.ts → .agents/hooks/scripts/lib/hook-io.ts
+- `main()` --calls--> `buildCollectionAddArgs()`  [EXTRACTED]
+  scripts/qmd-bootstrap.ts → .agents/hooks/scripts/lib/qmd-bootstrap.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (340 total, 80 thin omitted)
+## Communities (341 total, 80 thin omitted)
 
 ### Community 0 - "Developer Role Expansion Roadmap"
 Cohesion: 0.04
@@ -400,8 +401,8 @@ Cohesion: 0.05
 Nodes (44): Agency Skill Library, Agent Guidelines, Archiving a Project vs. a Client, Canonical Layers, Client Layout, Client Structure, Converting a Prospect, Creating Notes (+36 more)
 
 ### Community 4 - "session-start.ts"
-Cohesion: 0.10
-Nodes (37): collectOpenTasks(), extractFrontmatterField(), findFrontmatterEnd(), formatActiveWork(), formatBrainIndex(), formatDateHeader(), formatRecentChanges(), hasBrainContent() (+29 more)
+Cohesion: 0.11
+Nodes (35): collectOpenTasks(), extractFrontmatterField(), findFrontmatterEnd(), formatActiveWork(), formatBrainIndex(), formatDateHeader(), formatRecentChanges(), hasBrainContent() (+27 more)
 
 ### Community 5 - "Educated Mortgage — Brand"
 Cohesion: 0.06
@@ -437,7 +438,7 @@ Nodes (27): Affordance, Alignment, Attribution, Color, Consistency, Constraints,
 
 ### Community 13 - "hook-io.ts"
 Cohesion: 0.10
-Nodes (21): HookInput, input, signals, ROOT_FILES, shouldSkipFile(), SKIP_PATH_SEGMENTS, validateContent(), validateFile() (+13 more)
+Nodes (22): HookInput, input, signals, ROOT_FILES, shouldSkipFile(), SKIP_PATH_SEGMENTS, validateContent(), validateFile() (+14 more)
 
 ### Community 14 - "gap-check.py"
 Cohesion: 0.17
@@ -465,7 +466,7 @@ Nodes (21): 1. Project Context, 2. Target Audience, 3. Brand Voice & Tone, 4. Vo
 
 ### Community 20 - "qmd-bootstrap.ts"
 Cohesion: 0.20
-Nodes (20): warn(), buildCollectionAddArgs(), isContextRemoveBenign(), makeCollectionAddBenignMatcher(), buildQmdCommand(), IGNORE_BLOCK_RE, qmdConfigPath(), readObsidianIgnore() (+12 more)
+Nodes (20): warn(), buildCollectionAddArgs(), isContextRemoveBenign(), makeCollectionAddBenignMatcher(), IGNORE_BLOCK_RE, qmdConfigPath(), readObsidianIgnore(), translateToGlob() (+12 more)
 
 ### Community 21 - "verification-result.schema.json"
 Cohesion: 0.09
@@ -476,8 +477,8 @@ Cohesion: 0.09
 Nodes (22): 1. Get the briefing, 2. Present and select work, 3. Resolve prerequisites and construct the task contract, 4. Route by source of truth, 5. Dispatch with dependency order, 6. Verify and revise, 7. Close and reconcile, Approval Gates (+14 more)
 
 ### Community 23 - "qmd-refresh.ts"
-Cohesion: 0.21
-Nodes (15): debug(), composeWorkerInvocations(), isDebounced(), QmdInvocation, readSentinelMtime(), shouldRefreshForPath(), SKIP_SEGMENTS, spawnDetachedWorker() (+7 more)
+Cohesion: 0.16
+Nodes (17): debug(), isMainModule(), isDebounced(), QmdInvocation, readSentinelMtime(), shouldRefreshForPath(), SKIP_SEGMENTS, spawnDetachedWorker() (+9 more)
 
 ### Community 24 - "Vault Intake"
 Cohesion: 0.09
@@ -540,8 +541,8 @@ Cohesion: 0.11
 Nodes (17): 10. Design & Content Handoff Needs, 11. Workflow & Output Preferences, 1. Project Context, 2. Target Audience, 3. Positioning & Personality, 4. Vocabulary & Terminology, 5. SEO Requirements, 6. Content Goals & Channels (+9 more)
 
 ### Community 39 - "qmd-refresh-run.ts"
-Cohesion: 0.17
-Nodes (13): findPackageRoot(), qmdEnvForVaultIndex(), resolveVaultRoot(), require, resolveQmdEntry(), resolveQmdEntryViaPath(), resolveVaultLocalQmdSqlitePath(), invocations (+5 more)
+Cohesion: 0.15
+Nodes (14): buildQmdCommand(), findPackageRoot(), composeWorkerInvocations(), resolveVaultRoot(), require, resolveQmdEntry(), resolveQmdEntryViaPath(), parseQmdIndex() (+6 more)
 
 ### Community 40 - "Vault Meeting"
 Cohesion: 0.12
@@ -628,8 +629,8 @@ Cohesion: 0.15
 Nodes (11): Key Moments, Notes, Related, Relationship, Role & Org, {{title}}, Interactions, Members (+3 more)
 
 ### Community 61 - "qmd-mcp.mjs"
-Cohesion: 0.15
-Nodes (17): buildLaunchCommand(), findPackageRoot(), qmdEnvForVaultIndex(), readManifestRaw(), readQmdIndex(), require, resolveQmdEntry(), resolveQmdEntryViaPath() (+9 more)
+Cohesion: 0.27
+Nodes (10): buildLaunchCommand(), findPackageRoot(), readManifestRaw(), readQmdIndex(), require, resolveIndexSqlitePath(), resolveQmdEntry(), resolveQmdEntryViaPath() (+2 more)
 
 ### Community 62 - "run-tool.mjs"
 Cohesion: 0.26
@@ -808,8 +809,8 @@ Cohesion: 0.22
 Nodes (8): Email Intent Profiles, Modes, Non-Writer Boundaries, Repurposing Rule, Social Shortform Profiles, Universal Inputs, Web Copy Intent Profiles, Writing Modes
 
 ### Community 106 - "matcher.ts"
-Cohesion: 0.29
-Nodes (7): anyWordMatch(), classify(), compileMatcher(), SIGNAL_MATCHERS, escapeRegex(), Signal, SIGNALS
+Cohesion: 0.33
+Nodes (6): anyWordMatch(), compileMatcher(), SIGNAL_MATCHERS, escapeRegex(), Signal, SIGNALS
 
 ### Community 107 - "assistant"
 Cohesion: 0.22
@@ -884,8 +885,8 @@ Cohesion: 0.22
 Nodes (8): Architecture, Extension Rules, Hooks, Operating Model, Runtime Adapter Rule, Search, Source Layers, Validation
 
 ### Community 125 - "Home.md"
-Cohesion: 0.19
-Nodes (6): Future, Journal, Related, Active Prospects, Prospects, Related
+Cohesion: 0.31
+Nodes (3): Future, Journal, Related
 
 ### Community 126 - "2026-07-29 Context Cleanup And Development Next"
 Cohesion: 0.22
@@ -900,8 +901,8 @@ Cohesion: 0.22
 Nodes (8): Adapter Parity, Operations Workflows, Registry Rules, SEO Workflows, Validation Command, Vault Workflows, Workflows, Writing Workflows
 
 ### Community 129 - "People"
-Cohesion: 0.12
-Nodes (16): Agency / Internal — [[Digital Department]], Agency / Internal — Sales (separate team, not Digital), Brunsell Lumber (client), Dental Health Associates (client), Educated Mortgage (client), Manager Timeline, People, People4Pulse (client) (+8 more)
+Cohesion: 0.22
+Nodes (9): Agency / Internal — [[Digital Department]], Agency / Internal — Sales (separate team, not Digital), Brunsell Lumber (client), Dental Health Associates (client), Educated Mortgage (client), People, People4Pulse (client), R&V Cleaning Solutions (client) (+1 more)
 
 ### Community 131 - "Decision: Journal Is Canonical Daily Note Space"
 Cohesion: 0.22
@@ -980,8 +981,8 @@ Cohesion: 0.25
 Nodes (7): Aalair Website Meeting, Attendees, Calendar Event, Context, Notes, Purpose, Related
 
 ### Community 150 - "People & Context"
-Cohesion: 0.38
-Nodes (4): isMainModule(), HookInput, listBackups(), pruneBackups()
+Cohesion: 0.25
+Nodes (7): Manager Timeline, People & Context, Performance Reviews, Recurring Growth Themes, Review Goals, Role & Org, Teams
 
 ### Community 151 - "Leia"
 Cohesion: 0.25
@@ -1359,6 +1360,10 @@ Nodes (3): Current Focus, Deferred, North Star
 Cohesion: 0.50
 Nodes (3): All Notes, Notes, Related
 
+### Community 247 - "Prospects"
+Cohesion: 0.50
+Nodes (3): Active Prospects, Prospects, Related
+
 ### Community 248 - "Google Drive Client Folders"
 Cohesion: 0.50
 Nodes (3): Google Drive Client Folders, How to use this, Related
@@ -1416,7 +1421,7 @@ Cohesion: 0.67
 Nodes (3): writes, items, type
 
 ## Knowledge Gaps
-- **2073 isolated node(s):** `root`, `workflowsRoot`, `commandsRoot`, `workflowNames`, `root` (+2068 more)
+- **2069 isolated node(s):** `root`, `workflowsRoot`, `commandsRoot`, `workflowNames`, `root` (+2064 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **80 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1425,12 +1430,12 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Harness Manual` connect `Harness Manual` to `Home.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **Why does `People & Context` connect `People & Context` to `People`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **Why does `WPRemote API` connect `WPRemote API` to `Index.md`?**
   _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **Why does `Cloudways API` connect `Cloudways API` to `Index.md`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **What connects `root`, `workflowsRoot`, `commandsRoot` to the rest of the system?**
-  _2075 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2071 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Developer Role Expansion Roadmap` be split into smaller, more focused modules?**
   _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
 - **Should `Agent OS R&D` be split into smaller, more focused modules?**

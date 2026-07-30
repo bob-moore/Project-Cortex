@@ -27,14 +27,21 @@ export function resolveVaultRoot(
 export function readQmdIndex(manifestJson: string | null): string | null;
 
 /**
- * Compute the SQLite store path qmd would use for a given named index,
- * using the same rule as @tobilu/qmd's store.js.
+ * Derive the vault-local SQLite store path for a named QMD index.
  */
-export function resolveIndexSqlitePath(
+export function resolveVaultLocalQmdSqlitePath(
+	vaultRoot: string,
 	indexName: string,
-	env: NodeJS.ProcessEnv,
-	home: string,
 ): string;
+
+/**
+ * Build a QMD process environment, preserving an existing INDEX_PATH override.
+ */
+export function qmdEnvForVaultIndex(
+	env: NodeJS.ProcessEnv,
+	indexName: string | null,
+	vaultRoot: string,
+): NodeJS.ProcessEnv;
 
 /**
  * Build the (command, args, shell) tuple the spawn layer should invoke.

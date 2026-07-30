@@ -36,7 +36,11 @@ import {
 	isMarkdownFilename,
 	collectOpenTasks,
 } from "./lib/session-start.ts";
-import { buildQmdCommand, resolveQmdEntry } from "./lib/qmd.ts";
+import {
+	buildQmdCommand,
+	qmdEnvForVaultIndex,
+	resolveQmdEntry,
+} from "./lib/qmd.ts";
 
 function readManifestRaw(): string | null {
 	try {
@@ -95,6 +99,7 @@ const qmdChild = spawn(qmdUpdate.cmd, qmdUpdate.args as string[], {
 	detached: true,
 	windowsHide: true,
 	cwd: tmpdir(),
+	env: qmdEnvForVaultIndex(process.env, qmdIndex, cwd),
 });
 // Silence the spawn-error event so a missing qmd doesn't crash the hook;
 // qmd is optional and the hook already degrades when it's not installed.

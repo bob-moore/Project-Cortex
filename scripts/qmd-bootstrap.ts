@@ -15,9 +15,9 @@
  *
  * Safe to re-run. Every step reports current state rather than failing on
  * "already exists" — the context string is re-attached so updates to
- * vault-manifest.json propagate. The SQLite store itself lives in
- * ~/.cache/qmd/<index>.sqlite (derived data, not version-controlled), which
- * is why this script is the portable instruction set for regenerating it.
+ * vault-manifest.json propagate. The SQLite store itself lives in ignored
+ * vault-local `tmp/qmd/<index>.sqlite` by default, which is why this script is
+ * the portable instruction set for regenerating it.
  *
  * Cross-platform: every spawn routes through `buildQmdCommand`, which resolves
  * @tobilu/qmd's real JS entry and runs it with the current Node binary. No
@@ -38,7 +38,12 @@ import {
 	isContextRemoveBenign,
 	makeCollectionAddBenignMatcher,
 } from "../.agents/hooks/scripts/lib/qmd-bootstrap.ts";
-import { buildQmdCommand, resolveQmdEntry } from "../.agents/hooks/scripts/lib/qmd.ts";
+import {
+	buildQmdCommand,
+	qmdEnvForVaultIndex,
+	resolveQmdEntry,
+	resolveVaultLocalQmdSqlitePath,
+} from "../.agents/hooks/scripts/lib/qmd.ts";
 import {
 	qmdConfigPath,
 	readObsidianIgnore,
@@ -81,9 +86,10 @@ type SpawnOutcome = {
 function spawnQmd(
 	entry: string | null,
 	subcommandArgs: readonly string[],
+	env: NodeJS.ProcessEnv = process.env,
 ): SpawnOutcome {
 	const { cmd, args, shell } = buildQmdCommand(entry, subcommandArgs);
-	const r = spawnSync(cmd, args as string[], { shell, encoding: "utf-8" });
+	const r = spawnSync(cmd, args as string[], { shell, encoding: "utf-8", env });
 	return {
 		status: r.status,
 		signal: r.signal,
@@ -97,8 +103,8 @@ function echo(outcome: SpawnOutcome): void {
 	if (outcome.stderr) process.stderr.write(outcome.stderr);
 }
 
-function ensureQmd(entry: string | null): void {
-	const probe = spawnQmd(entry, ["--version"]);
+function ensureQmd(entry: string | null, env: NodeJS.ProcessEnv): void {
+	const probe = spawnQmd(entry, ["--version"], env);
 	if (probe.status !== 0) {
 		process.stderr.write(
 			"qmd not found. Install it first: npm i -g @tobilu/qmd\n",
@@ -115,9 +121,10 @@ function run(
 	entry: string | null,
 	args: readonly string[],
 	description: string,
+	env: NodeJS.ProcessEnv,
 ): void {
 	process.stdout.write(`→ ${description}\n`);
-	const outcome = spawnQmd(entry, args);
+	const outcome = spawnQmd(entry, args, env);
 	echo(outcome);
 	if (outcome.status !== 0) {
 		process.stderr.write(
@@ -143,9 +150,10 @@ function runIdempotent(
 	args: readonly string[],
 	description: string,
 	isBenignFailure: (outcome: SpawnOutcome) => boolean,
+	env: NodeJS.ProcessEnv,
 ): void {
 	process.stdout.write(`→ ${description}\n`);
-	const outcome = spawnQmd(entry, args);
+	const outcome = spawnQmd(entry, args, env);
 	echo(outcome);
 	if (outcome.status !== 0 && !isBenignFailure(outcome)) {
 		process.stderr.write(
@@ -182,8 +190,9 @@ function main(): void {
 
 	// Resolve once up front so every downstream spawn reuses the same entry.
 	const entry = resolveQmdEntry();
+	const qmdEnv = qmdEnvForVaultIndex(process.env, index, process.cwd());
 
-	ensureQmd(entry);
+	ensureQmd(entry, qmdEnv);
 
 	const collectionName = manifest.qmd_collection ?? index;
 	// The collection name ends up as a YAML key, a `qmd://` URL segment, and a
@@ -205,6 +214,11 @@ function main(): void {
 		"Obsidian vault template with persistent AI agent memory.";
 
 	process.stdout.write(`→ Bootstrapping QMD index '${index}'\n`);
+	if (!process.env["INDEX_PATH"]) {
+		process.stdout.write(
+			`→ Using vault-local SQLite store ${resolveVaultLocalQmdSqlitePath(process.cwd(), index)}\n`,
+		);
+	}
 
 	// Re-runs are idempotent (matcher recognises the by-name "already exists"
 	// case); a path-collision warning is intentionally NOT swallowed.
@@ -213,6 +227,7 @@ function main(): void {
 		buildCollectionAddArgs(index, collectionName),
 		`Registering collection '${collectionName}' (mask **/*.md)`,
 		makeCollectionAddBenignMatcher(collectionName),
+		qmdEnv,
 	);
 
 	// Round-trip the registration: if a future qmd CLI change silently breaks
@@ -222,6 +237,7 @@ function main(): void {
 		entry,
 		["--index", index, "collection", "show", collectionName],
 		`Verifying collection '${collectionName}' is registered`,
+		qmdEnv,
 	);
 
 	// Re-attach the context string so edits to vault-manifest.json propagate.
@@ -233,11 +249,13 @@ function main(): void {
 		["--index", index, "context", "rm", contextPath],
 		"Clearing previous context (if any)",
 		isContextRemoveBenign,
+		qmdEnv,
 	);
 	run(
 		entry,
 		["--index", index, "context", "add", contextPath, contextText],
 		"Attaching vault context from manifest",
+		qmdEnv,
 	);
 
 	// Propagate Obsidian's userIgnoreFilters into QMD's YAML so both engines
@@ -279,8 +297,8 @@ function main(): void {
 		}
 	}
 
-	run(entry, ["--index", index, "update"], "Indexing vault files");
-	run(entry, ["--index", index, "embed"], "Generating embeddings");
+	run(entry, ["--index", index, "update"], "Indexing vault files", qmdEnv);
+	run(entry, ["--index", index, "embed"], "Generating embeddings", qmdEnv);
 
 	process.stdout.write(
 		`\n✓ QMD index '${index}' ready. Test with:\n  qmd --index ${index} query "<topic>"\n`,

@@ -21,7 +21,7 @@
  */
 
 import { spawnSync } from "node:child_process";
-import { existsSync, readFileSync, realpathSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, realpathSync } from "node:fs";
 import { createRequire } from "node:module";
 import { delimiter, dirname, isAbsolute, join } from "node:path";
 
@@ -169,4 +169,37 @@ export function buildQmdCommand(
 				args: [],
 				shell: true,
 			};
+}
+
+/**
+ * Derive this vault's writable QMD SQLite store path from the vault root and
+ * validated qmd_index. Keeping the database under ignored `tmp/qmd/` avoids
+ * Codex/other runtime sandbox failures against global user cache locations and
+ * keeps same-named indexes isolated per vault.
+ */
+export function resolveVaultLocalQmdSqlitePath(
+	vaultRoot: string,
+	indexName: string,
+): string {
+	return join(vaultRoot, "tmp", "qmd", `${indexName}.sqlite`);
+}
+
+/**
+ * Build the environment for a QMD process. If the caller or user already set
+ * INDEX_PATH, preserve it exactly. Otherwise, when a named index is available,
+ * create `tmp/qmd/` and point QMD at the vault-local SQLite file.
+ */
+export function qmdEnvForVaultIndex(
+	env: NodeJS.ProcessEnv,
+	indexName: string | null,
+	vaultRoot: string,
+): NodeJS.ProcessEnv {
+	if (env["INDEX_PATH"] || indexName === null) return env;
+	const indexPath = resolveVaultLocalQmdSqlitePath(vaultRoot, indexName);
+	try {
+		mkdirSync(dirname(indexPath), { recursive: true });
+	} catch {
+		/* qmd will report the real storage failure; do not fall back to ~/.cache */
+	}
+	return { ...env, INDEX_PATH: indexPath };
 }

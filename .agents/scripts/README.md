@@ -11,6 +11,8 @@ Generators, validators, and drift checks for the `.agents/` layer live here.
   role skills.
 - `verify-hooks.mjs`: validates canonical hook specs and generated Claude,
   Codex, and Gemini hook configs.
+- `verify-qmd-runtime.mjs`: validates vault-local QMD SQLite path derivation and
+  `INDEX_PATH` override preservation for TS hooks and the MCP wrapper.
 - `verify-vault.mjs`: validates basic vault structure assumptions.
 - `gate.mjs`: deterministic gate that runs the required checks before a done claim.
 - `verify-goals.mjs`: runs standing goal predicates and appends goal-ledger results.
