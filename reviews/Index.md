@@ -1,5 +1,5 @@
 ---
-date: 2026-07-28
+date: 2026-08-01
 description: "Opt-in review system for self-review, peer-review, career evidence, impact summaries, and competency mapping."
 tags:
   - reviews
@@ -11,16 +11,15 @@ tags:
 This folder is for optional review material: self-reviews, peer reviews, impact
 summaries, candidate evidence, competency mapping, and review cycles.
 
-Mid-West Family Madison does not currently run a formal performance-review
-process. Do not prompt Bob to backfill this folder or treat empty review areas
-as a gap. Use it when Bob explicitly asks for review prep, a self-review,
+Use it when the User explicitly asks for review prep, a self-review,
 resume/career evidence, a summary of accomplishments, or a peer-review packet.
+Do not prompt the User to backfill this folder or treat an empty review area
+as a gap.
 
 ## Current Material
 
 | Cycle | Status | Notes |
 |---|---|---|
-| [[2026-Q3]] | Raw candidate evidence | Day-to-day work capture from the previous system; not curated review evidence yet. |
 
 ## Folders
 
@@ -45,4 +44,3 @@ capturing a specific piece of evidence.
 - [[Home]]
 - [[Projects/Index|Work Notes]]
 - [[operational-methodology]]
-

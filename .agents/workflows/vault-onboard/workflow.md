@@ -29,9 +29,8 @@ define the Operator's identity, and check the local dependency setup.
 
 - This workflow is conversational and judgment-heavy by design; the
   mechanical precondition (`setup-vault.mjs`) is intentionally a separate
-  script, not a phase of this workflow — see
-  [[Harness Distribution Prep/Vault Onboarding Workflow Design]] for the
-  reasoning.
+  script, not a phase of this workflow. Run it before onboarding when the
+  manifest still contains the shipped QMD sentinel.
 - Detection is marker-based, not automatic execution: `session-start.ts` may
   suggest this workflow when `harness/user.md`, `harness/operator.md`, or
   `harness/north-star.md` still carry

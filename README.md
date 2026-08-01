@@ -4,7 +4,8 @@
 
 Project Cortex is an agentic operating vault for agency work, personal
 operating context, clients, projects, daily notes, and runtime-neutral agent
-workflows. This checkout is Bob's working instance of the framework.
+workflows. This checkout is a reusable, runtime-neutral framework for creating
+an agency operating vault.
 
 Use this README as the quick user manual. For implementation details, see
 [[ARCHITECTURE]] and [[harness/manual]].

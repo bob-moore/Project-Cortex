@@ -4,7 +4,6 @@ description: Index for durable agent-operating memory — topics and latest resu
 tags:
   - harness
   - memory
-updated: 2026-08-01
 ---
 
 # Memory
@@ -24,13 +23,10 @@ only in runtime-private locations such as `~/.claude/`.
 - [[key-decisions]]
 - [[gotchas]]
 - [[harness/skills|Skills]]
-- [[policies]]
-- [[runbooks]]
+- [[harness/policies/README|Policies]]
+- [[harness/runbooks/README|Runbooks]]
 - [[harness/resume/README|Resume Notes]]
 
 ## Latest Resume Notes
 
-- [[harness/resume/2026-08-01-context7-pilot|2026-08-01 Context7 Pilot (Developer Role Expansion Slice 4)]]
-- [[harness/resume/2026-07-30-runtime-hygiene-phase-1-verification|2026-07-30 Runtime Hygiene Phase 1 Verification]]
-- [[harness/resume/2026-07-29-first-version-push|2026-07-29 Project Cortex first version push]]
-- [[harness/resume/2026-07-29-seo-skill-stash|2026-07-29 SEO Skill Stash]]
+None yet.

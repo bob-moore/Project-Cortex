@@ -85,22 +85,6 @@ sort by path
 limit to 25 tasks
 ```
 
-## Calendar Snapshot
-
-Last confirmed 2026-07-29 via Composio (`googlecalendar` toolkit, `GOOGLECALENDAR_EVENTS_LIST_ALL_CALENDARS`, minimal detail, window 2026-07-29 to 2026-08-06, no errors).
-
-- **Wed 7/29** - Madison (Office) (all-day)
-- **Wed 7/29, 10:15-10:45am** - Company Quarter (3rd) Review with Randy: Mandatory for all employees
-- **Thu 7/30** - Madison (Office) (all-day)
-- **Thu 7/30, 8:30-9:00am** - Digital Marketing Weekly Huddle
-- **Thu 7/30, 11:00-11:30am** - Educated Mortgage / MWF Site Check In *Virtual
-- **Fri 7/31** - Home (all-day)
-- **Fri 7/31, 11:00am-12:00pm** - Bavaria Sausage Brat Fry
-- **Mon 8/3** - Madison (Office) (all-day)
-- **Tue 8/4** - Madison (Office) (all-day)
-- **Tue 8/4, 8:05-8:50am** - AE/BA Sales Meeting
-- **Wed 8/5** - Madison (Office) (all-day)
-
 ## Clients
 
 ![[Clients.base#Active Clients]]

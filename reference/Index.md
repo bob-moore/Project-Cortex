@@ -1,5 +1,5 @@
 ---
-date: 2026-07-28
+date: 2026-08-01
 description: "Central map of durable reference notes for APIs, systems, estimates, and reusable operating patterns."
 tags:
   - index
@@ -14,22 +14,19 @@ bounded project.
 
 ## Systems And APIs
 
-- [[Cloudways API]]
-- [[WPRemote API]]
-- [[Google Drive Client Folders]]
+-
 
 ## Website Delivery
 
-- [[Website Estimate Template]]
-- [[WordPress Stack Evolution]]
+-
 
 ## Harness Patterns
 
-- [[Skill Contract Pattern]]
+-
 
 ## Decisions
 
-- [[2026-07-29-journal-canonical-daily-notes|Journal Is Canonical Daily Note Space]]
+-
 
 ## Related
 

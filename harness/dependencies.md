@@ -85,6 +85,6 @@ command -v composio >/dev/null && composio --version || echo "MISSING: composio"
   table above) — confirm and replace the placeholder guidance next time a
   fresh install is actually done.
 - Whether Composio is a per-user requirement for every teammate the harness
-  ships to, or specific to this operator's setup, hasn't been decided — see
-  the open question already tracked in [[Harness Distribution Prep]] about
-  documenting vs. excluding global/session-level dependencies.
+  ships to, or specific to an operator's setup, remains an open distribution
+  decision. Document or exclude global/session-level dependencies explicitly
+  when preparing a deployment.

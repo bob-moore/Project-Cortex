@@ -1,5 +1,5 @@
 {
-  "qmd_index": "agency-vault-harness",
+  "qmd_index": "projectcortex",
   "qmd_context": "Agentic operating system vault. Runtime machinery lives in .agents/. Writable agent-operating knowledge lives in harness/. Runtime-specific folders such as .claude, .codex, .gemini, and .hermes are adapters. Shared human and agent work, including Journal daily notes, lives outside the harness layer.",
   "infrastructure": [
     "CLAUDE.md",

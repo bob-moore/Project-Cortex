@@ -78,10 +78,8 @@ Rules for keeping it cheap:
 
 ## How This Gets Read
 
-Nothing reads this automatically yet. A future periodic synthesis pass
-(proposed, not built — see
-[[harness/roadmaps/self-improvement-loop|Self-Improvement Loop]]) would scan
-N days/weeks of entries, cluster `Corrections` by `client`/`disciplines`, and
+Nothing reads this automatically yet. A future periodic synthesis pass would
+scan N days/weeks of entries, cluster `Corrections` by `client`/`disciplines`, and
 surface recurring ones as candidates to promote into a Voice note or a skill
 — always as a proposal for approval, never an automatic write. Until that
 pass exists, an agent can also just read recent entries directly (via
@@ -90,6 +88,5 @@ recent output has been landing.
 
 ## Related
 
-- [[harness/roadmaps/self-improvement-loop|Self-Improvement Loop]]
 - [[key-decisions|Key Decisions]]
 - `.agents/workflows/vault-wrap-up/workflow.md`
