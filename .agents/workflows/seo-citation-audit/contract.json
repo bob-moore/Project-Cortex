@@ -1,0 +1,17 @@
+{
+  "name": "seo-citation-audit",
+  "version": 1,
+  "summary": "Audit approved local citation evidence for NAP, category, URL, ownership, relevance, indexability, duplicates, freshness, and correction priority.",
+  "aliases": ["/seo-citation-audit", "seo-citation-audit", "citation audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["business, locations, service areas, market, language, date, and scope", "first-party records", "approved listing, directory, provider, and website evidence", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved GBP/Maps, directory, citation provider, review, and manual evidence"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live directory, listing, review, or provider reads", "provider_data: paid or credentialed calls require approval", "vault_write: save only to resolved context", "external_mutation: submissions, edits, claims, suppression, deletion, CMS, code, schema, and production are out of scope"],
+  "done_when": ["business facts, source status, freshness, evidence, confidence, and limits are explicit", "findings have action, owner, rationale, priority, and recheck", "no submission, edit, claim, suppression, deletion, or outcome guarantee occurs", "seo-quality-gate passes or is explicitly deferred", "return contract is complete"],
+  "verification": ["verify unavailable providers produced no fabricated citation records", "verify no listing mutation occurred", "verify changed artifact and review registration when applicable"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "verifier", "wordpress-operator", "developer"]
+}

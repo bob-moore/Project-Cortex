@@ -15,6 +15,12 @@ tags:
 
 ![[Attention.base#Needs Attention]]
 
+## Review Queue
+
+Generated artifacts requiring User inspection are linked here with their
+`needs-review` status. `/vault-wrap-up` or `/vault-audit` removes direct links
+once the source artifact is marked `reviewed`, `dismissed`, or `converted`.
+
 ## Todo
 
 ### Actionable / Time-Sensitive

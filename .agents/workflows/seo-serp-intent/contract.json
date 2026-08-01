@@ -1,0 +1,81 @@
+{
+  "name": "seo-serp-intent",
+  "version": 1,
+  "summary": "Analyze bounded search-result pages to classify intent, SERP composition, result overlap, and page-type fit with source-labeled evidence.",
+  "aliases": [
+    "/seo-serp-intent",
+    "seo-serp-intent",
+    "SERP intent",
+    "search intent analysis"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "client, project, or prospect context",
+    "domain and existing pages",
+    "query set or approved seed-derived queries",
+    "market, location, language, and device",
+    "search engine",
+    "research date and freshness target",
+    "declared SERP sources",
+    "approved output path"
+  ],
+  "writes": [
+    "resolved Projects/ context",
+    "resolved Clients/ context",
+    "resolved Prospects/ context",
+    "user-approved review artifact path",
+    "Home.md review link when review is required"
+  ],
+  "external_reads": [
+    "approved DataForSEO SERP data",
+    "approved SE Ranking SERP data",
+    "approved Google/Bing result observation",
+    "User-provided SERP exports",
+    "ranking-page content within the approved SERP-intent read"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "provider_availability: run a bounded read-only availability check against approved integration surfaces; do not reveal secrets or probe arbitrary services",
+    "external_read: ask before live SERP observation or ranking-page reads; ranking-page inspection is included once this approval is granted and does not require a second competitor-analysis approval",
+    "provider_data: paid or credentialed calls require applicable approval",
+    "vault_write: save only to a resolved project, client, or prospect context when authorized",
+    "external_mutation: publishing, CMS, repository, production, and provider configuration changes are out of scope"
+  ],
+  "done_when": [
+    "query set, client context, domain, market, location, language, device, search engine, date, and result depth are explicit",
+    "provider status is recorded for each declared source",
+    "live SERP and ranking-page reads had external-read approval",
+    "intent is classified from observed SERP composition",
+    "result types, SERP features, local/freshness signals, and overlap are recorded",
+    "existing-page fit and recommended page type are explicit",
+    "observations, provider data, heuristics, hypotheses, and recommendations are distinct",
+    "durable artifact uses project/client/prospect routing and review frontmatter",
+    "seo-quality-gate passes or is explicitly deferred with an actionable reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify unavailable providers produced no fabricated SERP data",
+    "verify live external reads had approval",
+    "verify ranking-page inspection did not trigger a redundant competitor approval",
+    "verify intent was not inferred from query text alone",
+    "verify no ranking, traffic, revenue, conversion, or AI-visibility guarantee is made",
+    "verify no copy, metadata prose, CMS change, publishing action, or production mutation occurred",
+    "verify changed Markdown/frontmatter and Home review registration when applicable"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "writer",
+    "verifier"
+  ]
+}

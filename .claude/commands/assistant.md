@@ -1,5 +1,5 @@
 ---
-description: "Answer a freeform operational evidence request about Bob's calendar, email, or Monday.com workload without making planning decisions."
+description: "Answer a freeform operational evidence request about the User's calendar, email, or Monday.com workload without making planning decisions."
 ---
 
 # assistant

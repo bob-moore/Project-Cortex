@@ -1,0 +1,17 @@
+{
+  "name": "seo-collection-page-audit",
+  "version": 1,
+  "summary": "Audit ecommerce collection/category pages for intent, assortment relevance, information gain, unique value, pagination, filters, and template risk.",
+  "aliases": ["/seo-collection-page-audit", "seo-collection-page-audit", "collection page audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["catalog/hierarchy/markets/platform/date/template scope", "approved collection, product, keyword, SERP, crawl, analytics, link, filter, Brand, and merchandising evidence", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved provider, page, analytics, catalog, and first-party evidence"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live provider, page, analytics, or catalog reads", "provider_data: paid or credentialed calls require approval", "vault_write: save only to resolved context", "external_mutation: pages, filters, canonicals, URLs, CMS, code, and production changes are out of scope"],
+  "done_when": ["catalog, hierarchy, template, source tiers, information gain, risks, owners, and rechecks are explicit", "no product, assortment, price, inventory, or query demand is invented", "scaled recommendations have information-gain and business-purpose evidence", "seo-quality-gate passes or is explicitly deferred", "return contract is complete"],
+  "verification": ["verify unavailable sources produced no fabricated assortment or demand", "verify no page, filter, canonical, URL, CMS, code, or production mutation occurred", "verify changed artifact and review registration when applicable"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "writer", "developer", "wordpress-operator", "verifier"]
+}

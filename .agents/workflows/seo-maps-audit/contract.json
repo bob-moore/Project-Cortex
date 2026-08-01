@@ -1,0 +1,17 @@
+{
+  "name": "seo-maps-audit",
+  "version": 1,
+  "summary": "Audit approved maps and local-listing evidence for identity, categories, service areas, local-pack signals, and landing-page fit.",
+  "aliases": ["/seo-maps-audit", "seo-maps-audit", "maps audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["client, project, or prospect context", "locations and service areas", "market, language, queries, device, date, and map scope", "approved maps/listing/provider evidence", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved GBP/Maps data", "approved DataForSEO or SE Ranking maps data", "approved Bing Places/Webmaster data", "approved local SERP or directory evidence"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live maps, listing, provider, or directory reads", "provider_data: paid or credentialed calls require applicable approval", "vault_write: save only to resolved context", "external_mutation: profiles, listings, reviews, citations, CMS, schema, code, publishing, and production are out of scope"],
+  "done_when": ["location, service-area, query, device, market, language, date, and scope are explicit", "source status, freshness, and provider/grid limits are recorded", "business facts and observations remain distinct", "map/local-pack signals have evidence and confidence", "landing-page fit and owners are explicit", "no map-pack, ranking, call, lead, or revenue guarantee is made", "durable artifact uses project/client/prospect routing and review frontmatter", "seo-quality-gate passes or is explicitly deferred with an actionable reason", "return contract is complete"],
+  "verification": ["verify unavailable providers produced no fabricated map data", "verify paid or credentialed calls had approval", "verify no profile, listing, review, citation, CMS, schema, code, provider, or production mutation occurred", "verify changed Markdown/frontmatter and Home review registration when applicable"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "verifier", "developer", "wordpress-operator"]
+}

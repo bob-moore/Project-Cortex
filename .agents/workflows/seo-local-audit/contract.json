@@ -1,0 +1,75 @@
+{
+  "name": "seo-local-audit",
+  "version": 1,
+  "summary": "Audit local SEO for business identity, NAP, service areas, local intent, location pages, reviews, citations, and local evidence.",
+  "aliases": [
+    "/seo-local-audit",
+    "seo-local-audit",
+    "local SEO audit"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "client, project, or prospect context",
+    "business type, primary locations, and service areas",
+    "market, language, target pages, and audit date",
+    "approved business records, listings, reviews, citations, analytics, and local research",
+    "declared provider and source scope",
+    "approved output path"
+  ],
+  "writes": [
+    "resolved Projects/ context",
+    "resolved Clients/ context",
+    "resolved Prospects/ context",
+    "user-approved review artifact path",
+    "Home.md review link when review is required"
+  ],
+  "external_reads": [
+    "approved Google Business Profile/Maps data",
+    "approved Google Search Console or GA4 data",
+    "approved DataForSEO or SE Ranking data",
+    "approved Bing Places/Webmaster data",
+    "approved directory, review, or manual observation"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "provider_availability: run bounded read-only checks against approved integration surfaces; do not reveal secrets or probe arbitrary services",
+    "external_read: ask before live provider, maps, listing, review, or directory reads",
+    "provider_data: paid or credentialed calls require applicable approval",
+    "external_mutation: listings, profiles, reviews, citations, CMS, code, schema, publishing, and production are out of scope"
+  ],
+  "done_when": [
+    "business type, locations, service areas, market, language, pages, date, and scope are explicit",
+    "source status, freshness, and evidence labels are recorded",
+    "NAP and business facts are not invented or silently normalized",
+    "website facts, first-party records, provider observations, and third-party listings remain distinct",
+    "local intent, page fit, review/citation observations, and actions are explicit",
+    "no local ranking, map-pack, call, lead, or revenue guarantee is made",
+    "durable artifact uses project/client/prospect routing and review frontmatter",
+    "seo-quality-gate passes or is explicitly deferred with an actionable reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify unavailable providers produced no fabricated local data",
+    "verify paid or credentialed calls had approval",
+    "verify no listing, profile, review, citation, CMS, code, schema, publishing, or production mutation occurred",
+    "verify changed Markdown/frontmatter and Home review registration when applicable"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "verifier",
+    "writer",
+    "developer",
+    "wordpress-operator"
+  ]
+}

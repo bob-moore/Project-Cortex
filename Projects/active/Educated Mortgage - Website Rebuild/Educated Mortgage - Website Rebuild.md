@@ -69,7 +69,7 @@ Source of truth for task status: [Website Builds board (Monday.com)](https://mwf
 ### Pending / Can't Do
 
 - [x] **OptifiNow CRM webhook integration** — lead data mapping confirmed working as of 2026-07-07; OptifiNow (Rey Maglian) doing final testing, will send production credentials when ready. Full detail in [[Educated Mortgage Stack]].
-- [ ] **Coordinate launch timing: new website, new borrower portal, and new mortgage app together.** From the raw 2026-07-20 call transcript — Dan explicitly wants the site launch to coincide with the borrower-portal cutover and the app rollout rather than happen separately, to avoid a mismatched transition period for borrowers. Ties to the existing GoDaddy DNS/domain cutover (`digital@` delegate access already granted 2026-07-10). **Waiting mode** — nothing to action until the other two pieces (portal, app) have their own launch-readiness signals; not something to schedule around yet. #pending
+- [ ] **Coordinate launch timing: new website, new borrower portal, and new mortgage app together.** From the raw 2026-07-20 call transcript — Dan explicitly wants the site launch to coincide with the borrower-portal cutover and the app rollout rather than happen separately, to avoid a mismatched transition period for borrowers. Ties to the existing GoDaddy DNS/domain cutover (`digital@` delegate access already granted 2026-07-10). **Target set 2026-07-30: Tuesday 2026-08-04** (Dan's preference; slipping to Monday 2026-08-10 is acceptable to him — "it's just a date"). See [[#Site Check-In — 2026-07-30]] for the full outcome and open risk. #pending
 - [ ] **Launch** — Backlog, unassigned, depends on the above plus final QA. #pending
 - [ ] **Final invoice & add hosting/maintenance (PM)** — Backlog, unassigned. Ties to the "will add final payment and h/m once site is live" note in the Master Hub. Depends on Launch. #pending
 
@@ -101,6 +101,40 @@ Verified after-state:
 - No production, repository source, or shared/global object was changed. The pre-mutation rollback backup remains outside the vault under the Hermes backup directory.
 
 **Status:** `verified` on staging as of 2026-07-21. Global hero/final-CTA phone and duplicate-H1 findings remain deferred until their object type, ID/slug, usage, implementation lane, and collateral scope can be resolved through authenticated inspection.
+
+## Site Check-In — 2026-07-30
+
+Virtual "MWF Site Check In" call, staging site walkthrough. Attendees: Bob, [[Dan O'Brien]], [[Elyse Birkett]], [[Taylor Ripp]]. Source: raw transcript, `inbox/Educated Mortgage _ MWF Site Check In _Virtual - 2026_07_30 10_58 CDT - Transcript.md` (processed via vault-intake, then deleted from inbox).
+
+### Copy & Nav Changes (Bob to implement)
+
+- [ ] Header/hero product line: "explore conventional refinance and first-time home buyer options" → **"explore home purchase, refinance, and home equity loan options."** Dan's reasoning: "conventional" is redundant (it's a type of both refinance and purchase loan, not a distinct product); Elyse confirmed the simpler phrasing still supports SEO.
+- [ ] "The Mortgage Man" branding sweep: drop quotation marks everywhere; keep "the Mortgage Man" bolded; only use quotation marks in the one case where it sits directly between "Dan" and "O'Brien" (e.g. "Dan **'the Mortgage Man'** O'Brien"). Elyse to help sweep once Bob signals go-ahead (see below).
+- [ ] "Educated Mortgage Services" → "Educated Mortgage" sitewide in body copy — **except** disclaimers/footer/licensing, which must keep the full legal name ("Educated Mortgage Services, LLC"). Worst offender flagged live: Purchase → Mortgage Programs → Home Purchase Basics page (full name appears repeatedly, including the first sentence after the header). Bob: do a two-pass find/replace — "educated mortgage services" → "educated mortgage," then a second pass to restore "...Services, LLC" wherever "Educated Mortgage, LLC" resulted — then spot-check for anything that got mangled. **Bob said he'd run this himself immediately after the call**; asked Elyse to hold off on her offer to do the same sweep so the two efforts don't collide.
+- [ ] Homepage "What working with Educated Mortgage looks like" (4-step section): rename the "Pre-approval" step → **"Get approved and move forward with confidence."**
+- [ ] Mortgage Analysis form ("Get your free mortgage analysis," goal question): decided **against** adding a 4th top-level goal option for home equity — Bob and Dan agreed a 4th choice adds cognitive load without changing what the user has to do. Instead: change "Refinance my home with cash out" to plain **"Refinance,"** then show a conditional follow-up when Refinance is selected: **"Is your goal for refinance to lower your interest rate/payment, or to get cash out with a home equity loan?"** Motivation: Dan's been getting Contact Us inquiries from people who want a home equity loan specifically because it isn't visible as an option today; conditional branching surfaces it without lengthening the top-level question.
+- [ ] Multi-step form, refinance path: drop the "What's the balance of the loan you want to refinance?" question for the home-equity branch; reframe it as **"What's the balance of your current first mortgage?"** for that branch (same underlying question, framed to feel less like "give up your low rate" — relevant for the segment sitting on sub-3% pandemic-era mortgages who are equity-loan candidates, not refinance candidates). Keep the form on a single page/step if it doesn't get too long (Bob has been testing one-page vs. two-page layouts).
+- [ ] Nav: add **Home Equity Loan** and **Bridge Loan** entries under "Mortgage Programs" (currently only listed under "Types of Loans"); also duplicate **Cash Advantage Program** under "Types of Loans." Bob confirmed pages can be nested/reachable from both menu locations. Rationale (Bob): "Types of Loans" reads more educational than "Mortgage Programs," and duplicate entry points hedge against users not scrolling the full menu.
+- [ ] Mobile: turn the Borrower Portal link into a visually prominent button rather than a plain nav link — Dan wants it effortless to find on every device since borrowers live in that portal through the whole loan process (e-signing, status, docs). Servicing stays a normal nav link (most servicing traffic comes from payment-reminder emails, not site nav).
+- [ ] Cross-viewport check: Dan saw the "Resources" nav item disappear when his desktop browser was at half-screen width and reappear at full width — confirm it renders consistently across breakpoints, not just desktop-vs-mobile.
+- No action: Blog placeholder under Resources (About Us/Servicing/Borrower area) confirmed as expected pre-launch placeholder content, removed before go-live — not a bug.
+
+### QA Finding
+
+- Borrower Portal link on staging currently resolves to the **old** portal (`ellmay.com`) rather than the new `myloan.educatedmortgage.com` link — caught live on the call navigating from the header. Servicing and Apply Now links were checked live and confirmed correct. Elyse has the correct destination logged in the Monday.com launch task as the reference to double-check against; Bob to reconcile before launch.
+
+### Launch Timing
+
+- **Target: Tuesday 2026-08-04**, coordinated with the new borrower-portal cutover and app rollout per the existing waiting-mode item above. Dan's fallback is Monday 2026-08-10 if needed — not a hard date for him ("it's just a date... beginning of August, I want it going").
+- **Open risk: OptifiNow ("Optify") hook/form-field mapping for the new home-equity goal is unbuilt.** Existing OptifiNow campaigns only cover purchase, first-time-buyer, and refinance — home equity would be a net-new campaign, and current site form fields don't fully line up with what OptifiNow has built. **Decision: not a launch blocker** — Bob/Dan agreed the CRM/campaign mapping work can ship after the site launch if it isn't ready in time. Dan messaged OptifiNow right after this call (they didn't know the request was coming) and has a call with **Lynn** (his CRM consultant — full name and firm not captured on this call, not yet in the vault) on 2026-07-31 to scope the home-equity differences quickly.
+- Dan will do a full proofread of the live site over the weekend (2026-08-01/08-02) and send any further notes; expects nothing major enough to hold the launch.
+- Bob committed to having the copy/nav/form tweaks above ready before the weekend (by 2026-08-01).
+
+### Other Updates (no action needed)
+
+- All client videos are now live on YouTube; Elyse's tracking sheet (names + links) is current and already shared with Dan, who will forward it to Lynn.
+- Dan has monthly meetings with Lynn evolving the CRM system; Elyse floated (not committed) folding OptifiNow/Lynn into a shared monthly call if collaboration is needed once the new form/CRM flow is rolling.
+- Next check-in already on Elyse's calendar for Monday 2026-08-03 morning; Dan separately asked for an early-next-week check-in — Elyse to send a Calendly invite for that.
 
 ## Related
 

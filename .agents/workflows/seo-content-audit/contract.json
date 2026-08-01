@@ -1,0 +1,83 @@
+{
+  "name": "seo-content-audit",
+  "version": 1,
+  "summary": "Audit existing content for SEO query and SERP fit, freshness, decay signals, overlap, and refresh or consolidation recommendations.",
+  "aliases": [
+    "/seo-content-audit",
+    "seo-content-audit",
+    "content audit",
+    "SEO content audit"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "client, project, or prospect context",
+    "domain and content inventory",
+    "audit scope",
+    "market, language, and device",
+    "date range and audit date",
+    "keyword and SERP-intent artifacts when available",
+    "declared first-party, provider, crawl, CMS, and user sources",
+    "approved output path"
+  ],
+  "writes": [
+    "resolved Projects/ context",
+    "resolved Clients/ context",
+    "resolved Prospects/ context",
+    "user-approved review artifact path",
+    "Home.md review link when review is required"
+  ],
+  "external_reads": [
+    "approved GA4 or Google Search Console data",
+    "approved DataForSEO data",
+    "approved SE Ranking data",
+    "approved crawler or CMS export",
+    "approved current external page or SERP evidence"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "provider_availability: run a bounded read-only availability check against approved integration surfaces; do not reveal secrets or probe arbitrary services",
+    "external_read: ask before current external content, SERP, ranking-page, or provider reads",
+    "provider_data: paid or credentialed calls require applicable approval",
+    "vault_write: save only to a resolved project, client, or prospect context when authorized",
+    "external_mutation: deletion, redirect, CMS, repository, analytics, publishing, production, and provider configuration changes are out of scope"
+  ],
+  "done_when": [
+    "scope, content inventory, domain, market, language, device, date range, and audit date are explicit",
+    "provider status is recorded for each declared source",
+    "local content and relevant client context were inspected before conclusions",
+    "keyword and SERP evidence is source-labeled and date-scoped",
+    "decay is measured or marked as a hypothesis; age alone is not treated as evidence",
+    "semantic similarity is not called cannibalization without supporting evidence",
+    "each asset has a recommended action and rationale",
+    "refresh and new-content handoffs are explicit and preserve Writing ownership",
+    "durable artifact uses project/client/prospect routing and review frontmatter",
+    "seo-quality-gate passes or is explicitly deferred with an actionable reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify unavailable providers produced no fabricated metrics",
+    "verify live external reads had approval",
+    "verify age, traffic, or ranking movement was not presented as proof of decay without comparable evidence",
+    "verify semantic similarity was not presented as proof of cannibalization",
+    "verify no delete, redirect, CMS, code, analytics, publishing, or production action occurred",
+    "verify changed Markdown/frontmatter and Home review registration when applicable"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "writer",
+    "verifier",
+    "developer",
+    "wordpress-operator"
+  ]
+}

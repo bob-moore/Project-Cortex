@@ -23,7 +23,7 @@ Start with vault context and design boundaries.
    `.agents/disciplines/accessibility/modes.md`, and
    `.agents/disciplines/accessibility/rubric.md` when the artifact includes a
    user-facing surface, interaction, content structure, or rendered review.
-5. Select one primary mode: `new-layout`, `redesign`,
+5. Select one primary mode: `research`, `new-layout`, `redesign`,
    `component-pattern-spec`, `visual-direction`, `prototype`, or
    `rendered-review`.
 6. Identify the client/project, target, audience, primary task, destination,
@@ -35,7 +35,20 @@ Start with vault context and design boundaries.
 9. Do not publish, deploy, edit production code, mutate WordPress state,
    rewrite approved copy, or change external systems.
 
+When the request asks for inspiration, a moodboard, reference research, or a
+new direction without an approved visual direction, route to the canonical
+`design-research` workflow before continuing with implementation-oriented
+design work. A research packet is governed evidence, not client authority; the
+parent workflow or user must approve the selected direction.
+
 ## Mode Procedure
+
+### Research
+
+When the task requires inspiration, a moodboard, reference research, or an
+unresolved visual direction, execute the canonical `design-research` workflow.
+It owns source routing, annotated references, anti-SaaS checks, alternatives,
+and approval before this skill handles implementation-oriented design work.
 
 ### New Layout
 
@@ -68,6 +81,11 @@ Each redesign finding needs:
 - runtime: evidence that the owner/behavior reaches the target
 - correction: one supported change
 
+When the evidence ledger needs a token/color/typography inventory of the
+existing rendered surface, use the `design-reverse-engineering` skill (Mode A)
+to build it — do not hand-eyeball it and do not use a static-CSS-parsing tool
+as a substitute; see that skill for why.
+
 Read `references/visual-critique.md` and
 `references/spec-and-handoff.md` before returning a revised spec.
 
@@ -92,7 +110,18 @@ or brand expression. Color swaps are not meaningful alternatives by themselves.
 Global skills and visual catalogs can inform this mode, but they do not override
 client authority.
 
+When the user hands over a reference screenshot as "design direction" (a
+competitor page, an inspiration image, anything not the client's own current
+site), use `design-reverse-engineering` (Mode B) to turn it into a structured
+token draft before reasoning about direction from it. A screenshot without
+that extraction step tends to produce vague, driftable interpretations rather
+than a usable reference.
+
 Read `references/exploration-and-prototyping.md`.
+
+If the direction has not been narrowed with a research packet, route to
+`design-research` first. Do not treat a global gallery or component library as
+the moodboard by default.
 
 ### Prototype
 
@@ -165,6 +194,10 @@ wins.
 
 ## Reference Files
 
+- `design-reverse-engineering` (sibling skill): turns an existing rendered
+  surface or a static reference screenshot into a structured, evidence-tagged
+  design-token draft. Use for `redesign`'s evidence ledger or `visual-direction`'s
+  reference-image handling.
 - `references/spec-and-handoff.md`: design specification and implementation
   handoff structure.
 - `references/rendered-review.md`: rendered implementation review method and

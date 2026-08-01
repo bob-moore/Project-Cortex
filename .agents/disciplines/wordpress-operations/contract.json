@@ -24,10 +24,6 @@
     "wp-performance",
     "novamira-wordpress-mcp-access"
   ],
-  "source_material_roots": [
-    "/Users/bobmoore/.agents/skills",
-    "/Users/bobmoore/.codex/skills/novamira-wordpress-mcp-access"
-  ],
   "approval_classes": [
     "read_only",
     "vault_write",

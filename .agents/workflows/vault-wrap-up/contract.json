@@ -37,7 +37,9 @@
   ],
   "verification": [
     "verify changed Markdown/frontmatter where files were edited",
-    "verify wikilinks where notes were created or changed"
+    "verify wikilinks where notes were created or changed",
+    "verify generated review artifacts are linked from Home while attention_status is needs-review",
+    "verify reviewed, dismissed, or converted artifacts are removed from the direct Home queue"
   ],
   "return_contract": [
     "Done",

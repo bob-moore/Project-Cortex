@@ -10,7 +10,7 @@ Use the highest applicable layers:
 4. **Browser:** check visual layout, interaction, console/network, responsive state, and accessibility.
 5. **Collateral:** sample shared placements, templates, routes, forms, caches, and integrations affected by the changed object.
 
-Use rendered/browser verification and `accessibility-foundation` for the browser and user-visible gate. If a `web-quality-verification` skill is later imported, use it for that gate.
+Use `web-quality-verification` plus `accessibility-foundation` for the browser and user-visible gate.
 
 ## Rollback by operation
 

@@ -35,6 +35,9 @@ Any blocking finding prevents a ready/done claim regardless of score:
   automated tooling alone.
 - Design specification lacks responsive behavior, state coverage, content
   limits, or observable acceptance criteria for material parts of the surface.
+- A `research` task advances without a traceable source set, annotated
+  observations, anti-SaaS assessment, materially different alternatives, or an
+  explicit approval state.
 - The artifact violates explicit user constraints, client authority, approved
   copy, or implementation boundaries.
 
@@ -78,6 +81,9 @@ blocking findings decide readiness.
 
 ## Mode Modifiers
 
+- `research`: the brief and research question are explicit, the source set is
+  relevant and contrasting, reference cards record provenance and do-not-copy
+  notes, anti-SaaS checks are complete, and approval precedes handoff.
 - `new-layout`: approved content is present, surface archetype and hierarchy are
   clear, components and tokens are named, responsive behavior is explicit, and
   acceptance criteria are implementation-ready.

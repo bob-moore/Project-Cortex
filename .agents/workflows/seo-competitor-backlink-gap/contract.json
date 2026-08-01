@@ -1,0 +1,77 @@
+{
+  "name": "seo-competitor-backlink-gap",
+  "version": 1,
+  "summary": "Compare a target domain with explicitly selected competitors using approved backlink evidence and route plausible authority opportunities.",
+  "aliases": [
+    "/seo-competitor-backlink-gap",
+    "seo-competitor-backlink-gap",
+    "competitor backlink comparison",
+    "backlink competitor analysis"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "target domain",
+    "explicit competitor domains",
+    "client, project, or prospect context",
+    "market, target pages, date range, and comparison scope",
+    "declared providers and source scope",
+    "approved output path"
+  ],
+  "writes": [
+    "resolved Projects/ context",
+    "resolved Clients/ context",
+    "resolved Prospects/ context",
+    "user-approved review artifact path",
+    "Home.md review link when review is required"
+  ],
+  "external_reads": [
+    "approved DataForSEO data",
+    "approved Moz data",
+    "approved Bing Webmaster data",
+    "approved Common Crawl data",
+    "approved first-party exports",
+    "approved manual/source evidence"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "external_read: ask before live competitor/provider, Common Crawl, publisher, or external page reads unless explicitly approved in the current workflow",
+    "provider_data: paid or credentialed calls require applicable approval",
+    "vault_write: save only to a resolved project, client, or prospect context when authorized",
+    "outreach: contact or pitch actions require a separate approved workflow",
+    "external_mutation: competitor contact, outreach, link acquisition, CMS, code, publishing, provider configuration, and production are out of scope"
+  ],
+  "done_when": [
+    "target and competitors are explicitly named and comparison scope is clear",
+    "provider status, freshness, source, and sample limits are recorded",
+    "shared and distinct patterns are source-labeled",
+    "provider metrics are not treated as complete or causal ranking evidence",
+    "opportunities have relevance, destination, evidence, effort, risk, and owner",
+    "no competitor scraping/contact, copied assets, spam, paid-link, exchange, private-network, or guaranteed-outcome recommendation is present",
+    "durable artifact uses project/client/prospect routing and review frontmatter",
+    "seo-quality-gate passes or is explicitly deferred with an actionable reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify competitor/provider reads had approval",
+    "verify unavailable providers produced no fabricated comparisons",
+    "verify no competitor contact, outreach, link acquisition, or production mutation occurred",
+    "verify changed Markdown/frontmatter and Home review registration when applicable"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "verifier",
+    "writer",
+    "designer"
+  ]
+}

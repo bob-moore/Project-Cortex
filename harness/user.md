@@ -1,3 +1,13 @@
+---
+date: 2026-08-01
+description: Stable context for the User — preferences, constraints, and ownership boundaries.
+tags:
+  - harness
+  - user
+---
+
+<!-- unconfigured: run /vault-onboard -->
+
 # User
 
 Primary user: [[org/people/Bob Moore|Bob Moore]].

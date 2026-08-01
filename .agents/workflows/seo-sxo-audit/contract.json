@@ -1,0 +1,17 @@
+{
+  "name": "seo-sxo-audit",
+  "version": 1,
+  "summary": "Audit search experience from query intent and result promise through clarity, trust, interaction quality, accessibility signals, and conversion fit.",
+  "aliases": ["/seo-sxo-audit", "seo-sxo-audit", "SXO audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["domain, market, language, audience, query set, pages, device, journey, date, and scope", "approved SERP, content, technical, accessibility, analytics, conversion, Brand, and user-research evidence", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved external search, provider, page, analytics, user-research, and first-party evidence"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live external search, provider, page, analytics, or user-research reads", "provider_data: paid or credentialed calls require approval", "vault_write: save only to resolved context", "external_mutation: copy, design, CMS, code, forms, analytics, and production changes are out of scope"],
+  "done_when": ["query, page, device, journey, date, scope, source tier, confidence, and limits are explicit", "SEO evidence, UX observations, accessibility signals, and business assumptions remain distinct", "no legal/full WCAG, universal UX, ranking, traffic, conversion, or revenue guarantee is made", "handoffs and rechecks are explicit", "seo-quality-gate passes or is explicitly deferred", "return contract is complete"],
+  "verification": ["verify unavailable sources produced no fabricated UX, analytics, accessibility, or conversion evidence", "verify no copy, design, CMS, code, forms, analytics, provider, or production mutation occurred", "verify changed artifact and review registration when applicable"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "writer", "designer", "developer", "verifier"]
+}

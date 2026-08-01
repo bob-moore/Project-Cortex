@@ -99,6 +99,12 @@ collections, integrations, adapters, styling, builds, deployment config, and
 repository-local scripts. Generic Astro guidance never overrides the target
 repo's config and commands.
 
+Cloudflare Worker/Pages source and version-controlled provider configuration
+belong to Developer. Live Cloudflare DNS, zone, edge, cache, route, custom-domain,
+and deployment state belong to `cloudflare-operations`; any production release
+requires the separate approved provider operation after Developer evidence is
+available.
+
 ## Verification Obligations
 
 - identify repository, branch, and starting worktree state before editing

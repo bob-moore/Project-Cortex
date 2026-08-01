@@ -68,6 +68,12 @@ For each note created or modified this session:
 - `reviews/Index.md` — any wins or achievements from this session?
 - `Home.md` — are embedded Bases still valid?
 
+Also reconcile the `Home.md#Review Queue`:
+- Keep direct links for source notes whose `attention_status` is `needs-review`.
+- When the User has reviewed an item, update the source note to `reviewed`, `dismissed`, or `converted`, then remove its direct Home queue link.
+- Do not delete the source evidence; the Attention Base retains resolved history.
+- Flag broken or unregistered generated-artifact links for correction.
+
 #### 4. Check for Orphans
 
 - Any new notes not linked from at least one other note?
@@ -98,7 +104,19 @@ Based on how the session went:
 - Are there Bases that should be created or updated?
 - Any frontmatter properties that would help future queries?
 
-#### 8. Report
+#### 8. Write The Session Diary Entry
+
+Read `harness/session-diary/README.md` for the format — do not restate its
+rules here.
+
+Check the session for correction signal (something the User changed or
+rejected that implies a generalizable rule) or stated preferences (a
+standing instruction not tied to one correction). If neither occurred,
+write no file — a quiet session is not signal. Otherwise write one entry to
+`harness/session-diary/YYYY-MM-DD-HHmm-<slug>.md`, terse, agent-facing, not
+a summary of what got done (that's captured above).
+
+#### 9. Report
 
 Present a concise summary:
 - **Done**: what was captured this session

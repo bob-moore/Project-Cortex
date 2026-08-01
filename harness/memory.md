@@ -1,3 +1,12 @@
+---
+date: 2026-08-01
+description: Index for durable agent-operating memory — topics and latest resume notes.
+tags:
+  - harness
+  - memory
+updated: 2026-08-01
+---
+
 # Memory
 
 This is the index for durable agent-operating memory in this vault.
@@ -21,8 +30,7 @@ only in runtime-private locations such as `~/.claude/`.
 
 ## Latest Resume Notes
 
+- [[harness/resume/2026-08-01-context7-pilot|2026-08-01 Context7 Pilot (Developer Role Expansion Slice 4)]]
 - [[harness/resume/2026-07-30-runtime-hygiene-phase-1-verification|2026-07-30 Runtime Hygiene Phase 1 Verification]]
 - [[harness/resume/2026-07-29-first-version-push|2026-07-29 Project Cortex first version push]]
 - [[harness/resume/2026-07-29-seo-skill-stash|2026-07-29 SEO Skill Stash]]
-- [[harness/resume/2026-07-28-seo-phase-3|2026-07-28 SEO Phase 3 implementation and live audit]]
-- [[harness/resume/2026-07-28-vault-stash-session|2026-07-28 vault-stash-session and SEO discipline foundation]]

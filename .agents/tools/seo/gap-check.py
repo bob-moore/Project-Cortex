@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parents[3]
-MODES = {"headers", "hreflang", "images", "metadata", "robots", "schema", "sitemap"}
+MODES = {"headers", "hreflang", "images", "metadata", "robots", "schema", "sitemap", "sitemap-discovery"}
 
 
 class PageParser(HTMLParser):
@@ -294,6 +294,34 @@ def check_robots(text: str, source: str) -> list[dict]:
     return findings
 
 
+def check_sitemap_discovery(text: str, source: str, timeout: int, raw_dir: Path) -> list[dict]:
+    """Follow robots.txt sitemap declarations before testing the conventional fallback."""
+    declared: list[str] = []
+    for raw_line in text.splitlines():
+        line = raw_line.split("#", 1)[0].strip()
+        if ":" not in line:
+            continue
+        key, value = [part.strip() for part in line.split(":", 1)]
+        if key.lower() == "sitemap" and value:
+            declared.append(value)
+    if not declared:
+        parsed = urlparse(source)
+        base = f"{parsed.scheme}://{parsed.netloc}" if parsed.scheme and parsed.netloc else source
+        declared = [base.rstrip("/") + "/sitemap.xml"]
+    findings: list[dict] = []
+    for index, target in enumerate(declared[:10], start=1):
+        try:
+            body, final_source, headers = load_target(target, timeout)
+            content_type = headers.get("content-type", "")
+            (raw_dir / f"discovered-{index}.xml").write_text(body, encoding="utf-8")
+            findings.append(finding("sitemap-discovered-url", "info", "observed-page", f"Discovered sitemap URL returned HTTP 200 with content type {content_type or 'unknown'}.", final_source, affected_targets=[target]))
+            findings.extend(check_sitemap(body, final_source))
+        except Exception as exc:  # noqa: BLE001
+            findings.append(finding("sitemap-discovered-check-failed", "high", "assumed", f"Discovered sitemap URL could not be fetched: {exc}", target, "Confirm the sitemap URL in robots.txt and serve valid XML with HTTP 200."))
+    findings.append(finding("sitemap-discovery-inventory", "info", "observed-page", f"Inspected {len(declared[:10])} sitemap URL(s) from robots.txt or the conventional fallback.", source, affected_targets=declared[:10]))
+    return findings
+
+
 def parse_header_text(text: str) -> dict[str, str]:
     headers: dict[str, str] = {}
     for raw_line in text.splitlines():
@@ -385,6 +413,8 @@ def main() -> int:
         checks = {"sitemap": check_sitemap, "schema": check_schema, "images": check_images, "hreflang": check_hreflang, "metadata": check_metadata, "robots": check_robots}
         if args.mode == "headers":
             findings = check_headers(text, source, response_headers)
+        elif args.mode == "sitemap-discovery":
+            findings = check_sitemap_discovery(text, source, args.timeout, raw_dir)
         else:
             findings = checks[args.mode](text, source)
         status = "complete"
@@ -403,7 +433,7 @@ def main() -> int:
         "version": 1,
         "tool": {"id": f"seo-gap-{args.mode}", "version": "1.0", "official_sources": []},
         "run": {"approval_class": approval, "command_intent": f"Run the {args.mode} SEO gap check.", "command_redacted": f"python3 .agents/tools/seo/gap-check.py --mode {args.mode} --target <redacted>", "started_at": started, "completed_at": completed},
-        "scope": {"mode": args.mode if args.mode not in {"sitemap", "robots", "headers", "metadata"} else "technical-audit", "client_or_project": None, "targets": [args.target], "market": None, "date_range": None},
+        "scope": {"mode": args.mode if args.mode not in {"sitemap", "robots", "headers", "metadata", "sitemap-discovery"} else "technical-audit", "client_or_project": None, "targets": [args.target], "market": None, "date_range": None},
         "data_status": status,
         "artifacts": artifacts,
         "limits": ["Input is capped at 10 MiB.", "Checks are structural evidence and heuristics, not ranking or compliance guarantees.", "No schema generation or external mutation is performed."],

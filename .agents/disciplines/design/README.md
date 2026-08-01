@@ -36,6 +36,8 @@ implementation without independent verification.
 
 - `contract.json`: machine-readable discipline contract.
 - `modes.md`: design modes and ownership boundaries.
+- `design-research`: routed moodboard/reference research before implementation
+  when visual direction is unresolved.
 - `principles.md`: compact extracted principle layer from
   `stash/design/universal-design-principles`.
 - `skill-map.json`: disposition of existing design source material.
@@ -48,10 +50,11 @@ implementation without independent verification.
 - `design-delivery`: turns approved content and governed visual context into an
   implementable design specification, acceptance matrix, handoff, or rendered
   conformance review.
-- `design-taste-frontend`: visual design and frontend taste guidance.
-- `design-taste-frontend-v1`: legacy or variant frontend taste guidance that
-  still needs deduplication.
-- `gpt-taste`: taste and design-judgment guidance.
+- `design-research`: builds an annotated, provenance-labeled reference packet,
+  anti-SaaS assessment, and materially different directions before approval.
+- `design-taste-frontend`: visual design and frontend taste guidance. Sole
+  canonical taste skill as of 2026-08-01; `design-taste-frontend-v1` and
+  `gpt-taste` were retired as duplicates and folded in.
 - `high-end-visual-design`: optional specialist visual direction for high-end
   editorial/product surfaces.
 - `image-to-code`: translate image/screenshot intent into implementable UI
@@ -67,7 +70,8 @@ implementation without independent verification.
 ## Methodology Rule
 
 Design work must identify its mode, governing context, approval boundary, and
-evidence. Use client Brand, Voice, Design Tokens, approved content, current
-component/source evidence, and rendered output before generic inspiration.
-Generic style packs and global skills may inform optional exploration, but they
-do not override project-local authority.
+evidence. When direction is unresolved, research precedes implementation:
+client Brand, Voice, Design Tokens, approved content, current component/source
+evidence, selected references, and rendered output are kept distinct. Generic
+style packs and global skills may inform optional exploration, but they do not
+override project-local authority.

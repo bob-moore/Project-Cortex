@@ -1,0 +1,57 @@
+{
+  "name": "seo-google-data",
+  "version": 1,
+  "summary": "Define GSC, GA4, PageSpeed Insights, CrUX, URL Inspection, and Indexing API with explicit source status, freshness, scope, and limitations.",
+  "aliases": [
+    "/seo-google-data",
+    "seo-google-data"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "project/client/property and explicit scope/date/timezone",
+    "approved source evidence and output path"
+  ],
+  "writes": [
+    "approved evidence artifact or documented baseline/compare/monitor path"
+  ],
+  "external_reads": [
+    "approved Google, DataForSEO, analytics, crawl, page, provider, and first-party evidence"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "external_read: ask before live external reads",
+    "provider_data: paid or credentialed calls require approval",
+    "vault_write: save only to resolved context and approved evidence paths",
+    "external_mutation: analytics, provider, CMS, code, SEO, and production mutations are out of scope"
+  ],
+  "done_when": [
+    "credential presence, tool availability, access, freshness, scope, and limits are separate",
+    "metrics, snapshots, deltas, alerts, and source results are not fabricated",
+    "partial/stale/unavailable states are visible",
+    "quality gate passes or is explicitly deferred",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify unavailable or stale sources are visible",
+    "verify no secrets are written",
+    "verify no external mutation occurred",
+    "verify artifact path and source labels"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "developer",
+    "verifier",
+    "wordpress-operator"
+  ]
+}

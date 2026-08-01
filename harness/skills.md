@@ -1,8 +1,18 @@
+---
+date: 2026-08-01
+description: Harness index for skill, discipline, and workflow conventions.
+tags:
+  - harness
+  - skills
+---
+
 # Skills
 
 This is the harness index for skill and workflow conventions. Runtime-neutral
 skills and workflows live under `.agents/`; runtime folders adapt those
-contracts for a specific CLI or model host.
+contracts for a specific CLI or model host. See [[harness/workflows]] for the
+companion workflow registry and [[harness/manual]] for the operating rules
+these skills follow.
 
 ## Canonical Skills
 
@@ -10,8 +20,29 @@ Canonical portable skills belong in `.agents/skills/<name>/SKILL.md`.
 `SKILL.md` keeps its uppercase spelling because runtimes expect that reserved
 filename.
 
+## Ownership Boundary
+
+- **Global skills** own runtime- or system-specific operation: CLI/tool usage,
+  installed runtime capabilities, and machine-wide integrations that do not
+  depend on this vault's operating model.
+- **Project-local skills** own role- and domain-based work: Design,
+  Development, Writing, WordPress Operations, SEO, and other work governed by
+  this vault's disciplines, roles, workflows, client context, approval rules,
+  or portable operating procedures.
+- A general skill belongs locally when this harness depends on it for portable
+  project operation. A global version may remain source material or a runtime
+  utility, but must not compete as a canonical route.
+
 Current vault-operation skills:
 
+- `assistant-ops` — retrieve narrow source-labeled Monday.com, Calendar, and
+  Gmail evidence; calendar mutations require per-event approval and read-back.
+- `platform-operations` — read or change client hosting, DNS, CDN, cache,
+  backup, and monitoring state with explicit target, rollback, and verification
+  controls.
+- `web-quality-verification` — independently verify a rendered web change
+  across browser, responsive, interaction, console, accessibility, metadata,
+  performance, and risk-based regression checks.
 - `defuddle` — extract clean markdown from web pages.
 - `json-canvas` — create and edit Obsidian `.canvas` files.
 - `obsidian-bases` — create and edit Obsidian `.base` files.
@@ -67,8 +98,9 @@ Current disciplines:
   boundaries.
 - `marketing` — market research, keyword research, competitor analysis,
   marketing strategy, analytics, CRO, channel planning, and UTM attribution.
-- `seo` — technical/page audit layer, neutral SEO tool contracts, evidence
-  labels, source hierarchy, and quality gate. Paused/stashed as of 2026-07-29.
+- `seo` — technical/page audit layer, content briefs, neutral SEO tool
+  contracts, evidence labels, source hierarchy, and quality gate. Active; Phase
+  3 accepted and content-brief work underway.
 - `wordpress-operations` — mutable WordPress state, MCP/REST/WP-CLI/browser
   operation, environment targeting, before-state, rollback, and rendered
   verification.
@@ -82,9 +114,11 @@ Current design skills:
 
 - `brandkit`
 - `design-delivery`
-- `design-taste-frontend`
-- `design-taste-frontend-v1`
-- `gpt-taste`
+- `design-research`
+- `design-reverse-engineering`
+- `design-taste-frontend` — sole canonical frontend taste skill as of
+  2026-08-01; `design-taste-frontend-v1` and `gpt-taste` were deduped in and
+  their directories removed.
 - `high-end-visual-design`
 - `image-to-code`
 - `imagegen-frontend-mobile`
@@ -97,6 +131,17 @@ Current design skills:
 Current development skills:
 
 - `developer-delivery`
+- `code-review` — Verifier-owned, read-only review of an explicit diff against
+  acceptance criteria, repository conventions, regression/test evidence, and
+  applicable security concerns.
+- `git-procedures` — detailed Git workspace-isolation and merge/rebase
+  conflict-resolution mechanics; supports `developer-delivery` 4c. Added
+  2026-08-01.
+- `acceptance-test-builder` — builds or audits an explicit regression contract
+  and boundary-ranked proof strategy; supports `developer-delivery` 4b. Added
+  2026-08-01.
+- `skill-doc-refresh` — bounded refresh of one Developer/platform skill's
+  source map and durable guidance from repository and official-doc evidence.
 - `astro`
 - `wordpress-router`
 - `wp-project-triage`
@@ -138,6 +183,13 @@ Current WordPress operations skills:
 - `wp-performance`
 - `novamira-wordpress-mcp-access`
 
+Current platform operations skills:
+
+- `platform-operations`
+- `cloudflare-operations` — live DNS/edge/cache/Workers/Pages/route and
+  deployment-state operation with explicit target, approval, rollback, and
+  provider/external verification boundaries.
+
 Current SEO skills:
 
 - `seo-foundation`
@@ -155,7 +207,7 @@ Current porting focus:
 
 - General Marketing now has a first-pass discipline and core research,
   strategy, analytics, CRO, attribution, social/newsletter channel operations,
-  and email deliverability/quality gate skills. Automation remains deferred.
+  and email deliverability/quality gate skills.
 - Design now has a first-pass discipline, shared accessibility layer, and core
   `design-delivery` skill; remaining design work is dedupe and optional
   prototype/CRO/reference extraction.
@@ -182,6 +234,7 @@ Current vault workflows:
 - `vault-intake`
 - `vault-kickoff`
 - `vault-meeting`
+- `vault-onboard`
 - `vault-peer-scan`
 - `vault-prep-1on1`
 - `vault-project-archive`

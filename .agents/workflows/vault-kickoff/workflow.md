@@ -57,6 +57,7 @@ If Monday.com tools are unavailable, say so and perform a vault-only sweep rathe
 | Social post content | `writer` (Social post mode) |
 | Newsletter issue, campaign/nurture email content | `writer` (Newsletter/Email mode) |
 | Page enhancements (visual layout, brand tokens applied to a page) | `designer` |
+| Design inspiration, moodboard, visual references, or unresolved aesthetic direction | `designer` via `design-research` before `design-delivery` |
 | Page enhancements (functional: forms, redirects, plugin config) | `developer` |
 | Technical (Website Builds board, Web Updates & Maintenance, Hosting & Maintenance) | `developer` |
 | Photography | flag for a human — no agent handles photography |
@@ -94,6 +95,7 @@ Do not over-specify implementation before the executor inspects the actual repos
 | Client strategy/context | `strategist` | Brand, Voice, Design Tokens, onboarding, or positioning | Client, missing/changed context, source evidence, target artifact |
 | Writing artifact | `writer` | Website copy, blog/article, SEO refresh, or case study; Writer drafts and revises but does not publish | Client, explicit mode, artifact/destination, Brand/Voice, brief/source packet, evidence requirements, acceptance criteria |
 | Design | `designer` | New layout, bounded redesign, component/pattern specification, or rendered implementation review; Designer owns visual intent and conformance, not production mutation | Client, explicit mode, target, approved Writer artifact/content, Brand/Voice/Design Tokens, current-system evidence when applicable, destination, acceptance criteria |
+| Design research | `designer` | Inspiration, moodboard, reference research, or unresolved visual direction before implementation | Client, research question, page/job, audience/task, Brand/Voice/Design Tokens/content gaps, source scope, destination, anti-SaaS and approval criteria |
 | Version-controlled code | `developer` | WordPress theme/block/plugin source, Astro, build/test/config code | Client/project, repository, Stack note, acceptance criteria, deployment boundary |
 | Mutable WordPress state | `wordpress-operator` | Pages, posts, media, Gutenberg/Site Editor, navigation, patterns, settings, forms, redirects, users, maintenance | Client/project, exact site/environment, Stack/Brand/Voice/Design Tokens as applicable, approval boundary |
 | Reporting | none | Invoke an installed reporting capability directly; do not reference a missing skill as if it ran | Data source, reporting period, evidence labels |
@@ -116,6 +118,9 @@ Run independent actions in parallel. Serialize true dependencies:
 - Strategist before work requiring missing Brand/Voice/Design Tokens
 - Writer before implementation requiring approved copy; parent approval separates the writing artifact from downstream publication or code/state changes
 - Writer before Designer when visual work depends on missing or unapproved copy
+- Design Research before Designer implementation when inspiration, moodboard, or
+  unresolved visual direction is requested; parent approval separates the
+  research packet from `design-delivery`
 - Designer before visual implementation; parent design approval separates the specification or selected prototype direction from Developer/WordPress production changes
 - Developer before WordPress when a new code capability must exist first
 - WordPress after Developer when the code must be configured or populated in the site

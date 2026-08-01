@@ -27,7 +27,7 @@ Load `wordpress-site-operations` for every task. Load specialist skills only whe
 - `wp-migratedb-pro` for environment database migration
 - `wpremote-api` for fleet health, backups, updates, staging, and account-level operations only if that skill is present in this vault or explicitly available globally
 - `wp-performance` for backend measurement and operational diagnosis
-- `accessibility-foundation` plus browser/rendered verification for responsive, interaction, console, accessibility, metadata, and regression checks. If a `web-quality-verification` skill is later imported, use it for the browser gate.
+- `web-quality-verification` plus `accessibility-foundation` for responsive, interaction, console, accessibility, metadata, and regression checks.
 
 Approved copy, design, Brand, Voice, and Design Tokens are inputs. Do not generate replacements unless the parent explicitly expands the task and routes the required Writer or Designer stage.
 

@@ -1,18 +1,16 @@
 ---
 name: workflow-seo-technical-audit
-description: "Execute the canonical seo-technical-audit workflow for bounded site-level SEO evidence collection."
+description: "Run a bounded site-level technical SEO evidence audit and return quality-gated findings. Use when the user asks to run seo-technical-audit, /seo-technical-audit, or this vault workflow."
 ---
 
 # workflow-seo-technical-audit
 
 Execute the canonical workflow `seo-technical-audit`.
 
-1. Read `.agents/workflows/seo-technical-audit/contract.json` for scope,
-   approvals, writes, done conditions, verification, and return contract.
-2. Read `.agents/workflows/seo-technical-audit/workflow.md` for the procedure.
-3. Apply `seo-foundation`, `seo-tool-runner`, and `seo-quality-gate` in that
-   order.
-4. Do not report done until the workflow verification requirements pass or a
-   blocker is explicitly reported.
+1. Read `.agents/workflows/seo-technical-audit/contract.json` for risk tier, approval classes, writes, done conditions, verification, and return contract.
+2. Read `.agents/workflows/seo-technical-audit/workflow.md` for the human-readable workflow procedure.
+3. Treat the user's prompt as workflow input.
+4. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+5. Do not report done until the workflow verification requirements are satisfied or a blocker is explicitly reported.
 
 If this skill conflicts with the canonical workflow spec, the canonical workflow spec wins.

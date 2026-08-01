@@ -72,6 +72,14 @@ Read and verify each index file:
 - `org/People & Context.md` — are roles, peer selections, and project assignments current?
 - `reviews/Index.md` — do PR counts and project descriptions match reality?
 - `harness/skills.md` — are all workflow commands registered? Workflows still valid?
+- `Home.md#Review Queue` — does each direct generated-artifact link resolve, and are resolved items removed from the queue?
+
+#### 2a. Check Reviewable Generated Artifacts
+
+- Scan generated Markdown under `reviews/evidence/` and other approved review-output paths.
+- Artifacts requiring User inspection should carry `attention_status: needs-review`, `attention_type: review`, and a `next_action`.
+- Each open generated artifact should be linked from `Home.md#Review Queue`.
+- Do not auto-remove links based on age alone; only remove them after the source status is `reviewed`, `dismissed`, or `converted`.
 
 #### 3. Check Frontmatter Completeness
 

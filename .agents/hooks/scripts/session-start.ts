@@ -130,6 +130,57 @@ function runCmd(
 }
 
 
+/**
+ * Detect whether this vault has completed first-run setup. Returns null
+ * (section omitted entirely) once everything's configured, so this never
+ * permanently bloats every session's context — only shown while something's
+ * actually unconfigured.
+ *
+ * Two independent signals, checked separately since they're resolved by two
+ * different mechanisms: the mechanical `setup-vault.mjs` precondition (sentinel
+ * in vault-manifest.json) and the conversational `vault-onboard` workflow
+ * (a marker in each of the three harness files it fills in). Suggest-only —
+ * never runs either one automatically.
+ */
+function onboardingStatus(): string | null {
+	const messages: string[] = [];
+
+	if (manifestJson !== null) {
+		try {
+			const parsed = JSON.parse(manifestJson) as Record<string, unknown>;
+			if (parsed["qmd_index"] === "__UNSET__") {
+				messages.push(
+					"`vault-manifest.json` still has the unset `qmd_index` sentinel — run `node .agents/scripts/setup-vault.mjs` first.",
+				);
+			}
+		} catch {
+			/* malformed manifest already degrades elsewhere */
+		}
+	}
+
+	const markerFiles = [
+		"harness/user.md",
+		"harness/operator.md",
+		"harness/north-star.md",
+	];
+	const unconfigured = markerFiles.filter((f) => {
+		try {
+			return readFileSync(f, { encoding: "utf-8" }).includes(
+				"<!-- unconfigured: run /vault-onboard -->",
+			);
+		} catch {
+			return false;
+		}
+	});
+	if (unconfigured.length > 0) {
+		messages.push(
+			`${unconfigured.join(", ")} still unconfigured — suggest running \`/vault-onboard\`.`,
+		);
+	}
+
+	return messages.length > 0 ? messages.join("\n") : null;
+}
+
 function northStar(): string {
 	try {
 		return take(readFileSync("harness/north-star.md", { encoding: "utf-8" }), 30);
@@ -335,11 +386,14 @@ function retrievalMap(): string {
 	].join("\n");
 }
 
+const setupStatus = onboardingStatus();
+
 const sections = [
 	"## Session Context",
 	"",
 	"### Date",
 	formatDateHeader(new Date()),
+	...(setupStatus !== null ? ["", "### Setup", setupStatus] : []),
 	"",
 	"### Operator Context",
 	operatorContext(),

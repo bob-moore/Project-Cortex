@@ -21,6 +21,7 @@ Client, not agency staff — per Bob (2026-07-10), what's known about him comes 
 
 ## Key Moments
 
+- 2026-07-30: Site check-in call. Set Tuesday 2026-08-04 as his target launch date (Monday 2026-08-10 acceptable fallback). Flagged that OptifiNow CRM lacks a home-equity campaign/mapping yet but agreed that shouldn't block launch. Mentioned **Lynn**, his CRM consultant (full name/firm not captured), with a scoping call planned 2026-07-31. Full breakdown in [[Educated Mortgage - Website Rebuild#Site Check-In — 2026-07-30]].
 - 2026-07-20: Line-by-line content/design review call with [[Elyse Birkett]] — ~15 items covering logo visibility, copy consistency, capitalization/punctuation cleanup, and page-level fixes, plus the borrower-portal-link and dropdown-nav items. Wants site launch coordinated with the new borrower portal and mortgage app launches rather than staggered. Full breakdown in [[Educated Mortgage - Website Rebuild#Open Items (snapshot as of 2026-07-09)]].
 - 2026-07-10: Emailed Elyse asking that `/application` (and its business-card QR code) redirect to the new borrower portal (`https://myloan.educatedmortgage.com/dr/c/dgfl9`) once the new site launches — forwarded to Bob 2026-07-13.
 - 2026-07-10: Granted `digital@midwestfamilymadison.com` GoDaddy account access — likely domain/DNS related to the site launch cutover. See [[Home]] / [[Educated Mortgage]].

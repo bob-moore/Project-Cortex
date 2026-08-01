@@ -115,7 +115,7 @@ Current implementation status:
 - Added `.agents/tools/seo/tool-registry.json` for neutral CLI tool metadata.
 - Added `.agents/tools/seo/evidence-schema.json` for normalized evidence
   packets.
-- Added `seo-tool-runner` as the active skill for selecting, planning, and
+- Added `seo-tool-runner` as the implemented skill for selecting, planning, and
   running approved neutral CLI tools through those contracts.
 - Added `.agents/tools/seo/run-tool.mjs` as the thin registry-driven runner.
 - The runner supports dry-run planning, bounded process timeouts, raw
@@ -124,8 +124,8 @@ Current implementation status:
 - Tool-specific finding interpretation remains open; the runner intentionally
   does not turn raw output into ranking claims or an all-clear.
 
-Phase 2 is implementation-complete for the neutral execution layer. Phase 3
-starts with page and technical audit workflows that interpret these artifacts.
+Phase 2 is complete and verified for the neutral execution layer. Its evidence
+contracts remain the foundation for the later audit workflows.
 
 ### Phase 3: Page And Technical SEO
 
@@ -160,6 +160,12 @@ Exit criteria:
   selected gap scripts.
 - Findings pass `seo-quality-gate` before final report.
 
+Current implementation status:
+
+- Phase 3 is complete and verified.
+- Page, technical, site, sitemap, schema, image, and hreflang workflows are
+  registered with contracts, adapters, and verification boundaries.
+
 ### Phase 4: SEO Strategy And Content Interface
 
 Goal: connect SEO research to strategy and writing without collapsing the two.
@@ -189,6 +195,12 @@ Exit criteria:
 - SEO can produce a brief, strategy, or refresh recommendation with source
   labels and writing handoff requirements.
 
+Current implementation status:
+
+- Phase 4 is complete and verified.
+- Content briefs, content audits, keyword/SERP research, topic clusters, and
+  strategy-roadmap handoffs are registered and source-labeled.
+
 ### Phase 5: Backlinks And Authority
 
 Goal: make backlink building/finding a first-class SEO lane.
@@ -215,6 +227,18 @@ Exit criteria:
 - Backlink findings distinguish confirmed provider data from low-confidence
   crawl or search evidence.
 - Paid calls run through budget and approval gates.
+
+Current implementation status:
+
+- `seo-backlink-audit` is implemented and establishes the source, freshness,
+  provider-availability, link-quality, and mutation boundaries.
+- `seo-link-building-opportunities` is implemented and establishes the opportunity,
+  asset, relationship, outreach-approval, and mutation boundaries.
+- `seo-competitor-backlink-gap` is implemented and establishes explicit competitor,
+  provider-read, comparison, and mutation boundaries.
+- `seo-link-reclaim` is implemented and establishes historical-status, least-
+  destructive-action, implementation-handoff, and mutation boundaries.
+- Phase 5 is complete and verified.
 
 ### Phase 6: Local SEO And Maps
 
@@ -244,9 +268,36 @@ Exit criteria:
 - Local findings are evidence-backed and separate website-observed facts from
   provider/API facts and third-party ranking-factor studies.
 
+Current implementation status:
+
+- `seo-local-audit` is implemented and establishes local-facts, source, freshness,
+  provider-availability, and mutation boundaries.
+- `seo-maps-audit` is implemented and establishes map-observation, provider-limit,
+  local-pack, and profile-mutation boundaries.
+- `seo-citation-audit` is implemented and establishes citation-fact, ownership,
+  freshness, correction, and listing-mutation boundaries.
+- `seo-review-signals` is implemented and establishes review-evidence, privacy,
+  sentiment-method, response-ownership, and platform-mutation boundaries.
+- `seo-location-page-audit` is implemented and establishes local-value,
+  business-purpose, doorway-risk, and page-mutation boundaries.
+- Phase 6 is complete and verified.
+
 ### Phase 7: Advanced Search Surfaces
 
 Goal: cover AI/search-experience strategy without overclaiming.
+
+Current implementation status:
+
+- `seo-geo-audit` is implemented and establishes source-tier, answerability,
+  entity-clarity, citation-readiness, and no-visibility-claim boundaries.
+- `seo-aeo-audit` is implemented and establishes answer-feature, query/page-fit,
+  source-tier, and no-placement-claim boundaries.
+- `seo-sxo-audit` is implemented and establishes journey, UX-evidence,
+  accessibility-signal, conversion-boundary, and mutation boundaries.
+- `seo-ai-visibility-check` is implemented and establishes explicit engine/model,
+  live-read approval, observation, reproducibility, and no-universal-claim
+  boundaries.
+- Phase 7 is complete and verified.
 
 Canonical skills/workflows:
 
@@ -274,6 +325,13 @@ Exit criteria:
 
 Goal: support complex site models that are common in agency work.
 
+Current implementation status:
+
+- Phase 8 is complete and verified.
+- The programmatic quality gate blocks scaled recommendations when samples,
+  information gain, business purpose, uniqueness, or crawl/index controls are
+  missing.
+
 Canonical skills/workflows:
 
 - `seo-ecommerce-audit`
@@ -300,6 +358,14 @@ Exit criteria:
 ### Phase 9: Data Integrations And Drift
 
 Goal: connect SEO to durable measurement and deployment checks.
+
+Current implementation status:
+
+- Phase 9 is complete and verified.
+- Google, DataForSEO, drift, and monitoring workflows keep credential presence,
+  tool availability, access, freshness, scope, and partial states separate.
+- Drift evidence uses documented baseline/compare paths; monitoring remains
+  read-only with explicit thresholds, stale-data handling, and escalation.
 
 Canonical skills/workflows:
 
@@ -330,6 +396,14 @@ Exit criteria:
 
 Goal: produce reusable client-facing and operator-facing SEO outputs.
 
+Current implementation status:
+
+- Phase 10 is complete and verified.
+- Markdown is the reporting source of truth; optional HTML/PDF is presentation
+  only and cannot add findings.
+- Reports preserve source labels, freshness, limitations, skipped sections,
+  approvals, owners, next actions, and rechecks.
+
 Canonical skills/workflows:
 
 - `seo-report`
@@ -354,7 +428,11 @@ Exit criteria:
 - No imported package promotional language remains.
 - Every report has environment limitations, source labels, and next actions.
 
-## Priority Order
+## Historical Build Order
+
+This is the original implementation sequence, not a current work queue. The
+SEO tract is complete through Phase 10; future work is maintenance or explicitly
+approved new phase work.
 
 1. `seo-foundation`
 2. `seo-quality-gate`
@@ -374,18 +452,22 @@ Exit criteria:
 
 ## Current Status
 
-Status: paused/stashed as of 2026-07-29.
+Status: SEO tract complete through Phase 10; all planned SEO phases accepted and verified.
 
 The SEO package imports remain source material. The canonical foundation,
 quality gate, neutral tool registry, and registry-driven execution wrapper are
 active and validated. The page-audit, technical-audit, site-audit, sitemap,
-schema, image, and hreflang workflows and skills are now created.
+schema, image, and hreflang workflows and skills remain registered and
+validated.
 Deterministic gap analyzers produce structural evidence for sitemap, JSON-LD,
 image markup, hreflang, robots.txt, metadata/indexability, and response headers.
-Phase 3 remains open only for broader site-report synthesis and specialist
-coverage to be validated through real project evidence.
+Phase 3 is accepted as a reusable audit layer; disposable live-audit evidence
+is deleted after review rather than retained in the vault.
 
-SEO is intentionally stashed while the harness finishes less intensive
-role/skill porting for design, development, and general marketing. Resume from
-[[harness/resume/2026-07-29-seo-skill-stash|2026-07-29 SEO Skill Stash]] before
-adding Phase 4 strategy/content-interface work.
+The SEO foundation now includes technical, content, local, AI-search,
+ecommerce, data-integrations, drift, monitoring, and reporting workflows.
+Phase 4 strategy/content-interface implementation is complete and verified.
+DataForSEO and SE Ranking remain first-class provider options with runtime
+availability checks. The SEO tract is stopped here; future changes should be
+maintenance, evidence refreshes, adapter repairs, or explicitly approved new
+phase work rather than implied continuation.

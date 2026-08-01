@@ -1,5 +1,5 @@
 ---
-description: "Morning kickoff. Pull Monday.com status for Bob's tasks, retrieve calendar evidence through Composio, load today's context, review yesterday, surface open tasks, and identify priorities."
+description: "Morning kickoff. Pull Monday.com status for the User's tasks, retrieve calendar evidence through Composio, load today's context, review yesterday, surface open tasks, and identify priorities."
 ---
 
 # vault-standup

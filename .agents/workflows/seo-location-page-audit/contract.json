@@ -1,0 +1,17 @@
+{
+  "name": "seo-location-page-audit",
+  "version": 1,
+  "summary": "Audit location and service-area pages for local usefulness, business purpose, intent fit, facts, internal links, schema, and doorway risk.",
+  "aliases": ["/seo-location-page-audit", "seo-location-page-audit", "location page audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["client, project, or prospect context", "business type, locations, service areas, market, language", "URL/query scope and audit date", "approved business, page, local, analytics, and Brand evidence", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved external page, provider, maps, listing, analytics, GSC, and manual evidence"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live external provider or page reads", "provider_data: paid or credentialed calls require approval", "vault_write: save only to resolved context", "external_mutation: URL, redirect, canonical, indexability, schema, CMS, code, copy, and production changes are out of scope"],
+  "done_when": ["business type, locations, service areas, market, language, scope, date, and page set are explicit", "facts, evidence, unique value, intent fit, duplication/thinness, and doorway risk are distinct and source-labeled", "recommendations have evidence, owner, and recheck", "copy, schema, CMS, Development, Writing, and Strategy handoffs are explicit", "no doorway-page, mutation, or outcome guarantee is made", "seo-quality-gate passes or is explicitly deferred", "return contract is complete"],
+  "verification": ["verify unavailable sources produced no fabricated page facts", "verify no URL, redirect, canonical, indexability, schema, CMS, code, copy, or production mutation occurred", "verify changed artifact and review registration when applicable"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "writer", "verifier", "developer", "wordpress-operator"]
+}

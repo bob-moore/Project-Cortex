@@ -1,0 +1,78 @@
+{
+  "name": "seo-link-building-opportunities",
+  "version": 1,
+  "summary": "Turn approved backlink, content, topic, brand, and market evidence into ethical, prioritized link-building opportunities without outreach or link acquisition.",
+  "aliases": [
+    "/seo-link-building-opportunities",
+    "seo-link-building-opportunities",
+    "link building opportunities",
+    "authority opportunities"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "client, project, or prospect context",
+    "domain, target pages, offer, audience, market, and business goal",
+    "planning horizon",
+    "approved backlink, content, topic, Brand, PR, partnership, and competitor artifacts",
+    "declared provider and source scope",
+    "approved output path"
+  ],
+  "writes": [
+    "resolved Projects/ context",
+    "resolved Clients/ context",
+    "resolved Prospects/ context",
+    "user-approved review artifact path",
+    "Home.md review link when review is required"
+  ],
+  "external_reads": [
+    "approved DataForSEO data",
+    "approved Moz data",
+    "approved Bing Webmaster data",
+    "approved Common Crawl data",
+    "approved market, publisher, or external page evidence"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "provider_availability: run bounded read-only checks against approved integration surfaces; do not reveal secrets or probe arbitrary services",
+    "external_read: ask before current provider, market, publisher, or external page reads",
+    "provider_data: paid or credentialed calls require applicable approval",
+    "outreach: contact, submit, or pitch actions require a separate approved workflow and are out of scope",
+    "external_mutation: link buying, exchange, concealment, link creation, CMS, code, publishing, and production are out of scope"
+  ],
+  "done_when": [
+    "domain, targets, market, audience, goal, horizon, and research date are explicit",
+    "source status, freshness, and evidence labels are recorded",
+    "each opportunity has relevance, destination, editorial rationale, evidence, effort, risk, and owner",
+    "domain authority alone did not determine priority",
+    "required asset/proof and relationship basis are explicit",
+    "no spam, private-network, paid-link, exchange, concealment, or guaranteed outcome recommendation is present",
+    "outreach and asset handoffs preserve Strategy, Writing, Design, and approval ownership",
+    "durable artifact uses project/client/prospect routing and review frontmatter",
+    "seo-quality-gate passes or is explicitly deferred with an actionable reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify unavailable providers produced no fabricated opportunities or metrics",
+    "verify paid or credentialed calls had approval",
+    "verify outreach and link acquisition did not occur",
+    "verify no spam, private-network, paid-link, exchange, or concealment recommendation is present",
+    "verify changed Markdown/frontmatter and Home review registration when applicable"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "writer",
+    "designer",
+    "verifier"
+  ]
+}

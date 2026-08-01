@@ -18,10 +18,10 @@
   "canonical_modes": ".agents/disciplines/design/modes.md",
   "active_canonical_skills": [
     "brandkit",
+    "design-research",
     "design-delivery",
+    "design-reverse-engineering",
     "design-taste-frontend",
-    "design-taste-frontend-v1",
-    "gpt-taste",
     "high-end-visual-design",
     "image-to-code",
     "imagegen-frontend-mobile",
@@ -32,8 +32,7 @@
     "stitch-design-taste"
   ],
   "source_material_roots": [
-    "stash/design",
-    "/Users/bobmoore/.agents/skills"
+    "stash/design"
   ],
   "approval_classes": [
     "read_only",

@@ -48,6 +48,15 @@ create secrets, or close its own work without the parent workflow or verifier.
 - `developer-delivery`: core repository implementation loop for resolving the
   target repo, protecting dirty work, implementing the smallest complete
   change, running checks, inspecting the diff, and returning evidence.
+- `code-review`: Verifier-owned, read-only review of an explicit diff against
+  acceptance criteria, repository conventions, regression risk, and applicable
+  security concerns.
+- `git-procedures`: detailed Git workspace-isolation and merge/rebase
+  conflict-resolution mechanics supporting `developer-delivery` 4c.
+- `acceptance-test-builder`: builds or audits an explicit regression contract
+  and boundary-ranked proof strategy, supporting `developer-delivery` 4b.
+- `skill-doc-refresh`: bounded refresh of one Developer/platform skill's source
+  map and durable guidance from repository and official-doc evidence.
 - `astro`: Astro source, config, adapters, content collections, and build
   workflow guidance.
 - `wordpress-router` and `wp-project-triage`: WordPress repository
@@ -74,3 +83,8 @@ remaining specialist surfaces and the proposed documentation-curation model in
 The documentation-curation model treats tools such as Context7 as refresh-time
 evidence sources for skill/source-map maintenance, not as startup context or an
 always-on dependency for every coding task.
+
+Use `skill-doc-refresh` for a bounded stale-doc, version/API, or provider
+behavior question. It updates one skill's compact source map and only
+source-proven durable guidance; normal implementation work does not load live
+documentation by default.

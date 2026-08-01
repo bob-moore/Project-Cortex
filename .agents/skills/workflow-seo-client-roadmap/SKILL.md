@@ -1,0 +1,16 @@
+---
+name: workflow-seo-client-roadmap
+description: "Sequence approved SEO work into a dependency-aware client roadmap with outcomes, owners, approvals, evidence prerequisites, and rechecks."
+---
+
+# workflow-seo-client-roadmap
+
+Execute `seo-client-roadmap`.
+
+1. Read `.agents/workflows/seo-client-roadmap/contract.json` and `.agents/workflows/seo-client-roadmap/workflow.md`.
+2. Read `.agents/skills/seo-client-roadmap/SKILL.md` and `.agents/skills/seo-quality-gate/SKILL.md`.
+3. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+4. Use approved evidence only; ask before live reads or mutations. Markdown is the source of truth; optional HTML/PDF is presentation only.
+5. Return Done, Evidence, Open Items, and Next only after source labels, limitations, actions/rechecks, and reporting quality gate are complete or explicitly blocked.
+
+The canonical workflow spec wins if this skill conflicts with it.

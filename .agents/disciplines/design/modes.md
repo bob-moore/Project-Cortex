@@ -42,6 +42,7 @@ Keep these evidence categories separate:
 
 | Mode | Owns | Typical Output | Quality Emphasis |
 |---|---|---|---|
+| `research` | Evidence-backed design research and moodboard work when direction is unresolved. | Brief, routed source set, annotated reference cards, moodboard/reference packet, materially different directions, decision criteria, approval state. | Context fit, source provenance, non-SaaS breadth, content/proof specificity, accessibility/mobile implications, explicit approval before implementation. |
 | `new-layout` | A new page, screen, section, or bounded flow from approved content. | Design specification, layout regions, component map, acceptance matrix. | Content hierarchy, responsive behavior, token use, accessibility requirements, implementation handoff. |
 | `redesign` | Bounded improvement to an existing rendered surface. | Current-state evidence, supported changes, revised specification. | Verified target identity, highest-leverage changes, preserved identity, non-goals. |
 | `component-pattern-spec` | A reusable interface component or pattern. | Anatomy, variants, content rules, states, behavior, acceptance examples. | Reuse scope, state coverage, keyboard/focus behavior, content limits, prohibited misuse. |
@@ -50,6 +51,11 @@ Keep these evidence categories separate:
 | `rendered-review` | Compare implementation against an approved design artifact. | PASS/FIX/BLOCK/UNDECIDED conformance report. | Observable acceptance criteria, screenshots/DOM/source as needed, exact revision owner. |
 
 ## Routing
+
+- If the user asks for inspiration, a moodboard, references, or unresolved visual
+  direction, route through `design-research` before `design-delivery`.
+- If an approved direction or design artifact already exists, skip research and
+  route directly to the applicable implementation/review mode.
 
 - New or changed version-controlled components, CSS, JavaScript, PHP, templates,
   blocks, build tooling, or repository behavior route to `developer`.

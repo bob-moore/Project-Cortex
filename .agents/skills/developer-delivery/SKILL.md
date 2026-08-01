@@ -84,6 +84,77 @@ answer safely.
 For bugs, reproduce or directly inspect before patching. For performance,
 measure before optimizing.
 
+### 4a. Diagnose Before Fixing
+
+For `bug-diagnosis`, establish a tight feedback loop before proposing a fix:
+
+1. Capture the reported symptom, triggering inputs, environment, and recent
+   relevant changes.
+2. Build and run the narrowest red-capable proof: a focused test, CLI/API call,
+   browser path, replayed input, or measured timing harness.
+3. Confirm it exercises the reported failure; reduce it until each remaining
+   input or step is load-bearing.
+4. When the failure spans multiple components (CI → build → sign, API →
+   service → database), instrument each boundary — log what enters and exits,
+   verify config/environment propagation — in one pass before guessing which
+   layer is at fault. Run once to see where it actually breaks, then
+   investigate that component specifically.
+5. Compare the failing path with a working path: locate similar working code
+   elsewhere in the same codebase, read the reference implementation
+   completely (not skimmed), and enumerate every difference — inputs,
+   dependencies, config, assumptions — however small. Don't assume a
+   difference "can't matter" without checking.
+6. State a falsifiable hypothesis and test one variable at a time. Do not stack
+   speculative fixes.
+7. Add temporary diagnostics only when they distinguish hypotheses; tag and
+   remove them before completion.
+
+If no safe red-capable feedback loop can be established, report what was tried,
+the missing artifact/access, and the smallest next diagnostic step. If repeated
+root-cause fixes expose new systemic coupling, stop and escalate the
+architecture concern rather than continuing trial-and-error patches.
+
+### 4b. Select Test Evidence by Proof Boundary
+
+For behavior changes, choose the highest reliable boundary that proves the
+protected outcome without making the test unsafe or non-repeatable:
+
+- unit/component test for isolated deterministic logic;
+- integration/contract test for collaborator, persistence, or protocol behavior;
+- API, CLI, replay, or browser evidence for user- or system-observed outcomes;
+- measured profile/benchmark for performance claims;
+- manual or environment evidence only when automation cannot safely prove the
+  behavior, with the limitation stated.
+
+Use test-first/red-green when the repository and task support it. Do not impose
+it on generated, configuration-only, exploratory, legacy, UI-heavy, or
+otherwise unsuitable work; instead record the closest credible proof and why a
+stronger automated boundary was unavailable. Never derive an oracle only from
+the implementation under test.
+
+When the task needs an explicit regression contract first — actors, business
+invariants, KPIs/thresholds, and a boundary-ranked proof strategy, not just a
+single test — use `acceptance-test-builder`.
+
+### 4c. Keep Git Integration Safe
+
+Before starting significant repository work, detect whether the checkout is a
+linked worktree or submodule, inspect the branch and dirty state, and honor
+repository and User worktree policy. Do not create a worktree, alter
+`.gitignore`, install dependencies, commit, push, open a PR, merge, rebase, tag,
+or release merely because a procedure mentions it.
+
+When an active merge or rebase conflict exists, first identify the operation,
+conflicted paths, conflict class, and required behavior. Apply only the
+smallest approved resolution; preserve user work; run focused checks; inspect
+the resolution diff; then report whether the operation is ready to continue,
+must be aborted, or needs an owner decision. Remote, merge, and publication
+actions remain explicit approvals.
+
+For the detailed mechanics — worktree-vs-submodule detection commands,
+directory-selection order, and the AUTO/JUDGMENT conflict-classification
+rubric — use `git-procedures`.
+
 ### 5. Verify
 
 Run the strongest relevant checks that exist:
@@ -134,7 +205,7 @@ The parent workflow or Verifier owns closure.
 
 WordPress code:
 
-- Start with future project-local WordPress router/triage skills once imported.
+- Start with project-local `wordpress-router` and `wp-project-triage` skills.
 - Route PHP, JS, CSS, block, theme, plugin, REST, Interactivity API, PHPStan,
   build tooling, and repository-owned `theme.json` to Developer.
 - Route pages, posts, media, Site Editor state, Global Styles, settings,
@@ -143,12 +214,18 @@ WordPress code:
 
 Astro:
 
-- Use future project-local `astro` once imported.
+- Use project-local `astro` when its inspected framework/API surface applies.
 - Prefer repo-local scripts and config over generic examples.
 - Check current official docs when API or adapter behavior may have changed.
 
 ## Source Notes
 
-This skill adapts `/Users/bobmoore/.agents/skills/developer-delivery` and the
-Karpathy-inspired guidance staged under `stash/development/andrej-karpathy-skills`.
+This skill incorporates selected root-cause, test-evidence, and Git-safety
+methods reviewed from staged development sources. The local Development
+discipline remains canonical.
+
+2026-08-01: Section 4a enriched with pattern-analysis and multi-component
+evidence-gathering techniques from `stash/development/superpowers/skills/systematic-debugging`.
+Git conflict/worktree mechanics detailed further in the new `git-procedures`
+skill, which this section's mode routes to.
 

@@ -25,13 +25,20 @@ link checks, and the Phase 3 gap analyzers.
 2. Run `seo-technical-audit` as the primary evidence pass.
 3. Run `seo-page-audit` for representative or priority URLs when page-level
    evidence is needed.
-4. Run `gap-check.py` for sitemap, schema, images, hreflang, robots, metadata,
-   and headers against local artifacts, crawler reports, or approved fetched
-   sources. Mark unavailable checks explicitly.
-5. Preserve raw tool output, normalized packets, caps, failures, skipped checks,
+4. Run `gap-check.py` for sitemap discovery, sitemap XML, schema, images,
+   hreflang, robots, metadata, and headers against local artifacts, crawler
+   reports, or approved fetched sources. Mark unavailable checks explicitly.
+5. Run the shallow web-quality/accessibility aggregation and the bounded
+   agent-readiness checks. Keep accessibility automated evidence separate from
+   legal or full WCAG claims, and treat API/MCP/commerce checks as not
+   applicable when the target does not expose those capabilities.
+6. Preserve raw tool output, normalized packets, caps, failures, skipped checks,
    and affected URL samples in one evidence bundle.
-6. Interpret findings and apply `seo-quality-gate` in `technical-audit` mode.
-7. Return findings and handoffs. Do not edit code, CMS state, redirects,
+7. Compose the report summary before the detailed breakdown. Roll up
+   deduplicated recommendations with domain, priority, evidence, and handoff.
+8. Interpret findings and apply `seo-quality-gate` in `technical-audit` and
+   `reporting` modes.
+9. Return findings and handoffs. Do not edit code, CMS state, redirects,
    robots, sitemaps, schema, analytics, or production.
 
 ## Writes
@@ -49,15 +56,19 @@ link checks, and the Phase 3 gap analyzers.
 ## Verification
 
 - Primary crawl and specialist commands are recorded with limits and exit states.
-- Phase 3 checks are complete, not applicable, or explicitly blocked.
+- Phase 3 SEO, web-quality, accessibility, and agent-readiness checks are
+  complete, not applicable, or explicitly blocked.
 - Raw and normalized artifacts are present and source-referenced.
 - Missing or partial evidence is never called clean.
 - Quality gate passes or is deferred with reason.
 
 ## Return Format
 
-- **Done**: bounded scope, evidence bundle, tools, and gate state
+- **Done**: bounded scope, evidence bundle, domain statuses, and gate state
+- **Summary**: overall status, dashboard, positive signals, and prioritized
+  deduplicated recommendations
 - **Evidence**: findings, labels, affected URLs, artifacts, and limitations
+- **Detailed Breakdown**: SEO, Web Quality, Accessibility, and Agent Readiness
 - **Open Items**: approvals, missing checks, partial data, and proof gaps
 - **Next**: smallest handoff or verification replay
 

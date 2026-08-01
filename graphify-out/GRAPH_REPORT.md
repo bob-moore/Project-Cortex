@@ -1,16 +1,16 @@
-# Graph Report - ProjectCortex  (2026-07-30)
+# Graph Report - ProjectCortex  (2026-08-01)
 
 ## Corpus Check
-- 437 files · ~386,461 words
+- 514 files · ~328,901 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3104 nodes · 3126 edges · 346 communities (264 shown, 82 thin omitted)
+- 3734 nodes · 3741 edges · 399 communities (315 shown, 84 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.57)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a6cb81e0`
+- Built from commit: `3f88f64b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -261,14 +261,14 @@
 - [[_COMMUNITY_Gemini Adapter|Gemini Adapter]]
 - [[_COMMUNITY_North Star|North Star]]
 - [[_COMMUNITY_Notes|Notes]]
-- [[_COMMUNITY_People & Context|People & Context]]
+- [[_COMMUNITY_Client Structure|Client Structure]]
 - [[_COMMUNITY_Google Drive Client Folders|Google Drive Client Folders]]
 - [[_COMMUNITY_package.json|package.json]]
 - [[_COMMUNITY_Hooks|Hooks]]
 - [[_COMMUNITY_loop.mjs|loop.mjs]]
 - [[_COMMUNITY_approval_classes|approval_classes]]
 - [[_COMMUNITY_external_mutations|external_mutations]]
-- [[_COMMUNITY_external_reads|external_reads]]
+- [[_COMMUNITY_Client Structure|Client Structure]]
 - [[_COMMUNITY_parent_closure_required|parent_closure_required]]
 - [[_COMMUNITY_summary|summary]]
 - [[_COMMUNITY_writes|writes]]
@@ -359,6 +359,59 @@
 - [[_COMMUNITY_Runtime Hygiene Phase 1 Verification|Runtime Hygiene Phase 1 Verification]]
 - [[_COMMUNITY_Prospects|Prospects]]
 - [[_COMMUNITY_risk_tier|risk_tier]]
+- [[_COMMUNITY_parent_closure_required|parent_closure_required]]
+- [[_COMMUNITY_version|version]]
+- [[_COMMUNITY_Implementation Slices|Implementation Slices]]
+- [[_COMMUNITY_Implementation Plan|Implementation Plan]]
+- [[_COMMUNITY_developer-role-expansion|developer-role-expansion.md]]
+- [[_COMMUNITY_Proposed Source Freshness Layer|Proposed Source Freshness Layer]]
+- [[_COMMUNITY_Current Diagnosis|Current Diagnosis]]
+- [[_COMMUNITY_Skills and Capabilities|Skills and Capabilities]]
+- [[_COMMUNITY_Design Inspiration Library Research|Design Inspiration Library Research]]
+- [[_COMMUNITY_writes|writes]]
+- [[_COMMUNITY_inputs|inputs]]
+- [[_COMMUNITY_version|version]]
+- [[_COMMUNITY_Agent Guidelines|Agent Guidelines]]
+- [[_COMMUNITY_Notes|Notes]]
+- [[_COMMUNITY_Patterns|Patterns]]
+- [[_COMMUNITY_external_reads|external_reads]]
+- [[_COMMUNITY_parent_closure_required|parent_closure_required]]
+- [[_COMMUNITY_summary|summary]]
+- [[_COMMUNITY_writes|writes]]
+- [[_COMMUNITY_Key Decisions|Key Decisions]]
+- [[_COMMUNITY_inputs|inputs]]
+- [[_COMMUNITY_version|version]]
+- [[_COMMUNITY_name|name]]
+- [[_COMMUNITY_risk_tier|risk_tier]]
+- [[_COMMUNITY_North Star|North Star]]
+- [[_COMMUNITY_parent_closure_required|parent_closure_required]]
+- [[_COMMUNITY_version|version]]
+- [[_COMMUNITY_SEO Link-Building Opportunities|SEO Link-Building Opportunities]]
+- [[_COMMUNITY_summary|summary]]
+- [[_COMMUNITY_version|version]]
+- [[_COMMUNITY_qmd-refresh-run.ts|qmd-refresh-run.ts]]
+- [[_COMMUNITY_SEO Citation Audit|SEO Citation Audit]]
+- [[_COMMUNITY_SEO Local Audit|SEO Local Audit]]
+- [[_COMMUNITY_SEO Location Page Audit|SEO Location Page Audit]]
+- [[_COMMUNITY_SEO Maps Audit|SEO Maps Audit]]
+- [[_COMMUNITY_SEO Review Signals|SEO Review Signals]]
+- [[_COMMUNITY_setup-vault.mjs|setup-vault.mjs]]
+- [[_COMMUNITY_SEO Drift Compare|SEO Drift Compare]]
+- [[_COMMUNITY_Google SEO data|Google SEO data]]
+- [[_COMMUNITY_SEO Weekly Monitor|SEO Weekly Monitor]]
+- [[_COMMUNITY_validate-write.ts|validate-write.ts]]
+- [[_COMMUNITY_Patterns|Patterns]]
+- [[_COMMUNITY_approval_classes|approval_classes]]
+- [[_COMMUNITY_SEO Client Roadmap|SEO Client Roadmap]]
+- [[_COMMUNITY_SEO Executive Summary|SEO Executive Summary]]
+- [[_COMMUNITY_SEO Monitoring Pack|SEO Monitoring Pack]]
+- [[_COMMUNITY_SEO Report|SEO Report]]
+- [[_COMMUNITY_People & Context|People & Context]]
+- [[_COMMUNITY_Prospects|Prospects]]
+- [[_COMMUNITY_name|name]]
+- [[_COMMUNITY_SEO Quality Gate|SEO Quality Gate]]
+- [[_COMMUNITY_SEO Tool Runner|SEO Tool Runner]]
+- [[_COMMUNITY_parent_closure_required|parent_closure_required]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Agent OS R&D` - 32 edges
@@ -368,9 +421,9 @@
 5. `main()` - 17 edges
 6. `Educated Mortgage — Down Payment Assistance Design Specification` - 16 edges
 7. `compilerOptions` - 15 edges
-8. `R&V Cleaning Solutions — Homepage Copy` - 15 edges
-9. `Development Skill Import Plan` - 15 edges
-10. `Workflow` - 14 edges
+8. `Workflow` - 15 edges
+9. `R&V Cleaning Solutions — Homepage Copy` - 15 edges
+10. `Development Skill Import Plan` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `main()` --indirect_call--> `isContextRemoveBenign()`  [INFERRED]
@@ -387,11 +440,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (346 total, 82 thin omitted)
+## Communities (399 total, 84 thin omitted)
 
 ### Community 0 - "Developer Role Expansion Roadmap"
-Cohesion: 0.04
-Nodes (46): Acceptance Criteria, Candidate Developer Skills For Source Maps, Context7 Evaluation Criteria, Current State, Developer Role Expansion Roadmap, Documentation Curation Idea, Goal, Implementation Slices (+38 more)
+Cohesion: 0.20
+Nodes (10): Acceptance Criteria, Candidate Developer Skills For Source Maps, Context7 Evaluation Criteria, Current State, Developer Role Expansion Roadmap, Documentation Curation Idea, Goal, Open Questions (+2 more)
 
 ### Community 1 - "Agent OS R&D"
 Cohesion: 0.04
@@ -406,8 +459,8 @@ Cohesion: 0.05
 Nodes (44): Agency Skill Library, Agent Guidelines, Archiving a Project vs. a Client, Canonical Layers, Client Layout, Client Structure, Converting a Prospect, Creating Notes (+36 more)
 
 ### Community 4 - "session-start.ts"
-Cohesion: 0.11
-Nodes (32): collectOpenTasks(), extractFrontmatterField(), findFrontmatterEnd(), formatActiveWork(), formatBrainIndex(), formatDateHeader(), formatRecentChanges(), hasBrainContent() (+24 more)
+Cohesion: 0.10
+Nodes (33): collectOpenTasks(), extractFrontmatterField(), findFrontmatterEnd(), formatActiveWork(), formatBrainIndex(), formatDateHeader(), formatRecentChanges(), hasBrainContent() (+25 more)
 
 ### Community 5 - "Educated Mortgage — Brand"
 Cohesion: 0.06
@@ -422,8 +475,8 @@ Cohesion: 0.06
 Nodes (30): Active Project, 1. Project Context, 2. Target Audience, 3. Brand Voice & Tone, 4. Vocabulary & Terminology, 5. SEO Requirements, 6. Content Types & Formats, 7. Compliance, Legal & Claims (+22 more)
 
 ### Community 8 - "Workflow"
-Cohesion: 0.07
-Nodes (29): 10. Check for Decisions Due for Revisit, 11. Check for Mixed Context, 12. Check Runtime Adapter Config, 13. Fix and Report, 1. Check Folder Structure, 2. Check Indexes, 3. Check Frontmatter Completeness, 4. Check for Duplicate Tags (+21 more)
+Cohesion: 0.06
+Nodes (30): 10. Check for Decisions Due for Revisit, 11. Check for Mixed Context, 12. Check Runtime Adapter Config, 13. Fix and Report, 1. Check Folder Structure, 2. Check Indexes, 2a. Check Reviewable Generated Artifacts, 3. Check Frontmatter Completeness (+22 more)
 
 ### Community 9 - "README.md"
 Cohesion: 0.07
@@ -442,12 +495,12 @@ Cohesion: 0.07
 Nodes (27): Affordance, Alignment, Attribution, Color, Consistency, Constraints, Core Design Review Principles, Cross-Bucket Principles (+19 more)
 
 ### Community 13 - "hook-io.ts"
-Cohesion: 0.14
-Nodes (13): HookInput, input, SCRIPT_DIR, WORKER_PATH, readStdinJson(), fields, input, values (+5 more)
+Cohesion: 0.08
+Nodes (26): HookInput, input, signals, HookInput, input, SCRIPT_DIR, WORKER_PATH, ROOT_FILES (+18 more)
 
 ### Community 14 - "gap-check.py"
-Cohesion: 0.17
-Nodes (21): check_headers(), check_hreflang(), check_images(), check_metadata(), check_robots(), check_schema(), check_sitemap(), count_phrase() (+13 more)
+Cohesion: 0.16
+Nodes (23): check_headers(), check_hreflang(), check_images(), check_metadata(), check_robots(), check_schema(), check_sitemap(), check_sitemap_discovery() (+15 more)
 
 ### Community 15 - "Dental Health Associates — Brand"
 Cohesion: 0.08
@@ -455,7 +508,7 @@ Nodes (23): 1. Project Context, 2. Target Audience, 3. Brand Voice & Tone, 4. Vo
 
 ### Community 16 - "Vault Wrap Up"
 Cohesion: 0.08
-Nodes (24): 1. Review What Was Done, 2. Verify Note Quality, 3. Check Index Consistency, 4. Check for Orphans, 5. Archive Check, 6. Ways of Working Review, 7. Suggest Improvements, 8. Report (+16 more)
+Nodes (25): 1. Review What Was Done, 2. Verify Note Quality, 3. Check Index Consistency, 4. Check for Orphans, 5. Archive Check, 6. Ways of Working Review, 7. Suggest Improvements, 8. Write The Session Diary Entry (+17 more)
 
 ### Community 17 - "Vault Incident Capture"
 Cohesion: 0.08
@@ -482,8 +535,8 @@ Cohesion: 0.09
 Nodes (22): 1. Get the briefing, 2. Present and select work, 3. Resolve prerequisites and construct the task contract, 4. Route by source of truth, 5. Dispatch with dependency order, 6. Verify and revise, 7. Close and reconcile, Approval Gates (+14 more)
 
 ### Community 23 - "qmd-refresh.ts"
-Cohesion: 0.10
-Nodes (28): debug(), buildQmdCommand(), findPackageRoot(), composeWorkerInvocations(), isDebounced(), QmdInvocation, readSentinelMtime(), resolveVaultRoot() (+20 more)
+Cohesion: 0.14
+Nodes (20): debug(), isMainModule(), buildQmdCommand(), composeWorkerInvocations(), isDebounced(), QmdInvocation, readSentinelMtime(), shouldRefreshForPath() (+12 more)
 
 ### Community 24 - "Vault Intake"
 Cohesion: 0.09
@@ -498,8 +551,8 @@ Cohesion: 0.09
 Nodes (21): Astro, Canonical Development Shape, Development Modes, Development Skill Import Plan, Global General Development Skills, Global Platform Development Skills, Global WordPress Operation Skills, Implementation Status (+13 more)
 
 ### Community 27 - "memory.md"
-Cohesion: 0.12
-Nodes (12): Current Gotchas, Gotchas, Latest Resume Notes, Memory, Topics, Operator, Current Patterns, Home Attention Surface (+4 more)
+Cohesion: 0.05
+Nodes (33): Environment Dependencies, Global npm packages, Non-npm CLI tools, Open items, Runtimes, Verifying a fresh machine, Current Gotchas, Gotchas (+25 more)
 
 ### Community 28 - "Vault Project Archive"
 Cohesion: 0.10
@@ -530,12 +583,12 @@ Cohesion: 0.11
 Nodes (17): compilerOptions, allowImportingTsExtensions, exactOptionalPropertyTypes, isolatedModules, lib, module, moduleResolution, noEmit (+9 more)
 
 ### Community 35 - "properties"
-Cohesion: 0.11
-Nodes (18): type, type, properties, type, type, description, evidence_label, kind (+10 more)
+Cohesion: 0.08
+Nodes (25): type, type, type, type, properties, type, type, applicable (+17 more)
 
 ### Community 36 - "Build Phases"
 Cohesion: 0.11
-Nodes (17): Build Phases, Current Status, North Star, Operating Principles, Phase 10: Reporting And Automation, Phase 1: Discipline Foundation, Phase 2: Neutral Tool Wrappers, Phase 3: Page And Technical SEO (+9 more)
+Nodes (17): Build Phases, Current Status, Historical Build Order, North Star, Operating Principles, Phase 10: Reporting And Automation, Phase 1: Discipline Foundation, Phase 2: Neutral Tool Wrappers (+9 more)
 
 ### Community 37 - "Page: Privacy Policy (`/privacy`)"
 Cohesion: 0.11
@@ -586,8 +639,8 @@ Cohesion: 0.13
 Nodes (14): Approval Gates, Important, Invocation, Purpose, Related Roles, Required Context, Return Format, Slack Deep Scan (+6 more)
 
 ### Community 49 - "Home"
-Cohesion: 0.13
-Nodes (15): Actionable / Time-Sensitive, Active Work, Calendar Snapshot, Clients, Current Focus, Home, Incidents, Intake / Review (+7 more)
+Cohesion: 0.12
+Nodes (16): Actionable / Time-Sensitive, Active Work, Calendar Snapshot, Clients, Current Focus, Home, Incidents, Intake / Review (+8 more)
 
 ### Community 50 - "Brunsell Lumber — FAQ Content"
 Cohesion: 0.13
@@ -598,8 +651,8 @@ Cohesion: 0.13
 Nodes (15): 10. FAQ, 11. CTA Band (final instance, before footer), 12. Footer Tagline, 1. Hero, 2. Trust Bar, 3. Problem Section, 4. Cleaning Built Around Your Calendar, 5. Why Choose Us (+7 more)
 
 ### Community 52 - "SEO Site Audit: A Fistful of Dollars"
-Cohesion: 0.13
-Nodes (14): Evidence index, Executive finding, Healthy signals, Next actions, P1: Harden transport and response security, P1: Improve homepage loading and asset delivery, P1: Repair broken and redirected internal URLs, P1: Restore a discoverable XML sitemap (+6 more)
+Cohesion: 0.07
+Nodes (27): Audit Findings (2026-07-31, informing this plan), Boundary Decision, Context, Harness Distribution Prep, Migration Plan, New Scope — Vault Onboarding Workflow (2026-08-01), Phase 0 — Preconditions, Phase 1 — Boundary lock (+19 more)
 
 ### Community 53 - "Brad Brickham"
 Cohesion: 0.14
@@ -610,12 +663,12 @@ Cohesion: 0.14
 Nodes (14): Acceptance matrix, Approved content, Component inventory, Content and asset rules, Contract, Design direction, Educated Mortgage — Down Payment Assistance Design Specification, Feeds Into (+6 more)
 
 ### Community 55 - "type"
-Cohesion: 0.15
-Nodes (13): items, type, type, items, type, affected_targets, limits, targets (+5 more)
+Cohesion: 0.18
+Nodes (13): items, type, items, items, type, additionalProperties, required, type (+5 more)
 
 ### Community 56 - "properties"
-Cohesion: 0.15
-Nodes (13): type, type, type, type, client_or_project, date_range, market, mode (+5 more)
+Cohesion: 0.12
+Nodes (16): type, type, type, type, client_or_project, date_range, market, mode (+8 more)
 
 ### Community 57 - "tool"
 Cohesion: 0.15
@@ -630,8 +683,8 @@ Cohesion: 0.15
 Nodes (13): Auth, Connection confirmed live (2026-07-20), Decision (2026-07-17): built as a global skill, not an MCP server, Docs, Health snapshot at pull time (2026-07-20), Is there a better way?, Open questions (not yet answered), Rate limits & errors (+5 more)
 
 ### Community 60 - "{{title}}"
-Cohesion: 0.15
-Nodes (11): Key Moments, Notes, Related, Relationship, Role & Org, {{title}}, Interactions, Members (+3 more)
+Cohesion: 0.14
+Nodes (12): Key Moments, Notes, Related, Relationship, Role & Org, {{title}}, Voice, Interactions (+4 more)
 
 ### Community 61 - "qmd-mcp.mjs"
 Cohesion: 0.15
@@ -646,8 +699,8 @@ Cohesion: 0.17
 Nodes (11): Approval Gates, Harness Notes, Invocation, Purpose, Related Roles, Required Context, Return Format, Vault Standup (+3 more)
 
 ### Community 64 - "SEO Phase 3 Resume"
-Cohesion: 0.17
-Nodes (11): Blockers And Risks, Changed Files, Current State, Decisions, Live Audit Evidence, Must Read First, Next Action, Objective (+3 more)
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Strategy Roadmap, Verification (+2 more)
 
 ### Community 65 - "Page: SMS Terms & Conditions (`/sms-terms-and-conditions`)"
 Cohesion: 0.17
@@ -670,8 +723,8 @@ Cohesion: 0.18
 Nodes (10): Approval Classes, Closure Rule, developer, Does Not Own, Owns, Platform Boundaries, Process, Required Context (+2 more)
 
 ### Community 70 - "properties"
-Cohesion: 0.18
-Nodes (11): type, type, type, type, approval_class, command_intent, command_redacted, completed_at (+3 more)
+Cohesion: 0.13
+Nodes (15): type, type, type, type, approval_class, command_intent, command_redacted, completed_at (+7 more)
 
 ### Community 71 - "Assistant"
 Cohesion: 0.18
@@ -759,7 +812,7 @@ Nodes (6): Decisions, Harness Patterns, Reference, Related, Systems And APIs, We
 
 ### Community 92 - "properties"
 Cohesion: 0.20
-Nodes (10): pattern, type, properties, name, summary, version, minLength, type (+2 more)
+Nodes (10): pattern, type, properties, name, risk_tier, summary, enum, type (+2 more)
 
 ### Community 93 - "trust-ledger.mjs"
 Cohesion: 0.22
@@ -778,8 +831,8 @@ Cohesion: 0.20
 Nodes (7): approvalClasses, failures, requiredContractKeys, requiredSections, riskTiers, root, workflowsRoot
 
 ### Community 97 - "properties"
-Cohesion: 0.20
-Nodes (10): type, enum, type, properties, artifacts, data_status, run, additionalProperties (+2 more)
+Cohesion: 0.13
+Nodes (14): additionalProperties, type, enum, type, items, type, properties, artifacts (+6 more)
 
 ### Community 98 - "Role And Skill Porting Buckets"
 Cohesion: 0.20
@@ -807,15 +860,15 @@ Nodes (10): Automated Build Complete (2026-07-23) — scaffold only, not the fin
 
 ### Community 104 - "Development Platforms"
 Cohesion: 0.22
-Nodes (8): Astro, Development Platforms, First Import Group, Import Requirements, Later Specialist Group, Open Decisions, WordPress Code Boundary, WordPress Code Development
+Nodes (8): Astro, Development Platforms, First Import Group, Import Requirements, Later Specialist Group, Resolved And Open Decisions, WordPress Code Boundary, WordPress Code Development
 
 ### Community 105 - "Writing Modes"
 Cohesion: 0.22
 Nodes (8): Email Intent Profiles, Modes, Non-Writer Boundaries, Repurposing Rule, Social Shortform Profiles, Universal Inputs, Web Copy Intent Profiles, Writing Modes
 
 ### Community 106 - "matcher.ts"
-Cohesion: 0.20
-Nodes (10): HookInput, input, signals, anyWordMatch(), classify(), compileMatcher(), SIGNAL_MATCHERS, escapeRegex() (+2 more)
+Cohesion: 0.33
+Nodes (6): anyWordMatch(), compileMatcher(), SIGNAL_MATCHERS, escapeRegex(), Signal, SIGNALS
 
 ### Community 107 - "assistant"
 Cohesion: 0.22
@@ -890,8 +943,8 @@ Cohesion: 0.22
 Nodes (8): Architecture, Extension Rules, Hooks, Operating Model, Runtime Adapter Rule, Search, Source Layers, Validation
 
 ### Community 125 - "Home.md"
-Cohesion: 0.19
-Nodes (6): Current Focus, Deferred, North Star, Future, Journal, Related
+Cohesion: 0.36
+Nodes (3): Future, Journal, Related
 
 ### Community 126 - "2026-07-29 Context Cleanup And Development Next"
 Cohesion: 0.22
@@ -902,8 +955,8 @@ Cohesion: 0.22
 Nodes (7): Next Action, Outcome, Project Cortex First Version Push, Push Note, Verification, What Changed, Resume Notes
 
 ### Community 128 - "Workflows"
-Cohesion: 0.22
-Nodes (8): Adapter Parity, Operations Workflows, Registry Rules, SEO Workflows, Validation Command, Vault Workflows, Workflows, Writing Workflows
+Cohesion: 0.20
+Nodes (9): Adapter Parity, Design Workflows, Operations Workflows, Registry Rules, SEO Workflows, Validation Command, Vault Workflows, Workflows (+1 more)
 
 ### Community 129 - "People"
 Cohesion: 0.22
@@ -986,8 +1039,8 @@ Cohesion: 0.25
 Nodes (7): Aalair Website Meeting, Attendees, Calendar Event, Context, Notes, Purpose, Related
 
 ### Community 150 - "People & Context"
-Cohesion: 0.25
-Nodes (9): ROOT_FILES, shouldSkipFile(), SKIP_PATH_SEGMENTS, validateContent(), validateFile(), writeHookOutput(), HookInput, input (+1 more)
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Collection Page Audit (+3 more)
 
 ### Community 151 - "Leia"
 Cohesion: 0.25
@@ -1034,8 +1087,8 @@ Cohesion: 0.29
 Nodes (6): Design Modes, Evidence Ledger, Modes, Non-Design Boundaries, Routing, Universal Inputs
 
 ### Community 162 - "Development Modes"
-Cohesion: 0.29
-Nodes (6): Development Modes, Karpathy Practice Layer, Modes, Platform Boundaries, Repository Evidence Ledger, Universal Inputs
+Cohesion: 0.25
+Nodes (7): Development Modes, Karpathy Practice Layer, Modes, Platform Boundaries, Repository Evidence Ledger, Supporting Procedures, Universal Inputs
 
 ### Community 163 - "Development Discipline"
 Cohesion: 0.29
@@ -1054,8 +1107,8 @@ Cohesion: 0.29
 Nodes (6): additionalProperties, $id, required, $schema, title, type
 
 ### Community 167 - "properties"
-Cohesion: 0.29
-Nodes (7): const, type, properties, parent_closure_required, version, minimum, type
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Content Brief, Verification (+2 more)
 
 ### Community 168 - "workflow.schema.json"
 Cohesion: 0.29
@@ -1070,8 +1123,8 @@ Cohesion: 0.29
 Nodes (6): Boundaries, Implemented First Pass, Marketing Skill Import Plan, Next, Scope, Source Dispositions
 
 ### Community 171 - "Deferred Architecture"
-Cohesion: 0.29
-Nodes (6): Deferred Architecture, Developer Role Expansion And Documentation Curation, Roadmap, Runtime Hygiene: QMD, Startup Context, And Adapter Portability, Runtime-Neutral Dispatcher, SEO Discipline And Tool Suite
+Cohesion: 0.22
+Nodes (8): Evidence: what already exists on each side, Explicitly not building, Origin, Part 1: Correction-Capture And Evidence-Accumulation Mechanisms, Proposed mechanism shape (not built), Recommended Sequencing, Related, Self-Improvement Loop
 
 ### Community 172 - "R&V Cleaning / MWF Re-connect"
 Cohesion: 0.29
@@ -1102,8 +1155,8 @@ Cohesion: 0.29
 Nodes (7): Confirmed strengths to preserve, Current-state findings, F1 — Narrow-screen horizontal overflow, F2 — Published placeholder content, F3 — Broken global-chrome phone actions, F4 — Duplicate page-level H1, F5 — Secondary link contrast on white passes
 
 ### Community 179 - "Educated Mortgage — Website Rebuild"
-Cohesion: 0.29
-Nodes (7): Build Timeline (Monday.com — Website Builds board, "Educated Mortgage" group), Designer Acceptance Fixture — Down Payment Assistance (2026-07-21), Educated Mortgage — Website Rebuild, Environments, Open Items (snapshot as of 2026-07-09), Pending / Can't Do, Related
+Cohesion: 0.17
+Nodes (12): Build Timeline (Monday.com — Website Builds board, "Educated Mortgage" group), Copy & Nav Changes (Bob to implement), Designer Acceptance Fixture — Down Payment Assistance (2026-07-21), Educated Mortgage — Website Rebuild, Environments, Launch Timing, Open Items (snapshot as of 2026-07-09), Other Updates (no action needed) (+4 more)
 
 ### Community 180 - "Systems Furniture Installations — Homepage Rewrite"
 Cohesion: 0.29
@@ -1174,12 +1227,12 @@ Cohesion: 0.33
 Nodes (5): Current Canonical Skills, Discipline Rule, Files, Methodology Rule, Writing Discipline
 
 ### Community 197 - "evidence-schema.json"
-Cohesion: 0.33
-Nodes (5): additionalProperties, required, $schema, title, type
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Topic Cluster, Verification (+2 more)
 
 ### Community 198 - "items"
-Cohesion: 0.40
-Nodes (6): items, items, type, additionalProperties, required, findings
+Cohesion: 0.38
+Nodes (13): add_finding(), display_source(), domain_status(), load(), main(), packet_findings(), Path, Add a durable Home review link without duplicating an existing entry. (+5 more)
 
 ### Community 199 - "Clients"
 Cohesion: 0.33
@@ -1258,8 +1311,8 @@ Cohesion: 0.50
 Nodes (4): fail(), failures, root, verifyProjectFolders()
 
 ### Community 219 - "Skills"
-Cohesion: 0.40
-Nodes (4): Canonical Disciplines, Canonical Skills, Canonical Workflows, Skills
+Cohesion: 0.33
+Nodes (5): Canonical Disciplines, Canonical Skills, Canonical Workflows, Ownership Boundary, Skills
 
 ### Community 220 - "Bob Moore"
 Cohesion: 0.40
@@ -1358,16 +1411,16 @@ Cohesion: 0.50
 Nodes (3): Current Adapter State, Gemini Adapter, graphify
 
 ### Community 245 - "North Star"
-Cohesion: 0.38
-Nodes (4): isMainModule(), HookInput, listBackups(), pruneBackups()
+Cohesion: 0.17
+Nodes (12): Acceptance Criteria, Current Diagnosis, First Implementation Slice, Goal, Graphify Scope Problem, Open Questions, QMD Store Problem, Retrieval Contract (+4 more)
 
 ### Community 246 - "Notes"
-Cohesion: 0.50
-Nodes (3): All Notes, Notes, Related
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Ecommerce Audit (+3 more)
 
-### Community 247 - "People & Context"
-Cohesion: 0.25
-Nodes (7): Manager Timeline, People & Context, Performance Reviews, Recurring Growth Themes, Review Goals, Role & Org, Teams
+### Community 247 - "Client Structure"
+Cohesion: 0.12
+Nodes (16): Approval Gates, Closure, Harness Notes, Invocation, Phase 1 — Get to know the user, Phase 2 — Define the Operator, Phase 3 — Dependency check, Purpose (+8 more)
 
 ### Community 248 - "Google Drive Client Folders"
 Cohesion: 0.50
@@ -1385,25 +1438,25 @@ Nodes (3): minItems, type, approval_classes
 Cohesion: 0.67
 Nodes (3): items, type, external_mutations
 
-### Community 254 - "external_reads"
-Cohesion: 0.67
-Nodes (3): items, type, external_reads
+### Community 254 - "Client Structure"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO AEO Audit (+3 more)
 
 ### Community 255 - "parent_closure_required"
-Cohesion: 0.40
-Nodes (4): 2026-07-15, 2026-07-28, 2026-07-29, Key Decisions
+Cohesion: 0.22
+Nodes (8): Agent Brief: Intrinsic Canvas Sizing, Critical Mixed-Lane Rule, Design Return Contract, Interface Lane, Prose Lane, Required Behavior, Section Lane, Usage Lanes
 
 ### Community 256 - "summary"
-Cohesion: 0.67
-Nodes (3): summary, minLength, type
+Cohesion: 0.14
+Nodes (13): Aceternity UI, Addendum (2026-08-01), awesome-design-md, Design Resource Review, Executive conclusion, MotionSites AI, Priority order for future work, Recommended design process correction (+5 more)
 
 ### Community 257 - "writes"
-Cohesion: 0.67
-Nodes (3): writes, items, type
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO AI Visibility Check (+3 more)
 
 ### Community 258 - "approval_classes"
-Cohesion: 0.67
-Nodes (3): minItems, type, approval_classes
+Cohesion: 0.60
+Nodes (5): check(), fetch(), main(), now(), robots_data()
 
 ### Community 259 - "external_mutations"
 Cohesion: 0.67
@@ -1418,8 +1471,8 @@ Cohesion: 0.67
 Nodes (3): related_roles, items, type
 
 ### Community 262 - "version"
-Cohesion: 0.67
-Nodes (3): pattern, type, name
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO GEO Audit (+3 more)
 
 ### Community 263 - "writes"
 Cohesion: 0.67
@@ -1430,29 +1483,233 @@ Cohesion: 0.40
 Nodes (4): Follow-up, Outcome, Runtime Hygiene Phase 1 Verification, Verified Criteria
 
 ### Community 344 - "Prospects"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO SXO Audit (+3 more)
+
+### Community 345 - "risk_tier"
+Cohesion: 0.50
+Nodes (3): Core Idea, Design Sample, Runtime Adapters
+
+### Community 346 - "parent_closure_required"
+Cohesion: 0.29
+Nodes (7): Adapter Protocol Hygiene, Generated Artifact Hygiene, Retrieval Hygiene, Runtime Hygiene Criteria, Secret Hygiene, Startup Context Hygiene, Storage and Sandbox Hygiene
+
+### Community 347 - "version"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Faceted Navigation Audit (+3 more)
+
+### Community 348 - "Implementation Slices"
+Cohesion: 0.33
+Nodes (6): Implementation Slices, Slice 1: Document The Curation Pattern, Slice 2: Prototype One Source Map, Slice 3: Define `skill-doc-refresh`, Slice 4: Pilot Context7 In CLI/Skill Mode, Slice 5: Promote Or Reject
+
+### Community 349 - "Implementation Plan"
+Cohesion: 0.33
+Nodes (6): Implementation Plan, Phase 1: Establish Vault-Local QMD Store Convention, Phase 2: Fix Codex Hook Protocol Compatibility, Phase 3: Shrink SessionStart Context, Phase 4: Tighten Graphify and Search Scope, Phase 5: Runtime Hygiene Maintenance Check
+
+### Community 351 - "Proposed Source Freshness Layer"
+Cohesion: 0.50
+Nodes (4): Normal Developer Flow, Proposed Source Freshness Layer, Refresh Flow, Source Map Shape
+
+### Community 352 - "Current Diagnosis"
+Cohesion: 0.29
+Nodes (7): How this feeds the Part 1 mechanisms, later, Part 2: Cross-Session Learning Substrate ("Session Diary"), Purpose, Schema, Still not building, Trigger — decided, Where it should live — recommendation
+
+### Community 353 - "Skills and Capabilities"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Product Schema (+3 more)
+
+### Community 354 - "Design Inspiration Library Research"
+Cohesion: 0.06
+Nodes (31): Access notes, Aceternity UI, Anti-generic collection rule, Astra Website Templates, awesome-design-md, Awwwards service directory, Bottom line, Copyable or implementation-adjacent local-business sources (+23 more)
+
+### Community 355 - "writes"
+Cohesion: 0.11
+Nodes (17): 1. Establish the research contract, 2. Select research lanes, 3. Gather and annotate references, 4. Compose the moodboard/reference packet, 5. Run the anti-SaaS and quality checks, 6. Produce alternatives and criteria, 7. Stop at approval and hand off, Approval Gates (+9 more)
+
+### Community 356 - "inputs"
+Cohesion: 0.14
+Nodes (13): 1. Visual references and local-business breadth, 2. Copy and content, 3. Motion and interaction, 4. Implementation and accessibility, Anti-generic-SaaS policy, Decision memo: a non-SaaS-looking design inspiration library, Evaluation of the six named resources, Executive recommendation (+5 more)
+
+### Community 357 - "version"
+Cohesion: 0.33
+Nodes (5): Format, How This Gets Read, Related, Session Diary, What Goes In An Entry
+
+### Community 358 - "Agent Guidelines"
+Cohesion: 0.17
+Nodes (11): Approval Gates, DataForSEO, Invocation, Output, Purpose, Related Roles, Required Context, Return Format (+3 more)
+
+### Community 359 - "Notes"
+Cohesion: 0.50
+Nodes (3): All Notes, Notes, Related
+
+### Community 360 - "Patterns"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Programmatic Quality Gate (+3 more)
+
+### Community 361 - "external_reads"
+Cohesion: 0.67
+Nodes (3): items, type, external_reads
+
+### Community 362 - "parent_closure_required"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Keyword Research, Verification (+2 more)
+
+### Community 363 - "summary"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO SERP Intent, Verification (+2 more)
+
+### Community 364 - "writes"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Content Audit, Verification (+2 more)
+
+### Community 365 - "Key Decisions"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Drift Baseline (+3 more)
+
+### Community 366 - "inputs"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Backlink Audit, Verification (+2 more)
+
+### Community 367 - "version"
+Cohesion: 0.29
+Nodes (7): pattern, type, properties, name, version, minimum, type
+
+### Community 368 - "name"
+Cohesion: 0.50
+Nodes (3): Corrections, Preferences, Related
+
+### Community 369 - "risk_tier"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Competitor Backlink Comparison, Verification (+2 more)
+
+### Community 370 - "North Star"
+Cohesion: 0.50
+Nodes (3): Current Focus, Deferred, North Star
+
+### Community 371 - "parent_closure_required"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Action Plan (+3 more)
+
+### Community 372 - "version"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Link Reclaim, Verification (+2 more)
+
+### Community 373 - "SEO Link-Building Opportunities"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Link-Building Opportunities, Verification (+2 more)
+
+### Community 374 - "summary"
+Cohesion: 0.67
+Nodes (3): summary, minLength, type
+
+### Community 375 - "version"
+Cohesion: 0.67
+Nodes (3): version, minimum, type
+
+### Community 376 - "qmd-refresh-run.ts"
+Cohesion: 0.16
+Nodes (12): findPackageRoot(), resolveVaultRoot(), require, resolveQmdEntry(), resolveQmdEntryViaPath(), parseQmdIndex(), invocations, MANIFEST_PATH (+4 more)
+
+### Community 377 - "SEO Citation Audit"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Citation Audit, Verification (+2 more)
+
+### Community 378 - "SEO Local Audit"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Local Audit, Verification (+2 more)
+
+### Community 379 - "SEO Location Page Audit"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Location Page Audit, Verification (+2 more)
+
+### Community 380 - "SEO Maps Audit"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Maps Audit, Verification (+2 more)
+
+### Community 381 - "SEO Review Signals"
+Cohesion: 0.18
+Nodes (10): Approval Gates, Invocation, Purpose, Related Roles, Required Context, Return Format, SEO Review Signals, Verification (+2 more)
+
+### Community 382 - "setup-vault.mjs"
+Cohesion: 0.33
+Nodes (3): manifest, manifestPath, root
+
+### Community 383 - "SEO Drift Compare"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Drift Compare (+3 more)
+
+### Community 384 - "Google SEO data"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Google SEO data, Invocation, Output, Purpose, Related Roles, Required Context, Return Format (+3 more)
+
+### Community 385 - "SEO Weekly Monitor"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Weekly Monitor (+3 more)
+
+### Community 386 - "validate-write.ts"
+Cohesion: 0.67
+Nodes (3): writes, items, type
+
+### Community 388 - "approval_classes"
+Cohesion: 0.67
+Nodes (3): minItems, type, approval_classes
+
+### Community 389 - "SEO Client Roadmap"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Client Roadmap (+3 more)
+
+### Community 390 - "SEO Executive Summary"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Executive Summary (+3 more)
+
+### Community 391 - "SEO Monitoring Pack"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Monitoring Pack (+3 more)
+
+### Community 392 - "SEO Report"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Report (+3 more)
+
+### Community 393 - "People & Context"
+Cohesion: 0.25
+Nodes (7): Manager Timeline, People & Context, Performance Reviews, Recurring Growth Themes, Review Goals, Role & Org, Teams
+
+### Community 399 - "Prospects"
 Cohesion: 0.50
 Nodes (3): Active Prospects, Prospects, Related
 
-### Community 345 - "risk_tier"
+### Community 400 - "name"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Foundation (+3 more)
+
+### Community 403 - "SEO Quality Gate"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Quality Gate (+3 more)
+
+### Community 404 - "SEO Tool Runner"
+Cohesion: 0.17
+Nodes (11): Approval Gates, Invocation, Output, Purpose, Related Roles, Required Context, Return Format, SEO Tool Runner (+3 more)
+
+### Community 405 - "parent_closure_required"
 Cohesion: 0.67
-Nodes (3): risk_tier, enum, type
+Nodes (3): const, type, parent_closure_required
 
 ## Knowledge Gaps
-- **2089 isolated node(s):** `root`, `workflowsRoot`, `commandsRoot`, `workflowNames`, `root` (+2084 more)
+- **2579 isolated node(s):** `root`, `workflowsRoot`, `commandsRoot`, `workflowNames`, `root` (+2574 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **82 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **84 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Harness Manual` connect `Harness Manual` to `Home.md`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **Why does `People & Context` connect `People & Context` to `People`?**
+- **Why does `WPRemote API` connect `WPRemote API` to `Index.md`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **Why does `Work Notes` connect `Work Notes` to `Home.md`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **Why does `Project Cortex` connect `Project Cortex` to `Home.md`?**
   _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **What connects `root`, `workflowsRoot`, `commandsRoot` to the rest of the system?**
-  _2091 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Developer Role Expansion Roadmap` be split into smaller, more focused modules?**
-  _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
+  _2583 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Agent OS R&D` be split into smaller, more focused modules?**
   _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
 - **Should `Brunsell Lumber — Brand` be split into smaller, more focused modules?**

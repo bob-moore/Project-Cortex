@@ -1,3 +1,12 @@
+---
+date: 2026-08-01
+description: Reusable operating patterns for agents working inside this vault.
+tags:
+  - harness
+  - patterns
+updated: 2026-08-01
+---
+
 # Patterns
 
 Reusable operating patterns for agents working inside this vault.
@@ -7,6 +16,28 @@ Reusable operating patterns for agents working inside this vault.
 - Keep `.agents/` for machine/runtime machinery.
 - Keep `harness/` for writable agent-operating knowledge.
 - Keep human- and agent-facing work outside `harness/`.
+
+## Roadmap Status Verification
+
+A roadmap's stated `status:` or phase label is a claim, not evidence — it goes
+stale the moment work continues without the doc being updated. Before
+reporting a roadmap phase/slice as complete, or updating its status field,
+verify against something that can't drift silently:
+
+- Run the relevant `.agents/scripts/verify-*.mjs` or `gate.mjs` check and cite
+  the pass/fail output, not the doc's own "verified" claim.
+- Confirm the artifact the phase claims to have built actually exists (a
+  script, a file, a registered skill) — `grep`/`find`, don't assume from prose.
+- Check `git log` for the commits the doc's "Current implementation status"
+  attributes work to, when dates matter.
+
+Surfaced 2026-08-01 auditing the SEO, Runtime Hygiene, and Developer Role
+Expansion roadmaps in [[harness/roadmap|Roadmap]]: SEO's top-level entry still said
+"active, continue with strategy/content interface" (a Phase 4 task) when
+`harness/roadmaps/seo.md` itself already documented Phase 10 complete.
+Runtime Hygiene's Phase 4 doc said "planned" when `.graphifyignore` already
+implemented it. Both were caught by running the gate scripts and checking
+actual repo state rather than trusting the roadmap text.
 
 ## Monday.com Scope
 
@@ -51,6 +82,20 @@ Reconciliation rules:
   client, issue, or external-system task and is tracked there.
 - Weekly standup or wrap-up should clear stale Home attention items by updating
   source metadata, not by accumulating completed bullets on Home.
+
+### Generated Review Artifacts
+
+Any generated artifact that requires User inspection must be treated as a source
+note, not as an untracked file:
+
+- Add `attention_status: needs-review`, `attention_type: review`,
+  `attention_owner: User`, `attention_date`, and `next_action` to its frontmatter
+  when the artifact is Markdown.
+- Add a direct wikilink under `Home.md#Review Queue` with a visible
+  `needs-review` status marker.
+- On review, update the source status to `reviewed`, `dismissed`, or `converted`,
+  then remove the direct Home queue link during `/vault-wrap-up` or `/vault-audit`.
+- Do not delete the evidence merely because the Home queue link is removed.
 
 ## Home Todo Surface
 

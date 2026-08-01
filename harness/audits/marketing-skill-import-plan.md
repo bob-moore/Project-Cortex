@@ -24,7 +24,6 @@ Priority order from Bob:
 4. Analytics.
 5. CRO.
 6. Social and email as fundamental strategy channels.
-7. Automation as a gap, deferred until capacity justifies it.
 
 Paid Ads remains excluded and should be rebuilt from scratch only when Bob asks
 for a paid ads role.
@@ -79,7 +78,6 @@ Updated:
 | `newsletter-management` | `newsletter-channel-operations` | Adapted active. |
 | `email-deliverability` | same name | Adapted active. |
 | `email-quality-auditor` | same name | Adapted active. |
-| `marketing-automation` | future automation/ops layer | Deferred indefinitely. |
 
 ## Boundaries
 
@@ -91,13 +89,11 @@ Updated:
 - Developer owns code and analytics/tag implementation.
 - WordPress Operator owns mutable site state, forms, settings, redirects, and
   publishing/configuration.
-- External sends, scheduling, analytics publication, CRM/ESP mutation, and
-  automation changes require explicit approval.
+- External sends, scheduling, analytics publication, and CRM/ESP mutation
+  require explicit approval.
 
 ## Next
 
 1. Wire recurring marketing workflows only after repeated task shapes are clear.
 2. Add social/email platform-specific source notes only when real client work
    exposes a need.
-3. Keep automation noted as a deferred gap until the operating system has
-   enough capacity and approval discipline for platform workflows.

@@ -56,6 +56,12 @@ methodology:
   usage_ledger: harness/ledgers/usage.tsv
 
 skills:
+  operations:
+    - assistant-ops
+    - platform-operations
+    - cloudflare-operations
+  verification:
+    - web-quality-verification
   interaction:
     - grill-me
     - grilling
@@ -84,10 +90,9 @@ skills:
     - accessibility-foundation
   design:
     - brandkit
+    - design-research
     - design-delivery
     - design-taste-frontend
-    - design-taste-frontend-v1
-    - gpt-taste
     - high-end-visual-design
     - image-to-code
     - imagegen-frontend-mobile
@@ -98,6 +103,10 @@ skills:
     - stitch-design-taste
   development:
     - developer-delivery
+    - code-review
+    - git-procedures
+    - acceptance-test-builder
+    - skill-doc-refresh
     - astro
     - wordpress-router
     - wp-project-triage
@@ -136,6 +145,40 @@ skills:
     - novamira-wordpress-mcp-access
   seo:
     - seo-foundation
+    - seo-content-brief
+    - seo-keyword-research
+    - seo-serp-intent
+    - seo-content-audit
+    - seo-topic-cluster
+    - seo-strategy-roadmap
+    - seo-backlink-audit
+    - seo-link-building-opportunities
+    - seo-competitor-backlink-gap
+    - seo-link-reclaim
+    - seo-local-audit
+    - seo-maps-audit
+    - seo-citation-audit
+    - seo-review-signals
+    - seo-location-page-audit
+    - seo-geo-audit
+    - seo-aeo-audit
+    - seo-sxo-audit
+    - seo-ai-visibility-check
+    - seo-ecommerce-audit
+    - seo-product-schema
+    - seo-collection-page-audit
+    - seo-faceted-navigation-audit
+    - seo-programmatic-quality-gate
+    - seo-google-data
+    - seo-dataforseo
+    - seo-drift-baseline
+    - seo-drift-compare
+    - seo-weekly-monitor
+    - seo-report
+    - seo-action-plan
+    - seo-executive-summary
+    - seo-client-roadmap
+    - seo-monitoring-pack
     - seo-quality-gate
     - seo-hreflang
     - seo-images
@@ -166,6 +209,43 @@ workflows:
     - write-email-newsletter
     - write-web-copy
   seo:
+    - seo-foundation
+    - seo-quality-gate
+    - seo-tool-runner
+    - seo-content-brief
+    - seo-keyword-research
+    - seo-serp-intent
+    - seo-content-audit
+    - seo-topic-cluster
+    - seo-strategy-roadmap
+    - seo-backlink-audit
+    - seo-link-building-opportunities
+    - seo-competitor-backlink-gap
+    - seo-link-reclaim
+    - seo-local-audit
+    - seo-maps-audit
+    - seo-citation-audit
+    - seo-review-signals
+    - seo-location-page-audit
+    - seo-geo-audit
+    - seo-aeo-audit
+    - seo-sxo-audit
+    - seo-ai-visibility-check
+    - seo-ecommerce-audit
+    - seo-product-schema
+    - seo-collection-page-audit
+    - seo-faceted-navigation-audit
+    - seo-programmatic-quality-gate
+    - seo-google-data
+    - seo-dataforseo
+    - seo-drift-baseline
+    - seo-drift-compare
+    - seo-weekly-monitor
+    - seo-report
+    - seo-action-plan
+    - seo-executive-summary
+    - seo-client-roadmap
+    - seo-monitoring-pack
     - seo-page-audit
     - seo-hreflang
     - seo-images
@@ -182,6 +262,7 @@ workflows:
     - vault-intake
     - vault-kickoff
     - vault-meeting
+    - vault-onboard
     - vault-peer-scan
     - vault-prep-1on1
     - vault-project-archive

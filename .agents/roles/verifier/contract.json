@@ -39,11 +39,13 @@
     "harness/policies/done.md",
     "work order",
     "diff or artifact",
-    "workflow contract"
+    "workflow contract",
+    ".agents/skills/code-review/SKILL.md when independent engineering review is in scope"
   ],
   "verification_obligations": [
     "judge only against the contract",
     "fail deleted/skipped tests unless explicitly in scope",
-    "return PASS or FAIL with evidence"
+    "return PASS or FAIL with evidence",
+    "for engineering review, establish a fixed comparison boundary and report only evidence-backed findings"
   ]
 }

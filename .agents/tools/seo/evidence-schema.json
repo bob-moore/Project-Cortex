@@ -201,8 +201,24 @@
               "string",
               "null"
             ]
+          },
+          "category": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pass",
+              "needs-improvement",
+              "fail",
+              "not-applicable",
+              "not-assessed"
+            ]
+          },
+          "applicable": {
+            "type": "boolean"
           }
-        }
+          }
       }
     },
     "verification": {

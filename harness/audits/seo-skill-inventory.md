@@ -110,7 +110,7 @@ Major gaps to fill:
 
 ## Current Implementation Status
 
-Status: paused/stashed as of 2026-07-29.
+Status: SEO tract complete through Phase 10; all planned phases accepted and verified.
 
 Active canonical layer:
 
@@ -124,19 +124,32 @@ Active canonical layer:
 - `seo-schema`
 - `seo-images`
 - `seo-hreflang`
+- `seo-content-brief`
+- `seo-content-audit`
+- `seo-keyword-research`
+- `seo-serp-intent`
+- `seo-topic-cluster`
+- `seo-strategy-roadmap`
+- `seo-backlink-audit`
+- `seo-link-building-opportunities`
+- `seo-competitor-backlink-gap`
+- `seo-link-reclaim`
+- `seo-local-audit`
+- `seo-maps-audit`
+- `seo-citation-audit`
+- `seo-review-signals`
+- `seo-location-page-audit`
 
 Recent Phase 3 specialist expansion:
 
 - `.agents/tools/seo/gap-check.py` now supports `sitemap`, `schema`, `images`,
   `hreflang`, `robots`, `metadata`, and `headers`.
-- The new `robots`, `metadata`, and `headers` modes remain uncommitted in the
-  current workspace until the SEO checkpoint is deliberately committed.
+- The new `robots`, `metadata`, and `headers` modes are part of the accepted
+  Phase 3 specialist layer. Disposable live-audit evidence is not retained in the
+  vault after review.
 
-Not started:
+Historical SEO lanes after Phase 4:
 
-- Strategy/content interface: `seo-content-brief`, `seo-content-audit`,
-  `seo-keyword-research`, `seo-serp-intent`, `seo-topic-cluster`, and
-  `seo-strategy-roadmap`.
 - Backlinks and authority.
 - Local SEO and maps.
 - GEO/AEO/SXO and AI visibility.
@@ -145,10 +158,15 @@ Not started:
 - Drift monitoring and recurring reports.
 - Client-facing reporting and automation.
 
-Next resume point:
+Completion status:
 
-- Read [[harness/resume/2026-07-29-seo-skill-stash|2026-07-29 SEO Skill Stash]]
-  before modifying SEO again.
+Phase 4 strategy/content-interface implementation is complete. Phases 5 through
+10 are complete and verified, including backlink, local, advanced search,
+ecommerce/programmatic, data/drift, monitoring, and reporting workflows.
+
+Disposable live-audit evidence is not retained under `reviews/evidence/seo`.
+Future SEO work should be maintenance, evidence refreshes, adapter repairs, or
+explicitly approved new phase work rather than implied continuation.
 
 ## Canonical Build Principle
 

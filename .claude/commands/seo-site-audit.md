@@ -1,5 +1,5 @@
 ---
-description: "Orchestrate a bounded site audit from technical crawl, page evidence, and specialist gap checks."
+description: "Orchestrate a bounded multi-domain site audit with summary-first SEO, web-quality, accessibility, and agent-readiness evidence."
 ---
 
 # seo-site-audit

@@ -1,4 +1,5 @@
 ---
+date: 2026-08-01
 description: Roadmap for completing the Developer role with specialist capabilities, documentation curation, and external API/library source hygiene.
 tags:
   - harness
@@ -6,8 +7,9 @@ tags:
   - development
   - developer-role
   - documentation-curation
-status: planned
+status: in progress — Slices 1-4 done, Slice 5 (promote/reject) remaining
 created: 2026-07-29
+updated: 2026-08-01
 ---
 
 # Developer Role Expansion Roadmap
@@ -36,14 +38,21 @@ Canonical assets already active:
 
 Known remaining expansion areas from the porting audit:
 
-- debugging
-- code review
-- acceptance tests
-- dependency maintenance
-- git workflow support
-- Cloudflare/deployment surfaces
-- performance remediation
-- release/deployment boundaries
+- ~~debugging~~ — done 2026-08-01: `developer-delivery` 4a already covered the
+  core loop; enriched in place with pattern-analysis and multi-component
+  evidence-gathering rather than adding a competing standalone skill.
+- ~~code review~~ — done (`code-review`, pre-existing).
+- ~~acceptance tests~~ — done 2026-08-01: `acceptance-test-builder`.
+- ~~git workflow support~~ — done 2026-08-01: `git-procedures`.
+- ~~Cloudflare~~ — done (`cloudflare-operations`, under `platform-operations`).
+- dependency maintenance — open; no source material found in stash or
+  superpowers. Not queued until a concrete need is identified.
+- performance remediation — open; not surveyed yet.
+- release/deployment boundaries — open; only thin source found (a
+  changelog/SemVer-release skill). Actual deploy/rollout is arguably already
+  covered per-platform by `cloudflare-operations`, `wordpress-operations`, and
+  `developer-delivery`'s build step. Not queued until a concrete need is
+  identified.
 - workflow adapters around recurring development task shapes
 
 ## Documentation Curation Idea
@@ -224,7 +233,7 @@ Shared rule:
 
 ### Slice 1: Document The Curation Pattern
 
-Status: planned
+Status: completed 2026-07-30.
 
 - Add this roadmap.
 - Link it from `harness/roadmap.md` and `harness/roadmaps/README.md`.
@@ -232,7 +241,7 @@ Status: planned
 
 ### Slice 2: Prototype One Source Map
 
-Status: planned
+Status: completed 2026-07-30 with `astro/references/source-map.md`.
 
 Pick one high-value skill, likely `astro` or `wp-interactivity-api`.
 
@@ -249,7 +258,7 @@ Do not rewrite the skill wholesale.
 
 ### Slice 3: Define `skill-doc-refresh`
 
-Status: planned
+Status: completed 2026-07-30 as `.agents/skills/skill-doc-refresh/`.
 
 Create a workflow or skill that refreshes one Developer skill's documentation
 sources on demand.
@@ -270,17 +279,43 @@ Outputs:
 
 ### Slice 4: Pilot Context7 In CLI/Skill Mode
 
-Status: planned
+Status: completed 2026-08-01 — see
+[[2026-08-01-context7-pilot|Context7 Pilot]]
 
 Use Context7 only during refresh runs or explicit current-doc checks. Avoid MCP
 until the CLI/skill path proves useful and runtime-stable.
 
 Pilot tasks:
 
-- Astro adapter/integration behavior.
-- WordPress Interactivity API examples.
-- WordPress Abilities API docs.
-- Cloudflare Worker/Pages deployment config if that skill is added.
+- ~~Astro adapter/integration behavior~~ — done. Committed
+  `/websites/astro_build_en` to `astro/references/source-map.md`.
+- ~~WordPress Interactivity API examples~~ — done. New
+  `wp-interactivity-api/references/source-map.md` with `/wordpress/gutenberg`
+  (no dedicated Interactivity-only library exists).
+- ~~WordPress Abilities API docs~~ — done. New
+  `wp-abilities-api/references/source-map.md` with `/wordpress/abilities-api`.
+- Cloudflare Worker/Pages deployment config via `cloudflare-operations` — spot
+  checked (accurate `wrangler.toml`/deploy docs) but not promoted to that
+  skill's source map. The pilot query wasn't a real refresh run against
+  `cloudflare-operations`'s live-operations scope (DNS, routes, zone state),
+  so its own commit condition ("a real refresh run proves it resolves current
+  Cloudflare documentation accurately") isn't met yet — left open for the next
+  actual Cloudflare refresh.
+
+Current implementation status:
+
+- Piloted via Context7's public HTTP API (`context7.com/api/v1/search` and
+  `context7.com/api/v1/{library-id}`) — plain `curl`, no MCP server, no API
+  key required for these lookups. This is the CLI/skill mode the roadmap asks
+  for; no MCP dependency was added.
+- All four pilot queries returned accurate, current, sourceable documentation.
+  Full method, per-task library IDs, and evaluation against the pilot criteria
+  below are recorded in
+  [[2026-08-01-context7-pilot|the pilot resume note]].
+- Evaluated against every criterion in "Context7 Evaluation Criteria" below:
+  reduces stale-API risk, returns sourceable IDs, works across runtimes without
+  MCP, CLI/skill mode covers the tested use cases, and no private code was sent
+  in queries.
 
 ### Slice 5: Promote Or Reject
 
@@ -295,6 +330,12 @@ After several refresh runs, decide whether Context7 becomes:
 
 Promotion requires evidence that it improves correctness without increasing
 startup fragility or leaking private context.
+
+## Related Completion
+
+`cloudflare-operations` was added on 2026-07-30 as a separate live operations
+surface. It uses the same source-map/refresh model while keeping repository-owned
+Worker/Pages source and configuration with Developer.
 
 ## Acceptance Criteria
 

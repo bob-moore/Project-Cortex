@@ -1,0 +1,17 @@
+{
+  "name": "seo-faceted-navigation-audit",
+  "version": 1,
+  "summary": "Audit ecommerce facets, parameters, crawl paths, canonicals, indexation, links, and crawl traps at explicit sample scope.",
+  "aliases": ["/seo-faceted-navigation-audit", "seo-faceted-navigation-audit", "faceted navigation audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["domain/platform/catalog/facets/parameters/crawl caps/markets/date/scope", "approved crawl, logs, GSC, analytics, sitemap, robots, canonical, link, template, and catalog evidence", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved page, crawl, log, provider, catalog, and first-party evidence"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live page, crawl, log, provider, or catalog reads", "provider_data: paid or credentialed calls require approval", "vault_write: save only to resolved context", "external_mutation: robots, canonicals, parameters, sitemaps, CMS, code, and production changes are out of scope"],
+  "done_when": ["domain, platform, facets, caps, sample, freshness, source tiers, risks, owners, and rechecks are explicit", "complete crawl/index behavior is not claimed from bounded samples", "mass indexation recommendations require information-gain and business-purpose evidence", "seo-quality-gate passes or is explicitly deferred", "return contract is complete"],
+  "verification": ["verify bounded samples are visible", "verify no fabricated crawl, log, demand, URL, or index data", "verify no robots, canonical, parameter, sitemap, CMS, code, or production mutation occurred"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "developer", "writer", "wordpress-operator", "verifier"]
+}

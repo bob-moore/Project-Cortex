@@ -1,0 +1,17 @@
+{
+  "name": "seo-ai-visibility-check",
+  "version": 1,
+  "summary": "Run bounded, explicitly scoped AI/search visibility observations with source, approval, and reproducibility labels.",
+  "aliases": ["/seo-ai-visibility-check", "seo-ai-visibility-check", "AI visibility check"],
+  "risk_tier": "high",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["domain/entities", "engine/model/provider", "market/language/device", "query/prompt set", "observation date/scope", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved live AI/search/provider/page observations"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live AI/search/provider/page reads and record approval", "provider_data: paid or credentialed calls require approval", "vault_write: save only to resolved context", "external_mutation: provider, content, schema, CMS, code, analytics, and production changes are out of scope"],
+  "done_when": ["engine/model/provider, market, prompts, date, scope, approval, and limits are explicit", "observations include output, mentions/citations, URLs, timestamp, and reproducibility where permitted", "no output, citation, mention, referral, source, timestamp, or visibility result is fabricated", "universal, stable, causal, or future visibility claims are absent", "handoffs and rechecks are explicit", "seo-quality-gate passes or is explicitly deferred", "return contract is complete"],
+  "verification": ["verify unavailable providers produced no fabricated AI observations", "verify live-read approval was recorded", "verify no provider, content, schema, CMS, code, analytics, or production mutation occurred", "verify changed artifact and review registration when applicable"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "verifier", "writer", "developer"]
+}

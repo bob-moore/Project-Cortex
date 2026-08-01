@@ -43,6 +43,8 @@ or reference file.
   boundaries, score limits, and cross-discipline handoff rules.
 - `seo-quality-gate`: evaluates SEO findings, reports, briefs, or action queues
   against the canonical rubric before they are treated as ready.
+- `seo-content-brief`: creates new-page or refresh briefs from approved client
+  context and search evidence, then hands requirements to Writing.
 - `seo-tool-runner`: selects, plans, and runs approved neutral CLI tools through
   `.agents/tools/seo/` contracts and evidence normalization rules.
 - `seo-page-audit`: coordinates bounded single-page evidence collection and

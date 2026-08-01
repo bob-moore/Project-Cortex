@@ -37,7 +37,9 @@
   ],
   "verification": [
     "verify changed Markdown/frontmatter where files were edited",
-    "verify wikilinks where notes were created or changed"
+    "verify wikilinks where notes were created or changed",
+    "verify open generated review artifacts have attention metadata and a Home Review Queue link",
+    "verify resolved Home Review Queue links are removed without deleting source evidence"
   ],
   "return_contract": [
     "Done",

@@ -1,0 +1,83 @@
+{
+  "name": "seo-keyword-research",
+  "version": 1,
+  "summary": "Research, expand, cluster, and prioritize SEO keywords and topics with runtime provider availability checks and source-labeled intent evidence.",
+  "aliases": [
+    "/seo-keyword-research",
+    "seo-keyword-research",
+    "keyword research",
+    "SEO keyword research",
+    "keyword clustering"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "client, project, or prospect context",
+    "domain or existing page",
+    "audience and offer",
+    "business goal and desired action",
+    "market, geography, language, and device",
+    "research date",
+    "seed topics or keyword inputs",
+    "declared provider and source options",
+    "approved output path"
+  ],
+  "writes": [
+    "resolved Projects/ context",
+    "resolved Clients/ context",
+    "resolved Prospects/ context",
+    "user-approved review artifact path",
+    "Home.md review link when review is required"
+  ],
+  "external_reads": [
+    "approved GA4 or Google Search Console data",
+    "approved Google Keyword Planner data",
+    "approved DataForSEO data",
+    "approved SE Ranking data",
+    "other User-declared provider data",
+    "current SERP observation after approval",
+    "competitor pages after separate approval"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "provider_availability: run a bounded read-only availability check against approved integration surfaces; do not reveal secrets or probe arbitrary services",
+    "external_read: ask before current SERP observation, competitor-page analysis, or other live external reading",
+    "provider_data: paid or credentialed calls require the applicable approval; DataForSEO and SE Ranking remain first-class sources even when unavailable for a run",
+    "vault_write: save only to a resolved project, client, or prospect context when authorized",
+    "external_mutation: publishing, CMS, repository, production, and provider configuration changes are out of scope"
+  ],
+  "done_when": [
+    "research scope, client context, domain/page, market, language, device, date, goal, and seeds are explicit",
+    "provider status is recorded for each declared source",
+    "keyword set is expanded, filtered, clustered, intent-mapped, and prioritized",
+    "source labels and dates distinguish first-party data, provider estimates, observations, competitor evidence, heuristics, hypotheses, and assumptions",
+    "clusters include recommended content/page role and rationale",
+    "SEO content-brief, Writing, and Strategy handoffs are explicit",
+    "durable artifact uses project/client/prospect routing and review frontmatter",
+    "seo-quality-gate passes or is explicitly deferred with an actionable reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify unavailable providers produced no fabricated metrics",
+    "verify undeclared providers and arbitrary credentials were not probed",
+    "verify competitor analysis was approved before external reading",
+    "verify provider metrics are not presented as exact truth or outcome guarantees",
+    "verify no final copy, metadata prose, CMS change, publishing action, or production mutation occurred",
+    "verify changed Markdown/frontmatter and Home review registration when applicable"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "writer",
+    "verifier"
+  ]
+}

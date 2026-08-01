@@ -7,7 +7,7 @@ tags:
   - skills
 status: implemented
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-07-30
 ---
 
 # Development Skill Import Plan
@@ -58,17 +58,55 @@ Completed on 2026-07-29:
 - Activated those platform skills in the Development discipline contract and
   skill map.
 
+Completed on 2026-07-30:
+
+- Removed the globally installed role/delivery competitors after their local
+  canonical replacements were verified: `developer`, `developer-delivery`,
+  `designer`, `designer-delivery`, `writer`, `writer-delivery`,
+  `wordpress-operator`, and `wordpress-site-operations`.
+- Removed 20 global Astro/WordPress development skill trees only after a
+  complete file-tree comparison proved the local imports preserved their
+  `SKILL.md` files and every referenced script/reference asset.
+- Removed globally superseded `blueprint`, `prototype`,
+  `web-quality-verification`, `accessibility`, and `grill-with-docs` routes.
+- Reviewed `stash/development/` as source material without installing either
+  bundled methodology. Its mandatory routers, hooks, approval loops, commit/
+  merge/release behavior, and subagent mechanics conflict with this harness's
+  canonical roles, workflows, approvals, and runtime adapters.
+- Confirmed that the Karpathy practice layer is already represented in
+  `modes.md`, `rubric.md`, and `developer-delivery`.
+
+Completed in the 2026-07-30 focused Development slice:
+
+- Added root-cause debugging, risk-based test-evidence selection, and compact
+  Git integration/conflict safety to `developer-delivery` and Development modes.
+- Added Verifier-owned, read-only `.agents/skills/code-review/` with a fixed
+  comparison boundary, evidence-backed findings, and a scoped security lens.
+- Removed the 16 rejected/redundant stashed skills and five now-absorbed global
+  sources: `diagnosing-bugs`, `code-review`, `acceptance-test-builder`,
+  `resolving-merge-conflicts`, and `threat-modeling`.
+
+Current gap decisions:
+
+- Defer standalone performance, architecture, test-strategy, TDD, release,
+  changelog, plan, worktree, and automated-subagent skills until
+  repeated real work proves that the compact discipline procedures are
+  insufficient.
+
 Still deferred:
 
-- Add git, Cloudflare, dependency, performance, and release specialties.
-- Add debugging, code review, acceptance-test, architecture-audit, and
-  test-strategy specialists.
+- Create standalone dependency, performance, release, debugging,
+  acceptance-test, architecture-audit, and test-strategy specialist skills.
+- Create a standalone Git specialty; first keep Git integration/conflict safety
+  within the core Development procedure.
 - Build workflows around the imported WordPress/Astro skills once the role
   contracts have stabilized.
 
-## Next Development Slice
+## Superseded 2026-07-29 Candidate Snapshot
 
-Use this as the next work order after context cleanup.
+This was the pre-audit candidate list. It is retained as provenance, not as an
+active work order; the focused 2026-07-30 slice above supersedes its first five
+global-source recommendations.
 
 Goal: extend the Development bucket with general specialist skills that support
 ordinary repository work without importing broad external packs wholesale.
@@ -87,9 +125,9 @@ Priority candidates now visible in the global skill library:
 | 8 | `/Users/bobmoore/.agents/skills/architecture-auditor` and `/Users/bobmoore/.agents/skills/codebase-auditor` | `architecture-audit` | Adapt as read-first audit guidance, not mutation authority. |
 | 9 | `/Users/bobmoore/.agents/skills/test-strategy-planner` and `/Users/bobmoore/.agents/skills/test-suite-auditor` | `test-strategy` | Defer unless testing work becomes recurring. |
 
-Cloudflare remains a gap: no current global `cloudflare` skill was found in
-the quick source check. Build it from local patterns or live client need when
-the first Cloudflare task appears.
+Cloudflare is no longer an open capability gap: `cloudflare-operations` was
+added on 2026-07-30 as a project-local specialization of platform operations,
+with source-map maintenance and live DNS/edge/Workers/Pages safety boundaries.
 
 Recommended implementation shape:
 

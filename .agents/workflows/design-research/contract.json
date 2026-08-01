@@ -1,0 +1,76 @@
+{
+  "name": "design-research",
+  "version": 1,
+  "summary": "Research and narrow a visual direction through an evidence-backed moodboard, annotated references, anti-SaaS checks, and explicit alternatives before design implementation.",
+  "aliases": [
+    "/design-research",
+    "design-research",
+    "design moodboard",
+    "design inspiration"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "client/project and bounded target",
+    "brief, audience, business goal, primary user task, and funnel when known",
+    "approved Brand, Voice, Design Tokens, content, proof, assets, and Stack context when available",
+    "research scope or inspiration request"
+  ],
+  "writes": [
+    "approved project research packet or moodboard destination",
+    "optional reviewed reference records when explicitly requested"
+  ],
+  "external_reads": [
+    "approved client and project sources",
+    "selected inspiration, template, CRO, typography, and implementation resources",
+    "existing rendered/source evidence for redesign research when in scope"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "read_only: follow harness/policies/approvals.md",
+    "vault_write: follow harness/policies/approvals.md",
+    "external_read: follow harness/policies/approvals.md",
+    "do not treat reference screenshots, copied assets, or external style systems as production authority",
+    "do not advance to implementation until the research packet and selected direction are approved"
+  ],
+  "done_when": [
+    "brief, authority, gaps, page/job, and research scope are explicit",
+    "selected references are relevant, contrasting, provenance-labeled, and annotated",
+    "moodboard/reference packet records what to borrow and what not to copy",
+    "anti-SaaS checks and accessibility/mobile implications are evaluated",
+    "two or three materially different directions and decision criteria are returned",
+    "approval state and next design-delivery handoff are explicit"
+  ],
+  "verification": [
+    "verify source URLs and retrieval status for external references",
+    "verify reference cards distinguish authority, current-system-fact, observation, proposal, and gap",
+    "verify no production assets, copied claims, screenshots, logos, fonts, or code are implied without rights",
+    "verify research packet path and changed Markdown/frontmatter when written",
+    "parent session independently verifies the packet before routing to implementation"
+  ],
+  "return_contract": [
+    "Status",
+    "Research mode",
+    "Client/project",
+    "Target and page/job",
+    "Context read",
+    "Source set",
+    "Moodboard/reference packet",
+    "Directions",
+    "Anti-SaaS assessment",
+    "Gaps and assumptions",
+    "Approval needed",
+    "Recommended next role",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "writer",
+    "designer",
+    "verifier"
+  ]
+}

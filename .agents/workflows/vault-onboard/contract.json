@@ -1,0 +1,52 @@
+{
+  "name": "vault-onboard",
+  "version": 1,
+  "summary": "First-run conversational onboarding: interview the user via the grilling skill to fill harness/user.md, harness/north-star.md, and their org/people/ Voice section; define the Operator's name and stance in harness/operator.md; then run the dependency check from harness/dependencies.md with per-item approved installs.",
+  "aliases": [
+    "/vault-onboard",
+    "vault-onboard"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write"
+  ],
+  "inputs": [
+    "optional workflow arguments"
+  ],
+  "writes": [
+    "harness/user.md",
+    "harness/north-star.md",
+    "harness/operator.md",
+    "org/people/",
+    "harness/memory.md"
+  ],
+  "external_reads": [],
+  "external_mutations": [],
+  "approval_gates": [
+    "read_only: follow harness/policies/approvals.md",
+    "vault_write: follow harness/policies/approvals.md",
+    "Phase 3 local installs: run only with the user's explicit per-item approval; never batch-install without asking"
+  ],
+  "done_when": [
+    "workflow scope is satisfied or explicitly blocked",
+    "each completed phase's unconfigured marker is removed from its file",
+    "touched files are listed with paths",
+    "approval gates are respected",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify changed Markdown/frontmatter where files were edited",
+    "verify wikilinks where notes were created or changed",
+    "verify each completed phase's unconfigured marker was actually removed, not just reported done"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "operator"
+  ]
+}

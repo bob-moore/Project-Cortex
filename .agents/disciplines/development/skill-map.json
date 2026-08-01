@@ -3,6 +3,10 @@
   "version": 1,
   "active_canonical_skills": [
     "developer-delivery",
+    "code-review",
+    "git-procedures",
+    "acceptance-test-builder",
+    "skill-doc-refresh",
     "astro",
     "wordpress-router",
     "wp-project-triage",
@@ -22,13 +26,11 @@
   ],
   "priority_rebuild_candidates": [
     {
-      "source": "/Users/bobmoore/.agents/skills/developer-delivery",
       "target": "developer-delivery",
       "disposition": "adapted",
       "reason": "Core repository implementation loop for target resolution, worktree protection, implementation, tests, diff inspection, evidence, and revision."
     },
     {
-      "source": "/Users/bobmoore/.agents/skills/developer",
       "target": "developer role",
       "disposition": "adapt-role",
       "reason": "Strong role-boundary material should update the canonical Developer role rather than becoming a duplicate skill."
@@ -38,36 +40,34 @@
       "target": "development rubric and modes",
       "disposition": "adapted",
       "reason": "Assumptions, simplicity, surgical changes, and verifiable success criteria now inform the Development discipline."
+    },
+    {
+      "source": "stash/development/superpowers/skills/systematic-debugging",
+      "target": "developer-delivery section 4a",
+      "disposition": "enriched-in-place",
+      "reason": "Pattern-analysis and multi-component evidence-gathering techniques folded into the existing procedure instead of becoming a competing standalone debugging skill; 4a already covered the core reproduce-hypothesize-fix loop."
+    },
+    {
+      "source": "stash/development/superpowers/skills/using-git-worktrees, stash/development/development-skills/skills/resolve-merge",
+      "target": "git-procedures",
+      "disposition": "adapted",
+      "reason": "Detailed worktree-isolation and merge/rebase conflict-classification mechanics that developer-delivery 4c only summarizes at the principle level."
+    },
+    {
+      "source": "stash/development/development-skills/skills/create-test",
+      "target": "acceptance-test-builder",
+      "disposition": "adapted",
+      "reason": "Explicit regression-contract-building workflow (actors, invariants, KPIs, boundary-ranked proof) that developer-delivery 4b only summarizes."
     }
   ],
   "platform_candidates": [
     {
       "platform": "astro",
-      "sources": [
-        "/Users/bobmoore/.agents/skills/astro"
-      ],
       "target": "astro",
       "disposition": "imported-active"
     },
     {
       "platform": "wordpress-code",
-      "sources": [
-        "/Users/bobmoore/.agents/skills/wordpress-router",
-        "/Users/bobmoore/.agents/skills/wp-project-triage",
-        "/Users/bobmoore/.agents/skills/wp-block-development",
-        "/Users/bobmoore/.agents/skills/wp-block-themes",
-        "/Users/bobmoore/.agents/skills/wp-plugin-development",
-        "/Users/bobmoore/.agents/skills/wp-rest-api",
-        "/Users/bobmoore/.agents/skills/wp-interactivity-api",
-        "/Users/bobmoore/.agents/skills/wp-abilities-api",
-        "/Users/bobmoore/.agents/skills/wp-abilities-audit",
-        "/Users/bobmoore/.agents/skills/wp-abilities-verify",
-        "/Users/bobmoore/.agents/skills/wp-phpstan",
-        "/Users/bobmoore/.agents/skills/wp-playground",
-        "/Users/bobmoore/.agents/skills/wp-plugin-directory-guidelines",
-        "/Users/bobmoore/.agents/skills/wpds",
-        "/Users/bobmoore/.agents/skills/wordpress-block-theming"
-      ],
       "target": "wordpress code development skills",
       "disposition": "imported-active"
     }
@@ -83,12 +83,8 @@
     "astro-code-change"
   ],
   "future_skill_candidates": [
-    "diagnosing-bugs",
-    "code-review",
-    "acceptance-test-builder",
     "dependency-maintenance",
-    "git-procedures",
-    "cloudflare"
+    "release-deployment-boundaries"
   ],
   "reference_or_other_discipline_candidates": [
     "wordpress-site-operations",
@@ -102,17 +98,13 @@
     "accessibility-foundation"
   ],
   "not_active": [
-    "acceptance-test-builder",
     "andrej-karpathy-skills",
     "architecture-auditor",
-    "code-review",
     "codebase-auditor",
     "dependency-upgrader",
     "developer",
-    "diagnosing-bugs",
     "karpathy-guidelines",
     "performance-optimizer",
-    "resolving-merge-conflicts",
     "test-strategy-planner",
     "test-suite-auditor",
     "wordpress-site-operations"

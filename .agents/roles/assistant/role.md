@@ -40,6 +40,7 @@ Read-first operational evidence role for the User's workload, Monday.com, calend
 - harness/policies/approvals.md
 - harness/policies/done.md
 - harness/patterns.md
+- .agents/skills/assistant-ops/SKILL.md
 
 ## Verification Obligations
 

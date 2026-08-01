@@ -54,6 +54,22 @@ Keep these evidence categories separate:
 | `performance-remediation` | Measured bottleneck remediation. | Measurement, experiment, diff, result. | Profile before optimizing; keep/discard experiments. |
 | `platform-development` | WordPress or Astro source changes. | Platform-routed implementation evidence. | Platform skill plus repo-local conventions. |
 
+## Supporting Procedures
+
+`developer-delivery` owns compact procedures that apply inside the modes above:
+
+- **root-cause diagnosis:** create a tight, red-capable feedback loop; minimise
+  the repro; test one falsifiable hypothesis at a time; fix the cause; preserve
+  the regression proof; and escalate repeated systemic failure rather than
+  stacking guesses.
+- **test evidence:** select the highest reliable proof boundary for the
+  protected outcome. Prefer test-first when it fits the repository and task;
+  otherwise state the strongest credible automated, runtime, or manual proof
+  and its limitation.
+- **Git integration:** inspect worktree/submodule, branch, and dirty state;
+  preserve unrelated work; classify conflicts before editing; and require
+  explicit approval for remote, merge, publication, or release actions.
+
 ## Platform Boundaries
 
 WordPress:

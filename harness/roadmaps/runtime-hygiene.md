@@ -6,8 +6,10 @@ tags:
   - runtime-hygiene
   - qmd
   - graphify
-status: planned
+status: complete — Phases 1-5 verified
+date: 2026-08-01
 created: 2026-07-29
+updated: 2026-08-01
 ---
 
 # Runtime Hygiene Roadmap
@@ -15,7 +17,10 @@ created: 2026-07-29
 ## Goal
 
 Make the harness cheap, portable, and predictable across Claude, Codex, Gemini,
-Hermes, and future adapters.
+Hermes, and future adapters. Complements
+[[developer-role-expansion|Developer Role Expansion]], which controls the
+skill stack and documentation curation loop rather than startup/adapter
+plumbing.
 
 The immediate fixes are:
 
@@ -264,7 +269,7 @@ Current implementation status:
 
 ### Phase 4: Tighten Graphify and Search Scope
 
-Status: planned
+Status: partially done
 
 1. Configure graphify to exclude generated/runtime/vendor debris:
 
@@ -287,9 +292,22 @@ Status: planned
    - direct file reads;
    - session history.
 
+Current implementation status:
+
+- `.graphifyignore` exists and excludes `.obsidian/`, `.claude/`, `.codex/`,
+  `.gemini/`, `.hermes/`, `tmp/`, `stash/`, `harness/session-logs/`,
+  `node_modules/`, and `.git/` (step 1 done).
+- Added `graphify-out/` to `.graphifyignore` so generated graph artifacts cannot
+  re-enter the graph as source nodes.
+- Rebuilt graphify after the ignore-scope change and verified a harness query
+  returns harness concepts without `.obsidian/plugins/` or `node_modules/`
+  results.
+- Documented graphify query/explain/path, QMD, direct reads, and session-history
+  tool-choice guidance in `harness/manual.md`.
+
 ### Phase 5: Runtime Hygiene Maintenance Check
 
-Status: planned
+Status: implemented and verified 2026-08-01
 
 Create a lightweight maintenance check that can be run manually and eventually
 from a workflow, for example:
@@ -299,6 +317,15 @@ node .agents/scripts/runtime-hygiene.mjs --check
 ```
 
 The check should be read-only by default and report pass/warn/fail.
+
+Implementation:
+
+- Canonical command: `node .agents/scripts/runtime-hygiene.mjs --check`.
+- Included in `.agents/scripts/gate.mjs`.
+- Checks manifest/QMD path and Git ignore coverage, adapter/startup verifier
+  results, graphify scope and harness-query output, and reports missing optional
+  tooling as warnings rather than silently changing the vault.
+- It does not update QMD, rebuild graphify, write logs, or mutate configuration.
 
 ## Runtime Hygiene Criteria
 

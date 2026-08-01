@@ -22,8 +22,7 @@
   "source_material_roots": [
     "stash/design/accessibility",
     "stash/design/designer-delivery/references/accessibility-requirements.md",
-    "stash/design/universal-design-principles/plugins/process-and-robustness-principles/skills/accessibility*",
-    "/Users/bobmoore/.agents/skills/accessibility"
+    "stash/design/universal-design-principles/plugins/process-and-robustness-principles/skills/accessibility*"
   ],
   "approval_classes": [
     "read_only",

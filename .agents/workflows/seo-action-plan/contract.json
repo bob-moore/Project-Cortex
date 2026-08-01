@@ -1,0 +1,60 @@
+{
+  "name": "seo-action-plan",
+  "version": 1,
+  "summary": "Produce a evidence-backed prioritized action plan from approved SEO evidence with source labels, limitations, next actions, and no unsupported business claims.",
+  "aliases": [
+    "/seo-action-plan",
+    "seo-action-plan"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "client/project/site, period, market/language/device, included workflows, approved evidence bundle, output path, neutral/client-brand mode"
+  ],
+  "writes": [
+    "approved Markdown report artifact",
+    "optional derived HTML/PDF presentation",
+    "Home review link when required"
+  ],
+  "external_reads": [
+    "approved existing evidence only; live reads require approval"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "external_read: ask before live external reads",
+    "provider_data: paid or credentialed calls require approval",
+    "vault_write: save only to resolved context and approved report paths",
+    "external_mutation: CMS, analytics, provider, code, SEO, and production mutations are out of scope"
+  ],
+  "done_when": [
+    "scope, period, evidence cutoff, source labels, freshness, limitations, and skipped sections are visible",
+    "facts, interpretations, recommendations, assumptions, and unknowns are separated",
+    "no unsupported business or performance guarantee exists",
+    "owners, approvals, dependencies, statuses, and rechecks are explicit where applicable",
+    "Markdown is the source of truth; presentation output does not add findings",
+    "seo-quality-gate passes or is explicitly deferred",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify no imported promotional language remains",
+    "verify no invented data, sources, dates, owners, budgets, approvals, or outcomes",
+    "verify optional presentation output adds no findings",
+    "verify no external mutation occurred"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "writer",
+    "developer",
+    "verifier"
+  ]
+}

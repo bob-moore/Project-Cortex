@@ -1,7 +1,7 @@
 {
   "name": "seo-site-audit",
   "version": 1,
-  "summary": "Orchestrate a bounded site audit from technical crawl, page evidence, and specialist gap checks.",
+  "summary": "Orchestrate a bounded multi-domain site audit with summary-first SEO, web-quality, accessibility, and agent-readiness evidence.",
   "aliases": ["/seo-site-audit", "seo-site-audit", "full site seo audit", "site seo audit"],
   "risk_tier": "high",
   "approval_classes": ["read_only", "vault_write", "external_read"],
@@ -10,8 +10,8 @@
   "external_reads": ["bounded site crawl", "selected page responses and linked assets", "robots and sitemap resources"],
   "external_mutations": [],
   "approval_gates": ["external_read: approve live crawling and linked asset reads", "vault_write: approve evidence writes when not already authorized", "production and mutation: out of scope"],
-  "done_when": ["site contract and caps are explicit", "technical crawl and selected specialist checks ran or blocked states are recorded", "raw and normalized evidence is preserved", "findings are labeled and pass seo-quality-gate or have a stated deferral", "return contract is complete"],
-  "verification": ["verify no unbounded crawl was run", "verify tool limits and partial states are visible", "verify sitemap, schema, image, hreflang, robots, metadata, and headers checks are included or marked not applicable", "verify no ranking guarantee is claimed", "verify quality gate result"],
-  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "done_when": ["site contract and caps are explicit", "technical crawl, sitemap discovery, selected specialist checks, shallow web-quality/accessibility checks, and agent-readiness checks ran or blocked states are recorded", "raw and normalized evidence is preserved", "findings are labeled and pass seo-quality-gate or have a stated deferral", "summary-first report contains domain statuses and deduplicated recommendations", "return contract is complete"],
+  "verification": ["verify no unbounded crawl was run", "verify tool limits and partial states are visible", "verify sitemap discovery follows robots.txt before fallback testing", "verify SEO, web-quality, accessibility, and agent-readiness checks are included, not applicable, or explicitly blocked", "verify accessibility is not presented as legal or full WCAG compliance", "verify no ranking, traffic, AI visibility, or agent-success guarantee is claimed", "verify quality gate result"],
+  "return_contract": ["Done", "Summary", "Evidence", "Detailed Breakdown", "Open Items", "Next"],
   "related_roles": ["strategist", "developer", "verifier", "writer", "wordpress-operator"]
 }

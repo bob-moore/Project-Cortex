@@ -1,13 +1,16 @@
 ---
 name: workflow-seo-images
-description: "Execute the canonical seo-images workflow for image markup evidence."
+description: "Inspect image markup for alt text and layout-related attributes without editing assets. Use when the user asks to run seo-images, /seo-images, or this vault workflow."
 ---
 
 # workflow-seo-images
 
 Execute the canonical workflow `seo-images`.
 
-Read `.agents/workflows/seo-images/workflow.md` and
-`.agents/workflows/seo-images/contract.json`, then follow their approval and
-verification gates. If this skill conflicts with the canonical workflow spec,
-the canonical workflow spec wins.
+1. Read `.agents/workflows/seo-images/contract.json` for risk tier, approval classes, writes, done conditions, verification, and return contract.
+2. Read `.agents/workflows/seo-images/workflow.md` for the human-readable workflow procedure.
+3. Treat the user's prompt as workflow input.
+4. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+5. Do not report done until the workflow verification requirements are satisfied or a blocker is explicitly reported.
+
+If this skill conflicts with the canonical workflow spec, the canonical workflow spec wins.

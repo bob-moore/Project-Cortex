@@ -21,9 +21,9 @@ is treated as a ready SEO artifact.
 - `evidence-schema.json`: normalized shape for SEO evidence packets.
 - `run-tool.mjs`: registry-driven runner that captures raw output and writes a
   schema-shaped evidence packet.
-- `gap-check.py`: bounded structural checks for sitemap XML, JSON-LD, image
-  markup, hreflang links, robots.txt, metadata/indexability, and security
-  headers.
+- `gap-check.py`: bounded structural checks for sitemap XML and discovery,
+  JSON-LD, image markup, hreflang links, robots.txt, metadata/indexability, and
+  security headers.
 
 ## Default Evidence Path
 
@@ -81,10 +81,13 @@ python3 .agents/tools/seo/gap-check.py \
   --output-dir reviews/evidence/seo/2026-07-28-example-schema
 ```
 
-Supported modes are `sitemap`, `schema`, `images`, `hreflang`, `robots`,
-`metadata`, and `headers`. The analyzer caps input at 10 MiB, preserves raw
-input and metadata, preserves fetched response headers when available, and
-reports structural observations without generating or deploying changes.
+Supported modes are `sitemap`, `sitemap-discovery`, `schema`, `images`,
+`hreflang`, `robots`, `metadata`, and `headers`. `sitemap-discovery` accepts a
+robots.txt URL, follows declared Sitemap directives before testing the
+conventional fallback, and inspects up to ten discovered XML resources. The
+analyzer caps input at 10 MiB, preserves raw input and metadata, preserves
+fetched response headers when available, and reports structural observations
+without generating or deploying changes.
 
 ## Tool Selection
 

@@ -1,0 +1,17 @@
+{
+  "name": "seo-geo-audit",
+  "version": 1,
+  "summary": "Audit generative-search and AI Overview readiness with source-tier labels and no unsupported visibility claims.",
+  "aliases": ["/seo-geo-audit", "seo-geo-audit", "GEO audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["client, project, or prospect context", "domain, pages, entities, market, language, audience, query set, date, and scope", "approved content, SERP, schema, entity, Brand, local, and first-party evidence", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved external search, AI, provider, page, and first-party evidence"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live external search, AI, provider, or page reads", "provider_data: paid or credentialed calls require approval", "vault_write: save only to resolved context", "external_mutation: content, schema, CMS, code, publishing, and production changes are out of scope"],
+  "done_when": ["every claim has source tier, source/date, confidence, and limitation", "vendor studies and heuristics remain distinct from confirmed observations", "no model output, entity, citation, or visibility result is fabricated", "handoffs and rechecks are explicit", "no AI visibility, citation, traffic, ranking, or agent-success guarantee is made", "seo-quality-gate passes or is explicitly deferred", "return contract is complete"],
+  "verification": ["verify unavailable sources produced no fabricated AI or citation evidence", "verify no content, schema, CMS, code, publishing, provider, or production mutation occurred", "verify changed artifact and review registration when applicable"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "writer", "developer", "verifier"]
+}

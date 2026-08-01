@@ -128,7 +128,7 @@ Read the applicable reference before changing content, Gutenberg/Site Editor sta
 4. Browser behavior and visuals where applicable
 5. Shared/collateral surfaces
 
-Use rendered/browser verification and `accessibility-foundation` for browser, responsive, accessibility, console, links, or form checks. If a `web-quality-verification` skill is later imported, use it for the browser gate. See `references/verification-and-rollback.md`.
+Use `web-quality-verification` plus `accessibility-foundation` for browser, responsive, accessibility, console, links, or form checks. See `references/verification-and-rollback.md`.
 
 ### 8. Return evidence
 

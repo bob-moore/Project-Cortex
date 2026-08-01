@@ -1,4 +1,5 @@
 ---
+date: 2026-08-01
 description: "Current state analysis for remaining role and skill porting buckets after stashing SEO."
 tags:
   - harness
@@ -7,6 +8,7 @@ tags:
   - roles
 status: active
 created: 2026-07-29
+updated: 2026-08-01
 ---
 
 # Role And Skill Porting Buckets
@@ -50,33 +52,31 @@ Current canonical assets:
 - Role adapter: `role-designer`
 - Discipline: `design`
 - Shared discipline: `accessibility`
-- Skills: `brandkit`, `design-taste-frontend`, `design-taste-frontend-v1`,
-  `design-delivery`, `gpt-taste`, `high-end-visual-design`, `image-to-code`,
-  `imagegen-frontend-mobile`, `imagegen-frontend-web`,
+- Skills: `brandkit`, `design-taste-frontend`, `design-delivery`,
+  `design-research`, `design-reverse-engineering`, `high-end-visual-design`,
+  `image-to-code`, `imagegen-frontend-mobile`, `imagegen-frontend-web`,
   `industrial-brutalist-ui`, `minimalist-ui`, `redesign-existing-projects`,
   `stitch-design-taste`, and `accessibility-foundation`.
 
-State:
+State: **Closed 2026-08-01.**
 
 - Strongest of the remaining buckets by skill volume.
 - First-pass discipline contract, modes, rubric, skill map, design-delivery
-  skill, shared accessibility layer, and extracted principle layer are now in
+  skill, shared accessibility layer, and extracted principle layer are in
   place.
-- Remaining design work is dedupe and optional expansion: design taste
-  consolidation, prototype workflow, CRO/landing-page split, and reference
-  cleanup.
+- Taste-skill dedupe done 2026-08-01 (`design-taste-frontend-v1` and
+  `gpt-taste` retired into `design-taste-frontend`).
+- No new design skills (including a prototype workflow) until a concrete
+  recurring need is identified — see [[key-decisions]].
+- OpenPencil intentionally left unwired into any skill; do not wire it in
+  unless explicitly asked — see [[key-decisions]].
 - `brandkit` overlaps with the `strategist` role and client Design Tokens.
   The discipline should define when brand/design token work belongs to
-  strategist versus designer.
+  strategist versus designer. Low-priority; not blocking closure.
 
-Recommended next slice:
-
-1. Dedupe `design-taste-frontend`, `design-taste-frontend-v1`, `gpt-taste`,
-   `frontend-design`, and relevant `design-systems` material.
-2. Decide whether `claude-design` should become a vault-neutral
-   `design-prototype` workflow.
-3. Defer `landing-page-design` to General Marketing/CRO.
-4. Keep visual style packs optional and governed by the Design discipline.
+Remaining optional-only, not queued: `frontend-design` (stash-only) /
+`design-systems` dedupe, `landing-page-design` deferral to Marketing/CRO,
+`popular-web-designs` reference cleanup. None of these are next-slice work.
 
 ## Development Bucket
 
@@ -86,7 +86,8 @@ Current canonical assets:
 - Role adapter: `role-developer`
 - Adjacent role: `wordpress-operator`
 - Discipline: `development`
-- Skill: `developer-delivery`
+- Skills: `developer-delivery`, `code-review`, `git-procedures`,
+  `acceptance-test-builder`, `skill-doc-refresh`
 - Platform map: `.agents/disciplines/development/platforms.md`
 - Separate discipline: `wordpress-operations`
 - Separate plan: `wordpress-operations-mcp-import-plan`
@@ -102,9 +103,17 @@ State:
   the Development discipline.
 - WordPress operation/MCP usage has a separate discipline because it can mutate
   live database-backed state.
-- Remaining development work is specialty expansion: debugging, code review,
-  dependency, git, Cloudflare, release/deployment surfaces, and workflow
-  adapters around the imported platform skills.
+- Code review (`code-review`) and Cloudflare (`cloudflare-operations`, under
+  `platform-operations`) were already done as of this audit's prior pass; the
+  stale "remaining work" list below had drifted from that.
+- Done 2026-08-01: surveyed debugging, git workflow, and acceptance tests
+  against `stash/development/superpowers` and `stash/development/development-skills`.
+  Debugging was already substantially covered by `developer-delivery` 4a — enriched
+  that section in place (pattern analysis, multi-component evidence-gathering)
+  instead of adding a competing standalone skill. Built `git-procedures`
+  (worktree isolation + merge/rebase conflict classification, detailing what
+  4c only summarizes) and `acceptance-test-builder` (regression-contract
+  workflow, detailing what 4b only summarizes) as new active skills.
 - Developer expansion should also explore a documentation-curation loop for
   fast-moving external APIs: use Context7, official docs, changelogs, and
   package manifests during explicit skill/source refresh work, then promote only
@@ -113,9 +122,13 @@ State:
 
 Recommended next slice:
 
-1. Inventory remaining general development specialists: debugging, code review,
-   acceptance tests, dependencies, git, Cloudflare, performance remediation,
-   and release/deployment.
+1. Remaining specialist gaps: **dependency maintenance** (no source material
+   found anywhere in stash — would need authoring from scratch or an external
+   source) and **release/deployment boundaries beyond Cloudflare** (only thin
+   source found: a changelog/SemVer-release skill; actual deploy/rollout is
+   arguably already covered per-platform by `cloudflare-operations`,
+   `wordpress-operations`, and `developer-delivery`'s build step). Do not build
+   either until a concrete need is identified — see [[key-decisions]].
 2. Prototype a documentation source map for one fast-moving Developer skill and
    define the shape of a future `skill-doc-refresh` workflow.
 3. Build WordPress/Astro workflow adapters only after a recurring task shape is
@@ -149,7 +162,6 @@ Legacy source material still available:
 - `market-research-analysis`
 - `competitor-analysis`
 - `growth-strategy`
-- `marketing-automation`
 - `newsletter-management`
 - `social-media-management`
 - `utm-builder`
@@ -173,16 +185,14 @@ State:
   `marketing-strategy`, `social-channel-operations`, and
   `newsletter-channel-operations`; finished copy remains in Writing.
 - Email deliverability and email QA are active diagnostic/gate skills.
-- Marketing automation is recorded as a deferred capacity gap and should remain
-  off indefinitely until capacity and approval boundaries justify it.
+
 
 Recommended next slice:
 
 1. Wire recurring marketing workflows only after repeated task shapes are clear.
 2. Add social/email platform-specific source notes only when real client work
    exposes a need.
-3. Keep automation noted as a deferred gap unless explicitly reprioritized.
-4. Do not include paid ads in this pass.
+3. Do not include paid ads in this pass.
 
 ## Ads Decision
 
@@ -198,9 +208,10 @@ Decision:
 
 ## Recommended Order
 
-1. General development specialists: debugging, review, acceptance tests,
-   dependency, git, Cloudflare, release/deployment.
-2. Design cleanup: dedupe taste/prototype/CRO reference material as needed.
+1. **Active focus, started 2026-08-01:** General development specialists:
+   debugging, review, acceptance tests, dependency, git, Cloudflare,
+   release/deployment.
+2. Design: closed 2026-08-01. No further work queued.
 3. Marketing workflow adapters only after recurring task shapes are clear.
 4. SEO: resume later from the stash note.
 5. Paid Ads: skip entirely until Bob prompts a new paid ads role.

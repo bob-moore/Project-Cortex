@@ -1,3 +1,13 @@
+---
+date: 2026-08-01
+description: The active agent/runtime persona operating inside this vault — name, stance, and routing behavior.
+tags:
+  - harness
+  - operator
+---
+
+<!-- unconfigured: run /vault-onboard -->
+
 # Operator
 
 The Operator is the active agent or runtime persona operating inside this vault.

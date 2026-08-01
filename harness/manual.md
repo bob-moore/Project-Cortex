@@ -1,3 +1,11 @@
+---
+date: 2026-08-01
+description: Canonical operating manual for agents working inside this vault.
+tags:
+  - harness
+  - manual
+---
+
 # Harness Manual
 
 This vault is an agentic operating system for agency work: client engagements,
@@ -76,7 +84,7 @@ exceptions:
 - `LICENSE`, `CHANGELOG.md`: conventional project metadata, if present.
 
 Human-facing Obsidian content may use readable note titles when that is the
-value of the note, such as `Clients/Brunsell Lumber/Brunsell Lumber Brand.md`.
+value of the note, such as `Clients/<Client>/<Client> Brand.md`.
 Harness and runtime machinery should stay lowercase unless listed above.
 
 ## Current Adapter State
@@ -159,9 +167,9 @@ Notable skill families:
   repurposing
 - SEO, keyword research, AEO/GEO, local SEO, technical SEO, and schema
 - CRO and landing-page structure
-- paid ads, social, newsletter, UTM, and experiment setup
+- paid ads, social, newsletter, UTM, experiment setup
 - market research, competitor analysis, funnel analytics, growth strategy,
-  referral programs, marketing automation, and YouTube research
+  referral programs, and YouTube research
 - brand tokens and design token generation
 
 If Brand or Voice files are missing or placeholders, do not guess. Flag the gap
@@ -659,6 +667,27 @@ When asked to remember something:
 When the user's message touches a harness topic, use QMD first if available,
 then read the relevant harness note directly. Do not load all of `harness/`
 unless the task specifically calls for a broad architecture pass.
+
+### Retrieval Tool Choice
+
+Choose the narrowest retrieval surface that answers the question:
+
+- Use `graphify query "..."` for a focused concept or codebase question where
+  nearby nodes and relationships are useful.
+- Use `graphify explain "..."` when one known concept needs its neighbors and
+  plain-language structural context.
+- Use `graphify path "A" "B"` when the question is how two known concepts or
+  files are connected.
+- Use QMD `query` or `search` for Markdown/vault-text recall, then `get` the
+  authoritative source note before acting on the result.
+- Use direct `read_file`/`search_files` for exact source checks, current file
+  contents, and implementation details.
+- Use session history only for what was previously discussed or decided; it is
+  not evidence of current filesystem or external-system state.
+
+Graphify is a scoped navigation layer. Its generated output, runtime adapters,
+vendor directories, temporary files, and caches are excluded from extraction by
+`.graphifyignore`; do not treat `graphify-out/` as authoritative source.
 
 ## Agent Guidelines
 

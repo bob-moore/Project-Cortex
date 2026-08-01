@@ -1,0 +1,76 @@
+{
+  "name": "seo-strategy-roadmap",
+  "version": 1,
+  "summary": "Sequence approved SEO research, audits, clusters, and business priorities into a source-labeled strategy roadmap with owners, dependencies, and verification.",
+  "aliases": [
+    "/seo-strategy-roadmap",
+    "seo-strategy-roadmap",
+    "SEO roadmap",
+    "SEO strategy"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "client, project, or prospect context",
+    "domain and current state",
+    "business goal, offer, audience, and user value",
+    "market, language, and device",
+    "approved keyword, SERP-intent, content-audit, and topic-cluster artifacts",
+    "technical/page audit and analytics artifacts",
+    "planning horizon and capacity assumptions",
+    "approved output path"
+  ],
+  "writes": [
+    "resolved Projects/ context",
+    "resolved Clients/ context",
+    "resolved Prospects/ context",
+    "user-approved review artifact path",
+    "Home.md review link when review is required"
+  ],
+  "external_reads": [
+    "approved first-party analytics data",
+    "approved provider data",
+    "approved current external research"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "external_read: ask before current external/provider reads not covered by approved artifacts",
+    "vault_write: save only to a resolved project, client, or prospect context when authorized",
+    "external_mutation: copy, code, CMS, publishing, provider configuration, and production changes are out of scope"
+  ],
+  "done_when": [
+    "business goal, offer, audience, market, language, device, horizon, capacity, and roadmap date are explicit",
+    "evidence register preserves source, date, scope, label, freshness, and limits",
+    "strategic objectives connect to business and user outcomes without guarantees",
+    "initiatives have affected assets, owner, dependencies, effort, priority, review point, and verification method",
+    "Now/Next/Later/Recurring sequence is traceable to evidence and decisions",
+    "Writing, Development, WordPress, and verification handoffs are explicit",
+    "durable artifact uses project/client/prospect routing and review frontmatter",
+    "seo-quality-gate passes or is explicitly deferred with an actionable reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify unsupported metrics and assumed client priorities did not drive the roadmap",
+    "verify no ranking, traffic, revenue, conversion, or AI-visibility guarantee is made",
+    "verify settled business decisions were not silently reprioritized",
+    "verify no final copy, code, CMS, publishing, provider, or production mutation occurred",
+    "verify changed Markdown/frontmatter and Home review registration when applicable"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "writer",
+    "verifier",
+    "developer",
+    "wordpress-operator"
+  ]
+}

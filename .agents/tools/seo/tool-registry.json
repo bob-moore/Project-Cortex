@@ -6,6 +6,47 @@
   "normalization_schema": ".agents/tools/seo/evidence-schema.json",
   "tools": [
     {
+      "id": "agent-readiness",
+      "status": "preferred",
+      "official_sources": [
+        "https://isitagentready.com/"
+      ],
+      "command": "python3 .agents/tools/seo/agent-readiness.py",
+      "install_policy": "No additional dependency; use the repository Python runtime.",
+      "approval_class": "external_read for live URLs",
+      "modes": [
+        "technical-audit",
+        "ai-search",
+        "reporting"
+      ],
+      "use_when": [
+        "A client-facing audit needs bounded agent discoverability, machine-readable content, bot policy, or emerging agent protocol evidence."
+      ],
+      "avoid_when": [
+        "The request requires proof of AI visibility, citations, traffic, or successful agent transactions."
+      ],
+      "suggested_command_shape": "python3 .agents/tools/seo/agent-readiness.py --target <url> --output-dir <evidence-dir>",
+      "output_artifacts": [
+        "raw/agent-readiness/",
+        "normalized/agent-readiness.json"
+      ],
+      "evidence_labels": [
+        "observed-page",
+        "heuristic",
+        "blocked"
+      ],
+      "limits_to_preserve": [
+        "HTTP-only checks",
+        "response-size cap",
+        "emerging protocol status",
+        "not-applicable capabilities"
+      ],
+      "do_not_claim": [
+        "Agent-readiness checks do not prove AI visibility, citations, traffic, or agent success.",
+        "Missing API, MCP, or commerce surfaces are not defects for sites that do not offer those capabilities."
+      ]
+    },
+    {
       "id": "siteone-crawler",
       "status": "preferred",
       "official_sources": [

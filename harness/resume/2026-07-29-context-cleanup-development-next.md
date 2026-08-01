@@ -51,7 +51,7 @@ Marketing:
 - Research, keyword, competitor, strategy, analytics, CRO, UTM,
   social/newsletter channel operations, email deliverability, and email QA
   skills are active.
-- Marketing automation remains deferred.
+
 - Paid Ads remains excluded and should be rebuilt from scratch only when Bob
   asks for a paid ads role.
 

@@ -1,3 +1,46 @@
 [mcp_servers.qmd]
 command = "node"
 args = [".agents/hooks/scripts/qmd-mcp.mjs"]
+
+[mcp_servers.cloudways]
+command = "node"
+args = [".codex/cloudways-mcp-proxy.mjs"]
+
+[mcp_servers.cloudways.tools.analytics_app_traffic]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.analytics_app_traffic_details]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.copilot_insights_list]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.execute_tool]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.get_toolset_tools]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.monitoring_app_summary]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.monitoring_server_graph]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.monitoring_server_summary]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.monitoring_server_usage]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.operation_status]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.server_get]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.server_list]
+approval_mode = "approve"
+
+[mcp_servers.cloudways.tools.service_status]
+approval_mode = "approve"

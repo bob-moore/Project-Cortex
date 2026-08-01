@@ -1,0 +1,88 @@
+{
+  "name": "seo-content-brief",
+  "version": 1,
+  "summary": "Create an evidence-backed SEO brief for a new page or existing-page refresh and hand it to the Writing discipline.",
+  "aliases": [
+    "/seo-content-brief",
+    "seo-content-brief",
+    "seo brief",
+    "content SEO brief",
+    "refresh SEO brief"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "new-page or refresh mode",
+    "client, project, or prospect context",
+    "page type",
+    "offer, topic, or existing URL",
+    "audience",
+    "market and language",
+    "business goal",
+    "funnel stage",
+    "desired action",
+    "approved search-data sources",
+    "approved output path"
+  ],
+  "writes": [
+    "resolved Clients/ context",
+    "resolved Projects/ context",
+    "resolved Prospects/ context",
+    "user-approved review artifact path",
+    "Home.md review link when review is required"
+  ],
+  "external_reads": [
+    "live page and linked assets when approved",
+    "source URLs when approved",
+    "current search results when approved",
+    "competitor pages when separately approved",
+    "user-declared configured data providers"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "onboarding: collect substantial client context before producing a durable brief; use significant /grill-me intake when required context is absent",
+    "external_read: ask before reading live pages, source URLs, current search results, or competitor pages",
+    "provider_data: use only providers the User has identified as installed/configured; paid or credentialed calls require the applicable approval",
+    "competitor_analysis: ask before running competitor-page analysis",
+    "vault_write: save only to a resolved project, client, or prospect context when authorized",
+    "external_mutation: publishing, CMS, repository, production, and provider configuration changes are out of scope"
+  ],
+  "done_when": [
+    "mode is new-page or refresh and page type is explicit",
+    "client, project, or prospect context and substantial onboarding context are resolved",
+    "business goal, audience, market/language, funnel stage, and desired action are explicit",
+    "opportunity inputs and approved search-data sources are recorded with dates and scope",
+    "search intent is distinct from business objective and funnel stage",
+    "refresh mode includes existing-page inspection scope",
+    "brief translates SEO evidence into Writing requirements without final prose or metadata",
+    "Writing handoff mode is selected",
+    "durable artifacts use the project/client/prospect routing and review frontmatter contract",
+    "seo-quality-gate passes or is explicitly deferred with an actionable reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify source labels distinguish first-party data, provider estimates, manual observations, studies, heuristics, hypotheses, and assumptions",
+    "verify undeclared providers were not probed",
+    "verify competitor analysis was approved before external reading",
+    "verify claim-check handling when material claims are present",
+    "verify no final title tag, meta description, article prose, web copy, publishing, or production mutation was produced",
+    "verify changed Markdown/frontmatter and Home review registration when applicable"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "writer",
+    "verifier",
+    "developer",
+    "wordpress-operator"
+  ]
+}

@@ -3,10 +3,10 @@
   "version": 1,
   "active_canonical_skills": [
     "brandkit",
+    "design-research",
     "design-delivery",
+    "design-reverse-engineering",
     "design-taste-frontend",
-    "design-taste-frontend-v1",
-    "gpt-taste",
     "high-end-visual-design",
     "image-to-code",
     "imagegen-frontend-mobile",
@@ -50,12 +50,21 @@
   ],
   "mode_routes": [
     {
+      "mode": "research",
+      "primary_skill": "design-research",
+      "handoff": "design-delivery after direction approval",
+      "current_supporting_skills": [
+        "brandkit",
+        "redesign-existing-projects"
+      ]
+    },
+    {
       "mode": "new-layout",
       "primary_skill": "design-delivery",
       "current_supporting_skills": [
         "brandkit",
+        "design-reverse-engineering",
         "design-taste-frontend",
-        "gpt-taste",
         "imagegen-frontend-web",
         "imagegen-frontend-mobile"
       ]
@@ -64,9 +73,9 @@
       "mode": "redesign",
       "primary_skill": "design-delivery",
       "current_supporting_skills": [
+        "design-reverse-engineering",
         "redesign-existing-projects",
-        "design-taste-frontend",
-        "gpt-taste"
+        "design-taste-frontend"
       ]
     },
     {
@@ -81,6 +90,7 @@
       "mode": "visual-direction",
       "primary_skill": "design-delivery",
       "current_supporting_skills": [
+        "design-reverse-engineering",
         "high-end-visual-design",
         "industrial-brutalist-ui",
         "minimalist-ui",
@@ -89,7 +99,9 @@
     },
     {
       "mode": "prototype",
-      "primary_future_skill": "design-prototype",
+      "primary_skill": null,
+      "disposition": "deferred-2026-08-01",
+      "reason": "No dedicated prototype skill will be built until a repeated need is identified. Use design-delivery's prototype mode with the supporting skills below.",
       "current_supporting_skills": [
         "imagegen-frontend-web",
         "imagegen-frontend-mobile",
@@ -100,17 +112,11 @@
       "mode": "rendered-review",
       "primary_skill": "design-delivery",
       "current_supporting_skills": [
-        "redesign-existing-projects",
-        "gpt-taste"
+        "redesign-existing-projects"
       ]
     }
   ],
   "deferred_source_material": [
-    {
-      "source": "stash/design/claude-design",
-      "disposition": "future-workflow-reference",
-      "reason": "Useful for prototypes, decks, and high-fidelity artifacts, but runtime-shaped and not needed for the first design discipline slice."
-    },
     {
       "source": "stash/design/design-systems",
       "disposition": "reference-extract",
@@ -129,7 +135,6 @@
   ],
   "not_active": [
     "accessibility",
-    "claude-design",
     "design-principles",
     "design-systems",
     "designer",

@@ -7,12 +7,15 @@
  * tool execution. This wrapper keeps graphify optional: if the CLI is not
  * available, the hook exits 0 silently; if it is available, stdin is forwarded
  * to `graphify hook-check` and graphify's exit code is preserved.
+ *
+ * No path is hardcoded here — set GRAPHIFY_BIN to skip the PATH probe, or just
+ * make sure `graphify` resolves via PATH.
  */
 
 import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 
-const FALLBACK_GRAPHIFY = "/Users/bobmoore/.local/bin/graphify";
+const GRAPHIFY_BIN_ENV = "GRAPHIFY_BIN";
 
 function readStdin(): string {
 	try {
@@ -23,7 +26,8 @@ function readStdin(): string {
 }
 
 function resolveGraphify(): string | null {
-	if (existsSync(FALLBACK_GRAPHIFY)) return FALLBACK_GRAPHIFY;
+	const override = process.env[GRAPHIFY_BIN_ENV];
+	if (override && existsSync(override)) return override;
 	const probe = spawnSync("command -v graphify", {
 		shell: true,
 		encoding: "utf8",

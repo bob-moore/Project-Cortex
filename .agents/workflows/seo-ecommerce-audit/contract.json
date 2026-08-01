@@ -1,0 +1,17 @@
+{
+  "name": "seo-ecommerce-audit",
+  "version": 1,
+  "summary": "Audit ecommerce product, collection, marketplace, inventory, pricing, review, template, and indexability evidence.",
+  "aliases": ["/seo-ecommerce-audit", "seo-ecommerce-audit", "ecommerce SEO audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["commerce model/catalog/markets/languages/currencies/platform/date/URL scope", "approved catalog, templates, analytics, GSC, crawl, schema, review, feed, Brand, and marketplace evidence", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved provider, marketplace, page, analytics, catalog, feed, and first-party evidence"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live provider, marketplace, page, analytics, or catalog reads", "provider_data: paid or credentialed calls require approval", "vault_write: save only to resolved context", "external_mutation: catalog, feed, schema, canonical, URL, CMS, code, and production changes are out of scope"],
+  "done_when": ["commerce scope, source tiers, freshness, facts, risks, owners, and rechecks are explicit", "inventory, pricing, reviews, offers, and marketplace facts are not invented", "scaled-page recommendations require programmatic quality-gate evidence", "no rich-result, ranking, sales, traffic, or revenue guarantee is made", "seo-quality-gate passes or is explicitly deferred", "return contract is complete"],
+  "verification": ["verify unavailable sources produced no fabricated commerce facts", "verify no catalog, feed, schema, canonical, URL, CMS, code, or production mutation occurred", "verify changed artifact and review registration when applicable"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "writer", "developer", "wordpress-operator", "verifier"]
+}

@@ -1,16 +1,16 @@
 ---
 name: workflow-seo-site-audit
-description: "Execute the canonical seo-site-audit workflow for bounded site-wide SEO evidence collection."
+description: "Orchestrate a bounded multi-domain site audit with summary-first SEO, web-quality, accessibility, and agent-readiness evidence. Use when the user asks to run seo-site-audit, /seo-site-audit, or this vault workflow."
 ---
 
 # workflow-seo-site-audit
 
 Execute the canonical workflow `seo-site-audit`.
 
-1. Read `.agents/workflows/seo-site-audit/contract.json` and
-   `.agents/workflows/seo-site-audit/workflow.md`.
-2. Follow the declared approvals, crawl caps, evidence rules, verification, and
-   return contract.
-3. Do not report done until the quality gate passes or a blocker is explicit.
+1. Read `.agents/workflows/seo-site-audit/contract.json` for risk tier, approval classes, writes, done conditions, verification, and return contract.
+2. Read `.agents/workflows/seo-site-audit/workflow.md` for the human-readable workflow procedure.
+3. Treat the user's prompt as workflow input.
+4. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+5. Do not report done until the workflow verification requirements are satisfied or a blocker is explicitly reported.
 
 If this skill conflicts with the canonical workflow spec, the canonical workflow spec wins.

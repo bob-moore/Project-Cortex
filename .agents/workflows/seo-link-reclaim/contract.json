@@ -1,0 +1,77 @@
+{
+  "name": "seo-link-reclaim",
+  "version": 1,
+  "summary": "Identify broken, lost, redirected, orphaned, or unlinked external-link candidates and route safe reclaim recommendations.",
+  "aliases": [
+    "/seo-link-reclaim",
+    "seo-link-reclaim",
+    "link reclaim",
+    "broken backlink recovery"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "client, project, or prospect context",
+    "domain and affected target pages",
+    "market, date range, and reclaim scope",
+    "approved backlink, competitor, crawl, redirect, CMS, server-log, analytics, and user evidence",
+    "declared provider and source scope",
+    "approved output path"
+  ],
+  "writes": [
+    "resolved Projects/ context",
+    "resolved Clients/ context",
+    "resolved Prospects/ context",
+    "user-approved review artifact path",
+    "Home.md review link when review is required"
+  ],
+  "external_reads": [
+    "approved DataForSEO data",
+    "approved Moz data",
+    "approved Bing Webmaster data",
+    "approved Common Crawl data",
+    "approved crawler, first-party, CMS, redirect, server-log, or manual evidence"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "provider_availability: run bounded read-only checks against approved integration surfaces; do not reveal secrets or probe arbitrary services",
+    "external_read: ask before live provider, Common Crawl, external page, or publisher reads",
+    "provider_data: paid or credentialed calls require applicable approval",
+    "outreach: contact or pitch actions require a separate approved workflow",
+    "external_mutation: redirects, CMS, code, disavowals, outreach, publishing, provider configuration, and production are out of scope"
+  ],
+  "done_when": [
+    "domain, target pages, market, date range, and scope are explicit",
+    "source status, freshness, historical/current status, and verification method are recorded",
+    "missing provider data is not presented as proof that a link never existed",
+    "each candidate has evidence, least-destructive action, owner, and recheck",
+    "redirect, CMS, Development, Writing, Strategy, and outreach handoffs are explicit",
+    "no external contact, production mutation, or outcome guarantee occurred",
+    "durable artifact uses project/client/prospect routing and review frontmatter",
+    "seo-quality-gate passes or is explicitly deferred with an actionable reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify unavailable providers produced no fabricated link history or status",
+    "verify paid or credentialed calls had approval",
+    "verify no redirect, CMS, code, disavowal, outreach, publishing, or production mutation occurred",
+    "verify changed Markdown/frontmatter and Home review registration when applicable"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "writer",
+    "verifier",
+    "developer",
+    "wordpress-operator"
+  ]
+}

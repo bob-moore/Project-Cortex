@@ -1,0 +1,76 @@
+{
+  "name": "seo-topic-cluster",
+  "version": 1,
+  "summary": "Turn keyword, SERP-intent, and content-audit evidence into topic clusters, hub/spoke architecture, page roles, boundaries, and internal-link recommendations.",
+  "aliases": [
+    "/seo-topic-cluster",
+    "seo-topic-cluster",
+    "topic clusters",
+    "hub spoke architecture"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "client, project, or prospect context",
+    "domain and architecture scope",
+    "audience, offer, business goal, and conversion path",
+    "market, language, and device",
+    "approved keyword, SERP-intent, and content-audit artifacts",
+    "existing content inventory",
+    "approved output path"
+  ],
+  "writes": [
+    "resolved Projects/ context",
+    "resolved Clients/ context",
+    "resolved Prospects/ context",
+    "user-approved review artifact path",
+    "Home.md review link when review is required"
+  ],
+  "external_reads": [
+    "approved current SERP or ranking-page evidence",
+    "approved DataForSEO or SE Ranking data",
+    "other User-declared provider data"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "external_read: ask before current SERP, ranking-page, or provider reads not already covered by approved source artifacts",
+    "vault_write: save only to a resolved project, client, or prospect context when authorized",
+    "external_mutation: CMS, repository, code, link implementation, publishing, production, and provider configuration changes are out of scope"
+  ],
+  "done_when": [
+    "scope, domain, audience, offer, market, language, device, goal, and date are explicit",
+    "input artifacts and source status are recorded",
+    "clusters use user need, intent, business relationship, and page role",
+    "page roles and hub/spoke relationships have evidence-backed rationale",
+    "semantic similarity is not presented as proof of cannibalization",
+    "existing/new/refresh decisions and internal-link recommendations are explicit",
+    "new-page and refresh handoffs preserve SEO and Writing ownership",
+    "durable artifact uses project/client/prospect routing and review frontmatter",
+    "seo-quality-gate passes or is explicitly deferred with an actionable reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify missing input artifacts are not replaced with fabricated evidence",
+    "verify clusters are not based solely on lexical similarity or embeddings",
+    "verify no page-count growth recommendation lacks a user/business rationale",
+    "verify no final copy, metadata prose, CMS, code, link, publishing, or production mutation occurred",
+    "verify changed Markdown/frontmatter and Home review registration when applicable"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "writer",
+    "verifier",
+    "developer",
+    "wordpress-operator"
+  ]
+}

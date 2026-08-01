@@ -1,0 +1,17 @@
+{
+  "name": "seo-product-schema",
+  "version": 1,
+  "summary": "Audit product, offer, review, aggregate rating, availability, identifier, variant, and merchant schema facts.",
+  "aliases": ["/seo-product-schema", "seo-product-schema", "product schema audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["catalog/product/variant scope", "markets/currencies/date/URLs", "approved product, pricing, availability, identifier, review, feed, template, and validator evidence", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved page, validator, provider, catalog, feed, and first-party evidence"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live page, validator, provider, or catalog reads", "provider_data: paid or credentialed calls require approval", "vault_write: save only to resolved context", "external_mutation: schema, templates, CMS, code, feeds, and production changes are out of scope"],
+  "done_when": ["product facts, schema properties, evidence, confidence, owners, and rechecks are explicit", "no price, availability, review, rating, identifier, offer, or variant is invented", "no rich-result, ranking, sales, traffic, or revenue guarantee is made", "seo-quality-gate passes or is explicitly deferred", "return contract is complete"],
+  "verification": ["verify unavailable sources produced no fabricated schema facts", "verify no schema, template, CMS, code, feed, or production mutation occurred", "verify changed artifact and review registration when applicable"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "developer", "wordpress-operator", "verifier"]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "seo-aeo-audit",
+  "version": 1,
+  "summary": "Audit answer-engine and SERP answer-feature readiness with source labels and no unsupported placement or visibility claims.",
+  "aliases": ["/seo-aeo-audit", "seo-aeo-audit", "AEO audit"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["domain, market, language, audience, query set, pages, date, device, and scope", "approved SERP, content, entity, schema, Brand, and first-party evidence", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved SERP, provider, answer-engine, page, and first-party evidence"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live SERP, provider, answer-engine, or page reads", "provider_data: paid or credentialed calls require approval", "vault_write: save only to resolved context", "external_mutation: content, schema, CMS, code, publishing, and production changes are out of scope"],
+  "done_when": ["query, page, device, date, scope, source tier, confidence, and limitations are explicit", "observed answer features remain distinct from heuristics and vendor studies", "no SERP feature, answer, citation, ranking, or AI visibility is fabricated", "handoffs and rechecks are explicit", "seo-quality-gate passes or is explicitly deferred", "return contract is complete"],
+  "verification": ["verify unavailable sources produced no fabricated answer features or model outputs", "verify no content, schema, CMS, code, publishing, provider, or production mutation occurred", "verify changed artifact and review registration when applicable"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "writer", "developer", "verifier"]
+}

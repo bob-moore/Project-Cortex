@@ -15,6 +15,9 @@ tmp/
 stash/
 harness/session-logs/
 
+# Graphify's own generated output
+graphify-out/
+
 # Uncomment to exclude runtime skills (278 files) to focus graph on Vault Knowledge
 .agents/skills/
 

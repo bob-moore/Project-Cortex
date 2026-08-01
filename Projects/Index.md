@@ -31,6 +31,7 @@ Non-client active work (internal, ops, etc.). The root entry point is [[Home]], 
 
 - [[Astro Publishing Platform MVP]] — internal MVP: Astro + Git-native content as a WordPress alternative, with a shared control plane so SEO/marketing staff can edit without code
 - [[Agent OS R&D]] — R&D for this vault's agentic operating system methodology, runtime-neutral harness structure, workflow gates, and role/skill conventions
+- [[Harness Distribution Prep]] — split framework wiring from client/instance content via git subtree so the harness can be distributed to the team and reused for other vaults
 - [[Canvas Design System Overhaul]] — major-version overhaul of the agency's shared WP boilerplate theme (token/style-variation/pattern naming, pattern-library audit), sequenced before AI-assisted design tooling gets built on top of it
 - bobmoore.dev — Bob's personal site/side business (Astro portfolio + blog, separate WP plugin/theme sandbox). Tracked in the separate Obsidian/Ventures vault (`Sites/bobmoore.dev/`), not here — this vault only models the day job.
 

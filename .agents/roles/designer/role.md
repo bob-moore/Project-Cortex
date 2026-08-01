@@ -14,6 +14,7 @@ prototypes, and implemented surfaces.
 ## Owns
 
 - visual direction
+- design research, moodboards, and annotated reference packets
 - layout critique
 - component and page design specs
 - component and interaction-state requirements
@@ -70,16 +71,18 @@ than editing the canonical source silently.
 ## Process
 
 1. Select one primary mode from `.agents/disciplines/design/modes.md`.
-2. Use `design-delivery` when producing a specification, handoff, prototype,
+2. If direction is unresolved or inspiration/references are requested, route
+   through `design-research` before implementation-oriented design work.
+3. Use `design-delivery` when producing a specification, handoff, prototype,
    redesign, component/pattern spec, or rendered review.
-3. Build an evidence ledger separating authority, current-system facts,
+4. Build an evidence ledger separating authority, current-system facts,
    observations, proposals, and gaps.
-4. Lock approved content before composition.
-5. Name the surface archetype and content hierarchy before styling details.
-6. Reuse governed components and literal token roles first.
-7. Define responsive transformations, interaction states, content limits,
+5. Lock approved content before composition.
+6. Name the surface archetype and content hierarchy before styling details.
+7. Reuse governed components and literal token roles first.
+8. Define responsive transformations, interaction states, content limits,
    assets, edge cases, accessibility requirements, and acceptance criteria.
-8. Return for parent or user approval before production implementation.
+9. Return for parent or user approval before production implementation.
 
 ## Handoff
 

@@ -8,6 +8,15 @@ description: Anti-slop frontend skill for landing pages, portfolios, and redesig
 > Landing pages, portfolios, and redesigns. Not dashboards, not data tables, not multi-step product UI.
 > Every rule below is **contextual**. None of it fires automatically. First read the brief, then pull only what fits.
 
+**Consolidation note (2026-08-01):** this is now the sole canonical frontend
+taste skill. `design-taste-frontend-v1` and `gpt-taste` were retired as
+duplicates; their only non-overlapping content (the `grid-flow-dense` bento
+implementation tip and the inline-typography-image hero pattern) was folded
+into Sections 4.7 and 10 below. `stitch-design-taste` was kept separate
+because it targets a different consumer (a `DESIGN.md` generator for the
+external Google Stitch tool, not code output) — revisit only if that tool
+sees real use.
+
 ---
 
 ## 0. BRIEF INFERENCE (Read the Room Before Anything Else)
@@ -247,7 +256,7 @@ LLMs default to "static successful state only." Always implement full cycles:
 * **Navigation MUST render on a single line on desktop.** If items don't fit at `lg` (1024px), condense labels, drop secondary items, or move to a hamburger. A two-line nav at desktop is broken design.
 * **Navigation height cap: 80px max desktop, default 64-72px.** No huge "agency" nav bars that eat 15% of the viewport.
 * **Bento grids MUST have rhythm, not one-sided repetition.** Do not stack 6 left-image / right-text rows. Vary the composition: alternate full-width feature rows, asymmetric tile sizes, vertical breaks.
-* **BENTO CELL COUNT RULE (mandatory):** A bento grid has EXACTLY as many cells as you have content for. 3 items → 3 cells (1+2 split, or 2+1, or asymmetric trio). 5 items → 5 cells (2+3, 3+2, hero+4, etc.). If your grid has an empty cell in the middle or at the end, you planned wrong. Re-shape the grid; do not paste a blank tile.
+* **BENTO CELL COUNT RULE (mandatory):** A bento grid has EXACTLY as many cells as you have content for. 3 items → 3 cells (1+2 split, or 2+1, or asymmetric trio). 5 items → 5 cells (2+3, 3+2, hero+4, etc.). If your grid has an empty cell in the middle or at the end, you planned wrong. Re-shape the grid; do not paste a blank tile. In Tailwind, apply `grid-auto-flow: dense` (`grid-flow-dense`) so `col-span`/`row-span` tiles interlock instead of leaving gaps the browser can't pack.
 * **Section-Layout-Repetition Ban.** Once you use a layout family for a section (e.g., 3-column-image-cards, full-width-quote, split-text-image), that family can appear at most ONCE on the page. "Selected commissions" must not look like "What we do." A landing page with 8 sections must use at least 4 different layout families.
 * **ZIGZAG ALTERNATION CAP (mandatory).** Alternating "left-image + right-text" then "left-text + right-image" zigzag layout = banal. Max 2 sections in a row with this image+text-split pattern. The 3rd consecutive image+text split is a Pre-Flight Fail. Break the pattern with a full-width section, a vertical-stack section, a bento grid, a marquee, or a different layout family.
 * **EYEBROW RESTRAINT (mandatory, the #1 violated rule in production tests).** An "eyebrow" is the small uppercase wide-tracking label sitting above a section headline (e.g. `FOUR COLORWAYS`, `SELECTED WORK`, `THE HARDWARE`, `Git-native task management`). Typical CSS signature: `text-[11px] uppercase tracking-[0.18em]`, `font-mono text-[10.5px] uppercase tracking-[0.22em]`. Every AI-built site puts an eyebrow above EVERY section header, producing the same templated rhythm. Hard rule:
@@ -755,6 +764,7 @@ This is a vocabulary, not a library. The agent should KNOW these pattern names t
 * **Glitch Effect Image** - RGB-channel shift on hover.
 
 ### Typography & Text
+* **Inline Typography Image** - A small photo or texture sits inline, at type-height, directly between words in a headline (rounded, cover-fit). Use sparingly as a hero signature move, never overlapping adjacent text; stack below the headline on mobile.
 * **Kinetic Marquee** - Endless text bands reversing on scroll.
 * **Text Mask Reveal** - Massive type as transparent window to video.
 * **Text Scramble Effect** - Matrix-style decoding on load / hover.

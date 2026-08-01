@@ -1,4 +1,5 @@
 ---
+date: 2026-08-01
 description: "Import plan for design skill packs staged under stash/design."
 tags:
   - harness
@@ -7,7 +8,7 @@ tags:
   - skills
 status: active
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-08-01
 ---
 
 # Design Skill Import Plan
@@ -41,10 +42,13 @@ Completed on 2026-07-29:
 
 Still deferred:
 
-- `claude-design` as a possible future `design-prototype` workflow.
 - `landing-page-design` for General Marketing/CRO.
 - `popular-web-designs` as optional inspiration/reference material.
 - `design-systems` and `frontend-design` dedupe into the design taste layer.
+
+Rejected 2026-08-01: `claude-design` will not be ported or tracked as future
+work. Decision: no new design skills until a concrete recurring need is
+identified. See [[key-decisions]].
 
 ## Source Inventory
 
@@ -53,7 +57,7 @@ Top-level packs in `stash/design/`:
 | Pack | Current project-local state | Recommended disposition |
 |---|---|---|
 | `accessibility` | Not imported | Adapt into a shared accessibility reference/rubric used by Design now and Development later. |
-| `claude-design` | Not imported | Use as source material for a future `design-prototype` or `design-exploration` workflow; do not copy wholesale. |
+| `claude-design` | Rejected 2026-08-01 | Do not port. No new design skills until a concrete recurring need is identified; not tracked as future work. |
 | `design-systems` | Not imported | Distill selected aesthetic and anti-generic guidance into design direction references; do not import under this name as a design-system governance layer. |
 | `designer` | Not imported as a skill | Use to strengthen `.agents/roles/designer/role.md` and its contract rather than creating a second Designer capability. |
 | `designer-delivery` | Not imported | Promote as the primary core design-delivery skill after adapting its references to vault conventions. |
@@ -174,8 +178,6 @@ Existing project-local skills:
 - `.agents/skills/high-end-visual-design/SKILL.md`
 - `.agents/skills/redesign-existing-projects/SKILL.md`
 - `.agents/skills/design-taste-frontend/SKILL.md`
-- `.agents/skills/design-taste-frontend-v1/SKILL.md`
-- `.agents/skills/gpt-taste/SKILL.md`
 - `.agents/skills/image-to-code/SKILL.md`
 - `.agents/skills/imagegen-frontend-mobile/SKILL.md`
 - `.agents/skills/imagegen-frontend-web/SKILL.md`
@@ -187,8 +189,15 @@ Plan:
 
 - Keep these active for now.
 - Classify them in `.agents/disciplines/design/skill-map.md`.
-- Later dedupe `design-taste-frontend`, `design-taste-frontend-v1`,
-  `gpt-taste`, and `frontend-design` into one clear taste/guidance surface.
+
+Done 2026-08-01: `design-taste-frontend-v1` and `gpt-taste` were deduped into
+`design-taste-frontend` (their only non-overlapping content, a `grid-flow-dense`
+bento implementation tip and the inline-typography-image hero pattern, was
+folded in) and their directories removed. `frontend-design` (stash-only,
+unimported) still overlaps and remains a low-priority future fold; `gpt-taste`
+is fully retired, not merely folded. `stitch-design-taste` was kept separate —
+it targets a different consumer (Google Stitch `DESIGN.md` generation, not
+code output).
 
 ## Shared Accessibility Track
 
@@ -341,15 +350,6 @@ Pass E: verify with design workflows
 - Keep only principles that improve decisions or catch real defects.
 
 ## Deferred Source Material
-
-`claude-design`:
-
-- Useful for artifact/prototype/deck generation patterns.
-- Defer until the design discipline exists.
-- Convert into a vault-neutral `design-prototype` workflow only if prototype
-  generation becomes a repeated need.
-- Strip runtime-specific assumptions, web-search assumptions, and static asset
-  conventions that do not fit this vault.
 
 `landing-page-design`:
 

@@ -1,0 +1,54 @@
+{
+  "name": "seo-tool-runner",
+  "version": 1,
+  "summary": "Select, plan, or run bounded neutral CLI tools for approved SEO evidence collection.",
+  "aliases": [
+    "/seo-tool-runner",
+    "seo-tool-runner"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "SEO mode and scoped client/site/artifact context",
+    "approved evidence or local tool target"
+  ],
+  "writes": [
+    "scoped foundation, gate, plan, or evidence artifact"
+  ],
+  "external_reads": [
+    "approved live pages, crawls, providers, or first-party sources"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "external_read: ask before live URLs, crawls, providers, or credentialed sources",
+    "provider_data: paid or credentialed calls require approval",
+    "vault_write: save only to resolved context and approved evidence paths",
+    "external_mutation: CMS, code, analytics, provider, SEO, and production mutation is out of scope"
+  ],
+  "done_when": [
+    "mode, scope, sources, labels, approvals, limitations, and handoffs are explicit",
+    "missing, partial, capped, stale, blocked, or unavailable evidence is visible",
+    "no unsupported performance or visibility guarantee is made",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify no secrets are written",
+    "verify no unapproved external mutation occurred",
+    "verify canonical output shape"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "developer",
+    "verifier"
+  ]
+}

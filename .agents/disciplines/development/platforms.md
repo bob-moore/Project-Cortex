@@ -15,11 +15,7 @@ the active registry.
 
 ## Astro
 
-Source:
-
-- `/Users/bobmoore/.agents/skills/astro/SKILL.md`
-
-Recommended target:
+Target:
 
 - `.agents/skills/astro/SKILL.md`
 
@@ -117,12 +113,15 @@ Activation hygiene completed for this import:
   generic platform examples
 - validate with the full harness gate and a frontmatter check
 
-## Open Decisions
+## Resolved And Open Decisions
 
+- Cloudflare is a separate live operations/deployment surface under
+  `cloudflare-operations`, which specializes `platform-operations`. Developer
+  retains ownership of repository Worker/Pages code and version-controlled
+  configuration; the Cloudflare skill owns approved live zone, edge, route, and
+  deployment state. See its source map for refresh-time provider evidence.
 - Whether WordPress triage detector scripts should live inside
   `.agents/skills/wp-project-triage/scripts/` or a shared
   `.agents/tools/wordpress/` registry.
 - Whether Astro needs only a compact project-local skill or a broader platform
   discipline later.
-- Whether Cloudflare belongs under Development platform work or a separate
-  operations/deployment discipline.

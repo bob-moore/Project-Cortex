@@ -13,43 +13,36 @@
   "imported_on": "2026-07-29",
   "imported_sources": [
     {
-      "source": "/Users/bobmoore/.agents/skills/wordpress-operator",
       "target": "wordpress-operator",
       "disposition": "imported-active",
       "reason": "Mutable WordPress state role procedure and operation return contract."
     },
     {
-      "source": "/Users/bobmoore/.agents/skills/wordpress-site-operations",
       "target": "wordpress-site-operations",
       "disposition": "imported-active",
       "reason": "Core operation procedure, references, before-state, rollback, and rendered verification."
     },
     {
-      "source": "/Users/bobmoore/.agents/skills/wp-wpcli-and-ops",
       "target": "wp-wpcli-and-ops",
       "disposition": "imported-active",
       "reason": "WP-CLI operational safety, search-replace, db, cron, cache, package, and multisite workflows."
     },
     {
-      "source": "/Users/bobmoore/.agents/skills/wp-redirection",
       "target": "wp-redirection",
       "disposition": "imported-active",
       "reason": "Redirection plugin workflow, import/export, safety, and migration support."
     },
     {
-      "source": "/Users/bobmoore/.agents/skills/wp-migratedb-pro",
       "target": "wp-migratedb-pro",
       "disposition": "imported-active",
       "reason": "WP Migrate DB Pro push/pull inspection and safety workflow."
     },
     {
-      "source": "/Users/bobmoore/.agents/skills/wp-performance",
       "target": "wp-performance",
       "disposition": "imported-active",
       "reason": "Backend WordPress performance measurement and operational diagnosis."
     },
     {
-      "source": "/Users/bobmoore/.codex/skills/novamira-wordpress-mcp-access",
       "target": "novamira-wordpress-mcp-access",
       "disposition": "imported-active",
       "reason": "Novamira WordPress MCP access verification as a project-local support skill."
@@ -57,7 +50,6 @@
   ],
   "unavailable_sources": [
     {
-      "source": "/Users/bobmoore/.agents/skills/wpremote-api",
       "target": "wpremote-api",
       "disposition": "not-found",
       "reason": "Referenced in prior plans and imported source text but not present in the readable global .agents skills directory during import."
@@ -65,6 +57,7 @@
   ],
   "supporting_skills": [
     "accessibility-foundation",
+    "web-quality-verification",
     "role-verifier",
     "developer-delivery"
   ],

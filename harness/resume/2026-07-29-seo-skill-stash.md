@@ -20,9 +20,9 @@ Resume SEO skill work. Read this note first: harness/resume/2026-07-29-seo-skill
 
 ## Objective
 
-Pause SEO work after the Phase 3 technical/page audit layer and preserve the
-current implementation state so the harness can shift to less intensive
-role/skill porting: design, development, and general marketing.
+Continue SEO work from the accepted Phase 3 technical/page audit layer into
+the remaining strategy, content, authority, local, advanced-search, data, and
+monitoring capabilities.
 
 ## Current State
 
@@ -65,10 +65,10 @@ changes.
 
 ## Decisions
 
-- Pause SEO now rather than continue into Phase 4.
+- Continue SEO into Phase 4, starting with the strategy/content interface.
 - Do not port paid ads wholesale. Treat legacy Ads skills as disposable source
   material and rebuild a paid ads role from scratch later.
-- Next porting focus: design, development, and general marketing.
+- Design, development, and general marketing remain later capability lanes.
 - Do not turn crawler/tool evidence into ranking, traffic, indexing, or AI
   visibility guarantees.
 - Keep canonical behavior in `.agents/`; keep durable operating knowledge in
@@ -89,8 +89,8 @@ changes.
 Completed before this stash:
 
 ```text
-python3 .agents/tools/seo/gap-check.py --mode metadata --target reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/siteone-crawler/report.json --output-dir /tmp/projectcortex-seo-gap-siteone-metadata
-python3 .agents/tools/seo/gap-check.py --mode headers --target reviews/evidence/seo/2026-07-28-afistfullofdollars-site-audit/raw/siteone-crawler/report.json --output-dir /tmp/projectcortex-seo-gap-siteone-headers
+python3 .agents/tools/seo/gap-check.py --mode metadata --target .agents/tools/seo/fixtures/smoke-metadata.html --output-dir /tmp/projectcortex-seo-gap-siteone-metadata
+python3 .agents/tools/seo/gap-check.py --mode headers --target .agents/tools/seo/fixtures/smoke-headers.txt --output-dir /tmp/projectcortex-seo-gap-siteone-headers
 python3 .agents/tools/seo/gap-check.py --mode robots --target .agents/tools/seo/fixtures/smoke-robots.txt --output-dir /tmp/projectcortex-seo-gap-robots
 python3 .agents/tools/seo/gap-check.py --mode headers --target .agents/tools/seo/fixtures/smoke-headers.txt --output-dir /tmp/projectcortex-seo-gap-headers
 python3 .agents/tools/seo/gap-check.py --mode metadata --target .agents/tools/seo/fixtures/smoke-metadata.html --output-dir /tmp/projectcortex-seo-gap-metadata
@@ -105,9 +105,8 @@ whitespace was clean, and Python compilation passed with bytecode redirected to
 
 ## Blockers And Risks
 
-- SEO Phase 3 is not committed yet in this workspace.
-- Phase 3 still needs broader report synthesis and one more real-evidence pass
-  before it should be called fully closed.
+- SEO Phase 3 is accepted as a reusable capability; generated test evidence was
+  deliberately deleted after review.
 - Future SEO phases involve volatile provider/platform claims and must use
   source-tier labels and approval gates.
 - Paid Ads should not be ported from the legacy tree; rebuild later from first
@@ -115,8 +114,7 @@ whitespace was clean, and Python compilation passed with bytecode redirected to
 
 ## Next Action
 
-Leave SEO alone for now. Continue with
-[[harness/audits/role-skill-porting-buckets|role and skill porting buckets]]:
-design first, development second, and general marketing third unless Bob gives a
-different order.
+Continue SEO with the Phase 4 strategy/content interface. Start with
+`seo-content-brief` and its writing handoff, then add keyword/SERP intent and
+strategy-roadmap support only after the brief contract and quality gate work.
 

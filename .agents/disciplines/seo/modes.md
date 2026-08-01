@@ -21,8 +21,9 @@ For client-specific work, read available:
 - relevant project notes, briefs, audits, Search Console or analytics exports,
   crawl outputs, and deployment context
 
-If Brand, Voice, Stack, site URL, target market, or current environment is
-missing, report the gap. Continue only with assumptions labeled.
+If substantial onboarding context is missing, stop durable brief or strategy
+production and run the significant onboarding intake. Do not turn missing
+context into durable gap notes; resume once the required context is supplied.
 
 ## Modes
 

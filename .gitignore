@@ -6,12 +6,15 @@ stash/
 # Local temporary workspace
 tmp/
 
+# Runtime-local secrets
+.codex/cloudways.env
+
 # Runtime recovery artifacts
 harness/session-logs/*
 !harness/session-logs/README.md
 
-# Local Obsidian UI state
-.obsidian/workspace*.json
+# Local Obsidian app state (config, plugins, themes) — entirely machine-local
+.obsidian/
 
 # Claude local/runtime state
 .claude/settings.local.json

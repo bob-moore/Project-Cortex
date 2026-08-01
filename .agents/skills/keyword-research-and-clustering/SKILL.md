@@ -12,8 +12,10 @@ and handoff-ready clusters.
 
 1. Resolve niche, audience, market, geography/language, business goal, domain,
    and date.
-2. Use available keyword providers, Search Console exports, SERP evidence, and
-   manual research as evidence, not truth.
+2. Use only providers and exports the User has identified as configured. This
+   may include GA/GSC, Google Keyword Planner, DataForSEO, SE Ranking, another
+   User-declared provider, SERP evidence, and manual research. Treat all as
+   evidence, not truth.
 3. Label volumes, difficulty, CPC, traffic estimates, and SERP observations.
 4. Route technical SEO findings to SEO; route drafts to Writer.
 5. Avoid keyword stuffing, fake precision, and calendar plans with no business
@@ -46,7 +48,7 @@ Priority Clusters:
 Excluded Terms:
 - ...
 
-Open Evidence Gaps:
+Evidence Decisions:
 - ...
 
 Handoff:

@@ -1,0 +1,77 @@
+{
+  "name": "seo-backlink-audit",
+  "version": 1,
+  "summary": "Audit bounded external-link profiles with source-labeled provider, crawl, first-party, and manual evidence.",
+  "aliases": [
+    "/seo-backlink-audit",
+    "seo-backlink-audit",
+    "backlink audit",
+    "link profile audit"
+  ],
+  "risk_tier": "medium",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "client, project, or prospect context",
+    "domain and target pages",
+    "market and date range",
+    "declared provider and source scope",
+    "approved output path"
+  ],
+  "writes": [
+    "resolved Projects/ context",
+    "resolved Clients/ context",
+    "resolved Prospects/ context",
+    "user-approved review artifact path",
+    "Home.md review link when review is required"
+  ],
+  "external_reads": [
+    "approved DataForSEO data",
+    "approved Moz data",
+    "approved Bing Webmaster data",
+    "approved Common Crawl data",
+    "approved first-party exports",
+    "approved manual/source evidence"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "provider_availability: run bounded read-only checks against approved integration surfaces; do not reveal secrets or probe arbitrary services",
+    "external_read: ask before live provider, Common Crawl, or external page reads",
+    "provider_data: paid or credentialed calls require applicable approval",
+    "vault_write: save only to a resolved project, client, or prospect context when authorized",
+    "external_mutation: link buying, outreach, disavowal, redirects, CMS, code, publishing, production, and provider configuration are out of scope"
+  ],
+  "done_when": [
+    "domain, target pages, market, date range, provider scope, and audit date are explicit",
+    "provider status and freshness are recorded for every declared source",
+    "counts and metrics are source-labeled and not presented as universal truth",
+    "link quality findings use context and more than one signal where appropriate",
+    "missing, sampled, stale, or partial data is visible before conclusions",
+    "no toxic-link, ranking, traffic, authority, revenue, or conversion guarantee is made",
+    "handoffs to opportunity, competitor-comparison, and reclaim workflows are explicit",
+    "durable artifact uses project/client/prospect routing and review frontmatter",
+    "seo-quality-gate passes or is explicitly deferred with an actionable reason",
+    "return contract is complete"
+  ],
+  "verification": [
+    "verify unavailable providers produced no fabricated counts or links",
+    "verify paid or credentialed calls had approval",
+    "verify no link buying, outreach, disavowal, redirect, CMS, code, publishing, or production mutation occurred",
+    "verify changed Markdown/frontmatter and Home review registration when applicable"
+  ],
+  "return_contract": [
+    "Done",
+    "Evidence",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "strategist",
+    "verifier",
+    "developer",
+    "wordpress-operator"
+  ]
+}

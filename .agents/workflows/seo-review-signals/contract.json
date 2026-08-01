@@ -1,0 +1,17 @@
+{
+  "name": "seo-review-signals",
+  "version": 1,
+  "summary": "Assess approved local review evidence for volume, recency, relevance, sentiment themes, response coverage, and safe operational handoffs.",
+  "aliases": ["/seo-review-signals", "seo-review-signals", "review signals"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write", "external_read"],
+  "inputs": ["business, locations, service areas, market, language, platforms, date range, and scope", "approved review exports and operations context", "approved output path"],
+  "writes": ["resolved context artifact", "review artifact", "Home review link when required"],
+  "external_reads": ["approved review-platform, maps, directory, provider, and first-party review evidence"],
+  "external_mutations": [],
+  "approval_gates": ["external_read: ask before live review-platform, maps, directory, or provider reads", "provider_data: paid or credentialed calls require approval", "vault_write: save only to resolved context", "external_mutation: review creation, suppression, manipulation, response posting, profile changes, CMS, code, and production are out of scope"],
+  "done_when": ["business scope, platforms, date range, source status, sample, method, and confidence are explicit", "observations do not identify private reviewers or infer protected traits", "themes and handoffs have evidence, owner, and recheck", "no review manipulation or outcome guarantee occurred", "seo-quality-gate passes or is explicitly deferred", "return contract is complete"],
+  "verification": ["verify unavailable platforms produced no fabricated reviews or sentiment", "verify no review, profile, platform, CMS, code, or production mutation occurred", "verify changed artifact and review registration when applicable"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["strategist", "verifier", "writer"]
+}
