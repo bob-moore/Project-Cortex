@@ -33,15 +33,21 @@ function under(value, declared) {
   return root.endsWith('/') ? current.startsWith(root) : current === root || current.startsWith(`${root}/`);
 }
 
+function exact(value, declared) {
+  return normalizePath(value) === normalizePath(declared);
+}
+
 export function loadManagedPaths(coreRoot) {
   const manifest = readYamlJson(path.join(coreRoot, 'core-managed-paths.yaml'));
   if (!Array.isArray(manifest.managed_paths) || !Array.isArray(manifest.excluded_paths)) throw new Error('managed-path manifest is malformed');
+  if (manifest.portable_exceptions !== undefined && !Array.isArray(manifest.portable_exceptions)) throw new Error('portable exceptions must be an array');
   return manifest;
 }
 
 function assertManaged(coreRoot, relativePath) {
   const manifest = loadManagedPaths(coreRoot);
-  if (manifest.excluded_paths.some((excluded) => under(relativePath, excluded))) throw new Error(`path is explicitly excluded: ${relativePath}`);
+  const portable = (manifest.portable_exceptions ?? []).some((entry) => exact(relativePath, entry));
+  if (manifest.excluded_paths.some((excluded) => under(relativePath, excluded)) && !portable) throw new Error(`path is explicitly excluded: ${relativePath}`);
   if (!manifest.managed_paths.some((entry) => under(relativePath, entry.path))) throw new Error(`path is not a managed path: ${relativePath}`);
 }
 

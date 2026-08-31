@@ -1,0 +1,73 @@
+{
+  "version": "v0.2.0",
+  "previous_version": "v0.1.0",
+  "status": "proposal",
+  "source": "Alfred working-tree implementation snapshot",
+  "changes": [
+    {
+      "id": "portable-document-boundaries",
+      "action": "update",
+      "target": "core-managed-paths.yaml",
+      "purpose": "Allow exact portable contracts while retaining exclusions for diary entries, task records, ledgers, receipts, and runtime state.",
+      "requires": ["update .agents/scripts/lib/harness-release.mjs path classification"]
+    },
+    {
+      "id": "session-diary-signal-contract",
+      "action": "update",
+      "target": "harness/session-diary/README.md",
+      "purpose": "Define corrections, preferences, counter-evidence, atomic bullets, and in-session repeat counts.",
+      "source_behavior": "harness/session-diary/README.md"
+    },
+    {
+      "id": "learning-loop-workflow",
+      "action": "add",
+      "target": ".agents/workflows/vault-learning-loop/",
+      "purpose": "Read dated diary evidence, cluster signal, re-weight provisional rules, write a synthesis, and require approval for every promotion.",
+      "source_behavior": ".agents/workflows/vault-learning-loop/"
+    },
+    {
+      "id": "generic-soft-rule-contract",
+      "action": "add",
+      "target": "harness/soft-rules/README.md",
+      "purpose": "Provide confidence vocabulary, evidence and movement-log format, promotion semantics, and explicit exclusion of instance ledgers.",
+      "source_behavior": "harness/soft-rules.md"
+    },
+    {
+      "id": "wrap-up-learning-integration",
+      "action": "update",
+      "target": ".agents/workflows/vault-wrap-up/",
+      "purpose": "Derive corrections from task Execution Notes, preserve repeat counts, and record rule counter-evidence.",
+      "source_behavior": ".agents/workflows/vault-wrap-up/"
+    },
+    {
+      "id": "task-record-contract",
+      "action": "add",
+      "target": ["Tasks/README.md", "templates/Task.md", ".agents/scripts/verify-tasks.mjs"],
+      "purpose": "Adapt Alfred's task-record semantics and implement a new verifier for claimed produced-artifact links resolving to real paths or notes.",
+      "source_behavior": ["Tasks/README.md", "templates/Task.md"]
+    },
+    {
+      "id": "generated-workflow-adapters",
+      "action": "regenerate",
+      "target": [".claude/commands/", ".codex/skills/", ".hermes/"],
+      "purpose": "Generate adapters only after canonical contracts and manifest entries are accepted."
+    }
+  ],
+  "excluded": [
+    "harness/session-diary/*.md",
+    "harness/learning-loop/*-synthesis.md",
+    "harness/soft-rules.md ledger content",
+    "Tasks/*.md task records",
+    "Clients/",
+    "Projects/",
+    "graphify-out/",
+    ".obsidian/",
+    "runtime-local configuration and credentials"
+  ],
+  "verification": [
+    "node --test .agents/scripts/lib/harness-release.test.mjs",
+    "node .agents/scripts/verify-tasks.mjs",
+    "node .agents/scripts/validate-harness-release.mjs --version v0.2.0",
+    "node .agents/scripts/gate.mjs"
+  ]
+}

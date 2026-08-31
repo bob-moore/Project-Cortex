@@ -24,9 +24,12 @@ function fixture() {
     schema_version: 1,
     managed_paths: [
       { path: '.agents/', ownership: 'core' },
-      { path: '.claude/', ownership: 'generated' }
+      { path: '.claude/', ownership: 'generated' },
+      { path: 'Tasks/README.md', ownership: 'template' },
+      { path: 'harness/session-diary/README.md', ownership: 'core' }
     ],
-    excluded_paths: ['Tasks/', 'harness/session-diary/', 'graphify-out/']
+    excluded_paths: ['Tasks/', 'harness/session-diary/', 'graphify-out/'],
+    portable_exceptions: ['Tasks/README.md', 'harness/session-diary/README.md']
   });
   writeJson(path.join(core, 'changelogs', 'v0.1.0', 'changelog.yaml'), {
     version: 'v0.1.0', previous_version: 'v0.0.0', release_type: 'feature',
@@ -56,6 +59,18 @@ test('validateRelease rejects an instance-only target', () => {
   const { core } = fixture();
   const release = JSON.parse(fs.readFileSync(path.join(core, 'changelogs', 'v0.1.0', 'changelog.yaml')));
   release.changes[0].target = 'Tasks/leak.md';
+  assert.throws(() => validateRelease(core, release), /explicitly excluded/);
+});
+
+test('validateRelease allows only declared portable documents under excluded roots', () => {
+  const { core } = fixture();
+  const release = JSON.parse(fs.readFileSync(path.join(core, 'changelogs', 'v0.1.0', 'changelog.yaml')));
+  release.changes[0].source = 'Tasks/README.md';
+  release.changes[0].target = 'Tasks/README.md';
+  fs.mkdirSync(path.join(core, 'Tasks'), { recursive: true });
+  fs.writeFileSync(path.join(core, 'Tasks', 'README.md'), 'portable contract\n');
+  assert.doesNotThrow(() => validateRelease(core, release));
+  release.changes[0].target = 'Tasks/2026-08-31-instance-task.md';
   assert.throws(() => validateRelease(core, release), /explicitly excluded/);
 });
 

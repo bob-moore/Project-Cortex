@@ -16,7 +16,15 @@
     { "path": "harness/policies/", "ownership": "core" },
     { "path": "harness/goals/", "ownership": "core" },
     { "path": "harness/runbooks/README.md", "ownership": "core" },
-    { "path": "harness/dependencies.md", "ownership": "core" }
+    { "path": "harness/dependencies.md", "ownership": "core" },
+    { "path": "harness/session-diary/README.md", "ownership": "core" },
+    { "path": "harness/learning-loop/", "ownership": "core" },
+    { "path": "harness/soft-rules/", "ownership": "core" },
+    { "path": "Tasks/README.md", "ownership": "template" }
+  ],
+  "portable_exceptions": [
+    "harness/session-diary/README.md",
+    "Tasks/README.md"
   ],
   "excluded_paths": [
     ".harness/", ".obsidian/", "Clients/", "Journal/", "Notes/", "Products/", "Projects/", "Prospects/", "Tasks/", "assets/", "graphify-out/", "inbox/", "org/", "reference/", "reviews/", "stash/", "tmp/", "harness/audits/", "harness/integrations.md", "harness/key-decisions.md", "harness/ledgers/", "harness/memory.md", "harness/north-star.md", "harness/operator.md", "harness/patterns.md", "harness/roadmap.md", "harness/roadmaps/", "harness/resume/", "harness/session-diary/", "harness/session-logs/", "harness/user.md"
