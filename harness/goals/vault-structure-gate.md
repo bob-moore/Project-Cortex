@@ -6,7 +6,7 @@ tags:
 predicate: node .agents/scripts/verify-vault.mjs
 born: 2026-07-28
 status: satisfied
-last-pass: 2026-07-29
+last-pass: 2026-08-07
 on_violation: Wake the user; fix the structural regression or explicitly retire the predicate.
 retire_when: Retire only if the vault structure convention is replaced.
 ---

@@ -54,29 +54,6 @@ def display_source(source: str) -> str:
         return source
 
 
-def register_review_artifact(home: Path, output: Path, target: str, generated_date: str) -> None:
-    """Add a durable Home review link without duplicating an existing entry."""
-    if not home.exists():
-        return
-    try:
-        relative = output.resolve().relative_to(ROOT).with_suffix("")
-    except ValueError:
-        return
-    link_target = str(relative).replace("\\", "/")
-    host = urlsplit(target).netloc or target
-    label = f"Website audit — {host} — {generated_date} — needs review"
-    entry = f"- [[{link_target}|{label}]] — `needs-review` — Review the executive summary and priority recommendations; then set the source note's `attention_status` to `reviewed`, `dismissed`, or `converted`."
-    content = home.read_text(encoding="utf-8")
-    if f"[[{link_target}|" in content:
-        return
-    anchor = "## Quick Links"
-    block = f"## Review Queue\n\n{entry}\n\n"
-    if anchor in content:
-        content = content.replace(anchor, block + anchor, 1)
-    else:
-        content = content.rstrip() + "\n\n" + block
-    home.write_text(content, encoding="utf-8")
-
 
 def read_siteone(path: Path) -> tuple[list[dict], dict]:
     report = load(path, {}) or {}
@@ -185,7 +162,7 @@ def main() -> int:
     generated_at = datetime.now(timezone.utc)
     generated_date = generated_at.date().isoformat()
     overall = "fail" if any(status == "fail" for _, status in domains.values()) else "needs-improvement" if any(status == "needs-improvement" for _, status in domains.values()) else "pass"
-    lines = ["---", f"date: {generated_date}", f"description: \"Summary-first bounded website audit for {target}.\"", "tags:", "  - generated", "  - audit", "  - review", "attention_status: needs-review", "attention_type: review", "attention_owner: User", f"attention_date: {generated_date}", "attention_priority: normal", "next_action: \"Review the executive summary and priority recommendations; then reconcile the review status.\"", "---", "", "# Website Audit Report", "", "## Executive Summary", "", f"- Target: `{target}`", f"- Generated: `{generated_at.isoformat()}`", "- Scope: bounded SiteOne crawl, Lighthouse homepage lab evidence, Pa11y homepage accessibility evidence, deterministic SEO gap checks, and HTTP agent-readiness checks.", "- Overall status: **" + overall.replace("-", " ").title() + "**", "", "This report is summary-first. It separates SEO, web quality, shallow accessibility, and agent readiness. Scores from external providers are retained as provider evidence, not merged into the ProjectCortex verdict.", "", "External coverage comparison is retained in `external-comparison.json`.", "", "## Status Dashboard", "", "| Area | Status | Key finding |", "|---|---|---|"]
+    lines = ["---", f"date: {generated_date}", f"description: \"Summary-first bounded website audit for {target}.\"", "tags:", "  - generated", "  - audit", "  - review", "---", "", "# Website Audit Report", "", "## Executive Summary", "", f"- Target: `{target}`", f"- Generated: `{generated_at.isoformat()}`", "- Scope: bounded SiteOne crawl, Lighthouse homepage lab evidence, Pa11y homepage accessibility evidence, deterministic SEO gap checks, and HTTP agent-readiness checks.", "- Overall status: **" + overall.replace("-", " ").title() + "**", "", "This report is summary-first. It separates SEO, web quality, shallow accessibility, and agent readiness. Scores from external providers are retained as provider evidence, not merged into the ProjectCortex verdict.", "", "External coverage comparison is retained in `external-comparison.json`.", "", "## Status Dashboard", "", "| Area | Status | Key finding |", "|---|---|"]
     for domain, (findings, status) in domains.items():
         key_item = sorted(findings, key=lambda value: SEVERITY_RANK.get(value.get("severity", "info"), 4))[0] if findings else {}
         key = key_item.get("summary", "No material findings observed.")
@@ -209,7 +186,7 @@ def main() -> int:
         lines.append("")
     lines += ["## Limitations", "", "- The crawl and checks are bounded and sampled; this is not a complete inventory of every URL or state.", "- Lighthouse values are lab evidence for the recorded profile, not field Core Web Vitals.", "- Accessibility checks are automated and shallow; no legal or full WCAG conformance claim is made.", "- Agent-readiness checks are protocol/readiness observations, not proof of AI visibility, citations, traffic, or agent success.", "- Production changes, CMS changes, submissions, paid APIs, and credentials were not used.", "", "## Evidence Index", "", "- `external-comparison.json`", "- `raw/siteone-crawler/`", "- `raw/lighthouse/`", "- `raw/pa11y/`", "- `raw/agent-readiness/`", "- `normalized/`", ""]
     output.write_text("\n".join(lines), encoding="utf-8")
-    register_review_artifact(ROOT / "Home.md", output, target, generated_date)
+
     print(json.dumps({"output": str(output.relative_to(ROOT)), "overall": overall, "recommendation_count": len(recommendations), "domains": {name: status for name, (_, status) in domains.items()}}, indent=2))
     return 0
 

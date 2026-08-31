@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "version": "v0.1.0",
+  "status": "draft",
+  "release_policy": "Explicit changelog operations are the only consumer update set; raw Git diffs are evidence only.",
+  "managed_manifest": "core-managed-paths.yaml",
+  "compatibility": "v0.x supports explicit local overrides by skipping, recording, and requiring later resolution; it never merges or overwrites them automatically."
+}

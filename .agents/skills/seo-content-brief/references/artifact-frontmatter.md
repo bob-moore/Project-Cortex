@@ -24,12 +24,6 @@ page_type: article
 client: "<Client>"
 project: "<Project>"
 status: draft
-attention_status: needs-review
-attention_type: review
-attention_owner: User
-attention_date: YYYY-MM-DD
-attention_priority: normal
-next_action: "Review the SEO brief and approve the Writing handoff."
 tags:
   - seo
   - content-brief
@@ -43,19 +37,16 @@ business and Brand/Voice information.
 
 ## Review Lifecycle
 
-New briefs that require User inspection receive `attention_status:
-needs-review` and a direct wikilink under `Home.md#Review Queue` with a visible
-`needs-review` marker.
+New briefs that require User inspection receive a source-linked task record
+under `Tasks/` with `status: review`, owner, next action, acceptance criteria,
+and a link back to the brief. The brief itself does not carry review-queue
+metadata and does not receive a direct Home link.
 
-After User review, update the artifact to one of:
+After User review, record the decision in the review task history. If real work
+remains, create one or more downstream tasks; otherwise move the review task to
+`done`.
 
-- `reviewed`
-- `dismissed`
-- `converted`
-
-The direct Home link is removed during `/vault-wrap-up` or `/vault-audit` after
-the status is resolved. The brief remains in its project, client, or prospect
-context.
+The brief remains in its project, client, or prospect context.
 
 ## Storage Verification
 
@@ -64,5 +55,5 @@ Before reporting the brief as saved:
 - Verify the selected context exists.
 - Verify the frontmatter parses.
 - Verify exactly one of project/client/prospect is the destination context.
-- Verify the Home review link exists when `attention_status: needs-review`.
+- Verify the source-linked review task exists when User inspection is required.
 - Verify the brief names its Writing handoff and next action.

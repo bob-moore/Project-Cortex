@@ -1,16 +1,16 @@
 ---
 name: workflow-seo-sxo-audit
-description: "Audit search experience from query intent and result promise through clarity, trust, interaction quality, accessibility signals, and conversion fit."
+description: "Audit search experience from query intent and result promise through clarity, trust, interaction quality, accessibility signals, and conversion fit. Use when the user asks to run seo-sxo-audit, /seo-sxo-audit, or this vault workflow."
 ---
 
 # workflow-seo-sxo-audit
 
-Execute `seo-sxo-audit`.
+Execute the canonical workflow `seo-sxo-audit`.
 
-1. Read `.agents/workflows/seo-sxo-audit/contract.json` and `.agents/workflows/seo-sxo-audit/workflow.md`.
-2. Read `.agents/skills/seo-sxo-audit/SKILL.md`, `.agents/skills/seo-serp-intent/SKILL.md`, `.agents/skills/seo-content-audit/SKILL.md`, and `.agents/skills/seo-quality-gate/SKILL.md`.
-3. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
-4. Ask before live external search, provider, page, analytics, or user-research reads. Do not make copy, design, CMS, code, forms, analytics, or production changes.
-5. Return Done, Evidence, Open Items, and Next only after journey scope, evidence tiers, intent fit, clarity, trust, interaction, accessibility signals, handoffs, and quality gate are complete or explicitly blocked.
+1. Read `.agents/workflows/seo-sxo-audit/contract.json` for risk tier, approval classes, writes, done conditions, verification, and return contract.
+2. Read `.agents/workflows/seo-sxo-audit/workflow.md` for the human-readable workflow procedure.
+3. Treat the user's prompt as workflow input.
+4. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+5. Do not report done until the workflow verification requirements are satisfied or a blocker is explicitly reported.
 
-The canonical workflow spec wins if this skill conflicts with it.
+If this skill conflicts with the canonical workflow spec, the canonical workflow spec wins.

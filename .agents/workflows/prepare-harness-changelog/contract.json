@@ -1,0 +1,17 @@
+{
+  "name": "prepare-harness-changelog",
+  "version": 1,
+  "summary": "Prepare a portable upstream contribution proposal and draft changelog operations without promoting instance context.",
+  "aliases": ["prepare-harness-changelog"],
+  "risk_tier": "medium",
+  "approval_classes": ["read_only", "vault_write"],
+  "inputs": ["origin vault revision", "candidate portable paths", "evidence and compatibility notes"],
+  "writes": ["contribution proposal artifact", "draft changelog artifact"],
+  "external_reads": [],
+  "external_mutations": [],
+  "approval_gates": ["Classify paths against core-managed-paths.yaml before writing a proposal.", "Do not copy instance data, secrets, or raw working-vault diffs into Cortex."],
+  "done_when": ["proposal identifies source revision and portable operations", "excluded instance material is explicit", "draft changelog is reviewable but unreleased"],
+  "verification": ["validate every proposed path is managed", "verify source evidence excludes client, personal, and runtime-local data"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["developer", "verifier"]
+}

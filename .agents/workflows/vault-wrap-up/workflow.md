@@ -68,17 +68,26 @@ For each note created or modified this session:
 - `reviews/Index.md` — any wins or achievements from this session?
 - `Home.md` — are embedded Bases still valid?
 
-Also reconcile the `Home.md#Review Queue`:
-- Keep direct links for source notes whose `attention_status` is `needs-review`.
-- When the User has reviewed an item, update the source note to `reviewed`, `dismissed`, or `converted`, then remove its direct Home queue link.
-- Do not delete the source evidence; the Attention Base retains resolved history.
-- Flag broken or unregistered generated-artifact links for correction.
+Also reconcile reviewable source artifacts:
+- Reviewable source artifacts require a linked `Tasks/` record with `status: review`.
+- When the User completes review, record the decision in the task history, create downstream tasks only for real remaining work, and move the review task to `done`.
+- Do not delete source evidence; keep its task link and any downstream-task links.
+- Flag source artifacts needing review that lack a linked task for correction.
 
 #### 4. Check for Orphans
 
 - Any new notes not linked from at least one other note?
 - Any new people not added to People & Context?
 - Any thinking notes that should be promoted or deleted?
+
+#### 4a. Materialize Remaining Open Work
+
+Before reporting, distinguish conversation flow from durable open work:
+
+- Do not create a task for a next step resolved inside the active session.
+- Create or update a `Tasks/` record for each remaining open item that requires a later action, review, decision, external approval, or dated revisit.
+- Link each task to its source artifact, project, or decision. A reviewable agent-created artifact requires a source-linked `review` task; do not use `attention_status` or a second review queue.
+- Do not infer scope, owner, acceptance criteria, or due date. Leave an item in `triage` when those are not yet known.
 
 #### 5. Archive Check
 
@@ -138,6 +147,7 @@ Present a concise summary:
 - `org/` notes and indexes
 - `reviews/` evidence notes
 - `Notes/` work notes
+- `Tasks/` task records
 - `bases/` views
 
 ## Approval Gates
@@ -150,6 +160,7 @@ Present a concise summary:
 - Verify changed Markdown renders as valid Obsidian-flavored Markdown.
 - Verify wikilinks point to existing notes or intentionally create new note stubs.
 - Verify frontmatter remains valid YAML where touched.
+- Verify remaining open work that needs later action, review, decision, approval, or revisit has a linked task record; do not create tasks for resolved conversational flow.
 - Verify any external evidence is labeled with source, retrieval time, and failure or partial-result state.
 
 ## Return Format

@@ -1,0 +1,17 @@
+{
+  "name": "update-harness",
+  "version": 1,
+  "summary": "Apply a contiguous Project Cortex changelog chain to a consuming vault with dry-run planning, explicit confirmations, local-override protection, and update receipts.",
+  "aliases": ["update-harness"],
+  "risk_tier": "high",
+  "approval_classes": ["read_only", "vault_write", "destructive"],
+  "inputs": ["consumer vault path", "installed version", "target release version"],
+  "writes": ["declared managed files", ".harness/core-version.yaml", ".harness/update-receipts/"],
+  "external_reads": [],
+  "external_mutations": [],
+  "approval_gates": ["Dry-run the declared changelog chain before mutation.", "Obtain explicit confirmation for delete, migrate, or local override resolution.", "Never overwrite a locally modified managed file in v0.x."],
+  "done_when": ["only declared operations were applied", "target verification commands pass", "installed version and receipt record the result or a partial failure"],
+  "verification": ["validate release chain", "verify declared source hashes and target paths", "run declared target validation commands", "inspect receipt and unresolved overrides"],
+  "return_contract": ["Done", "Evidence", "Open Items", "Next"],
+  "related_roles": ["developer", "verifier"]
+}

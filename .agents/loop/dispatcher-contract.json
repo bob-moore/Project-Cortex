@@ -1,0 +1,61 @@
+{
+  "name": "runtime-neutral-dispatcher",
+  "version": 1,
+  "status": "scaffold-only",
+  "approval": {
+    "activation": "explicit_user_approval",
+    "default_action": "stop",
+    "allowed_classes": ["read_only", "vault_write"],
+    "blocked_classes": ["external_mutation", "destructive", "production", "secret"]
+  },
+  "schedule": {
+    "provider": "hermes-cron",
+    "recurring_enabled": false,
+    "max_runs_per_day": 0,
+    "daily_budget_usd": 5
+  },
+  "selection": {
+    "source": "canonical_workflow_registry",
+    "requires_bounded_work_order": true,
+    "requires_target": true,
+    "requires_done_when": true,
+    "requires_verification": true
+  },
+  "stages": {
+    "planner": "conductor",
+    "worker": "role-owned workflow stage",
+    "verifier": "fresh-context verifier stage",
+    "gate": "deterministic predicate or explicit user approval"
+  },
+  "trust": {
+    "ledger": "harness/ledgers/trust.tsv",
+    "minimum_worker_tier": "watch",
+    "minimum_verifier_tier": "watch",
+    "promotion": "verified_history_only"
+  },
+  "failure": {
+    "retry_limit": 2,
+    "on_gate_failure": "stop_and_report",
+    "on_budget_breach": "stop_and_report",
+    "on_missing_evidence": "stop_and_report",
+    "on_scope_drift": "stop_and_report",
+    "alarm_runbook": "harness/runbooks/alarms.md"
+  },
+  "delivery": {
+    "default": "local",
+    "requires_durable_evidence": true,
+    "requires_run_id": true,
+    "empty_output": "silent_only_for_no_agent_watchdogs"
+  },
+  "activation_gates": [
+    "node .agents/scripts/gate.mjs",
+    "node .agents/scripts/verify-goals.mjs",
+    "node .agents/scripts/verify-adapters.mjs",
+    "node .agents/loop/verify-dispatcher.mjs",
+    "harness/ledgers/trust.tsv has meaningful history",
+    "harness/ledgers/dispatch.tsv exists",
+    "harness/ledgers/usage.tsv exists",
+    "harness/runbooks/alarms.md covers gate, budget, adapter, trust, and loop failures",
+    "explicit user approval for recurring activation"
+  ]
+}

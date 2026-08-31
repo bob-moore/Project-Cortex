@@ -1,0 +1,249 @@
+{
+  "name": "deliver-web-change",
+  "version": 1,
+  "summary": "Deliver a bounded user-visible repository change through Designer specification, Developer implementation, rendered Designer review, and fresh-context Verifier review, with evidence bound to the final artifact state before closure.",
+  "aliases": [
+    "/deliver-web-change",
+    "deliver-web-change",
+    "web change",
+    "ship web change",
+    "implement web change"
+  ],
+  "risk_tier": "high",
+  "approval_classes": [
+    "read_only",
+    "vault_write",
+    "external_read"
+  ],
+  "inputs": [
+    "work order with target repository, bounded change, and acceptance criteria",
+    "approved content and/or approved design direction when the change is user-visible",
+    "client Brand, Voice, Design Tokens, and Stack notes when the change is client-scoped",
+    "target environment and rich artifact identity record (artifact ID, kind, source ref, identity method/value, state, and timestamp)"
+  ],
+  "writes": [
+    "target repository files through the developer stage",
+    "design specification and acceptance matrix through the designer stage",
+    "verification and review reports when requested by the work contract"
+  ],
+  "external_reads": [
+    "rendered local or staging URLs, screenshots, console and network evidence for review stages",
+    "repository remotes or CI status when explicitly scoped"
+  ],
+  "external_mutations": [],
+  "approval_gates": [
+    "direction approval recorded",
+    "production or deployment is a separate approval-gated operation outside this workflow",
+    "external reads follow harness/policies/approvals.md"
+  ],
+  "done_when": [
+    "acceptance criteria are explicit and bound to the work order",
+    "implementation evidence names repository, branch, changed files, tests, build, and runnable artifact identity",
+    "designer rendered review and verifier review are separate judgments bound to the final artifact state",
+    "every acceptance criterion has an observed PASS/FIX/BLOCK/UNDECIDED result with evidence",
+    "any post-review implementation change invalidated prior review and triggered re-dispatch against the final state",
+    "artifact identity ledger records final and superseded states with review bindings",
+    "parent gate closed only on review evidence, never on producer self-report"
+  ],
+  "verification": [
+    "node .agents/scripts/verify-workflows.mjs",
+    "focused test suite: node --test .agents/scripts/verify-workflows.test.mjs",
+    "repository gate: node .agents/scripts/gate.mjs"
+  ],
+  "return_contract": [
+    "Status",
+    "Work contract",
+    "Stages",
+    "Evidence",
+    "Reviews",
+    "Open Items",
+    "Next"
+  ],
+  "related_roles": [
+    "designer",
+    "developer",
+    "verifier",
+    "wordpress-operator"
+  ],
+  "execution": {
+    "primary_roles": [
+      "designer",
+      "developer",
+      "verifier"
+    ],
+    "required_skills": [
+      "design-delivery",
+      "developer-delivery",
+      "web-quality-verification",
+      "code-review"
+    ],
+    "stages": [
+      {
+        "id": "resolve-contract",
+        "role": null,
+        "skills": [],
+        "depends_on": [],
+        "condition": null,
+        "approval_gate": null,
+        "produces": [
+          "work-contract"
+        ],
+        "evidence_for": [],
+        "verification": [
+          "target repository, environment, approved content/design, acceptance criteria, approval class, and rich artifact identity record are explicit"
+        ],
+        "fresh_context": false,
+        "revision_target": null
+      },
+      {
+        "id": "design-specification",
+        "role": "designer",
+        "skills": [
+          "design-delivery"
+        ],
+        "depends_on": [
+          "resolve-contract"
+        ],
+        "condition": "visual intent or an approved design is absent or insufficient for the bounded change",
+        "approval_gate": "direction approval recorded",
+        "produces": [
+          "design-specification",
+          "acceptance-matrix"
+        ],
+        "evidence_for": [],
+        "verification": [
+          "acceptance matrix maps each visual/behavioral criterion to an observable check",
+          "specification separates authority, current-system facts, observations, proposals, and gaps"
+        ],
+        "fresh_context": false,
+        "revision_target": null
+      },
+      {
+        "id": "implementation",
+        "role": "developer",
+        "skills": [
+          "developer-delivery"
+        ],
+        "depends_on": [
+          "design-specification"
+        ],
+        "condition": "approved design or acceptance matrix exists; platform skill selected from inspected repository manifests, never from task wording alone",
+        "approval_gate": null,
+        "produces": [
+          "implementation-diff",
+          "runnable-artifact",
+          "implementation-report"
+        ],
+        "evidence_for": [],
+        "verification": [
+          "project-native tests, build, and lint run with exact results",
+          "diff inspected for scope, secrets, generated files, and unrelated churn",
+          "repository, branch, changed files, runnable artifact identity, and artifact ledger record reported"
+        ],
+        "fresh_context": false,
+        "revision_target": null
+      },
+      {
+        "id": "designer-rendered-review",
+        "role": "designer",
+        "skills": [
+          "design-delivery"
+        ],
+        "depends_on": [
+          "implementation"
+        ],
+        "condition": null,
+        "approval_gate": null,
+        "produces": [
+          "designer-review-report"
+        ],
+        "evidence_for": [
+          "implementation"
+        ],
+        "verification": [
+          "rendered output compared only against the approved design and observable quality contract",
+          "representative desktop, mobile, intermediate widths, and relevant interaction states inspected when evidence is available",
+          "conformance issues reported with evidence, owner, severity, and recheck scope"
+        ],
+        "fresh_context": true,
+        "revision_target": null
+      },
+      {
+        "id": "independent-web-verification",
+        "role": "verifier",
+        "skills": [
+          "web-quality-verification"
+        ],
+        "depends_on": [
+          "designer-rendered-review"
+        ],
+        "condition": null,
+        "approval_gate": null,
+        "produces": [
+          "web-verification-report"
+        ],
+        "evidence_for": [
+          "implementation"
+        ],
+        "verification": [
+          "acceptance criteria translated into observable checks across browser, responsive, interaction, computed/rendered result, console/network, accessibility, and metadata surfaces",
+          "HTTP 200 or build success never accepted as satisfaction of visual or behavioral criteria",
+          "risk-based collateral surfaces checked; every criterion returns PASS/FIX/BLOCK/UNDECIDED with measured evidence"
+        ],
+        "fresh_context": true,
+        "revision_target": null
+      },
+      {
+        "id": "independent-code-review",
+        "role": "verifier",
+        "skills": [
+          "code-review"
+        ],
+        "depends_on": [
+          "implementation"
+        ],
+        "condition": "meaningful code risk or independent engineering review requested by the work contract",
+        "approval_gate": null,
+        "produces": [
+          "code-review-report"
+        ],
+        "evidence_for": [
+          "implementation"
+        ],
+        "verification": [
+          "fixed comparison boundary established; diff reviewed against explicit acceptance criteria and non-goals",
+          "regression risk traced through callers, state boundaries, and error paths",
+          "every material finding carries direct evidence, severity, location, and disposition"
+        ],
+        "fresh_context": true,
+        "revision_target": null
+      },
+      {
+        "id": "parent-gate",
+        "role": null,
+        "skills": [],
+        "depends_on": [
+          "independent-web-verification",
+          "independent-code-review"
+        ],
+        "condition": null,
+        "approval_gate": null,
+        "produces": [
+          "closure-decision"
+        ],
+        "evidence_for": [
+          "designer-rendered-review",
+          "independent-web-verification",
+          "independent-code-review"
+        ],
+        "verification": [
+          "review evidence bound to the final artifact identity ID and its hash, commit, build, or URL state",
+          "PASS closes; FIX routes to implementation; BLOCK or UNDECIDED reports the missing proof or approval",
+          "producer self-report never closes the workflow"
+        ],
+        "fresh_context": false,
+        "revision_target": "implementation"
+      }
+    ]
+  }
+}

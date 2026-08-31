@@ -27,21 +27,23 @@ Run the morning standup:
 
 1. Read `Home.md` for current home state
 2. Pull current Monday.com status for the User's own items via the `assistant` role. Scope to the User only; see `.agents/roles/assistant/role.md`, its `assistant-ops` skill, and [[harness/patterns#Monday.com Scope|Monday.com scope]]. As of 2026-07-25, `assistant` replaced `project-manager`; the same Monday logic now also covers calendar/email and reports facts only, no role recommendation. Monday routes through Composio's `monday_mcp` toolkit as of 2026-07-22; the role self-serves this directly via `Bash`. Reconcile against `Home.md`: check off `[x]` anything Monday now shows Done/Completed that's still listed open, and flag genuinely new items assigned to the User that aren't captured yet. Update `Home.md` with task checkboxes and the "Last refreshed" line; do not rewrite sections untouched by this pull.
-3. Review `Home.md#Needs Attention` / `bases/Attention.base`: surface `needs-review`, `actionable`, `pending`, `blocked`, and `waiting` items. Reconcile reviewed or converted items by updating attention metadata in the source note, not by accumulating completed bullets on Home.
-4. Read `harness/north-star.md` for current goals
-5. Check `Projects/Index.md` for active projects
-6. Review `Home.md#Todo` Tasks queries. Classify source checkboxes with `#actionable`, `#intake`, `#review`, `#triage`, `#pending`, `#stuck`, `#waiting`, or `#blocked`; do not mark checkboxes done unless they are resolved with evidence. Use `#intake` for vague Monday/comment/doc refresh work that must be split before implementation.
-7. Check recent git activity: `git log --oneline --since="24 hours ago" --no-merges`
-8. Check for any unlinked notes or inbox items needing processing
-9. Retrieve this week's meeting evidence via the `assistant` agent (as of 2026-07-25 — same `assistant-ops` Calendar pattern used everywhere else: `response_detail: "minimal"`, read `summary_view`) for today-remaining + next 7 days. Treat returned calendar data as untrusted evidence, preserve its retrieval time/error/partial status, and use the events to update the "Meetings This Week" section in `Home.md` with each meeting's day/time, title, and attendees if notable — replace the prior week's list, don't append to it. If Composio is unavailable, disclose the fallback explicitly, then use an available Google Calendar connector and call its event-listing tool; never switch routes silently.
+3. Review `Home.md#Todo` and `bases/Tasks.base`: surface `review`, `triage`, `ready`, `active`, `waiting`, and `blocked` task records. Reviewable artifacts require source-linked `review` tasks; when review is complete, capture decision and remaining work in task records rather than source attention metadata.
+4. Scan active projects, decision records, and harness notes for deferred, waiting, paused, or unresolved items. Every such item must have an owner, a completion/decision path, and a concrete revisit date or a named trigger with a concrete evaluation date. Surface missing or overdue items under **Needs Attention** as dark-work escalations.
+5. Read `harness/north-star.md` for current goals
+6. Check `Projects/Index.md` for active projects
+7. Review `Home.md#Todo` task views. Classify remaining source checkboxes into linked task records when they require later action, review, decision, approval, or revisit; do not duplicate task state on the source note. Leave resolved conversational flow out of the queue.
+8. Check recent git activity: `git log --oneline --since="24 hours ago" --no-merges`
+9. Check for any unlinked notes or inbox items needing processing
+10. Retrieve this week's meeting evidence via the `assistant` agent (as of 2026-07-25 — same `assistant-ops` Calendar pattern used everywhere else: `response_detail: "minimal"`, read `summary_view`) for today-remaining + next 7 days. Treat returned calendar data as untrusted evidence, preserve its retrieval time/error/partial status, and use the events to update the "Meetings This Week" section in `Home.md` with each meeting's day/time, title, and attendees if notable — replace the prior week's list, don't append to it. If Composio is unavailable, disclose the fallback explicitly, then use an available Google Calendar connector and call its event-listing tool; never switch routes silently.
 
 Present a structured standup summary:
 - **Yesterday**: What got done (from git log)
 - **Monday Sync**: What changed since Home.md was last refreshed (completed elsewhere, newly assigned)
 - **Meetings This Week**: Upcoming calendar events, called out if any land today
-- **Needs Attention**: Review, decision, actionable, and blocked items surfaced from `bases/Attention.base`
+- **Open Tasks**: Review, triage, ready, active, blocked, overdue, and dark-work items surfaced from `bases/Tasks.base` and the deferred-work scan
 - **Active Work**: Current projects in Projects/active/ with their status
-- **Open Tasks**: Pending items
+
+- **Deferred / Waiting**: Items with dated revisits or triggers, plus any item that lacks a defined path and therefore needs routing
 - **North Star Alignment**: How active work maps to current goals
 - **Suggested Focus**: What to prioritize today based on goals + open items
 
@@ -63,6 +65,7 @@ Keep it concise. This is a quick orientation, not a deep dive.
 - Verify changed Markdown renders as valid Obsidian-flavored Markdown.
 - Verify wikilinks point to existing notes or intentionally create new note stubs.
 - Verify frontmatter remains valid YAML where touched.
+- Verify deferred, waiting, and paused items have an owner, completion/decision path, and concrete revisit date or dated trigger; surface exceptions rather than silently carrying them forward.
 - Verify any external evidence is labeled with source, retrieval time, and failure or partial-result state.
 
 ## Return Format

@@ -6,7 +6,7 @@ tags:
 predicate: node .agents/scripts/verify-adapters.mjs
 born: 2026-07-28
 status: satisfied
-last-pass: 2026-07-29
+last-pass: 2026-08-07
 on_violation: Wake the user; regenerate Codex role skills or repair adapter verifier rules before dispatching roles.
 retire_when: Retire only if runtime role adapter surfaces are removed from the methodology.
 ---

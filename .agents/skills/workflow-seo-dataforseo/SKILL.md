@@ -1,16 +1,16 @@
 ---
 name: workflow-seo-dataforseo
-description: "Define bounded DataForSEO evidence handling with provider availability, credential, quota, freshness, market, language, device, and methodology labels."
+description: "Define DataForSEO provider evidence with explicit source status, freshness, scope, and limitations. Use when the user asks to run seo-dataforseo, /seo-dataforseo, or this vault workflow."
 ---
 
 # workflow-seo-dataforseo
 
-Execute `seo-dataforseo`.
+Execute the canonical workflow `seo-dataforseo`.
 
-1. Read `.agents/workflows/seo-dataforseo/contract.json` and `.agents/workflows/seo-dataforseo/workflow.md`.
-2. Read `.agents/skills/seo-dataforseo/SKILL.md` and `.agents/skills/seo-quality-gate/SKILL.md`.
-3. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
-4. Ask before live external reads or paid/credentialed calls; do not mutate analytics, providers, CMS, code, SEO, or production.
-5. Return Done, Evidence, Open Items, and Next only after source status, freshness, scope, limitations, and quality gate are complete or explicitly blocked.
+1. Read `.agents/workflows/seo-dataforseo/contract.json` for risk tier, approval classes, writes, done conditions, verification, and return contract.
+2. Read `.agents/workflows/seo-dataforseo/workflow.md` for the human-readable workflow procedure.
+3. Treat the user's prompt as workflow input.
+4. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+5. Do not report done until the workflow verification requirements are satisfied or a blocker is explicitly reported.
 
-The canonical workflow spec wins if this skill conflicts with it.
+If this skill conflicts with the canonical workflow spec, the canonical workflow spec wins.

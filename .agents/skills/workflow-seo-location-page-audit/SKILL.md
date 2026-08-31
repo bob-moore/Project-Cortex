@@ -1,16 +1,16 @@
 ---
 name: workflow-seo-location-page-audit
-description: "Audit location and service-area pages for local usefulness, business purpose, intent fit, facts, internal links, schema, and doorway risk."
+description: "Audit location and service-area pages for local usefulness, business purpose, intent fit, facts, internal links, schema, and doorway risk. Use when the user asks to run seo-location-page-audit, /seo-location-page-audit, or this vault workflow."
 ---
 
 # workflow-seo-location-page-audit
 
-Execute `seo-location-page-audit`.
+Execute the canonical workflow `seo-location-page-audit`.
 
-1. Read `.agents/workflows/seo-location-page-audit/contract.json` and `.agents/workflows/seo-location-page-audit/workflow.md`.
-2. Read `.agents/skills/seo-location-page-audit/SKILL.md`, `.agents/skills/seo-local-audit/SKILL.md`, `.agents/skills/seo-content-audit/SKILL.md`, and `.agents/skills/seo-quality-gate/SKILL.md`.
-3. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
-4. Ask before live external provider or page reads. Do not change URLs, redirects, canonicals, indexability, schema, CMS, code, copy, or production.
-5. Return Done, Evidence, Open Items, and Next only after page scope, facts, local value, intent fit, doorway risk, handoffs, and quality gate are complete or explicitly blocked.
+1. Read `.agents/workflows/seo-location-page-audit/contract.json` for risk tier, approval classes, writes, done conditions, verification, and return contract.
+2. Read `.agents/workflows/seo-location-page-audit/workflow.md` for the human-readable workflow procedure.
+3. Treat the user's prompt as workflow input.
+4. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+5. Do not report done until the workflow verification requirements are satisfied or a blocker is explicitly reported.
 
-The canonical workflow spec wins if this skill conflicts with it.
+If this skill conflicts with the canonical workflow spec, the canonical workflow spec wins.

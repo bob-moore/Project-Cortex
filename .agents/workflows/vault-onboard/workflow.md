@@ -92,6 +92,28 @@ This phase has no marker to clear — dependency state can change outside this
 workflow at any time, so re-running it is always safe and never skipped by
 default.
 
+### Phase 4 — Operational integration profile
+
+Create or complete `harness/integrations.md`. This is vault configuration, not
+a runtime profile and not a credential store. Ask only for provider, account or
+workspace label, permitted scope, purpose, default access, source-reference
+convention, and one-way materialization rule for each applicable source:
+
+- task/project-management;
+- calendar;
+- email.
+
+Record whether the active runtime can verify each configured connection without
+reading credentials. Resolve concrete tools and schemas just in time; do not
+assume the same Composio account, connector, or provider exists on another
+machine or runtime. A configured source unavailable in the active runtime is a
+reported gap, never a reason to substitute another source silently.
+
+Calendar and project-management systems own recurrence and high-level
+commitments. External-to-vault materialization is one-way: one source item may
+fan out into multiple vault tasks; vault task state, evidence, and closure never
+sync back. External writes still require target-specific approval and read-back.
+
 ### Closure
 
 Report which phases completed, which were skipped (already done, or
@@ -105,6 +127,7 @@ rule.
 - `harness/user.md`
 - `harness/north-star.md`
 - `harness/operator.md`
+- `harness/integrations.md`
 - `org/people/`
 - `harness/memory.md` (index only, if a new topic note was created)
 

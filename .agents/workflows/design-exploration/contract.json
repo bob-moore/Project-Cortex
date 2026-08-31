@@ -1,0 +1,19 @@
+{
+  "name":"design-exploration","version":1,
+  "summary":"Create a bounded redesign or prototype artifact with current-system evidence and explicit approval before implementation.",
+  "aliases":["/design-exploration","redesign delivery","design prototype","design exploration"],
+  "risk_tier":"medium","approval_classes":["read_only","vault_write","external_read"],
+  "inputs":["client/project, target surface, audience, primary task, and business goal","approved content, Brand, Voice, Design Tokens, Stack, and current rendered/source evidence when applicable","mode: redesign or prototype"],
+  "writes":["approved design specification, acceptance matrix, or disposable prototype evidence"],"external_reads":["scoped current-system and inspiration evidence"],"external_mutations":[],
+  "approval_gates":["direction/prototype approval recorded before implementation","prototype is evidence, not production","external reads and vault writes follow harness/policies/approvals.md"],
+  "done_when":["mode and target explicit","authority, current-system facts, observations, proposals, and gaps separated","specification/prototype records responsive, accessibility, and interaction acceptance","parent records approval or awaiting-approval state","no unapproved implementation proceeds"],
+  "verification":["node .agents/scripts/verify-workflows.mjs","fresh design-readiness evidence review","changed Markdown/frontmatter/links or disposable artifact verified"],
+  "return_contract":["Status","Mode","Client/project","Target","Current-system evidence","Specification/prototype","Acceptance Matrix","Approval Needed","Evidence","Open Items","Next"],"related_roles":["designer","verifier","developer"],
+  "execution":{"primary_roles":["designer","verifier"],"required_skills":["design-delivery","redesign-existing-projects"],"stages":[
+    {"id":"resolve-design-contract","role":null,"skills":[],"depends_on":[],"condition":null,"approval_gate":null,"produces":["design-work-contract"],"evidence_for":[],"verification":["mode, target, authority, current-system evidence, destination, and approval boundary explicit"],"fresh_context":false,"revision_target":null},
+    {"id":"inspect-current-system","role":"designer","skills":["design-delivery"],"depends_on":["resolve-design-contract"],"condition":"mode is redesign","approval_gate":null,"produces":["current-system-evidence"],"evidence_for":[],"verification":["actual target and current rendered/source behavior inspected"],"fresh_context":false,"revision_target":null},
+    {"id":"produce-exploration","role":"designer","skills":["design-delivery","redesign-existing-projects"],"depends_on":["resolve-design-contract"],"condition":null,"approval_gate":null,"produces":["design-specification","acceptance-matrix","prototype-evidence"],"evidence_for":[],"verification":["mode-appropriate artifact, responsive/accessibility requirements, gaps, and non-goals recorded"],"fresh_context":false,"revision_target":null},
+    {"id":"independent-readiness-review","role":"verifier","skills":["design-delivery"],"depends_on":["produce-exploration"],"condition":"use web-quality-verification only when a rendered prototype is explicitly in scope","approval_gate":null,"produces":["design-readiness-report"],"evidence_for":["produce-exploration"],"verification":["evidence sufficiency, scope, accessibility/mobile implications, and approval state independently checked"],"fresh_context":true,"revision_target":null},
+    {"id":"parent-gate","role":null,"skills":[],"depends_on":["independent-readiness-review"],"condition":null,"approval_gate":null,"produces":["design-decision"],"evidence_for":["independent-readiness-review"],"verification":["approval recorded or work remains awaiting-approval; no unapproved implementation proceeds"],"fresh_context":false,"revision_target":"produce-exploration"}
+  ]}
+}

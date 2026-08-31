@@ -6,7 +6,7 @@ tags:
 predicate: node .agents/scripts/verify-disciplines.mjs
 born: 2026-07-28
 status: satisfied
-last-pass: 2026-07-29
+last-pass: 2026-08-07
 on_violation: Wake the user; repair writing discipline contract, rubric, skill map, or active skill registration before relying on writing workflows.
 retire_when: Retire only if writing discipline contracts are removed from the methodology.
 ---

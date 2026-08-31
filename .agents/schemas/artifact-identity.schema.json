@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agency-vault-harness.local/schemas/artifact-identity.schema.json",
+  "title": "Artifact Identity",
+  "type": "object",
+  "required": ["artifact_id", "artifact_kind", "repository", "source_ref", "identity_method", "identity_value", "state", "created_at"],
+  "properties": {
+    "artifact_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "artifact_kind": { "type": "string", "enum": ["repository", "file", "build", "url", "deployment", "report"] },
+    "repository": { "type": "string", "minLength": 1 },
+    "source_ref": { "type": "string", "minLength": 1 },
+    "identity_method": { "type": "string", "enum": ["sha256", "git-commit", "build-id", "url-state", "composite"] },
+    "identity_value": { "type": "string", "minLength": 1 },
+    "state": { "type": "string", "enum": ["candidate", "final", "superseded", "invalidated"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "supersedes": { "type": ["string", "null"] },
+    "environment": { "type": ["string", "null"] },
+    "build_id": { "type": ["string", "null"] },
+    "url": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

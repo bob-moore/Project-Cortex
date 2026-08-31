@@ -1,16 +1,16 @@
 ---
 name: workflow-seo-programmatic-quality-gate
-description: "Block unsafe scaled SEO recommendations until samples, information gain, business purpose, uniqueness, evidence, and controls are verified."
+description: "Block unsafe scaled SEO recommendations until samples, information gain, business purpose, uniqueness, evidence, and controls are verified. Use when the user asks to run seo-programmatic-quality-gate, /seo-programmatic-quality-gate, or this vault workflow."
 ---
 
 # workflow-seo-programmatic-quality-gate
 
-Execute `seo-programmatic-quality-gate`.
+Execute the canonical workflow `seo-programmatic-quality-gate`.
 
-1. Read `.agents/workflows/seo-programmatic-quality-gate/contract.json` and `.agents/workflows/seo-programmatic-quality-gate/workflow.md`.
-2. Read `.agents/skills/seo-programmatic-quality-gate/SKILL.md` and the related ecommerce/programmatic quality skills.
-3. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
-4. Ask before live external reads and preserve the no-mutation boundary.
-5. Return Done, Evidence, Open Items, and Next only after the workflow contract and quality gate are complete or explicitly blocked.
+1. Read `.agents/workflows/seo-programmatic-quality-gate/contract.json` for risk tier, approval classes, writes, done conditions, verification, and return contract.
+2. Read `.agents/workflows/seo-programmatic-quality-gate/workflow.md` for the human-readable workflow procedure.
+3. Treat the user's prompt as workflow input.
+4. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+5. Do not report done until the workflow verification requirements are satisfied or a blocker is explicitly reported.
 
-The canonical workflow spec wins if this skill conflicts with it.
+If this skill conflicts with the canonical workflow spec, the canonical workflow spec wins.

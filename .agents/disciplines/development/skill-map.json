@@ -73,14 +73,19 @@
     }
   ],
   "workflow_candidates": [
-    "implement-repository-change",
-    "debug-repository-issue",
-    "review-code",
+    {
+      "source": "implement-repository-change",
+      "disposition": "accepted-2026-08-05",
+      "target": "deliver-web-change",
+      "reason": "Accepted canonical route for user-visible repository changes: Designer specification, Developer implementation, rendered Designer review, fresh-context Verifier review, parent gate bound to final artifact state."
+    },
+    {"source":"debug-repository-issue","disposition":"accepted-2026-08-06","target":"debug-repository-issue","reason":"Bounded reproduction, root-cause, fix, fresh verification, and parent closure."},
+    {"source":"review-code","disposition":"accepted-2026-08-06","target":"review-code","reason":"Standalone read-only engineering review with fixed boundary and findings evidence."},
     "audit-codebase",
     "upgrade-dependencies",
     "resolve-git-conflict",
     "wordpress-code-change",
-    "astro-code-change"
+    {"source":"astro-code-change","disposition":"deferred-platform-adapter","target":"deliver-web-change","reason":"Astro remains an inspected platform specialization inside generic web delivery; avoid duplicate canonical workflow until a generic repository implementation workflow exists."}
   ],
   "future_skill_candidates": [
     "dependency-maintenance",

@@ -114,6 +114,12 @@
       "current_supporting_skills": [
         "redesign-existing-projects"
       ]
+    },
+    {
+      "mode": "design-exploration",
+      "primary_skill": "design-delivery",
+      "handoff": "design-exploration then developer after direction/prototype approval",
+      "current_supporting_skills": ["redesign-existing-projects"]
     }
   ],
   "deferred_source_material": [

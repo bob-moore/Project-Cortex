@@ -202,6 +202,14 @@ disciplines:
 workflows:
   operations:
     - assistant
+  web_delivery:
+    - deliver-web-change
+  development:
+    - debug-repository-issue
+    - review-code
+  design:
+    - design-research
+    - design-exploration
   writing:
     - refresh-article
     - repurpose-content
@@ -253,7 +261,11 @@ workflows:
     - seo-site-audit
     - seo-technical-audit
     - seo-sitemap
+    - seo-discourse-research
+    - seo-competitor-crawl
   vault:
+    - prepare-harness-changelog
+    - update-harness
     - vault-audit
     - vault-capture-1on1
     - vault-dump
@@ -297,6 +309,11 @@ adapter_state:
   claude_agents: disabled
   codex_workflow_skills: generated_thin_adapter_to_agents_workflows
   codex_role_skills: generated_thin_adapter_to_agents_roles
+  hermes_project_context: root_agents_md
+  hermes_skill_discovery: external_agents_skills
+  hermes_workflow_skills: reuses_generated_agents_workflow_skills
+  hermes_role_skills: reuses_generated_agents_role_skills
+  hermes_profile: consumer-defined
   claude_hooks: generated_thin_adapter_to_agents_hooks
   codex_hooks: generated_thin_adapter_to_agents_hooks
   gemini_hooks: generated_thin_adapter_to_agents_hooks

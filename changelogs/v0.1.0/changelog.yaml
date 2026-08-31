@@ -1,0 +1,20 @@
+{
+  "version": "v0.1.0",
+  "previous_version": "v0.0.0",
+  "release_type": "feature",
+  "changes": [
+    { "id": "release-library", "kind": "runtime-mechanics", "action": "add", "source": ".agents/scripts/lib/harness-release.mjs", "target": ".agents/scripts/lib/harness-release.mjs", "migration": "none" },
+    { "id": "release-validator", "kind": "runtime-mechanics", "action": "add", "source": ".agents/scripts/validate-harness-release.mjs", "target": ".agents/scripts/validate-harness-release.mjs", "migration": "none" },
+    { "id": "update-planner", "kind": "runtime-mechanics", "action": "add", "source": ".agents/scripts/plan-harness-update.mjs", "target": ".agents/scripts/plan-harness-update.mjs", "migration": "none" },
+    { "id": "update-command", "kind": "runtime-mechanics", "action": "add", "source": ".agents/scripts/update-harness.mjs", "target": ".agents/scripts/update-harness.mjs", "migration": "none" },
+    { "id": "update-harness-contract", "kind": "workflow", "action": "add", "source": ".agents/workflows/update-harness/contract.json", "target": ".agents/workflows/update-harness/contract.json", "migration": "none" },
+    { "id": "update-harness-workflow", "kind": "workflow", "action": "add", "source": ".agents/workflows/update-harness/workflow.md", "target": ".agents/workflows/update-harness/workflow.md", "migration": "none" },
+    { "id": "prepare-harness-changelog-contract", "kind": "workflow", "action": "add", "source": ".agents/workflows/prepare-harness-changelog/contract.json", "target": ".agents/workflows/prepare-harness-changelog/contract.json", "migration": "none" },
+    { "id": "prepare-harness-changelog-workflow", "kind": "workflow", "action": "add", "source": ".agents/workflows/prepare-harness-changelog/workflow.md", "target": ".agents/workflows/prepare-harness-changelog/workflow.md", "migration": "none" }
+  ],
+  "verification": [
+    "node --test .agents/scripts/lib/harness-release.test.mjs",
+    "node .agents/scripts/validate-harness-release.mjs --version v0.1.0",
+    "node .agents/scripts/gate.mjs"
+  ]
+}

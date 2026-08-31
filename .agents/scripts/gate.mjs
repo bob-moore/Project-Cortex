@@ -12,6 +12,7 @@ const checks = [
   ['qmd runtime hygiene', ['node', '.agents/scripts/verify-qmd-runtime.mjs']],
   ['startup context hygiene', ['node', '.agents/scripts/verify-startup-context.mjs']],
   ['runtime hygiene maintenance', ['node', '.agents/scripts/runtime-hygiene.mjs', '--check']],
+  ['core release metadata', ['node', '.agents/scripts/validate-harness-release.mjs', '--version', 'v0.1.0']],
   ['vault structure', ['node', '.agents/scripts/verify-vault.mjs']]
 ];
 

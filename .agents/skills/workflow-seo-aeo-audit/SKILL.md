@@ -1,16 +1,16 @@
 ---
 name: workflow-seo-aeo-audit
-description: "Audit answer-engine and SERP answer-feature readiness with source labels and no unsupported placement or visibility claims."
+description: "Audit answer-engine and SERP answer-feature readiness with source labels and no unsupported placement or visibility claims. Use when the user asks to run seo-aeo-audit, /seo-aeo-audit, or this vault workflow."
 ---
 
 # workflow-seo-aeo-audit
 
-Execute `seo-aeo-audit`.
+Execute the canonical workflow `seo-aeo-audit`.
 
-1. Read `.agents/workflows/seo-aeo-audit/contract.json` and `.agents/workflows/seo-aeo-audit/workflow.md`.
-2. Read `.agents/skills/seo-aeo-audit/SKILL.md`, `.agents/skills/seo-serp-intent/SKILL.md`, `.agents/skills/seo-content-audit/SKILL.md`, and `.agents/skills/seo-quality-gate/SKILL.md`.
-3. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
-4. Ask before live SERP, provider, answer-engine, or page reads. Do not invent answer features or make content, schema, CMS, code, or production changes.
-5. Return Done, Evidence, Open Items, and Next only after source tiers, answer-feature evidence, answerability, handoffs, and quality gate are complete or explicitly blocked.
+1. Read `.agents/workflows/seo-aeo-audit/contract.json` for risk tier, approval classes, writes, done conditions, verification, and return contract.
+2. Read `.agents/workflows/seo-aeo-audit/workflow.md` for the human-readable workflow procedure.
+3. Treat the user's prompt as workflow input.
+4. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+5. Do not report done until the workflow verification requirements are satisfied or a blocker is explicitly reported.
 
-The canonical workflow spec wins if this skill conflicts with it.
+If this skill conflicts with the canonical workflow spec, the canonical workflow spec wins.

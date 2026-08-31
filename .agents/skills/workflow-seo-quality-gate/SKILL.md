@@ -1,16 +1,16 @@
 ---
 name: workflow-seo-quality-gate
-description: "Apply the canonical SEO discipline rubric to validate audits, reports, findings, briefs, schema plans, research, drift, and action queues."
+description: "Evaluate an SEO artifact against the canonical discipline rubric without producing or mutating findings. Use when the user asks to run seo-quality-gate, /seo-quality-gate, or this vault workflow."
 ---
 
 # workflow-seo-quality-gate
 
-Execute `seo-quality-gate`.
+Execute the canonical workflow `seo-quality-gate`.
 
-1. Read `.agents/workflows/seo-quality-gate/contract.json` and `.agents/workflows/seo-quality-gate/workflow.md`.
-2. Read `.agents/skills/seo-quality-gate/SKILL.md`, `.agents/disciplines/seo/contract.json`, `.agents/disciplines/seo/modes.md`, and `.agents/disciplines/seo/rubric.md`.
-3. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
-4. Preserve source labels, approval gates, limitations, and no-mutation boundaries.
-5. Return Done, Evidence, Open Items, and Next only after the canonical workflow is complete or explicitly blocked.
+1. Read `.agents/workflows/seo-quality-gate/contract.json` for risk tier, approval classes, writes, done conditions, verification, and return contract.
+2. Read `.agents/workflows/seo-quality-gate/workflow.md` for the human-readable workflow procedure.
+3. Treat the user's prompt as workflow input.
+4. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+5. Do not report done until the workflow verification requirements are satisfied or a blocker is explicitly reported.
 
-The canonical workflow spec wins if this skill conflicts with it.
+If this skill conflicts with the canonical workflow spec, the canonical workflow spec wins.

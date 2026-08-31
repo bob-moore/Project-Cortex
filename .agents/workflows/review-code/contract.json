@@ -1,0 +1,14 @@
+{
+  "name":"review-code","version":1,
+  "summary":"Independently review a bounded repository diff, branch, or work in progress against explicit requirements and regression risk.",
+  "aliases":["/review-code","review code","standalone code review"],
+  "risk_tier":"medium","approval_classes":["read_only","external_read"],"inputs":["repository and fixed comparison boundary","work order, acceptance criteria, non-goals, manifests, and relevant constraints"],"writes":["read-only review report when requested"],"external_reads":["scoped repository remote or CI evidence"],"external_mutations":[],
+  "approval_gates":["review is read-only","missing authoritative requirements are labeled UNPROVEN, not invented"],
+  "done_when":["comparison boundary is explicit","material findings have direct evidence, severity, location, and disposition","tests and regression risk are assessed","no producer self-review closes the task"],
+  "verification":["node .agents/scripts/verify-workflows.mjs","fresh verifier context","fixed diff and acceptance evidence inspected"],"return_contract":["Status","Repository","Comparison Boundary","Requirements","Findings","Checks","Evidence","Open Items","Next"],"related_roles":["verifier"],
+  "execution":{"primary_roles":["verifier"],"required_skills":["code-review"],"stages":[
+    {"id":"resolve-contract","role":null,"skills":[],"depends_on":[],"condition":null,"approval_gate":null,"produces":["review-contract"],"evidence_for":[],"verification":["repository, comparison boundary, requirements, non-goals, and review limits explicit"],"fresh_context":false,"revision_target":null},
+    {"id":"independent-code-review","role":"verifier","skills":["code-review"],"depends_on":["resolve-contract"],"condition":null,"approval_gate":null,"produces":["code-review-report"],"evidence_for":["resolve-contract"],"verification":["actual diff, tests, requirements, security concerns, and regression paths independently reviewed"],"fresh_context":true,"revision_target":null},
+    {"id":"parent-gate","role":null,"skills":[],"depends_on":["independent-code-review"],"condition":null,"approval_gate":null,"produces":["review-decision"],"evidence_for":["independent-code-review"],"verification":["findings and missing evidence reported; review does not authorize implementation or closure of producer work"],"fresh_context":false,"revision_target":null}
+  ]}
+}

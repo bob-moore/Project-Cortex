@@ -1,0 +1,20 @@
+{
+  "name":"debug-repository-issue","version":1,
+  "summary":"Diagnose and fix a bounded repository failure through reproduction, root-cause analysis, implementation, and independent verification.",
+  "aliases":["/debug-repository-issue","debug repository issue","fix repository bug"],
+  "risk_tier":"high","approval_classes":["read_only","vault_write","external_read"],
+  "inputs":["repository, branch, reported symptom, trigger, environment, and acceptance criteria","repository-local instructions and manifests","approved client/project constraints when applicable"],
+  "writes":["version-controlled repository files","diagnostic or verification report when requested"],
+  "external_reads":["scoped repository remotes or CI evidence"],"external_mutations":[],
+  "approval_gates":["read_only inspection follows harness/policies/approvals.md","production, deployment, remote, database, and secret actions are separate approvals"],
+  "done_when":["failure is reproduced or exact missing proof is reported","root cause is supported by evidence","minimal fix and regression proof are present","independent verification passes against final artifact state","parent closure never relies on producer self-report"],
+  "verification":["node .agents/scripts/verify-workflows.mjs","project-native focused tests/build/lint","fresh verifier checks reproduction, fix, regression, and scope"],
+  "return_contract":["Status","Repository","Symptom","Reproduction","Root Cause","Files Changed","Tests/checks","Evidence","Open Items","Next"],
+  "related_roles":["developer","verifier"],
+  "execution":{"primary_roles":["developer","verifier"],"required_skills":["developer-delivery","code-review"],"stages":[
+    {"id":"resolve-contract","role":null,"skills":[],"depends_on":[],"condition":null,"approval_gate":null,"produces":["work-contract"],"evidence_for":[],"verification":["repository, symptom, trigger, environment, acceptance criteria, and approval boundary explicit"],"fresh_context":false,"revision_target":null},
+    {"id":"diagnose-and-fix","role":"developer","skills":["developer-delivery"],"depends_on":["resolve-contract"],"condition":null,"approval_gate":null,"produces":["reproduction","root-cause-report","implementation-diff"],"evidence_for":[],"verification":["red-capable reproduction established","working-path comparison and falsifiable hypothesis recorded","project-native regression checks run"],"fresh_context":false,"revision_target":null},
+    {"id":"independent-verification","role":"verifier","skills":["code-review"],"depends_on":["diagnose-and-fix"],"condition":"use web-quality-verification only when rendered behavior is part of acceptance","approval_gate":null,"produces":["verification-report"],"evidence_for":["diagnose-and-fix"],"verification":["reproduction and acceptance criteria independently checked","final artifact and scope verified","PASS/FIX/BLOCK/UNDECIDED returned"],"fresh_context":true,"revision_target":null},
+    {"id":"parent-gate","role":null,"skills":[],"depends_on":["independent-verification"],"condition":null,"approval_gate":null,"produces":["closure-decision"],"evidence_for":["independent-verification"],"verification":["final artifact identity and evidence checked; PASS closes, FIX routes to diagnose-and-fix"],"fresh_context":false,"revision_target":"diagnose-and-fix"}
+  ]}
+}

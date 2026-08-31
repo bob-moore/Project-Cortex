@@ -6,6 +6,10 @@ stash/
 # Local temporary workspace
 tmp/
 
+# Per-vault update state and derived graph projection
+.harness/
+graphify-out/
+
 # Runtime-local secrets
 .codex/cloudways.env
 

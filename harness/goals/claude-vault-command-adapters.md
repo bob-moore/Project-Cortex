@@ -6,7 +6,7 @@ tags:
 predicate: node .agents/scripts/verify-adapters.mjs
 born: 2026-07-28
 status: satisfied
-last-pass: 2026-07-29
+last-pass: 2026-08-07
 on_violation: Wake the user; regenerate or repair Claude command adapters before relying on them.
 retire_when: Retire only if Claude command adapters are removed or replaced by another adapter mechanism.
 ---

@@ -1,5 +1,5 @@
 ---
-description: "First-run conversational onboarding: interview the user via the grilling skill to fill harness/user.md, harness/north-star.md, and their org/people/ Voice section; define the Operator's name and stance in harness/operator.md; then run the dependency check from harness/dependencies.md with per-item approved installs."
+description: "First-run conversational onboarding: establish user, goals, operator, vault-local operational integration profile, and dependency readiness without storing credentials or assuming runtime-specific connections."
 ---
 
 # vault-onboard

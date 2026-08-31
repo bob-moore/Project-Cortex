@@ -6,6 +6,12 @@ description: "Audit location and service-area pages for local usefulness, busine
 
 This is a Claude Code command adapter.
 
-Read and execute `.agents/workflows/seo-location-page-audit/workflow.md` and `.agents/workflows/seo-location-page-audit/contract.json`.
+Read and execute the canonical workflow spec at `.agents/workflows/seo-location-page-audit/workflow.md` and its contract at `.agents/workflows/seo-location-page-audit/contract.json`.
 
-Pass `$ARGUMENTS` through as workflow input. Follow approval gates, no-mutation boundaries, verification gates, and return format. The canonical workflow spec wins if this adapter conflicts with it.
+Pass the user's command arguments through as workflow input:
+
+```text
+$ARGUMENTS
+```
+
+Follow the workflow's required context, approval gates, verification gates, and return format. If this adapter conflicts with the canonical workflow spec, the canonical workflow spec wins.

@@ -33,7 +33,7 @@
     "resolved Projects/ context",
     "resolved Prospects/ context",
     "user-approved review artifact path",
-    "Home.md review link when review is required"
+    "Tasks/ review task when User inspection is required"
   ],
   "external_reads": [
     "live page and linked assets when approved",
@@ -70,7 +70,7 @@
     "verify competitor analysis was approved before external reading",
     "verify claim-check handling when material claims are present",
     "verify no final title tag, meta description, article prose, web copy, publishing, or production mutation was produced",
-    "verify changed Markdown/frontmatter and Home review registration when applicable"
+    "verify changed Markdown/frontmatter and source-linked review task when User inspection is required"
   ],
   "return_contract": [
     "Done",

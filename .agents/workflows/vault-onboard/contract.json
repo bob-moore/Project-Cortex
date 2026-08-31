@@ -1,7 +1,7 @@
 {
   "name": "vault-onboard",
   "version": 1,
-  "summary": "First-run conversational onboarding: interview the user via the grilling skill to fill harness/user.md, harness/north-star.md, and their org/people/ Voice section; define the Operator's name and stance in harness/operator.md; then run the dependency check from harness/dependencies.md with per-item approved installs.",
+  "summary": "First-run conversational onboarding: establish user, goals, operator, vault-local operational integration profile, and dependency readiness without storing credentials or assuming runtime-specific connections.",
   "aliases": [
     "/vault-onboard",
     "vault-onboard"
@@ -18,6 +18,7 @@
     "harness/user.md",
     "harness/north-star.md",
     "harness/operator.md",
+    "harness/integrations.md",
     "org/people/",
     "harness/memory.md"
   ],
@@ -31,6 +32,7 @@
   "done_when": [
     "workflow scope is satisfied or explicitly blocked",
     "each completed phase's unconfigured marker is removed from its file",
+    "operational integration profile records provider, scope, access boundary, and active-runtime verification state without credentials",
     "touched files are listed with paths",
     "approval gates are respected",
     "return contract is complete"

@@ -1,16 +1,16 @@
 ---
 name: workflow-seo-geo-audit
-description: "Audit generative-search and AI Overview readiness with source-tier labels and no unsupported visibility claims."
+description: "Audit generative-search and AI Overview readiness with source-tier labels and no unsupported visibility claims. Use when the user asks to run seo-geo-audit, /seo-geo-audit, or this vault workflow."
 ---
 
 # workflow-seo-geo-audit
 
-Execute `seo-geo-audit`.
+Execute the canonical workflow `seo-geo-audit`.
 
-1. Read `.agents/workflows/seo-geo-audit/contract.json` and `.agents/workflows/seo-geo-audit/workflow.md`.
-2. Read `.agents/skills/seo-geo-audit/SKILL.md`, `.agents/skills/seo-content-audit/SKILL.md`, `.agents/skills/seo-serp-intent/SKILL.md`, and `.agents/skills/seo-quality-gate/SKILL.md`.
-3. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
-4. Ask before live external search, AI, provider, or page reads. Do not invent model outputs or make content, schema, CMS, code, or production changes.
-5. Return Done, Evidence, Open Items, and Next only after source tiers, answerability, entity clarity, citation readiness, handoffs, and quality gate are complete or explicitly blocked.
+1. Read `.agents/workflows/seo-geo-audit/contract.json` for risk tier, approval classes, writes, done conditions, verification, and return contract.
+2. Read `.agents/workflows/seo-geo-audit/workflow.md` for the human-readable workflow procedure.
+3. Treat the user's prompt as workflow input.
+4. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+5. Do not report done until the workflow verification requirements are satisfied or a blocker is explicitly reported.
 
-The canonical workflow spec wins if this skill conflicts with it.
+If this skill conflicts with the canonical workflow spec, the canonical workflow spec wins.

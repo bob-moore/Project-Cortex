@@ -1,11 +1,17 @@
 ---
-description: "Sequence approved SEO work into a dependency-aware client roadmap with outcomes, owners, approvals, evidence prerequisites, and rechecks."
+description: "Produce a sequenced client roadmap from approved SEO evidence with source labels, limitations, next actions, and no unsupported business claims."
 ---
 
 # seo-client-roadmap
 
 This is a Claude Code command adapter.
 
-Read and execute `.agents/workflows/seo-client-roadmap/workflow.md` and `.agents/workflows/seo-client-roadmap/contract.json`.
+Read and execute the canonical workflow spec at `.agents/workflows/seo-client-roadmap/workflow.md` and its contract at `.agents/workflows/seo-client-roadmap/contract.json`.
 
-Pass `$ARGUMENTS` through as workflow input. Use approved evidence only, preserve source labels and limitations, and treat Markdown as the source of truth. Ask before live reads or mutations. The canonical workflow spec wins if this adapter conflicts with it.
+Pass the user's command arguments through as workflow input:
+
+```text
+$ARGUMENTS
+```
+
+Follow the workflow's required context, approval gates, verification gates, and return format. If this adapter conflicts with the canonical workflow spec, the canonical workflow spec wins.

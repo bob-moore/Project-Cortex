@@ -19,6 +19,7 @@
     "harness/",
     "Projects/",
     "Notes/",
+    "Tasks/",
     "org/",
     "reviews/",
     "bases/"
@@ -31,6 +32,7 @@
   ],
   "done_when": [
     "workflow scope is satisfied or explicitly blocked",
+    "remaining open work that requires later action, review, decision, approval, or revisit is represented by linked task records",
     "touched files are listed with paths",
     "approval gates are respected",
     "return contract is complete"
@@ -38,8 +40,7 @@
   "verification": [
     "verify changed Markdown/frontmatter where files were edited",
     "verify wikilinks where notes were created or changed",
-    "verify generated review artifacts are linked from Home while attention_status is needs-review",
-    "verify reviewed, dismissed, or converted artifacts are removed from the direct Home queue"
+    "verify remaining durable open work is task-backed while resolved conversational flow is not unnecessarily taskified"
   ],
   "return_contract": [
     "Done",

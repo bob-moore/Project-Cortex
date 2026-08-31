@@ -1,16 +1,16 @@
 ---
 name: workflow-seo-ai-visibility-check
-description: "Run bounded, explicitly scoped AI/search visibility observations with source, approval, and reproducibility labels."
+description: "Run bounded, explicitly scoped AI/search visibility observations with source, approval, and reproducibility labels. Use when the user asks to run seo-ai-visibility-check, /seo-ai-visibility-check, or this vault workflow."
 ---
 
 # workflow-seo-ai-visibility-check
 
-Execute `seo-ai-visibility-check`.
+Execute the canonical workflow `seo-ai-visibility-check`.
 
-1. Read `.agents/workflows/seo-ai-visibility-check/contract.json` and `.agents/workflows/seo-ai-visibility-check/workflow.md`.
-2. Read `.agents/skills/seo-ai-visibility-check/SKILL.md`, `.agents/skills/seo-geo-audit/SKILL.md`, `.agents/skills/seo-aeo-audit/SKILL.md`, and `.agents/skills/seo-quality-gate/SKILL.md`.
-3. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
-4. Ask before live AI/search/provider/page reads and record approval. Do not fabricate outputs or make provider, content, code, analytics, or production changes.
-5. Return Done, Evidence, Open Items, and Next only after engine/model scope, approval, observation log, reproducibility, limitations, handoffs, and quality gate are complete or explicitly blocked.
+1. Read `.agents/workflows/seo-ai-visibility-check/contract.json` for risk tier, approval classes, writes, done conditions, verification, and return contract.
+2. Read `.agents/workflows/seo-ai-visibility-check/workflow.md` for the human-readable workflow procedure.
+3. Treat the user's prompt as workflow input.
+4. Follow `harness/policies/contract.md`, `harness/policies/approvals.md`, and `harness/policies/done.md`.
+5. Do not report done until the workflow verification requirements are satisfied or a blocker is explicitly reported.
 
-The canonical workflow spec wins if this skill conflicts with it.
+If this skill conflicts with the canonical workflow spec, the canonical workflow spec wins.

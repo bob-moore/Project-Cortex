@@ -6,6 +6,12 @@ description: "Audit ecommerce facets, parameters, crawl paths, canonicals, index
 
 This is a Claude Code command adapter.
 
-Read and execute `.agents/workflows/seo-faceted-navigation-audit/workflow.md` and `.agents/workflows/seo-faceted-navigation-audit/contract.json`.
+Read and execute the canonical workflow spec at `.agents/workflows/seo-faceted-navigation-audit/workflow.md` and its contract at `.agents/workflows/seo-faceted-navigation-audit/contract.json`.
 
-Pass `$ARGUMENTS` through as workflow input. Read and execute the canonical workflow and contract. Ask before live page, crawl, log, provider, or catalog reads. Do not mutate robots, canonicals, parameters, sitemaps, CMS, code, or production. The canonical workflow spec wins if this adapter conflicts with it.
+Pass the user's command arguments through as workflow input:
+
+```text
+$ARGUMENTS
+```
+
+Follow the workflow's required context, approval gates, verification gates, and return format. If this adapter conflicts with the canonical workflow spec, the canonical workflow spec wins.

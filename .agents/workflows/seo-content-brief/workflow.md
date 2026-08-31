@@ -63,8 +63,7 @@ the canonical Writing discipline.
    prospect. If no context fits, ask before writing.
 13. Apply the frontmatter and review metadata from
    `references/artifact-frontmatter.md`.
-14. New briefs awaiting User inspection receive `attention_status: needs-review`
-   and a direct link under `Home.md#Review Queue`.
+14. New briefs awaiting User inspection receive a linked `Tasks/` record with `status: review`; do not add `attention_status` metadata.
 
 ## Writes
 

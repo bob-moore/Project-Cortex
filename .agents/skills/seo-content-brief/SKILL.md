@@ -37,8 +37,7 @@ write final metadata, article prose, or final web copy.
 11. Apply `seo-quality-gate` before treating the brief as ready.
 12. Use `references/artifact-frontmatter.md` for storage routing, frontmatter,
     review metadata, and Home registration.
-13. New briefs awaiting User inspection receive `attention_status: needs-review`
-    and a direct Home review-queue link.
+13. New briefs awaiting User inspection receive a linked `Tasks/` record with `status: review`; do not add `attention_status` metadata.
 
 ## Required Brief Inputs
 

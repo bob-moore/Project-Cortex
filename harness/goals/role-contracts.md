@@ -6,7 +6,7 @@ tags:
 predicate: node .agents/scripts/verify-roles.mjs
 born: 2026-07-28
 status: satisfied
-last-pass: 2026-07-29
+last-pass: 2026-08-07
 on_violation: Wake the user; repair role contracts or workflow role references before dispatching roles.
 retire_when: Retire only if canonical roles are removed from the methodology.
 ---

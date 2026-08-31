@@ -33,9 +33,37 @@ Current required adapters:
 
 - Claude command: `.claude/commands/<workflow>.md`
 - Codex workflow skill: `.agents/skills/workflow-<workflow>/SKILL.md`
+- Hermes workflow skill: the same `.agents/skills/workflow-<workflow>/SKILL.md`
+  discovered by the dedicated profile through `skills.external_dirs`
 
-Gemini and Hermes workflow adapters remain pending until their invocation
-schemas are defined and verifiable.
+Gemini workflow adapters remain pending until their invocation schema is
+defined and verifiable. Hermes discovery is defined by `.hermes/adapter.json`
+and verified by `.agents/adapters/hermes/verify-profile.mjs`.
+
+## Executable Contracts
+
+Workflow contracts may add an optional `execution` object when prose alone is
+not sufficient to define dispatch. Existing contracts do not need migration.
+
+- `primary_roles` and `required_skills` resolve against canonical `.agents`
+  role contracts and skill frontmatter.
+- Every primary role owns at least one stage; every role-owned stage names a
+  declared primary role.
+- `stages` is ordered. Dependencies, evidence edges, and revision edges may
+  point only to earlier stages.
+- `approval_gate` must match a gate already declared by the workflow.
+- `fresh_context: true` creates an isolated execution context.
+- `revision_target` resumes the named producer stage's existing context and
+  cannot be combined with `fresh_context: true`.
+- `evidence_for` attributes review evidence to an earlier producer stage;
+  the producer must declare outputs and the reviewer must declare concrete
+  verification obligations.
+- Every Verifier evidence-review stage uses a fresh context; a workflow naming
+  `verifier` as a primary role must include at least one such fresh stage.
+
+Schema shape lives in `.agents/schemas/workflow.schema.json`; semantic checks
+live in `.agents/scripts/verify-workflows.mjs` and its permanent test suite.
+Runtime-specific adapters must remain thin and must not restate this topology.
 
 ## Writing Workflows
 
@@ -47,11 +75,26 @@ schemas are defined and verifiable.
 | `refresh-article` | Audit and update an existing long-form article. | `article-refresh`, `claim-check`, `copy-edit`, `writing-quality-gate` | `read_only`, `vault_write`, `external_read` | Read-first audit precedes rewrite; claim and freshness changes justified. | Existing article inspected; preserved and changed material separated; refreshed artifact or audit returned or saved. |
 | `repurpose-content` | Turn an existing artifact into derivative channel outputs. | `content-repurpose`, target writing skill, `claim-check`, `writing-quality-gate` | `read_only`, `vault_write`, `external_read` | Source map exists; reused/compressed claims checked; unsupported claims are not strengthened. | Source inspected; target channels explicit; outputs returned or saved; evidence caveats preserved. |
 
+## Website Delivery Workflows
+
+| Workflow | Purpose | Primary Roles | Approval Classes | Verification | Done Signal |
+| --- | --- | --- | --- | --- | --- |
+| `deliver-web-change` | Deliver a bounded user-visible repository change through Designer specification, Developer implementation, rendered Designer review, and fresh-context Verifier review. | `designer`, `developer`, `verifier` | `read_only`, `vault_write`, `external_read` | Executable contract validated by `verify-workflows.mjs`; reviews bound to final artifact state; producer self-report never closes. | Every acceptance criterion has an observed result bound to the final artifact; parent gate closes only on review evidence. |
+
+## Implementation Workflows
+
+| Workflow | Purpose | Primary Roles | Approval Classes | Verification | Done Signal |
+| --- | --- | --- | --- | --- | --- |
+| `debug-repository-issue` | Diagnose and fix one bounded repository failure through reproduction, root-cause analysis, minimal implementation, and fresh verification. | `developer`, `verifier` | `read_only`, `vault_write`, `external_read` | Red-capable reproduction, root-cause evidence, regression checks, and independent final review. | Root cause and regression proof verified, or exact blocker reported. |
+| `astro-code-change` | Deliver one bounded Astro repository change through inspected platform context, implementation, independent code review, and rendered/runtime verification. | `developer`, `verifier` | `read_only`, `vault_write`, `external_read` | Astro-native checks, fixed-boundary code review, rendered/runtime verification, artifact identity. | Final Astro artifact passes checks and independent review. |
+| `review-code` | Independently review one bounded repository diff, branch, or WIP against requirements and regression risk. | `verifier` | `read_only` | Fixed comparison boundary, direct findings evidence, severity, location, and disposition. | Review report complete; no producer closure implied. |
+
 ## Design Workflows
 
-| Workflow | Purpose | Primary Skills | Approval Classes | Verification | Done Signal |
+| Workflow | Purpose | Primary Roles | Approval Classes | Verification | Done Signal |
 |---|---|---|---|---|---|
-| `design-research` | Research and narrow a visual direction through a routed moodboard, annotated references, anti-SaaS checks, and explicit alternatives before implementation. | `design-research`, `brandkit`, `redesign-existing-projects` | `read_only`, `vault_write`, `external_read` | Sources, provenance, observations, anti-SaaS assessment, alternatives, approval state, and packet links verified. | Research packet is returned or saved; direction remains awaiting approval; next handoff is explicit. |
+| `design-research` | Research and narrow a visual direction through a routed moodboard, annotated references, anti-SaaS checks, and explicit alternatives before implementation. | `strategist`, `designer`, `verifier` | `read_only`, `vault_write`, `external_read` | Sources, provenance, observations, anti-SaaS assessment, alternatives, approval state, and packet links verified. | Research packet is returned or saved; direction remains awaiting approval; next handoff is explicit. |
+| `design-exploration` | Create a bounded redesign or disposable prototype artifact with approval before implementation. | `designer`, `verifier` (Developer handoff after approval) | `read_only`, `vault_write`, `external_read` | Mode, target, current-system evidence, authority, acceptance matrix, responsive/accessibility implications, and approval state independently verified. | Approved design artifact or explicit awaiting-approval/blocker state returned; no unapproved implementation. |
 
 ## SEO Workflows
 
@@ -98,6 +141,8 @@ schemas are defined and verifiable.
 | `seo-schema` | Detect and structurally inspect JSON-LD without deployment. | `seo-foundation`, `seo-tool-runner`, `seo-quality-gate` | `read_only`, `vault_write`, `external_read` | JSON syntax, observed types, source facts, and implementation handoff verified. | Schema evidence returned or blocker reported; no rich-result promise. |
 | `seo-images` | Inspect image markup for alt and layout-related attributes. | `seo-foundation`, `seo-tool-runner`, `seo-quality-gate` | `read_only`, `vault_write`, `external_read` | Image inventory, omitted/empty alt, and dimensions distinguished. | Image evidence returned or blocker reported; no asset mutation. |
 | `seo-hreflang` | Inspect hreflang alternate links without changing international routing. | `seo-foundation`, `seo-tool-runner`, `seo-quality-gate` | `read_only`, `vault_write`, `external_read` | Codes, duplicates, href values, reciprocity limits, and locale assumptions visible. | Hreflang evidence returned or blocker reported; no routing mutation. |
+| `seo-discourse-research` | Research real Reddit, X/Twitter, and platform/product-review audience discourse with source-verified evidence and no asserted consensus without a real, checkable reference. | `seo-discourse-research`, `seo-quality-gate` | `read_only`, `vault_write`, `external_read` | Source, reference, and verification status recorded for every theme; provider status, handoffs, and quality gate verified. | Discourse artifact saved or approval is required; no posting, commenting, voting, review submission, or platform interaction performed. |
+| `seo-competitor-crawl` | Bulk-crawl a bounded set of competitor pages via Crawl4AI to build a source-labeled content inventory and content-gap map. | `seo-competitor-crawl`, `seo-quality-gate` | `read_only`, `vault_write`, `external_read` | Robots.txt compliance, crawl scope/cap, content inventory, handoffs, and quality gate verified. | Crawl artifact saved or approval is required; no login-walled/paywalled crawl, copied content, or production mutation performed. |
 
 ## Operations Workflows
 
